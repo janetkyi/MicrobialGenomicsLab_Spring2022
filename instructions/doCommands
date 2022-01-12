@@ -1,0 +1,53 @@
+## unofficial jupyter notebook extensions
+## see here (https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html)
+conda install -c conda-forge jupyter_contrib_nbextensions
+
+
+## creating Sphinx documentation
+## stay within this folder (~/Box Sync/GWU/teaching/2020/BISC4234_6234/tutorials) and run this
+sphinx-quickstart
+
+## edit the conf.py and index.rst files
+## conf.py must contain this:
+extensions = [
+    'nbsphinx'
+]
+
+## run this (but remove the html folder everytime you run it so that you don't add indices again and again to doctree)
+python -m sphinx . html
+
+## jupyter-nbconvert
+
+## ipypublish (to combine multiple notebooks into publication)
+conda install ipypublish
+
+pip install nbmerge
+
+cd ipynbs
+
+nbmerge Introduction.ipynb Week1.ipynb Week2.ipynb > combined.ipynb
+jupyter-nbconvert --to pdf combined.ipynb
+
+
+## sphinx themese
+## these seem to work really well or look great aestheticaly
+stanford_theme
+press
+sphinx_typlog_theme
+maisie_sphinx_theme
+sphinx_drove_theme
+
+## make htmls
+python -m sphinx . docs
+
+## nbconvert
+jupyter-nbconvert --to pdf OS_setup.ipynb
+
+## build items
+python -m sphinx . docs
+
+## if need to edit and remove docs
+rm -rf docs
+
+## copy built items to Github repo
+rsync -avP * ~/repos/github/MicrobialGenomicsLab_Spring2022/instructions/

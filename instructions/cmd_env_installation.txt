@@ -1,0 +1,18 @@
+Mac
+---
+## install commandline tools on Mac by typing this first (it may take a while to install/complete)
+xcode-select --install
+
+## if this fails, then try this:
+https://www.ics.uci.edu/~pattis/common/handouts/macmingweclipse/allexperimental/macxcodecommandlinetools.html
+https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/
+
+
+
+
+
+
+
+PC
+--
+

@@ -1,0 +1,588 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unix and commandline environment &#8212; Microbial Genomics Lab  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install and configure Miniconda and Bioconda" href="Conda.html" />
+    <link rel="prev" title="Setting up your computing environment" href="OS_setup.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Conda.html" title="Install and configure Miniconda and Bioconda"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="OS_setup.html" title="Setting up your computing environment"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">Microbial Genomics Lab  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Unix and commandline environment</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for cloud theme */
+
+/* nicer titles and more space for info and warning logos */
+
+div.admonition p.admonition-title {
+    background: rgba(0, 0, 0, .05);
+    margin: .5em -1em;
+    margin-top: -.5em !important;
+    padding: .5em .5em .5em 2.65em;
+}
+
+/* indent single paragraph */
+div.admonition {
+    text-indent: 20px;
+}
+/* don't indent multiple paragraphs */
+div.admonition > p {
+    text-indent: 0;
+}
+/* remove excessive padding */
+div.admonition.inline-title p.admonition-title {
+    padding-left: .2em;
+}
+</style>
+<div class="section" id="Unix-and-commandline-environment">
+<h1>Unix and commandline environment<a class="headerlink" href="#Unix-and-commandline-environment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Introduction">
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h2>
+<p>You will be learning how to use bioinformatic tools that run in command line environment. Part of being able to run these tools require at least some basic knowledge of Unix (or Linux) commands. In this Wiki page, I will explain how to use some of these commands but not all of it.</p>
+</div>
+<div class="section" id="Useful-list-of-commands">
+<h2>Useful list of commands<a class="headerlink" href="#Useful-list-of-commands" title="Permalink to this headline">¶</a></h2>
+<p>This website has a handy list of Unix/Linux commands you will be using mostly.</p>
+<p><a class="reference external" href="https://files.fosswire.com/2007/08/fwunixref.pdf">https://files.fosswire.com/2007/08/fwunixref.pdf</a></p>
+<p>I will display it below for a quick preview.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;https://files.fosswire.com/2007/08/fwunixref.pdf&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<iframe
+    width="800"
+    height="800"
+    src="https://files.fosswire.com/2007/08/fwunixref.pdf"
+    frameborder="0"
+    allowfullscreen
+></iframe></div>
+</div>
+<p>As you can see, it categorized commands by the type of activity such as working with files or checking processes. Please learn these commands as they are some of the most basic commands any bioinformaticians can use.</p>
+</div>
+<div class="section" id="Basic-Unix-commands">
+<h2>Basic Unix commands<a class="headerlink" href="#Basic-Unix-commands" title="Permalink to this headline">¶</a></h2>
+<p>First, before you can start using these sets of commands, you must have set up your computing environment to install basic utilities that allow you to use these commands. Make sure you refer to the section on “Setting up your computing environment” to make sure you have correctly set up the environment. You will need to use a terminal or Jupyter-lab to be able to use Unix commands.</p>
+<p>Mac OS typically comes with a terminal application installed and you will need to look through your list of applications. On Windows, you will need to use the Linux Subsystem with an Ubuntu (or a different Linux) distribution installed in order for you to use a terminal. Terminal on Mac OS looks something like this:</p>
+<img alt="Terminal" src="../_images/term.png" />
+<div class="section" id="Navigating-between-directories">
+<h3>Navigating between directories<a class="headerlink" href="#Navigating-between-directories" title="Permalink to this headline">¶</a></h3>
+<p>To navigate between folders, the most basic command you can use is <code class="docutils literal notranslate"><span class="pre">cd</span></code>, which means to change directory to something. First, before you do anything, to see where you are located, type <code class="docutils literal notranslate"><span class="pre">pwd</span></code>. <code class="docutils literal notranslate"><span class="pre">pwd</span></code> stands for print working directory. For example, if I were to type this in my terminal (using Jupyter-lab as an interface), you would see something like this (ignore the first line that says <code class="docutils literal notranslate"><span class="pre">%%bash</span></code>. It is for Jupyter-lab environment, which I will talk about a little later):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<span class="nb">cd</span>
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/Users/jsaw
+</pre></div></div>
+</div>
+<p>First, typing the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command without any parameters brings you to your “Home” directory in any Unix-like environment. Here, my home directory is “jsaw” under “Users”. If I want to navigate into a folder under “jsaw” named “tools”, then I would type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">tools</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<span class="nb">cd</span>
+<span class="nb">cd</span> tools
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/Users/jsaw/tools
+</pre></div></div>
+</div>
+<p>Now, I’m in a folder named “tools”. If I want to go back up one folder into “jsaw”, then I would type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p>
+<p>The two dots mean I want to go back up to a higher ranking folder than current one.</p>
+</div>
+<div class="section" id="Creating-and-removing-directories">
+<h3>Creating and removing directories<a class="headerlink" href="#Creating-and-removing-directories" title="Permalink to this headline">¶</a></h3>
+<p>So, first thing for you to do is to navigate to your home directory and create 4 folders named as <code class="docutils literal notranslate"><span class="pre">tools</span></code>, <code class="docutils literal notranslate"><span class="pre">repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, and <code class="docutils literal notranslate"><span class="pre">exercises</span></code>.</p>
+<p>Type in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
+mkdir tools repositories data exercises
+ls
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command means “make directory” and it will create a directory after the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> command means list the contents of a directory. When you type this command in your home folder, you will see a bunch of folders such as “Documents”, “Downloads”, etc, in addition to the 4 folders you have just created. You will be using these folders for the following purposes:</p>
+<ul class="simple">
+<li><p>tools (any software tools that I might make you download and install prior to exercises)</p></li>
+<li><p>repositories (this is where you will “clone” the course repository into, or any other public repositories of interest)</p></li>
+<li><p>data (this is where you will store data that we will be using in the class)</p></li>
+<li><p>exercises (this is a folder for you to do your course exercies and assignments)</p></li>
+</ul>
+<p><strong>Warning:</strong> Unix/Linux commands are case-sensitive, which means you need to type exactly as shown. If you type <code class="docutils literal notranslate"><span class="pre">Ls</span> <span class="pre">instead</span> <span class="pre">of</span> <span class="pre">ls</span></code>, the command is not going to work. Next, you also want to make sure that files and folder names do not have <em>any</em> spaces between them. This will avoid a lot of headaches down the line. For example, if you were to create a folder name “My Folder” by typing <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">My</span> <span class="pre">Folder</span></code>, it will create two separate folders named “My” and “Folder” instead of what you have
+intended.</p>
+</div>
+<div class="section" id="Copying,-renaming,-and-moving-files/folders">
+<h3>Copying, renaming, and moving files/folders<a class="headerlink" href="#Copying,-renaming,-and-moving-files/folders" title="Permalink to this headline">¶</a></h3>
+<p>To copy one file to another location, you can type something like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file.txt</span> <span class="pre">some_folder/</span></code></p>
+<p>And this command will copy the <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> file into the <code class="docutils literal notranslate"><span class="pre">some_folder</span></code> folder. If you want to rename the <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> into <code class="docutils literal notranslate"><span class="pre">file2.txt</span></code>, then type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">file.txt</span> <span class="pre">file2.txt</span></code></p>
+<p>You can use the same syntax to rename folders. For example if you want to rename the <code class="docutils literal notranslate"><span class="pre">some_folder</span></code> into <code class="docutils literal notranslate"><span class="pre">my_folder</span></code>, then type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">some_folder</span> <span class="pre">my_folder</span></code></p>
+</div>
+<div class="section" id="Removing/deleting-files/folders">
+<h3>Removing/deleting files/folders<a class="headerlink" href="#Removing/deleting-files/folders" title="Permalink to this headline">¶</a></h3>
+<p>If you want to delete a file or folder, you type something like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">file.txt</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command will remove the file. To remove a directory, you can either type <code class="docutils literal notranslate"><span class="pre">rmdir</span> <span class="pre">or</span> <span class="pre">rm</span></code> commands depending on whether the folder is empty or not. If the folder is not empty (has some files in it), you will need to type something like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">non_empty_directory</span></code></p>
+<p><strong>Warning:</strong> Be very careful with the <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code> command. It will not ask you for confirmation on whether you <em>really</em> want to remove something. It will just silently carry out the task. You do not want to accidentally remove anything important using this command. A lot of people have learned this the hard way and they may shout and scream and pull their hair out after realizing what they have done.</p>
+</div>
+<div class="section" id="File-permissions">
+<h3>File permissions<a class="headerlink" href="#File-permissions" title="Permalink to this headline">¶</a></h3>
+<p>On a related note, you want to learn how to set permissions to files and folders so that other people can (or cannot) read/write/excute/delete or mess them up in anyway. For now, you are working on your own so this is not an issue, but on servers where you work with multiple people and groups, this is very important. If you type <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> in your terminal, you will see something like this:</p>
+<img alt="Terminal" src="../_images/term.png" />
+<p>Here, you will notice that files (such as “README.md”) has some funny notations at the very beginning. These are file permissions. I have shown below what these mean.</p>
+<img alt="Permissions" src="../_images/permissions.jpg" />
+<p>For example, the first character shows the type of file. If it is a file, you will see a “-” but if it is a directory, you will see a “d”.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">w</span> <span class="pre">and</span> <span class="pre">x</span></code> following the first position mean read, write, and execute permissions for the owner (that is you, if you created this file). This means you have read/write/execute permissions for this file. If you’re missing a letter and instead have an “-” means you don’t have that permission. For example, if you want to remove the “read” permission of a file to others beside you and group members, you type like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">o-r</span> <span class="pre">file.txt</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">chmod</span></code> is the command for changing permissions. The <code class="docutils literal notranslate"><span class="pre">o-r</span></code> means you are removing (a minus sign) read permissions to others <code class="docutils literal notranslate"><span class="pre">o</span></code>. If you want to add write permission to group members, then you type something like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">g+w</span> <span class="pre">file.txt</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">g+w</span></code> means you are adding the write permission for group members.</p>
+<p>These are some of the very basic Unix commands for you to learn for now. We will revisit and talk more about additional commands that will become necessary as the course progresses.</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/gm_pan.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Unix and commandline environment</a><ul>
+<li><a class="reference internal" href="#Introduction">Introduction</a></li>
+<li><a class="reference internal" href="#Useful-list-of-commands">Useful list of commands</a></li>
+<li><a class="reference internal" href="#Basic-Unix-commands">Basic Unix commands</a><ul>
+<li><a class="reference internal" href="#Navigating-between-directories">Navigating between directories</a></li>
+<li><a class="reference internal" href="#Creating-and-removing-directories">Creating and removing directories</a></li>
+<li><a class="reference internal" href="#Copying,-renaming,-and-moving-files/folders">Copying, renaming, and moving files/folders</a></li>
+<li><a class="reference internal" href="#Removing/deleting-files/folders">Removing/deleting files/folders</a></li>
+<li><a class="reference internal" href="#File-permissions">File permissions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="OS_setup.html"
+                          title="Previous page">&larr; Setting up your computing environment</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="Conda.html"
+                          title="Next page">&rarr; Install and configure Miniconda and Bioconda</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/ipynbs/Unix.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Conda.html" title="Install and configure Miniconda and Bioconda"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="OS_setup.html" title="Setting up your computing environment"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">Microbial Genomics Lab  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Unix and commandline environment</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
