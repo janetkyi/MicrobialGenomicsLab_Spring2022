@@ -51,3 +51,7 @@ rm -rf docs
 
 ## copy built items to Github repo
 rsync -avP * ~/repos/github/MicrobialGenomicsLab_Spring2022/instructions/
+
+## merge and convert ipynbs for students who can't work with Github
+nbmerge Introduction.ipynb Week1.ipynb OS_setup.ipynb Unix.ipynb Conda.ipynb Git.ipynb jupyter.ipynb > instructions_week1.ipynb
+jupyter-nbconvert --to pdf instructions_week1.ipynb

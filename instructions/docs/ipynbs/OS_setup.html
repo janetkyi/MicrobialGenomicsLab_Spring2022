@@ -140,9 +140,7 @@ div.admonition.inline-title p.admonition-title {
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd
 
-mkdir homebrew
-
-curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
 
 brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
 </pre></div>
