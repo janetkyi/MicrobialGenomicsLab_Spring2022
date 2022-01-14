@@ -7,16 +7,16 @@ Welcome to Microbial Genomics Lab's documentation!
 ==================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
-   ipynbs/Introduction
-   ipynbs/Week1
-   ipynbs/OS_setup
-   ipynbs/Unix
-   ipynbs/Conda
-   ipynbs/Git
-   ipynbs/jupyter
+   Introduction
+   Week1
+   OS_setup
+   Unix
+   Conda
+   Git
+   jupyter
 
 .. Indices and tables
 .. ==================
