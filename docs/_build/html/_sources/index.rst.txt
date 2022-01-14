@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Microbial Genomics Lab Spring 2022's documentation!
+Welcome to Microbial Genomics Lab Spring 2022!
 ==============================================================
 
 .. toctree::
