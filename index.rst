@@ -10,13 +10,13 @@ Welcome to Microbial Genomics Lab's documentation!
    :maxdepth: 3
    :caption: Contents:
 
-   Introduction
-   Week1
-   OS_setup
-   Unix
-   Conda
-   Git
-   jupyter
+   Introduction.html
+   Week1.html
+   OS_setup.html
+   Unix.html
+   Conda.html
+   Git.html
+   jupyter.html
 
 .. Indices and tables
 .. ==================
