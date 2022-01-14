@@ -127,7 +127,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 ## cloud_sptheme (options: cloud, greencloud, magenta_cloud, redcloud, solarcloud)
 #from cloud_sptheme import themes
-html_theme = 'cloud'
+#html_theme = 'cloud'
+html_theme = 'haiku'
 
 ## EdX theme
 #import os
