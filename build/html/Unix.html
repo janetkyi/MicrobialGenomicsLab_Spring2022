@@ -1,99 +1,51 @@
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unix and commandline environment &mdash; Microbial Genomics Lab Spring 2022  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unix and commandline environment &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Install and configure Miniconda and Bioconda" href="Conda.html" />
     <link rel="prev" title="Setting up your computing environment" href="OS_setup.html" /> 
-</head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Microbial Genomics Lab Spring 2022
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week1.html">Week 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OS_setup.html">Setting up your computing environment</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Unix and commandline environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#useful-list-of-commands">Useful list of commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-unix-commands">Basic Unix commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#navigating-between-directories">Navigating between directories</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#creating-and-removing-directories">Creating and removing directories</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#copying-renaming-and-moving-files-folders">Copying, renaming, and moving files/folders</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#removing-deleting-files-folders">Removing/deleting files/folders</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#file-permissions">File permissions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Conda.html">Install and configure Miniconda and Bioconda</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Install Jupyter and Jupyter-lab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html#tools-to-install-for-next-week">Tools to install for next week</a></li>
-</ul>
-
-        </div>
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Microbial Genomics Lab Spring 2022  documentation</span></a></h1>
+        <h2 class="heading"><span>Unix and commandline environment</span></h2>
       </div>
-    </nav>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="OS_setup.html">Setting up your computing environment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Conda.html">Install and configure Miniconda and Bioconda</a>&#160;&#160;»
+        </p>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Microbial Genomics Lab Spring 2022</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Unix and commandline environment</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/Unix.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+      </div>
+      <div class="content" role="main">
+        
+        
   <div class="section" id="unix-and-commandline-environment">
-<h1>Unix and commandline environment<a class="headerlink" href="#unix-and-commandline-environment" title="Permalink to this headline"></a></h1>
+<h1>Unix and commandline environment<a class="headerlink" href="#unix-and-commandline-environment" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>You will be learning how to use bioinformatic tools that run in command
 line environment. Part of being able to run these tools require at least
 some basic knowledge of Unix (or Linux) commands. In this Wiki page, I
 will explain how to use some of these commands but not all of it.</p>
 </div>
 <div class="section" id="useful-list-of-commands">
-<h2>Useful list of commands<a class="headerlink" href="#useful-list-of-commands" title="Permalink to this headline"></a></h2>
+<h2>Useful list of commands<a class="headerlink" href="#useful-list-of-commands" title="Permalink to this headline">¶</a></h2>
 <p>This website has a handy list of Unix/Linux commands you will be using
 mostly.</p>
 <p><a class="reference external" href="https://files.fosswire.com/2007/08/fwunixref.pdf">https://files.fosswire.com/2007/08/fwunixref.pdf</a></p>
@@ -115,7 +67,7 @@ working with files or checking processes. Please learn these commands as
 they are some of the most basic commands any bioinformaticians can use.</p>
 </div>
 <div class="section" id="basic-unix-commands">
-<h2>Basic Unix commands<a class="headerlink" href="#basic-unix-commands" title="Permalink to this headline"></a></h2>
+<h2>Basic Unix commands<a class="headerlink" href="#basic-unix-commands" title="Permalink to this headline">¶</a></h2>
 <p>First, before you can start using these sets of commands, you must have
 set up your computing environment to install basic utilities that allow
 you to use these commands. Make sure you refer to the section on
@@ -129,10 +81,10 @@ Linux) distribution installed in order for you to use a terminal.
 Terminal on Mac OS looks something like this:</p>
 <div class="figure align-default" id="id1">
 <img alt="Terminal" src="images/term.png" />
-<p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="navigating-between-directories">
-<h3>Navigating between directories<a class="headerlink" href="#navigating-between-directories" title="Permalink to this headline"></a></h3>
+<h3>Navigating between directories<a class="headerlink" href="#navigating-between-directories" title="Permalink to this headline">¶</a></h3>
 <p>To navigate between folders, the most basic command you can use is
 <code class="docutils literal notranslate"><span class="pre">cd</span></code>, which means to change directory to something. First, before you
 do anything, to see where you are located, type <code class="docutils literal notranslate"><span class="pre">pwd</span></code>. <code class="docutils literal notranslate"><span class="pre">pwd</span></code> stands
@@ -169,7 +121,7 @@ into “jsaw”, then I would type:</p>
 current one.</p>
 </div>
 <div class="section" id="creating-and-removing-directories">
-<h3>Creating and removing directories<a class="headerlink" href="#creating-and-removing-directories" title="Permalink to this headline"></a></h3>
+<h3>Creating and removing directories<a class="headerlink" href="#creating-and-removing-directories" title="Permalink to this headline">¶</a></h3>
 <p>So, first thing for you to do is to navigate to your home directory and
 create 4 folders named as <code class="docutils literal notranslate"><span class="pre">tools</span></code>, <code class="docutils literal notranslate"><span class="pre">repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">exercises</span></code>.</p>
@@ -206,7 +158,7 @@ create two separate folders named “My” and “Folder” instead of what you
 have intended.</p>
 </div>
 <div class="section" id="copying-renaming-and-moving-files-folders">
-<h3>Copying, renaming, and moving files/folders<a class="headerlink" href="#copying-renaming-and-moving-files-folders" title="Permalink to this headline"></a></h3>
+<h3>Copying, renaming, and moving files/folders<a class="headerlink" href="#copying-renaming-and-moving-files-folders" title="Permalink to this headline">¶</a></h3>
 <p>To copy one file to another location, you can type something like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file.txt</span> <span class="pre">some_folder/</span></code></p>
 <p>And this command will copy the <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> file into the
@@ -218,7 +170,7 @@ to rename the <code class="docutils literal notranslate"><span class="pre">some_
 <p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">some_folder</span> <span class="pre">my_folder</span></code></p>
 </div>
 <div class="section" id="removing-deleting-files-folders">
-<h3>Removing/deleting files/folders<a class="headerlink" href="#removing-deleting-files-folders" title="Permalink to this headline"></a></h3>
+<h3>Removing/deleting files/folders<a class="headerlink" href="#removing-deleting-files-folders" title="Permalink to this headline">¶</a></h3>
 <p>If you want to delete a file or folder, you type something like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">file.txt</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command will remove the file. To remove a directory, you can
@@ -234,7 +186,7 @@ people have learned this the hard way and they may shout and scream and
 pull their hair out after realizing what they have done.</p>
 </div>
 <div class="section" id="file-permissions">
-<h3>File permissions<a class="headerlink" href="#file-permissions" title="Permalink to this headline"></a></h3>
+<h3>File permissions<a class="headerlink" href="#file-permissions" title="Permalink to this headline">¶</a></h3>
 <p>On a related note, you want to learn how to set permissions to files and
 folders so that other people can (or cannot) read/write/excute/delete or
 mess them up in anyway. For now, you are working on your own so this is
@@ -243,14 +195,14 @@ groups, this is very important. If you type <code class="docutils literal notran
 you will see something like this:</p>
 <div class="figure align-default" id="id2">
 <img alt="Terminal" src="images/term.png" />
-<p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Here, you will notice that files (such as “README.md”) has some funny
 notations at the very beginning. These are file permissions. I have
 shown below what these mean.</p>
 <div class="figure align-default" id="id3">
 <img alt="Permissions" src="images/permissions.jpg" />
-<p class="caption"><span class="caption-text">Permissions</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">Permissions</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>For example, the first character shows the type of file. If it is a
 file, you will see a “-” but if it is a directory, you will see a “d”.</p>
@@ -276,34 +228,22 @@ necessary as the course progresses.</p>
 </div>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="OS_setup.html" class="btn btn-neutral float-left" title="Setting up your computing environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Conda.html" class="btn btn-neutral float-right" title="Install and configure Miniconda and Bioconda" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Jimmy Saw.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="OS_setup.html">Setting up your computing environment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Conda.html">Install and configure Miniconda and Bioconda</a>&#160;&#160;»
+        </p>
 
-</body>
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
 </html>
