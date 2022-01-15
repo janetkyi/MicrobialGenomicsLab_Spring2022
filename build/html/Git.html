@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git and Github &mdash; Microbial Genomics Lab Spring 2022  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Install Jupyter and Jupyter-lab" href="jupyter.html" />
+    <link rel="prev" title="Install and configure Miniconda and Bioconda" href="Conda.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Microbial Genomics Lab Spring 2022
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week1.html">Week 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OS_setup.html">Setting up your computing environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Unix.html">Unix and commandline environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Conda.html">Install and configure Miniconda and Bioconda</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Git and Github</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-git">What is git?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-git">How to install Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloning-course-repository-on-github">Cloning course repository on Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#committing-to-the-repository">Committing to the repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">Install Jupyter and Jupyter-lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html#tools-to-install-for-next-week">Tools to install for next week</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Microbial Genomics Lab Spring 2022</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Git and Github</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Git.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="git-and-github">
+<h1>Git and Github<a class="headerlink" href="#git-and-github" title="Permalink to this headline"></a></h1>
+<div class="section" id="what-is-git">
+<h2>What is git?<a class="headerlink" href="#what-is-git" title="Permalink to this headline"></a></h2>
+<p>Git is a tool for version control that allows you to track changes so
+that you can work collaboratively in a team environment. A lot of
+software developers and engineers use it but scientists also use it to
+maintain their software/code generated for research. Although I will
+cover some basics on using Git, you will need to read up on what it is
+and how to use it at your own time. See here for more information:</p>
+<p><a class="reference external" href="https://guides.github.com/introduction/git-handbook/">https://guides.github.com/introduction/git-handbook/</a></p>
+<p>Here is another resource on Git. It is for Bitbucket repository but
+command examples are the same as what you would be using with Github.</p>
+<p><a class="reference external" href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud</a></p>
+</div>
+<div class="section" id="how-to-install-git">
+<h2>How to install Git<a class="headerlink" href="#how-to-install-git" title="Permalink to this headline"></a></h2>
+<p>First, you will try to install <code class="docutils literal notranslate"><span class="pre">git</span></code> tool through command line tools
+such as Homebrew on Mac.</p>
+<p>On <strong>Mac OS</strong>, you will type like this in your terminal:
+<code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
+<p>On <strong>Windows OS</strong> running <strong>Linux</strong> subsystem with <strong>Ubuntu</strong>, you can
+type something like this in your terminal: <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
+<p>And this will install the tool on your command line environment. You may
+need root privileges to install tools on Ubuntu. If this happens, you
+just type: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code> and it should work. You will
+have to type your password though.</p>
+<p>Another way of installing <code class="docutils literal notranslate"><span class="pre">git</span></code> is to use your Miniconda package
+managing system. It is actually my preferred method of installing new
+tools in my commandline environment. If you have set up Miniconda
+correctly, then you can just type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">git</span></code> in either Mac or Windows OS terminal and this
+would install <code class="docutils literal notranslate"><span class="pre">git</span></code> on your system. Here is an example of what you
+will see when you use Miniconda to search if git is in its list of
+packages that you can install through <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+conda search git
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="o">...</span><span class="n">working</span><span class="o">...</span> <span class="n">done</span>
+<span class="c1"># Name                       Version           Build  Channel</span>
+<span class="n">git</span>                           <span class="mf">2.12.2</span>               <span class="mi">4</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.13.3</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.14.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.14.1</span>               <span class="mi">1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.14.1</span> <span class="n">pl526ha558ef4_2</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.14.1</span> <span class="n">pl526hcdafd81_2</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">2</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">3</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.15.0</span> <span class="n">pl526h6165b5f_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.16.1</span>      <span class="n">h74bb3f6_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.16.1</span> <span class="n">pl526h74bb3f6_1</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.17.0</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.17.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.17.1</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.18.0</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.18.0</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.18.0</span> <span class="n">pl526hbb17d3c_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.19.0</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h28b1069_1001</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h6951d83_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526hbb17d3c_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.19.2</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.19.2</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.20.0</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.20.0</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h28b1069_1001</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h3e3e3d1_1002</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h6951d83_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.21.0</span> <span class="n">pl526h3e3e3d1_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.22.0</span> <span class="n">pl526hbdf3604_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526h6951d83_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526hbdf3604_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526hbdf3604_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526hbdf3604_2</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.24.0</span> <span class="n">pl526hdc91d69_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.24.0</span> <span class="n">pl526hdc91d69_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.25.0</span> <span class="n">pl526hdc91d69_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.26.0</span> <span class="n">pl526h561ab23_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.26.1</span> <span class="n">pl526hcc376a2_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.26.2</span> <span class="n">pl526hcc376a2_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.27.0</span> <span class="n">pl526hcc376a2_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.28.0</span> <span class="n">pl526hde3ca24_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">git</span>                           <span class="mf">2.28.0</span> <span class="n">pl526hde3ca24_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cloning-course-repository-on-github">
+<h2>Cloning course repository on Github<a class="headerlink" href="#cloning-course-repository-on-github" title="Permalink to this headline"></a></h2>
+<p>As a member of the Microbial Genomics Lab 2022, you will have access to
+our code repository.</p>
+<p>If you log in to Github and visit this URL:</p>
+<p><a class="reference external" href="https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022">https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022</a></p>
+<p>you will be able to download the code repository to your laptop. First,
+if you haven’t already downloaded the code repository to your drive, you
+want to “clone” it.</p>
+<p>First, create a folder where you would want to store this repository.
+For example, in your command line environment, type <code class="docutils literal notranslate"><span class="pre">cd</span></code> to go back to
+your home directory. Then to create a folder named “repositories”.</p>
+<p>Type: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">repositories</span></code></p>
+<p>Then go into that folder by typing: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">repositories</span></code>.</p>
+<p>Then type:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/SawLabGW/MicrobialGenomicsLab_Fall2020.git</span></code></p>
+<p>Now, you will see the folder “MicrobialGenomicsLab_Spring2022” in the
+repositories folder.</p>
+</div>
+<div class="section" id="committing-to-the-repository">
+<h2>Committing to the repository<a class="headerlink" href="#committing-to-the-repository" title="Permalink to this headline"></a></h2>
+<p>For example, if you have a new file named text.txt which created and you
+want to make it part of the repository, you will need to type the
+command git add text.txt. You may type this command in the folder that
+this file is located or from the root folder. If it is in a subfolder
+named alison/notes/text.txt, then you want to type git add
+alison/notes/text.txt in the root folder.</p>
+<p>After adding the file, you will need to type the following command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code></p>
+<p>It will bring up the vim editor, which will prompt you to enter a
+message before you can commit this file to the repository. If you would
+rather bypass this step, you can specify in your previous git command
+like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;created</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">file&quot;</span></code></p>
+<p>Here, you have put in quotes the text you wanted to convey along with
+the commit command to let people know that you have created a new file
+and added it to the repository. This helps your teammates and
+collaborators keep track of what you did to the repository.</p>
+<p>Finally, type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code> to “push” your changes to the
+repository.</p>
+<p>Before committing or pushing anything to the repository, you should
+always type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code> to get the latest updated version
+of the repository. This is because there is a built-in check for people
+to prevent overwriting things or missing something if someone else had
+made a very recent commit to the repository.</p>
+<p><strong>Note:</strong> The repository you just downloaded is read-only and you cannot
+add or remove files from it. We will discuss how to create your own
+repositories later in the semester.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Conda.html" class="btn btn-neutral float-left" title="Install and configure Miniconda and Bioconda" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jupyter.html" class="btn btn-neutral float-right" title="Install Jupyter and Jupyter-lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jimmy Saw.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
