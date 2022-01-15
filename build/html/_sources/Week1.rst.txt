@@ -39,14 +39,9 @@ Where is the virtual classroom?
 We will be meeting either on **WebEx** and/or **Zoom** platforms,
 depending on how well they work. WebEx record time stamps of when a
 person enters and leaves the room so it helps me to use WebEx for
-recording attendance. Currently, the WebEx link for the class is shown
-below.
-
-https://gwu.webex.com/gwu/j.php?MTID=mf096d6b29554d8fdd2b17519e9ea2357
-
-Meeting number: 2624 258 8428
-
-Password: ppFmVRME223
+recording attendance. WebEx link for the virtual classroom is given on
+Blackboard or on Slack #lab channel. Please refer to these platforms for
+more information.
 
 Besides the virtual classroom, what else will we be using?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

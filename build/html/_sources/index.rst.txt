@@ -14,11 +14,10 @@ Welcome to Microbial Genomics Lab Spring 2022
    Git
    jupyter
 
-
-
 .. Indices and tables
 .. ==================
 
 .. * :ref:`genindex`
 .. * :ref:`modindex`
 * :ref:`search`
+

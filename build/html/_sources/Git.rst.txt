@@ -135,6 +135,10 @@ Then type:
 Now, you will see the folder “MicrobialGenomicsLab_Spring2022” in the
 repositories folder.
 
+If you would like to view the computational instructions locally, you
+can navigate into ``build/html`` folder and open the ``index.html`` file
+using your web browser.
+
 Committing to the repository
 ----------------------------
 

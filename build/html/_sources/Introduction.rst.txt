@@ -8,7 +8,7 @@ tools to analyze microbial genomes and metagenomes.
 
 Detailed course syllabus for the course can be found here:
 
-https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022/blob/main/instructions/pdfs/syllabus.pdf
+https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022/blob/main/pdfs/syllabus.pdf
 
 About this documentation
 ------------------------
