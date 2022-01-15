@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Install and configure Miniconda and Bioconda &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Git and Github" href="Git.html" />
+    <link rel="prev" title="Unix and commandline environment" href="Unix.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Microbial Genomics Lab Spring 2022  documentation</span></a></h1>
+        <h2 class="heading"><span>Install and configure Miniconda and Bioconda</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="Unix.html">Unix and commandline environment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Git.html">Git and Github</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="Install-and-configure-Miniconda-and-Bioconda">
+<h1>Install and configure Miniconda and Bioconda<a class="headerlink" href="#Install-and-configure-Miniconda-and-Bioconda" title="Permalink to this headline">¶</a></h1>
+<p>Go here to download Miniconda package manager: <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
+<div class="section" id="Install-Miniconda">
+<h2>Install Miniconda<a class="headerlink" href="#Install-Miniconda" title="Permalink to this headline">¶</a></h2>
+<p>Follow instructions for both Mac and Windows. Choose Python 3.7 version.</p>
+<p>For <strong>Mac</strong>, I recommend you download the “pkg” version which is a graphical version of the installer.</p>
+<p>For <strong>Windows/WSL</strong>, open your Ubuntu shell (right-click on the icon and run as Administrator). Then type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /mnt/c
+mkdir tools
+<span class="nb">cd</span> tools
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+</pre></div>
+</div>
+<p>Follow the instructions along and make sure you say “yes” at the very end when it asked you if you want the installer to prepend it to path.</p>
+<p>You can visit this page for more tips on how to instlall Miniconda on WSL.</p>
+<p><a class="reference external" href="https://gist.github.com/kauffmanes/5e74916617f9993bc3479f401dfec7da">https://gist.github.com/kauffmanes/5e74916617f9993bc3479f401dfec7da</a></p>
+<p><strong>After installation:</strong></p>
+<p>For <strong>Mac</strong>:</p>
+<p>Close your terminal and open it again. Try typing <code class="docutils literal notranslate"><span class="pre">conda</span></code> to see if the command works. You will see a bunch of options you can type with the conda command.</p>
+<p>For <strong>Windows</strong>:</p>
+<p>Close your Ubuntu shell, then restart it by right-cliking on the Ubuntu icon and run it as Administrator. Try typing <code class="docutils literal notranslate"><span class="pre">conda</span></code> to see if it shows options.</p>
+</div>
+<div class="section" id="Install-Bioconda">
+<h2>Install Bioconda<a class="headerlink" href="#Install-Bioconda" title="Permalink to this headline">¶</a></h2>
+<p>After Miniconda is installed, you will need to configure Bioconda channels. Bioconda allows you to install <em>most</em> bioinformatics tools with ease without learning to use compilers or to figure out software dependencies.</p>
+<p>Install bioconda by typing the following commands in your terminal:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+</pre></div>
+</div>
+<p>These commands will add bioinformatics related tools “channels” to miniconda. Now, you should be able to search and install tools locally on your computer. Try install jupyter first.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda search jupyter
+conda install jupyter
+
+conda search jupyterlab
+conda install jupyterlab
+</pre></div>
+</div>
+<p>After you have configured the bioconda channels, most of the bioinformatics tools we will use in this course should be available for installation through <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="Unix.html">Unix and commandline environment</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="Git.html">Git and Github</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

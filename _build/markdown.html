@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brief introduction to Markdown &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Microbial Genomics Lab Spring 2022  documentation</span></a></h1>
+        <h2 class="heading"><span>Brief introduction to Markdown</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content" role="main">
+        
+        
+  <div class="section" id="Brief-introduction-to-Markdown">
+<h1>Brief introduction to Markdown<a class="headerlink" href="#Brief-introduction-to-Markdown" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is a markup language to create rich text and designed to make it easy to read and write using just plain text editors. It serves similar purpose as html language (another markup language) to format text on web pages. It is becoming quite common and becoming a sort of standard language people use to format text in places like Github or in other code repositories. Other similar markup languages are
+<a class="reference external" href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/ReStructuredText">reStructuredText</a>.</p>
+<p>In this course, I will be teaching you to learn to use this markup language to format text and documents that may need to be submitted as reports or research projects. We will go into those in a little later. Even in Jupyter lab, you will see that it uses Markdown to format text so that it is easy to write/read and to quickly publish.</p>
+<p>Basic Markdown syntax can be found here: <a class="reference external" href="https://www.markdownguide.org/basic-syntax/">https://www.markdownguide.org/basic-syntax/</a></p>
+<div class="section" id="Basic-syntax">
+<h2>Basic syntax<a class="headerlink" href="#Basic-syntax" title="Permalink to this headline">¶</a></h2>
+<p>A few basic things about Markdown syntax here. If you want to write a header line, you provide “#” sign in front of the text. You can put 1, 2, or 3 “#” signs in front of some text and it will format different levels of headers for you. For example, if you type like this in a Markdown file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Header1
+## Header2
+### Header3
+</pre></div>
+</div>
+<p>So this means, the more # you have in front of some text, the smaller the font size becomes. You can go down to 6 levels of heading. One thing to make sure though is that you leave a space between the “#” sign and the text. Here are examples below to demonstrate the effects:</p>
+<div class="section" id="Header1">
+<h3>Header1<a class="headerlink" href="#Header1" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="section" id="Header2">
+<h1>Header2<a class="headerlink" href="#Header2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Header3">
+<h2>Header3<a class="headerlink" href="#Header3" title="Permalink to this headline">¶</a></h2>
+<p>Another thing you want to learn to use is to make some text either <strong>bold</strong> or <em>italicized</em>. You do this by typing like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**bold text**
+
+*E. coli*
+</pre></div>
+</div>
+<p>And they will be rendered like this:</p>
+<p><strong>bold text</strong></p>
+<p><em>E. coli</em></p>
+<p>So, if you quote text inside 2 * signs, you get a bold text. If you put text inside single * signs, then you get an italicized text.</p>
+</div>
+<div class="section" id="Lists">
+<h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
+<p>If you want to create a numbered list, you can type like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. A
+1. B
+1. C
+</pre></div>
+</div>
+<p>And it will automatically number them for you like this:</p>
+<ol class="arabic simple">
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>C</p></li>
+</ol>
+<p>To create bullet lists, you can type like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- text
+- text
+  - A
+  - B
+  - C
+- text
+- text
+</pre></div>
+</div>
+<p>And it will render it like this:</p>
+<ul class="simple">
+<li><p>text</p></li>
+<li><p>text</p>
+<ul>
+<li><p>A</p></li>
+<li><p>B</p></li>
+<li><p>C</p></li>
+</ul>
+</li>
+<li><p>text</p></li>
+<li><p>text</p></li>
+</ul>
+<p>Instead of using a “-”, you can also use * and + symbols for lists.</p>
+</div>
+<div class="section" id="Code">
+<h2>Code<a class="headerlink" href="#Code" title="Permalink to this headline">¶</a></h2>
+<p>To denote a word or phrase as code, enclose it in backticks (`). For example, if you want to indicate a Unix command, such as “ls”, you can type `ls` to highlight the Unix command. And it will render like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span></code></p>
+<p>If you have a code snippet that you want to render using rich text and syntax highlighting, you can type like this:</p>
+<p>```bash</p>
+<p>for i in 1 2 3 4;do</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo ${i}
+</pre></div>
+</div>
+<p>done</p>
+<p>```</p>
+<p>And it will render like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> i <span class="k">in</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span><span class="p">;</span><span class="k">do</span>
+    <span class="nb">echo</span> <span class="si">${</span><span class="nv">i</span><span class="si">}</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Note that I type “bash” after the first 3 backticks to tell the program that I want to highlight the syntax for <code class="docutils literal notranslate"><span class="pre">bash</span></code> programming language. And the rendering engine in Jupyter formatted it with color to highlight special key words and variables in <code class="docutils literal notranslate"><span class="pre">bash</span></code>. Many Markdown processors will recognize various programming languages and will automatically highlight them for you if you specify which language it is supposed to be in.</p>
+</div>
+<div class="section" id="Tables">
+<h2>Tables<a class="headerlink" href="#Tables" title="Permalink to this headline">¶</a></h2>
+<p>You can also create nice-looking tables in Markdown. For example, if you want to create a simple 2-columns, 3-rows table, you can type like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+</pre></div>
+</div>
+<p>In Jupyter, it will render it like this:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Header</p></td>
+<td><p>Title</p></td>
+</tr>
+<tr class="row-odd"><td><p>Paragraph</p></td>
+<td><p>Text</p></td>
+</tr>
+</tbody>
+</table>
+<p>You can align text within the cells to be left, right, or centered. You do this by putting “:” signs betweek the dashes for each column. For example, if you type like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>| Syntax      | Description |
+| ----------- | ----------: |
+| Header      | Title       |
+| Paragraph   | Text        |
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Header</p></td>
+<td><p>Title</p></td>
+</tr>
+<tr class="row-odd"><td><p>Paragraph</p></td>
+<td><p>Text</p></td>
+</tr>
+</tbody>
+</table>
+<p>You will notice that the 2nd column becomes right-aligned. It may not display correctly in this page due to a different Markdown processor being used by the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> command I used to generate this page but it will show up correctly in Jupyter.</p>
+<p>These are just a few examples of how you can use Markdown either inside Jupyter or as a standalone Markdown file that you can convert to PDF or other formats. Play around with Markdown using <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> on your computer and see if you understand the basic syntax I have shown here.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        <a class="uplink" href="index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>
