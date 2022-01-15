@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 
 <html>
@@ -7,35 +9,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unix and commandline environment &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Install and configure Miniconda and Bioconda" href="Conda.html" />
     <link rel="prev" title="Setting up your computing environment" href="OS_setup.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Microbial Genomics Lab Spring 2022  documentation</span></a></h1>
-        <h2 class="heading"><span>Unix and commandline environment</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="OS_setup.html">Setting up your computing environment</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="Conda.html">Install and configure Miniconda and Bioconda</a>&#160;&#160;»
-        </p>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Conda.html" title="Install and configure Miniconda and Bioconda"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="OS_setup.html" title="Setting up your computing environment"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
-      </div>
-      <div class="content" role="main">
-        
-        
-  <div class="section" id="unix-and-commandline-environment">
+        <li class="nav-item nav-item-this"><a href="">Unix and commandline environment</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS overrides for cloud theme */
+
+/* nicer titles and more space for info and warning logos */
+
+div.admonition p.admonition-title {
+    background: rgba(0, 0, 0, .05);
+    margin: .5em -1em;
+    margin-top: -.5em !important;
+    padding: .5em .5em .5em 2.65em;
+}
+
+/* indent single paragraph */
+div.admonition {
+    text-indent: 20px;
+}
+/* don't indent multiple paragraphs */
+div.admonition > p {
+    text-indent: 0;
+}
+/* remove excessive padding */
+div.admonition.inline-title p.admonition-title {
+    padding-left: .2em;
+}
+</style>
+<div class="section" id="unix-and-commandline-environment">
 <h1>Unix and commandline environment<a class="headerlink" href="#unix-and-commandline-environment" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -80,7 +138,7 @@ will need to use the Linux Subsystem with an Ubuntu (or a different
 Linux) distribution installed in order for you to use a terminal.
 Terminal on Mac OS looks something like this:</p>
 <div class="figure align-default" id="id1">
-<img alt="Terminal" src="images/term.png" />
+<img alt="Terminal" src="_images/term.png" />
 <p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="navigating-between-directories">
@@ -194,14 +252,14 @@ not an issue, but on servers where you work with multiple people and
 groups, this is very important. If you type <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> in your terminal,
 you will see something like this:</p>
 <div class="figure align-default" id="id2">
-<img alt="Terminal" src="images/term.png" />
+<img alt="Terminal" src="_images/term.png" />
 <p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Here, you will notice that files (such as “README.md”) has some funny
 notations at the very beginning. These are file permissions. I have
 shown below what these mean.</p>
 <div class="figure align-default" id="id3">
-<img alt="Permissions" src="images/permissions.jpg" />
+<img alt="Permissions" src="_images/permissions.jpg" />
 <p class="caption"><span class="caption-text">Permissions</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>For example, the first character shows the type of file. If it is a
@@ -228,22 +286,103 @@ necessary as the course progresses.</p>
 </div>
 
 
+            <div class="clearer"></div>
+          </div>
+        </div>
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
-      
-        <p>
-        «&#160;&#160;<a href="OS_setup.html">Setting up your computing environment</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="Conda.html">Install and configure Miniconda and Bioconda</a>&#160;&#160;»
-        </p>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Unix and commandline environment</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#useful-list-of-commands">Useful list of commands</a></li>
+<li><a class="reference internal" href="#basic-unix-commands">Basic Unix commands</a><ul>
+<li><a class="reference internal" href="#navigating-between-directories">Navigating between directories</a></li>
+<li><a class="reference internal" href="#creating-and-removing-directories">Creating and removing directories</a></li>
+<li><a class="reference internal" href="#copying-renaming-and-moving-files-folders">Copying, renaming, and moving files/folders</a></li>
+<li><a class="reference internal" href="#removing-deleting-files-folders">Removing/deleting files/folders</a></li>
+<li><a class="reference internal" href="#file-permissions">File permissions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="OS_setup.html"
+                          title="Previous page">&larr; Setting up your computing environment</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="Conda.html"
+                          title="Next page">&rarr; Install and configure Miniconda and Bioconda</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Unix.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Conda.html" title="Install and configure Miniconda and Bioconda"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="OS_setup.html" title="Setting up your computing environment"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Unix and commandline environment</a></li> 
+      </ul>
+    </div>
+    </div>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Jimmy Saw.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
+    <!-- cloud_sptheme 1.4 -->
   </body>
 </html>
