@@ -1,0 +1,356 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Install tools for today’s lab &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exercises for today" href="exercises_week2.html" />
+    <link rel="prev" title="Brief introduction to Markdown" href="markdown.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="exercises_week2.html" title="Exercises for today"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="markdown.html" title="Brief introduction to Markdown"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Install tools for today’s lab</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS overrides for cloud theme */
+
+/* nicer titles and more space for info and warning logos */
+
+div.admonition p.admonition-title {
+    background: rgba(0, 0, 0, .05);
+    margin: .5em -1em;
+    margin-top: -.5em !important;
+    padding: .5em .5em .5em 2.65em;
+}
+
+/* indent single paragraph */
+div.admonition {
+    text-indent: 20px;
+}
+/* don't indent multiple paragraphs */
+div.admonition > p {
+    text-indent: 0;
+}
+/* remove excessive padding */
+div.admonition.inline-title p.admonition-title {
+    padding-left: .2em;
+}
+</style>
+<div class="section" id="install-tools-for-todays-lab">
+<h1>Install tools for today’s lab<a class="headerlink" href="#install-tools-for-todays-lab" title="Permalink to this headline">¶</a></h1>
+<p>Last week, I mentioned that you should install some bioinformatic tools
+we will be using this week. If you did not have a chance to install them
+last week, please do it now. You should be able to install them all
+using <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<div class="section" id="sra-tools">
+<h2>sra-tools<a class="headerlink" href="#sra-tools" title="Permalink to this headline">¶</a></h2>
+<p>Here, we will use sra-tools to download sequence data from publicly
+accessible databases such as NCBI. This tool allows you to download some
+sequence files from NCBI directly from your terminal without having to
+use your web browser. First, I will check if <code class="docutils literal notranslate"><span class="pre">sra-tools</span></code> is on
+<code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+conda search sra-tools
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="o">...</span><span class="n">working</span><span class="o">...</span> <span class="n">done</span>
+<span class="c1"># Name                       Version           Build  Channel</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.6.2</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.6.3</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.7.0</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.8.0</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.8.1</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.8.2</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.8.2</span>      <span class="n">h550f44e_1</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.9.0</span>      <span class="n">h470a237_1</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.9.1</span>      <span class="n">h470a237_0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                    <span class="mf">2.9.1_1</span>      <span class="n">h470a237_0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                      <span class="mf">2.9.6</span>      <span class="n">h0a44026_0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                     <span class="mf">2.10.0</span> <span class="n">pl526h6de7cb9_0</span>  <span class="n">bioconda</span>
+<span class="n">sra</span><span class="o">-</span><span class="n">tools</span>                     <span class="mf">2.10.1</span> <span class="n">pl526h9f37e31_0</span>  <span class="n">bioconda</span>
+</pre></div>
+</div>
+<p>Now, you can install <code class="docutils literal notranslate"><span class="pre">sra-tools</span></code> by typing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install sra-tools
+</pre></div>
+</div>
+<p>This will install a suite of tools you will need to download publicly
+available sequences from NCBI.</p>
+</div>
+<div class="section" id="fastqc">
+<h2>FastQC<a class="headerlink" href="#fastqc" title="Permalink to this headline">¶</a></h2>
+<p>FastQC is a tool you will need to use to assess sequence quality and to
+see if they are suitable to be used in your analyses. Earlier days,
+sequences produced by these so-called “Next-gen” sequencing instruments
+(especially in early 2010s) produced sequences with high error rates and
+low qualities. And they sometimes include the adapter sequences that
+should be removed before they can be used. To check for sequence
+quality, there are several tools available but one of the most
+well-known (and most widely used) is FastQC. It exists in both graphical
+and command line versions. You can install it using <code class="docutils literal notranslate"><span class="pre">conda</span></code>. First,
+search for it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+conda search fastqc
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="o">...</span><span class="n">working</span><span class="o">...</span> <span class="n">done</span>
+<span class="c1"># Name                       Version           Build  Channel</span>
+<span class="n">fastqc</span>                        <span class="mf">0.10.1</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.10.1</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.2</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.2</span>      <span class="n">pl5</span><span class="mf">.22.0_0</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.3</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.3</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.4</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.4</span>               <span class="mi">2</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.5</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.5</span>               <span class="mi">4</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.5</span>      <span class="n">pl5</span><span class="mf">.22.0_2</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.5</span>      <span class="n">pl5</span><span class="mf">.22.0_3</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.6</span>               <span class="mi">2</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.6</span>      <span class="n">pl5</span><span class="mf">.22.0_0</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.6</span>      <span class="n">pl5</span><span class="mf">.22.0_1</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.7</span>               <span class="mi">4</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.7</span>               <span class="mi">5</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.7</span>               <span class="mi">6</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.7</span>      <span class="n">pl5</span><span class="mf">.22.0_0</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.7</span>      <span class="n">pl5</span><span class="mf">.22.0_2</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.8</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.8</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.8</span>               <span class="mi">2</span>  <span class="n">bioconda</span>
+<span class="n">fastqc</span>                        <span class="mf">0.11.9</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+</pre></div>
+</div>
+<p>As you can see, there are several versions and if you just type
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">fastqc</span></code>, it will install the latest version of it.</p>
+</div>
+<div class="section" id="bbmap">
+<h2>BBmap<a class="headerlink" href="#bbmap" title="Permalink to this headline">¶</a></h2>
+<p>FastQC will help you see what needs to be done to the original raw
+sequnce files but it doesn’t actually do anything else. To actually trim
+reads of poor quality or to discard sequences that do not meet specific
+requirement, you need to use tools like BBmap. It is just one of the
+many tools that does similar function.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+conda search bbmap
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="o">...</span><span class="n">working</span><span class="o">...</span> <span class="n">done</span>
+<span class="c1"># Name                       Version           Build  Channel</span>
+<span class="n">bbmap</span>                          <span class="mf">35.85</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">35.85</span>               <span class="mi">2</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.02</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.10</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.10</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.17</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.17</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.52</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.52</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.62</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.62</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.66</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.75</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.77</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.78</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.90</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.95</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.96</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.99</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">37.99</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.06</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.06</span>               <span class="mi">2</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.16</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.18</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.19</span>      <span class="n">h470a237_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.20</span>      <span class="n">h470a237_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.22</span>      <span class="n">h1de35cc_1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.22</span>      <span class="n">h470a237_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.44</span>      <span class="n">h1de35cc_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.45</span>      <span class="n">h1de35cc_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.46</span>      <span class="n">h1de35cc_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.49</span>      <span class="n">h1de35cc_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.51</span>      <span class="n">h1de35cc_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.56</span>      <span class="n">h1de35cc_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.57</span>      <span class="n">h1de35cc_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.58</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                         <span class="mf">38.61</span><span class="n">b</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.62</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.63</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.65</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.67</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.68</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.69</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.70</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.71</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.72</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.73</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.75</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.76</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.79</span>      <span class="n">h01d97ff_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.84</span>      <span class="n">h0b31af3_0</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.84</span>      <span class="n">hf29c6f4_1</span>  <span class="n">bioconda</span>
+<span class="n">bbmap</span>                          <span class="mf">38.86</span>      <span class="n">hf29c6f4_0</span>  <span class="n">bioconda</span>
+</pre></div>
+</div>
+<p>This is a collection of tools that you will need to use to remove
+poor-quality sequence reads and to trim bad or contaminated sequences
+from the pool. Install it by typing:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">bbmap</span></code></p>
+<p>Now you have all the tools we will need to use for today’s exercise.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Install tools for today’s lab</a><ul>
+<li><a class="reference internal" href="#sra-tools">sra-tools</a></li>
+<li><a class="reference internal" href="#fastqc">FastQC</a></li>
+<li><a class="reference internal" href="#bbmap">BBmap</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="markdown.html"
+                          title="Previous page">&larr; Brief introduction to Markdown</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="exercises_week2.html"
+                          title="Next page">&rarr; Exercises for today</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tools_week2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="exercises_week2.html" title="Exercises for today"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="markdown.html" title="Brief introduction to Markdown"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Install tools for today’s lab</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
