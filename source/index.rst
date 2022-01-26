@@ -18,6 +18,8 @@ Welcome to Microbial Genomics Lab Spring 2022
    markdown
    tools_week2
    exercises_week2
+   Week3
+   GenomeAssemblies
 
 .. Indices and tables
 .. ==================
