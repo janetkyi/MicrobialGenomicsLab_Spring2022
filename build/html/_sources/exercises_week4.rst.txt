@@ -183,6 +183,54 @@ and actual work should be done inside the ``exercises`` folder. Later
 on, you will be working on group/individual projects and you should
 store those work in the ``projects`` folder.
 
+Transferring files to/from ``cerberus``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will soon realize that it becomes a necessity to transfer files
+to/from a remote computer. You can run computational analyses on a
+remote computer but if you want to inspect the results on your laptop
+using graphical tools, then you will need to download those files to
+your laptop computer. There are several tools that will allow you to
+transfer files between computers. GUI-based (graphical user interface)
+tools such as Filezilla or Cyberduck can do these tasks.
+
+In this course, though, you will learn how to use command line based
+tools such as ``rsync`` or ``scp`` to copy or sync files between local
+and remote computers. I use ``rsync`` exclusively because it is a very
+powerful tool that can automate things in a terminal environment and you
+can programmatically transfer files of a certain type or format, for
+example. Today, you will learn how to transfer the “adapters.fa” file
+you downloaded from last week to do sequence quality trimming and upload
+it to ``cerberus``.
+
+**To transfer file from your laptop to a remote computer**
+
+You should first go into the folder where you stored the adapter file.
+It should be named as ``adapters.fa``. Then an example command to
+transfer this adapter file to my home folder on ``cerberus`` would look
+something like this:
+
+::
+
+   rsync -avzP adapters.fa jsaw@cerberus.colonialone.gwu:~/
+
+This will upload the ``adapters.fa`` file to Cerberus and the file will
+go directly into your home folder. Instead of ``jsaw``, which is my
+username, you should type your NetID.
+
+To download files or folders from ``cerberus`` to your laptop computer,
+you can type something like this:
+
+::
+
+   rsync -avzP jsaw@cerberus.colonialone.gwu.edu:~/file.txt .
+
+The dot at the very end of this command is just to indicate that you
+want to download the remote ``file.txt`` file to current folder or
+directory on your laptop. You can also use wild-card characters like
+``*`` to transfer multiple files or folders. I will show some examples
+in class.
+
 Installation of Miniconda and Bioconda on ``cerberus``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

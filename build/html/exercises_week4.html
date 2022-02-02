@@ -35,7 +35,8 @@
     
 
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Week 4" href="Week4.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -46,6 +47,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Week4.html" title="Week 4"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Exercises for Week4</a></li> 
@@ -227,6 +231,45 @@ your laptop).</p>
 and actual work should be done inside the <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder. Later
 on, you will be working on group/individual projects and you should
 store those work in the <code class="docutils literal notranslate"><span class="pre">projects</span></code> folder.</p>
+</div>
+<div class="section" id="transferring-files-to-from-cerberus">
+<h2>Transferring files to/from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#transferring-files-to-from-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>You will soon realize that it becomes a necessity to transfer files
+to/from a remote computer. You can run computational analyses on a
+remote computer but if you want to inspect the results on your laptop
+using graphical tools, then you will need to download those files to
+your laptop computer. There are several tools that will allow you to
+transfer files between computers. GUI-based (graphical user interface)
+tools such as Filezilla or Cyberduck can do these tasks.</p>
+<p>In this course, though, you will learn how to use command line based
+tools such as <code class="docutils literal notranslate"><span class="pre">rsync</span></code> or <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy or sync files between local
+and remote computers. I use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> exclusively because it is a very
+powerful tool that can automate things in a terminal environment and you
+can programmatically transfer files of a certain type or format, for
+example. Today, you will learn how to transfer the “adapters.fa” file
+you downloaded from last week to do sequence quality trimming and upload
+it to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
+<p><strong>To transfer file from your laptop to a remote computer</strong></p>
+<p>You should first go into the folder where you stored the adapter file.
+It should be named as <code class="docutils literal notranslate"><span class="pre">adapters.fa</span></code>. Then an example command to
+transfer this adapter file to my home folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> would look
+something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rsync</span> <span class="o">-</span><span class="n">avzP</span> <span class="n">adapters</span><span class="o">.</span><span class="n">fa</span> <span class="n">jsaw</span><span class="nd">@cerberus</span><span class="o">.</span><span class="n">colonialone</span><span class="o">.</span><span class="n">gwu</span><span class="p">:</span><span class="o">~/</span>
+</pre></div>
+</div>
+<p>This will upload the <code class="docutils literal notranslate"><span class="pre">adapters.fa</span></code> file to Cerberus and the file will
+go directly into your home folder. Instead of <code class="docutils literal notranslate"><span class="pre">jsaw</span></code>, which is my
+username, you should type your NetID.</p>
+<p>To download files or folders from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> to your laptop computer,
+you can type something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rsync</span> <span class="o">-</span><span class="n">avzP</span> <span class="n">jsaw</span><span class="nd">@cerberus</span><span class="o">.</span><span class="n">colonialone</span><span class="o">.</span><span class="n">gwu</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">~/</span><span class="n">file</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>The dot at the very end of this command is just to indicate that you
+want to download the remote <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> file to current folder or
+directory on your laptop. You can also use wild-card characters like
+<code class="docutils literal notranslate"><span class="pre">*</span></code> to transfer multiple files or folders. I will show some examples
+in class.</p>
 </div>
 <div class="section" id="installation-of-miniconda-and-bioconda-on-cerberus">
 <h2>Installation of Miniconda and Bioconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#installation-of-miniconda-and-bioconda-on-cerberus" title="Permalink to this headline">¶</a></h2>
@@ -425,6 +468,7 @@ I have provided earlier (scroll up) to see how to use <code class="docutils lite
 <li><a class="reference internal" href="#connecting-to-gw-hpc-cluster-cerberus">Connecting to GW HPC cluster (Cerberus)</a></li>
 <li><a class="reference internal" href="#using-ssh-keys-to-log-in-to-cerberus">Using ssh keys to log in to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
 <li><a class="reference internal" href="#file-and-folder-organization-on-cerberus">File and folder organization on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
+<li><a class="reference internal" href="#transferring-files-to-from-cerberus">Transferring files to/from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
 <li><a class="reference internal" href="#installation-of-miniconda-and-bioconda-on-cerberus">Installation of Miniconda and Bioconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
 <li><a class="reference internal" href="#file-transfer-between-computers-using-rsync">File transfer between computers using <code class="docutils literal notranslate"><span class="pre">rsync</span></code></a></li>
 <li><a class="reference internal" href="#submitting-jobs-on-cerberus">Submitting jobs on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
@@ -435,6 +479,11 @@ I have provided earlier (scroll up) to see how to use <code class="docutils lite
 </li>
 </ul>
 
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="Week4.html"
+                          title="Previous page">&larr; Week 4</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -482,6 +531,9 @@ I have provided earlier (scroll up) to see how to use <code class="docutils lite
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="Week4.html" title="Week 4"
+             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Exercises for Week4</a></li> 
