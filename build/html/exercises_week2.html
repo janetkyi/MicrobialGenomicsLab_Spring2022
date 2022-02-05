@@ -36,6 +36,7 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Week 3" href="Week3.html" />
     <link rel="prev" title="Install tools for today’s lab" href="tools_week2.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
@@ -47,6 +48,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Week3.html" title="Week 3"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="tools_week2.html" title="Install tools for today’s lab"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
@@ -119,9 +123,12 @@ access and download the data. This is where the sra-tools becomes very
 useful. You can download the raw sequence reads deposited to SRA by just
 typing the following command with the accession number next to the
 <code class="docutils literal notranslate"><span class="pre">[accn]</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fasterq</span><span class="o">-</span><span class="n">dump</span> <span class="o">--</span><span class="n">split</span><span class="o">-</span><span class="mi">3</span> <span class="n">SRX9071323</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fasterq</span><span class="o">-</span><span class="n">dump</span> <span class="o">--</span><span class="n">split</span><span class="o">-</span><span class="mi">3</span> <span class="n">SRR12584454</span>
 </pre></div>
 </div>
+<p>The “SRR12584454” is the actual run accession number for that particular
+study. This is actually the number you need to enter when trying to
+download these raw sequences from NCBI SRA.</p>
 <p>First, you might want to explore what <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> means by typing
 <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span> <span class="pre">-h</span></code>. <code class="docutils literal notranslate"><span class="pre">-h</span></code> just means you are trying to bring up help
 menu to list the options available with this command.</p>
@@ -199,7 +206,7 @@ tree MicrobialGenomicsLab
 “MicrobialGenomicsLab” folder which resides under “workspace”. Navigate
 into the exercises folder and run the <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool with the
 example command that I wrote earlier.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fasterq-dump --split-3 SRX9071323
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fasterq-dump --split-3 SRR12584454
 </pre></div>
 </div>
 <p>The command will start downloading the raw sequence files from SRA to
@@ -207,7 +214,7 @@ your “exercises” folder. It may take a few minutes and you will see the
 report printed to the screen once it’s done. Usually it will not tell
 you what is going on but you can increase the verbosity of the screen
 output by typing like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fasterq-dump -v --split-3 SRX9071323
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fasterq-dump -v --split-3 SRR12584454
 </pre></div>
 </div>
 <p>Once it’s done, you can type <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> to see what files the tool
@@ -949,6 +956,11 @@ both <code class="docutils literal notranslate"><span class="pre">fastqc</span><
     <p class="topless"><a href="tools_week2.html"
                           title="Previous page">&larr; Install tools for today’s lab</a></p>
   </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="Week3.html"
+                          title="Next page">&rarr; Week 3</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -995,6 +1007,9 @@ both <code class="docutils literal notranslate"><span class="pre">fastqc</span><
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="Week3.html" title="Week 3"
+             >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="tools_week2.html" title="Install tools for today’s lab"
              >previous</a> &nbsp; &nbsp;</li>

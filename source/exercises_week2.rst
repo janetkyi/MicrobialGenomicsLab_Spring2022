@@ -38,7 +38,11 @@ typing the following command with the accession number next to the
 
 ::
 
-   fasterq-dump --split-3 SRX9071323
+   fasterq-dump --split-3 SRR12584454
+
+The “SRR12584454” is the actual run accession number for that particular
+study. This is actually the number you need to enter when trying to
+download these raw sequences from NCBI SRA.
 
 First, you might want to explore what ``fasterq-dump`` means by typing
 ``fasterq-dump -h``. ``-h`` just means you are trying to bring up help
@@ -132,7 +136,7 @@ example command that I wrote earlier.
 
 .. code:: bash
 
-   fasterq-dump --split-3 SRX9071323
+   fasterq-dump --split-3 SRR12584454
 
 The command will start downloading the raw sequence files from SRA to
 your “exercises” folder. It may take a few minutes and you will see the
@@ -142,7 +146,7 @@ output by typing like this:
 
 .. code:: bash
 
-   fasterq-dump -v --split-3 SRX9071323
+   fasterq-dump -v --split-3 SRR12584454
 
 Once it’s done, you can type ``ls -la`` to see what files the tool
 produced.
@@ -933,7 +937,7 @@ can compress them after they are downloaded. You can type like this:
    gzip *.fastq
 
 And this will compress your text files into much smaller zipped files
-with extension “*.gz”. The file sizes are much smaller after being
+with extension "*.gz". The file sizes are much smaller after being
 compressed (about 110-130 MB).
 
 For metagenome assemblies, we will be downloading this file:

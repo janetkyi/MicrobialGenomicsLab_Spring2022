@@ -212,7 +212,7 @@ something like this:
 
 ::
 
-   rsync -avzP adapters.fa jsaw@cerberus.colonialone.gwu:~/
+   rsync -avzP adapters.fa jsaw@cerberus.colonialone.gwu.edu:~/
 
 This will upload the ``adapters.fa`` file to Cerberus and the file will
 go directly into your home folder. Instead of ``jsaw``, which is my
