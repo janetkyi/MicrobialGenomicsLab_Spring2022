@@ -1,0 +1,737 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercises for Week 5 &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Exercises for Week 5</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS overrides for cloud theme */
+
+/* nicer titles and more space for info and warning logos */
+
+div.admonition p.admonition-title {
+    background: rgba(0, 0, 0, .05);
+    margin: .5em -1em;
+    margin-top: -.5em !important;
+    padding: .5em .5em .5em 2.65em;
+}
+
+/* indent single paragraph */
+div.admonition {
+    text-indent: 20px;
+}
+/* don't indent multiple paragraphs */
+div.admonition > p {
+    text-indent: 0;
+}
+/* remove excessive padding */
+div.admonition.inline-title p.admonition-title {
+    padding-left: .2em;
+}
+</style>
+<div class="section" id="exercises-for-week-5">
+<h1>Exercises for Week 5<a class="headerlink" href="#exercises-for-week-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recap-job-submission-on-cerberus">
+<h2>Recap job submission on Cerberus<a class="headerlink" href="#recap-job-submission-on-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>Before moving forward, I will be going over with you again on how to
+install tools and run jobs on Cerberus, a remote computer you have been
+connecting to run some of the more computationally intensive jobs.</p>
+<p><strong>Important things to remember</strong></p>
+<ul class="simple">
+<li><p>When running computational tasks on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, do not just
+copy-paste the command examples (you need to use an sbatch job
+submission script to submit jobs)</p></li>
+<li><p>To create an sbatch script, you have a few options:</p>
+<ol class="arabic simple">
+<li><p>Connect to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> remotely and create the sbatch script
+using a command line text editor such as <code class="docutils literal notranslate"><span class="pre">vim</span></code>, <code class="docutils literal notranslate"><span class="pre">emacs</span></code>,
+<code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">pico</span></code>, etc. This is a preferred way of creating an
+sbatch script.</p></li>
+<li><p>Create the sbatch script on your laptop computer using one of the
+text editors mentioned above and uploading the sbatch script to
+your exercises folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. Beware, files created using
+Windows computer may not be compatible with Linux systems and they
+may cause problems when you try to submit the job on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.
+Sometimes, if you create a file on a Windows computer, you may
+have to convert it to Unix-compatible format using the
+<code class="docutils literal notranslate"><span class="pre">dos2unix</span></code> command. This command may or may not be present on
+the remote computer. If it is not present, then you will have to
+install it using <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="install-tools-needed-for-todays-exercises">
+<h2>Install tools needed for today’s exercises<a class="headerlink" href="#install-tools-needed-for-todays-exercises" title="Permalink to this headline">¶</a></h2>
+<p>You need to install a few tools that will be needed for today’s
+exercises. They are not already installed on Cerberus and therefore you
+cannot use the <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code> command to load them in your sbatch
+script. So you need to install them through the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command and
+then run them. Once they are installed using <code class="docutils literal notranslate"><span class="pre">conda</span></code>, you should be
+able to run them just like you would run tools on your laptop. You do
+not need to specify <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code> for tools installed using <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<p>The list of tools you should install on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> using the <code class="docutils literal notranslate"><span class="pre">conda</span></code>
+command are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">megahit</span>
+<span class="o">-</span> <span class="n">unicycler</span>
+<span class="o">-</span> <span class="n">bbmap</span>
+<span class="o">-</span> <span class="n">samtools</span>
+<span class="o">-</span> <span class="n">sra</span><span class="o">-</span><span class="n">tools</span>
+<span class="o">-</span> <span class="n">seqtk</span>
+<span class="o">-</span> <span class="n">filtlong</span>
+<span class="o">-</span> <span class="n">metabat2</span>
+<span class="o">-</span> <span class="n">checkm</span><span class="o">-</span><span class="n">genome</span>
+</pre></div>
+</div>
+<p>Search for them and install them using <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install megahit
+conda install unicycler
+conda install bbmap
+conda install samtools
+conda install sra-tools
+conda install seqtk
+conda install filtlong
+conda install metabat2
+conda install checkm-genome
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-metagenome-assemblies-on-cerberus">
+<h2>Run metagenome assemblies on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#run-metagenome-assemblies-on-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>You have run SPAdes on your laptop and on a remote computer last week.
+This week, you will be using SPAdes and specifically metaSPAdes to run a
+metagenome assembly on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. SPAdes is a genome assembler that
+was originally design to assemble single-cell genomic data but has since
+evolved to become a multipurpose assembler able to handle a wide variety
+of sequencing data. The authors who developed the tool have written a
+specific version of SPAdes known as “<strong>metaSPAdes</strong>” that you will be
+using today in class. See here for the paper describing metaSPAdes:
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5411777/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5411777/</a>.</p>
+<p>The metagenomic data you downloaded last week (and should have uploaded
+to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> last week) is here:
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRX4741377">https://www.ncbi.nlm.nih.gov/sra/SRX4741377</a>. The SRA accession number to
+download this data is SRR7905025. Make sure that you are using this data
+to run the metagenomic assembly today.</p>
+<p>It should be stored in your <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> ideally. If
+your assignment number 3, I have asked you to run <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> to check
+the sequence quality. If you haven’t already done so, please do that
+now. Next, you will be trimming your raw metagenomic reads using
+<code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> tool you used a few weeks ago to trim away adapter regions
+and to improve sequence quality. You should be using the <code class="docutils literal notranslate"><span class="pre">sbatch</span></code>
+command to submit jobs on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> and not directly typing the
+commands in the terminal.</p>
+<div class="section" id="trimming-raw-metagenomic-reads">
+<h3>Trimming raw metagenomic reads<a class="headerlink" href="#trimming-raw-metagenomic-reads" title="Permalink to this headline">¶</a></h3>
+<p>An example sbatch script to submit jobs to trim the metagenomic reads is
+provided below but you must edit them to make sure it runs on your own
+“exercise” directory. <em>Again</em>, <strong>do not</strong> copy-paste this copy into your
+terminal window after connecting to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. You need to create an
+sbatch file using <code class="docutils literal notranslate"><span class="pre">vim</span></code> or something similar, then paste the command
+into the newly created text file. Make sure that all the files in this
+example are present in the folders where this sbatch script will be run.
+Otherwise, edit the file path accordingly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o trim.%j.out</span>
+<span class="c1">#SBATCH -e trim.%j.err</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -J TRIM</span>
+<span class="c1">#SBATCH -t 2:00:00</span>
+<span class="c1">#SBATCH -p defq</span>
+
+bbduk.sh <span class="nv">ktrim</span><span class="o">=</span>r ordered <span class="nv">minlen</span><span class="o">=</span><span class="m">50</span> <span class="nv">mink</span><span class="o">=</span><span class="m">11</span> <span class="nv">rcomp</span><span class="o">=</span>f <span class="nv">k</span><span class="o">=</span><span class="m">21</span> <span class="nv">ow</span><span class="o">=</span>t <span class="nv">zl</span><span class="o">=</span><span class="m">4</span> <span class="se">\</span>
+    <span class="nv">qtrim</span><span class="o">=</span>rl <span class="nv">trimq</span><span class="o">=</span><span class="m">20</span> <span class="se">\</span>
+    <span class="nv">in1</span><span class="o">=</span>SRR7905025_1.fastq.gz <span class="se">\</span>
+    <span class="nv">in2</span><span class="o">=</span>SRR7905025_2.fastq.gz <span class="se">\</span>
+    <span class="nv">ref</span><span class="o">=</span>~/adapters.fa <span class="se">\</span>
+    <span class="nv">out1</span><span class="o">=</span>SRR7905025_1.trimmed.fastq.gz <span class="se">\</span>
+    <span class="nv">out2</span><span class="o">=</span>SRR7905025_2.trimmed.fastq.gz
+</pre></div>
+</div>
+<p>Depending on where this sbatch script is residing, you will run this
+script directly in the folder where the raw metagenomic data are
+located. Let’s say if it is named as <code class="docutils literal notranslate"><span class="pre">run_trim.sh</span></code>, you will then type
+<code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_trim.sh</span></code> in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder if the files are there.
+After <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> tool is done, you can directly use the trimmed fastq
+files as input for metagenome assemblies.</p>
+</div>
+<div class="section" id="running-metagenomic-assembly-using-megahit">
+<h3>Running metagenomic assembly using Megahit<a class="headerlink" href="#running-metagenomic-assembly-using-megahit" title="Permalink to this headline">¶</a></h3>
+<p>We will be using a metagenome assembly tool known as <code class="docutils literal notranslate"><span class="pre">megahit</span></code> to
+perform a metagenome assembly today. It is a tool that runs a lot faster
+with less memory requirements than metaSPAdes but known to be less
+accurate. Because it takes shorter amount of time, you will be able to
+inspect the assembly results during class. metaSPAdes runs longer so you
+would submit the job after you have submitted Megahit runs so it will
+continue to run after class is over.</p>
+<p>The paper describing Megahit is available here
+(<a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/25609793/">https://pubmed.ncbi.nlm.nih.gov/25609793/</a>) and the github page can be
+found here (<a class="reference external" href="https://github.com/voutcn/megahit">https://github.com/voutcn/megahit</a>). You can also see how to
+run this assembler at this wiki page
+(<a class="reference external" href="https://sites.google.com/site/wiki4metagenomics/tools/assembly/megahit">https://sites.google.com/site/wiki4metagenomics/tools/assembly/megahit</a>).</p>
+<p>An example command to run a metagenome assembly looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>megahit -1 SAMPLE_1.fastq  -2 SAMPLE_2.fastq  -m <span class="m">0</span>.5  -t <span class="m">12</span>  -o megahit_result
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">0.5</span></code> indicates that the tool should use 50% of the available
+computer memory and <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">12</span></code> is to use 12 CPUs cores to run this
+assembly. On <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, you should run <code class="docutils literal notranslate"><span class="pre">megahit</span></code> through the use of
+an sbatch script. An example is shown below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o mega.%j.out</span>
+<span class="c1">#SBATCH -e mega.%j.err</span>
+<span class="c1">#SBATCH -D /home/jsaw/exercises</span>
+<span class="c1">#SBATCH -J MEGA</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 4:00:00</span>
+<span class="c1">#SBATCH -p defq</span>
+
+megahit <span class="se">\</span>
+    -1 ../data/SRR7905025_1.trimmed.fastq.gz <span class="se">\</span>
+    -2 ../data/SRR7905025_2.trimmed.fastq.gz <span class="se">\</span>
+    -t <span class="m">16</span> <span class="se">\</span>
+    -o megahit_assembly
+</pre></div>
+</div>
+<p>Here, I am running this assembly in my <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder where
+megahit assembly results will be stored in the subfolder
+<code class="docutils literal notranslate"><span class="pre">megahit_assembly</span></code>. You should make sure the sbatch script is
+customized for your folders and file names. It will take less than 30
+minutes to run this assembly. While the job is running, continue with
+the metaSPAdes assembly run.</p>
+</div>
+<div class="section" id="running-metagenomic-assembly-using-metaspades">
+<h3>Running metagenomic assembly using metaSPAdes<a class="headerlink" href="#running-metagenomic-assembly-using-metaspades" title="Permalink to this headline">¶</a></h3>
+<p>You will use the same trimmed fastq files as input to run metaSPAdes. An
+example sbatch script is shown below but again, you should make sure to
+change a number of things to make sure it runs on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o asm_meta.%j.out</span>
+<span class="c1">#SBATCH -e asm_meta.%j.err</span>
+<span class="c1">#SBATCH -D /home/jsaw/exercises</span>
+<span class="c1">#SBATCH -J ASM_META</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -t 4:00:00</span>
+<span class="c1">#SBATCH -p defq</span>
+
+module load spades/3.14.1
+
+spades.py <span class="se">\</span>
+    --meta <span class="se">\</span>
+    -m <span class="m">300</span> <span class="se">\</span>
+    -t <span class="m">16</span> <span class="se">\</span>
+    --pe1-1 ../data/SRR7905025_1.trimmed.fastq.gz <span class="se">\</span>
+    --pe1-2 ../data/SRR7905025_2.trimmed.fastq.gz <span class="se">\</span>
+    -k <span class="m">21</span>,33,55,77 <span class="se">\</span>
+    -o spades_meta
+</pre></div>
+</div>
+<p>You will notice that the commands are actually very similar to what you
+used to assemble <em>Salmonella enteria</em> genome. The only major difference
+here is that you are specifying the <code class="docutils literal notranslate"><span class="pre">--meta</span></code> flag to indicate that you
+are running a metagenomic assembly. This flag is crucial and would mean
+a big difference between assembling a single genome versus multiple
+genomes from a community (i.e., metagenomes). I am also specifying the
+<code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">300</span></code> to indicate that there is 300 GB memory limit with the
+compute nodes on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
+<p><strong>Warning</strong>: It will take a while to run and complete metaSPAdes due to
+the large metagenomic data size. In my test run, it took about 3 hours
+to complete. So you will not be able to inspect the results until after
+the class is over but you should still submit the job to put it in the
+job queue. If the job did not finish within the 4 hours allowed, there
+is an option to continue the assembly. <code class="docutils literal notranslate"><span class="pre">SPAdes</span></code> can continue from the
+last check point based on the log and intermediate files it produced in
+a previous run.</p>
+</div>
+</div>
+<div class="section" id="checking-assembly-metrics-using-quast">
+<h2>Checking assembly metrics using Quast<a class="headerlink" href="#checking-assembly-metrics-using-quast" title="Permalink to this headline">¶</a></h2>
+<p>You should be able to inspect the metagenome assembly produced by
+<code class="docutils literal notranslate"><span class="pre">megahit</span></code> during class but you would have to inspect the metaSPAdes
+assembly results most likely after the class. Remember the <code class="docutils literal notranslate"><span class="pre">quast.py</span></code>
+command you used last week to check assembly metrics? Use the same type
+of commands. You can either run Quast on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> or you can first
+download the assembly results to your laptop and then run Quast on your
+local computer. It is up to you. However, you will still need to
+download the results to your laptop to view some of the files (such as
+PDF files or html files showing interactive plots).</p>
+<p>I will not display the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command to download files now because
+some of you have not completed the assignment 3 and I do not want to
+give away the answers here. I want you to first figure out how to
+download files to your laptop.</p>
+<div class="section" id="checking-megahit-assembly-results">
+<h3>Checking megahit assembly results<a class="headerlink" href="#checking-megahit-assembly-results" title="Permalink to this headline">¶</a></h3>
+<p>I ran a <code class="docutils literal notranslate"><span class="pre">megahit</span></code> assembly on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> and it produced a folder
+name <code class="docutils literal notranslate"><span class="pre">megahit_assembly</span></code>. If you look into the folder, you will see the
+following files:</p>
+<div class="figure align-default" id="id1">
+<img alt="Megahit result" src="_images/megahit_res.png" />
+<p class="caption"><span class="caption-text">Megahit result</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>You will need to run Quast on the files named <code class="docutils literal notranslate"><span class="pre">final.contigs.fa</span></code> file.</p>
+</div>
+<div class="section" id="checking-metaspades-assembly-results">
+<h3>Checking metaSPAdes assembly results<a class="headerlink" href="#checking-metaspades-assembly-results" title="Permalink to this headline">¶</a></h3>
+<p>As for metaSPAdes assembly, you should look into the output folder
+produced by metaSPAdes and run Quast on the <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> file. Make
+sure you run Quast on both Megahit and metaSPAdes assemblies. Then
+compare assembly metrics produced by the two different assemblers. What
+do you see?</p>
+</div>
+</div>
+<div class="section" id="download-data-for-unicycler-assembly">
+<h2>Download data for unicycler assembly<a class="headerlink" href="#download-data-for-unicycler-assembly" title="Permalink to this headline">¶</a></h2>
+<p>Today, in addition to running metagenomic assemblies, you will learn how
+to run hybrid assemblies using both short-read Illumina and long-read
+Nanopore sequences. The tool we will be using for this hybrid assembly
+is known as “<strong>Unicycler</strong>” and the paper describing the tool is found
+here:
+<a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005595">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005595</a>
+and the Github wiki page to learn more about the tool is found here:
+<a class="reference external" href="https://github.com/rrwick/Unicycler">https://github.com/rrwick/Unicycler</a>.</p>
+<p>This tool was specifically written to be able to handle long-read
+Nanopore sequences that can reach well over several thousands or million
+of bases in some cases. This tool, in conjunction with the long-read
+Nanopore data, makes it possible to assemble complex genomes with highly
+repetitive sequence regions that would otherwise interfere with correct
+genome assembly. It also makes it possible to assemble near-complete
+genomes due to long reads that can help to span multiple gap regions
+that usualy exist in normal short-read assemblies.</p>
+<p>Today, we will use publicly available hybrid data used in a recent study
+to assemble the complete genome of <em>Janthinobacterium lividum</em> EIF2
+published in this journal:
+<a class="reference external" href="https://academic.oup.com/gbe/advance-article/doi/10.1093/gbe/evaa148/5870831">https://academic.oup.com/gbe/advance-article/doi/10.1093/gbe/evaa148/5870831</a></p>
+<p>The raw data have been deposited to NCBI at the following links:</p>
+<p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRR11070452">https://www.ncbi.nlm.nih.gov/sra/SRR11070452</a></p>
+<p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRR11070453">https://www.ncbi.nlm.nih.gov/sra/SRR11070453</a></p>
+<p>Download those two files to your <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. Use
+the <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> command which will be available after installing
+the <code class="docutils literal notranslate"><span class="pre">sra-tools</span></code> through <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<p>Go to your <code class="docutils literal notranslate"><span class="pre">data</span></code> folder and create an sbatch script that contains
+these commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fasterq-dump --split-3 SRR11070452
+
+fasterq-dump --split-3 SRR11070453
+</pre></div>
+</div>
+<p>Then submit the sbatch script to run the <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool. At the
+end of the download process, you should have 2 fastq files that are from
+Illumina sequencing and 1 fastq file from Nanopore sequencing. You would
+still need to perform read trimming on those reads. Use the <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code>
+example I have shown for trimming metagenomic reads (scroll up) and
+write an sbatch script to run read trimming of Illumina read using
+<code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code>.</p>
+<p>To perform read trimming of Nanopore reads by quality, we use the tool
+<code class="docutils literal notranslate"><span class="pre">filtlong</span></code>. See here: <a class="reference external" href="https://github.com/rrwick/Filtlong">https://github.com/rrwick/Filtlong</a></p>
+<p>An example command to trim Nanopore reads is shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>filtlong --min_length <span class="m">1000</span> --keep_percent <span class="m">90</span> reads.fastq.gz &gt; reads.trimmed.fastq.gz
+</pre></div>
+</div>
+<p>Submit an sbatch script containing a command similar to above to trim
+your Nanopore reads.</p>
+</div>
+<div class="section" id="run-unicycler-assembly-on-cerberus">
+<h2>Run unicycler assembly on cerberus<a class="headerlink" href="#run-unicycler-assembly-on-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>After downloading the data and performing read trimming, you should be
+able to run <code class="docutils literal notranslate"><span class="pre">unicycler</span></code> on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. Again, make sure to submit
+the job using an sbatch script. An example script is shown below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o assm.%j.out</span>
+<span class="c1">#SBATCH -e assm.%j.err</span>
+<span class="c1">#SBATCH -p defq</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -D /home/jsaw/exercises</span>
+<span class="c1">#SBATCH -J ASSM</span>
+<span class="c1">#SBATCH -t 4:00:00</span>
+
+unicycler <span class="se">\</span>
+    -1 ../data/hybrid/SRR11070453_1.fastq.gz <span class="se">\</span>
+    -2 ../data/hybrid/SRR11070453_2.fastq.gz <span class="se">\</span>
+    -l ../data/hybrid/SRR11070452.fastq.gz <span class="se">\</span>
+    -t <span class="m">24</span> <span class="se">\</span>
+    -o unicycler_assembly
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-1</span></code> and <code class="docutils literal notranslate"><span class="pre">-2</span></code> are to specify the Illumina read pairs and the
+<code class="docutils literal notranslate"><span class="pre">-l</span></code> is to specify the Nanopore read. The <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">24</span></code> is telling the
+assembler to use 24 CPU cores and the <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">unicycler_assembly</span></code> flag is
+to redirect output to that folder. Submit an sbatch script similar to
+this one and it will run for a few hours. Unicycler also uses SPAdes
+during certain stages to correct errors usually present in Nanopore
+reads using the Illumina data. Let it run and you can inspect the
+results after the class is over.</p>
+</div>
+<div class="section" id="run-metabat2-on-your-own-after-class">
+<h2>Run Metabat2 on your own after class<a class="headerlink" href="#run-metabat2-on-your-own-after-class" title="Permalink to this headline">¶</a></h2>
+<p>Metabat2 is a high-throughput tool to perform metagenomic binning using
+differential coverage binning approach. It ideally requires multiple
+metagenomic samples to accurately bin (separate) contigs produced by
+metagenome assemblers into respective bins that should theoretically
+belong to individual organisms. You can read the paper about the tool
+here: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6662567/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6662567/</a></p>
+<p>And the code repository where they explain how to use it is located
+here: <a class="reference external" href="https://bitbucket.org/berkeleylab/metabat/src/master/">https://bitbucket.org/berkeleylab/metabat/src/master/</a></p>
+<p>After metaSPAdes assembly is finished, you will use Metabat2 to perform
+binning of contigs produced by the assembler. There are several steps
+involved in binning metagenomes and I have written down these steps in a
+minimal example as shown in the <strong>sbatch script</strong> below. You will use
+this sbatch script as an example to run Metabat2 run on your own (do
+this on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>). <strong>Again</strong>, please do not copy-paste this command
+on your terminal window on Cerberus. You will need to create an sbatch
+script to submit a job to run a proper computational job on the remote
+computer.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH -o binning.%j.out</span>
+<span class="c1">#SBATCH -e binning.%j.err</span>
+<span class="c1">#SBATCH -p defq</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -D /home/jsaw/exercises</span>
+<span class="c1">#SBATCH -J binning</span>
+<span class="c1">#SBATCH -t 4:00:00</span>
+
+<span class="c1">## extract contigs</span>
+<span class="nb">cd</span> spades_meta
+seqtk comp contigs.fasta <span class="p">|</span> awk <span class="s1">&#39;{if($2 &gt;= 1000) print $1}&#39;</span> &gt; contigs_gt1kb.list
+seqtk subseq contigs.fasta contigs_gt1kb.list &gt; contigs_gt1kb.fasta
+
+<span class="c1">## run mapping and sorting bam files</span>
+mkdir binning
+<span class="nb">cd</span> binning
+bbwrap.sh <span class="se">\</span>
+    <span class="nv">ref</span><span class="o">=</span>../contigs_gt1kb.fasta <span class="se">\</span>
+    <span class="nv">in1</span><span class="o">=</span>../../../data/SRR7905025_1.trimmed.fastq.gz <span class="se">\</span>
+    <span class="nv">in2</span><span class="o">=</span>../../../data/SRR7905025_2.trimmed.fastq.gz <span class="se">\</span>
+    <span class="nv">out</span><span class="o">=</span>SRR7905025.bam <span class="se">\</span>
+    <span class="nv">t</span><span class="o">=</span><span class="m">16</span> <span class="se">\</span>
+    nodisk
+
+samtools sort -O bam -@ <span class="m">16</span> SRR7905025.bam &gt; SRR7905025.sorted.bam
+rm SRR7905025.bam
+
+<span class="c1">## summarize bam files</span>
+jgi_summarize_bam_contig_depths <span class="se">\</span>
+    --outputDepth depth_min1500.txt <span class="se">\</span>
+    --pairedContigs paired_min1500.txt <span class="se">\</span>
+    --minContigLength <span class="m">1500</span> <span class="se">\</span>
+    --minContigDepth <span class="m">2</span> *.sorted.bam
+
+<span class="c1">## run metabat</span>
+metabat2 -i ../contigs_gt1kb.fasta -a depth_min1500.txt -o bins/bin -t <span class="m">24</span>
+</pre></div>
+</div>
+<p>As you can see in the example commands, you need to use a number of
+tools here. For example, <code class="docutils literal notranslate"><span class="pre">seqtk</span></code>, <code class="docutils literal notranslate"><span class="pre">bbwrap.sh</span></code>, <code class="docutils literal notranslate"><span class="pre">samtools</span></code>,
+<code class="docutils literal notranslate"><span class="pre">jgi_summarize_bam_contig_depths</span></code>, and <code class="docutils literal notranslate"><span class="pre">metabat2</span></code> are new commands
+you are not familiar with. Before they are avaiable in your commandline
+prompt on Cerberus, you will need to make sure you install the following
+tools using the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">seqtk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bbmap</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">samtools</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metabat2</span></code></p></li>
+</ul>
+<p>More instructions will be posted later on interpreting the binning
+results.</p>
+</div>
+<div class="section" id="run-checkm-on-your-own-after-class">
+<h2>Run CheckM on your own after class<a class="headerlink" href="#run-checkm-on-your-own-after-class" title="Permalink to this headline">¶</a></h2>
+<p>CheckM is a commonly used tool to check genome completeness and
+contamination levels mostly in metagenome-assembled genomes (MAGs). The
+paper describing the tool and its usage can be found here:
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4484387/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4484387/</a>.</p>
+<p>Briefly, the tool checks for conserved single-copy marker genes present
+in microbial (bacterial and archaeal) genomes to determine how complete
+a genome assembly is and if there are any signs of contamination.
+Contamination is especially important factor to consider in
+metagenome-assembled genomes because binning tools are not perfect and
+they can sometimes put contigs originating from two organisms into the
+same bin, thereby creating an artifical genome construct that is not
+real. This will cause a lot of problems downstream when you are
+analyzing these genomes and discover that some contigs that don’t belong
+are showing up in your analysis and thus throwing of your interpretation
+of the gene contents or other things.</p>
+<p>Therefore, it is imperative that you carefully check for signs of
+contamination and to inspect MAGs that might have been contaminated
+through the binning process. CheckM is therefore useful for quickly
+assessing both completeness and contamination levels of assembled
+genomes. To install <code class="docutils literal notranslate"><span class="pre">checkm</span></code>, you can type
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">checkm-genome</span></code> first to install it through <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<p>After this step, you need to download and configure the reference
+database it needs to look up when anaylzing the MAGs you have obtained.
+The reference data can be downloaded here:</p>
+<p><a class="reference external" href="https://data.ace.uq.edu.au/public/CheckM_databases/">https://data.ace.uq.edu.au/public/CheckM_databases/</a></p>
+<p>On <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, I downloaded the file in a folder named as
+<code class="docutils literal notranslate"><span class="pre">checkm_data</span></code> by typing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://data.ace.uq.edu.au/public/CheckM_databases/checkm_data_2015_01_16.tar.gz
+</pre></div>
+</div>
+<p>Then to extract and uncompress data from this zip archive file, I typed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -xzf checkm_data_2015_01_16.tar.gz
+</pre></div>
+</div>
+<p>This command will release a bunch of files that <code class="docutils literal notranslate"><span class="pre">checkm</span></code> needs to
+correctly run. After typing the <code class="docutils literal notranslate"><span class="pre">tar</span></code> command, I type the following to
+set this folder as the root folder to contain all the reference data.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>checkm data setRoot .
+</pre></div>
+</div>
+<p>This should be it to correctly install and set up <code class="docutils literal notranslate"><span class="pre">checkm</span></code> to run. You
+should first make sure you have results available to analyze from your
+metagenome binning work. This means you need to first make sure that
+Metabat2 run correctly and then you can run <code class="docutils literal notranslate"><span class="pre">checkm</span></code> on the results.</p>
+<div class="section" id="checking-completeness-and-contamination-of-mags">
+<h3>Checking completeness and contamination of MAGs<a class="headerlink" href="#checking-completeness-and-contamination-of-mags" title="Permalink to this headline">¶</a></h3>
+<p>To check completeness and contamination of MAGs obtained by Metabat2
+run, go into the directory where the results are located. For example, I
+would go into the directory where I ran the metaSPAdes assembly, which
+is located here:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/exercises/spades_meta
+</pre></div>
+</div>
+<p>There is a subfolder named <code class="docutils literal notranslate"><span class="pre">binning</span></code> that was created as a result of
+the Metabat2 run I just did. In this <code class="docutils literal notranslate"><span class="pre">binning</span></code> folder, there should be
+another subfolder named <code class="docutils literal notranslate"><span class="pre">bins</span></code>. This folder should contain
+metagenome-assembled genome bins with extension “.fa”. You should create
+an sbatch script in the <code class="docutils literal notranslate"><span class="pre">spades_meta</span></code> folder, for example that looks
+like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o checkm.%j.out</span>
+<span class="c1">#SBATCH -e checkm.%j.err</span>
+<span class="c1">#SBATCH -p defq</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -D /home/jsaw/exercises/spades_meta</span>
+<span class="c1">#SBATCH -J CHECKM</span>
+<span class="c1">#SBATCH -t 4:00:00</span>
+
+checkm lineage_wf -f CheckM.txt -t <span class="m">24</span> -x fa binning/bins checkm_out
+</pre></div>
+</div>
+<p>So this sbatch script is directing <code class="docutils literal notranslate"><span class="pre">checkm</span></code> to look into the
+<code class="docutils literal notranslate"><span class="pre">binning/bins</span></code> subfolder where the MAGs are located. The <code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">fa</span></code>
+just means to look for all files with extension “.fa”. It will run using
+24 CPU cores as indicated by the <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">24</span></code> option. It takes a while to
+get results in but at the end of the process, you wil have a text file
+name <code class="docutils literal notranslate"><span class="pre">CheckM.txt</span></code> which contains completeness and contamination
+estimates for the MAGs. You can see the contents of this text file by
+typing <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">CheckM.txt</span></code> to print file content to your terminal.</p>
+</div>
+</div>
+<div class="section" id="run-refinem-on-your-own-after-class">
+<h2>Run RefineM on your own after class<a class="headerlink" href="#run-refinem-on-your-own-after-class" title="Permalink to this headline">¶</a></h2>
+<p>The research group developed CheckM also developed a tool known as
+RefineM to automatically detect and remove contigs in
+metagenome-assembled genomes (MAGs) that may otherwise require manual
+intervention. This is very helpful if you have hundreds or thousands of
+MAGs to analyze. This tool automates the process. However, manual bin
+refinement is still important and should not be overlooked, especially
+for evolutionarily significant lineages that require careful analysis.
+You should have already installed RefineM tool using <code class="docutils literal notranslate"><span class="pre">conda</span></code>. I have
+provided an example sbatch script below on how to run <code class="docutils literal notranslate"><span class="pre">refinem</span></code> on
+<code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH -o refinem.%j.out</span>
+<span class="c1">#SBATCH -e refinem.%j.err</span>
+<span class="c1">#SBATCH -p defq</span>
+<span class="c1">#SBATCH -N 1</span>
+<span class="c1">#SBATCH -D /home/jsaw/exercises/spades_meta</span>
+<span class="c1">#SBATCH -J ASSM</span>
+<span class="c1">#SBATCH -t 4:00:00</span>
+
+<span class="nb">cd</span> binning/
+samtools index -@ <span class="m">4</span> SRR7905025.sorted.bam
+<span class="nb">cd</span> ../
+
+refinem scaffold_stats -c <span class="m">4</span> contigs_gt1kb.fasta binning/bins refinem_out binning/*.sorted.bam --genome_ext fa
+refinem outliers refinem_out/scaffold_stats.tsv refinem_out
+refinem filter_bins binning/bins refinem_out/outliers.tsv filtered_bins --genome_ext fa
+</pre></div>
+</div>
+<p>This script assumes that you have already run metagenomic binning using
+Metabat2. The files that <code class="docutils literal notranslate"><span class="pre">refinem</span></code> are expecting have been produced as
+a result of <code class="docutils literal notranslate"><span class="pre">metabat2</span></code> run that was previously performed. At the end
+of this process, you will have a folder named <code class="docutils literal notranslate"><span class="pre">filtered_bins</span></code> which
+will contain refined bins/MAGs (same number as produced by Metabat2)
+that should have cleaner bins with most likely contaminants removed from
+them. To really test whether or not this bin refinement worked, you
+should ideally run <code class="docutils literal notranslate"><span class="pre">checkm</span></code> again on these filtered bins to see if the
+metrics improved or not.</p>
+</div>
+<div class="section" id="going-further">
+<h2>Going further<a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h2>
+<p>Now that you know how to run metagenome assemblies, binning, refinement
+and checking of bin qualities. Run metagenomic binning on contigs
+produced by the <code class="docutils literal notranslate"><span class="pre">megahit</span></code> assembly. Then perform <code class="docutils literal notranslate"><span class="pre">checkm</span></code> to see how
+good the bins are in comparison to those assembled with metaSPAdes.</p>
+</div>
+<div class="section" id="things-for-you-to-find-out-after-you-complete-the-exercises">
+<h2>Things for you to find out after you complete the exercises<a class="headerlink" href="#things-for-you-to-find-out-after-you-complete-the-exercises" title="Permalink to this headline">¶</a></h2>
+<p>At the end of all these exercises, which may take over a few days to
+complete, you should find out the following.</p>
+<ol class="arabic simple">
+<li><p>How many contigs did your metaSPAdes metagenome assembly produce?</p></li>
+<li><p>How many contigs did your megahit metagenome assembly produce?</p></li>
+<li><p>What is the size of the largest contig in each of these assemblies?</p></li>
+<li><p>What did the genome completeness and contamination results from
+CheckM tell you about these 2 assemblers?</p></li>
+<li><p>Which assembler is faster to run a metagenome assembly?</p></li>
+</ol>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Exercises for Week 5</a><ul>
+<li><a class="reference internal" href="#recap-job-submission-on-cerberus">Recap job submission on Cerberus</a></li>
+<li><a class="reference internal" href="#install-tools-needed-for-todays-exercises">Install tools needed for today’s exercises</a></li>
+<li><a class="reference internal" href="#run-metagenome-assemblies-on-cerberus">Run metagenome assemblies on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a><ul>
+<li><a class="reference internal" href="#trimming-raw-metagenomic-reads">Trimming raw metagenomic reads</a></li>
+<li><a class="reference internal" href="#running-metagenomic-assembly-using-megahit">Running metagenomic assembly using Megahit</a></li>
+<li><a class="reference internal" href="#running-metagenomic-assembly-using-metaspades">Running metagenomic assembly using metaSPAdes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#checking-assembly-metrics-using-quast">Checking assembly metrics using Quast</a><ul>
+<li><a class="reference internal" href="#checking-megahit-assembly-results">Checking megahit assembly results</a></li>
+<li><a class="reference internal" href="#checking-metaspades-assembly-results">Checking metaSPAdes assembly results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#download-data-for-unicycler-assembly">Download data for unicycler assembly</a></li>
+<li><a class="reference internal" href="#run-unicycler-assembly-on-cerberus">Run unicycler assembly on cerberus</a></li>
+<li><a class="reference internal" href="#run-metabat2-on-your-own-after-class">Run Metabat2 on your own after class</a></li>
+<li><a class="reference internal" href="#run-checkm-on-your-own-after-class">Run CheckM on your own after class</a><ul>
+<li><a class="reference internal" href="#checking-completeness-and-contamination-of-mags">Checking completeness and contamination of MAGs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#run-refinem-on-your-own-after-class">Run RefineM on your own after class</a></li>
+<li><a class="reference internal" href="#going-further">Going further</a></li>
+<li><a class="reference internal" href="#things-for-you-to-find-out-after-you-complete-the-exercises">Things for you to find out after you complete the exercises</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/exercises_week5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Exercises for Week 5</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
