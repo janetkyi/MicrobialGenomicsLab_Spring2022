@@ -22,6 +22,8 @@ Welcome to Microbial Genomics Lab Spring 2022
    GenomeAssemblies
    Week4
    exercises_week4
+   Week5
+   exercises_week5
 
 .. Indices and tables
 .. ==================
