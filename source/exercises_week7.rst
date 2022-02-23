@@ -16,9 +16,10 @@ Install and run ``prokka``
 Today, you will install and run ``prokka``, a tool written by Torsten
 Seemann, who also wrote the tool ``barrnap`` you used last week. This is
 a tool to automatically annotate bacterial or archaeal genomes rapidly.
-See here for the original paper describing Prokka
-(https://pubmed.ncbi.nlm.nih.gov/24642063/) and the Github page
-(https://github.com/tseemann/prokka) to see how to run this tool.
+See here for the original paper describing
+`Prokka <https://pubmed.ncbi.nlm.nih.gov/24642063/>`__ and the Github
+`page <https://github.com/tseemann/prokka>`__ to see how to run this
+tool.
 
 Back in the old days, microbial genome annotation involves first
 predicting open reading frames (ORFs) first, then running BLAST searches
