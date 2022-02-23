@@ -1,0 +1,242 @@
+Computational Exercises
+-----------------------
+
+Go over last week’s exercises
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  ``barrnap`` search results
+-  remote BLAST runs using the command line
+-  web-based BLAST searches
+-  GTDB-Tk search results
+-  phylogenetic tree built using the 16S rRNA gene
+
+Install and run ``prokka``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Today, you will install and run ``prokka``, a tool written by Torsten
+Seemann, who also wrote the tool ``barrnap`` you used last week. This is
+a tool to automatically annotate bacterial or archaeal genomes rapidly.
+See here for the original paper describing
+`Prokka <https://pubmed.ncbi.nlm.nih.gov/24642063/>`__ and the Github
+`page <https://github.com/tseemann/prokka>`__ to see how to run this
+tool.
+
+Back in the old days, microbial genome annotation involves first
+predicting open reading frames (ORFs) first, then running BLAST searches
+against known reference databases from NCBI in order to predict
+biological functions of coding sequences identified from microbial
+genomes. This involves carefully sifting through thousands of BLAST
+search results and manually checking them before assigning putative
+functions. We’ve come a long way from those days and now you can run
+tools like Prokka to quickly predict both amino acid and RNA coding
+regions in microbial genomes. Though it does a good job of assigning
+functions to these hypothetical proteins, it is not perfect and careful
+manual checking would still be considered a good practice to make sure
+that proteins are not misannotated.
+
+Misannotated proteins are a big problem because there is almost no way
+for someone to manually check them for accuracy before they get
+submitted to Genbank for archival. These errenous records then get
+propagated when someone searches for an unknown protein of interest,
+found a misannotated protein, then use that functional assignment as
+true. So, although we use Prokka to routinely annotate microbial genomes
+prior to submission to the NCBI, a better way to make sure the genomes
+are properly annotated is to use NCBI’s Prokaryotic Genome Annotation
+Pipeline (PGAP) tool
+(https://www.ncbi.nlm.nih.gov/genome/annotation_prok/).
+
+This tool is good because it is a tool used by NCBI to check and make
+sure functional annotations are consistent and conform to NCBI’s
+standards. PGAP is available as a web tool (used when you submit a
+microbial genome for archival) or as a standalone tool
+(https://github.com/ncbi/pgap). However, it takes quite a bit of space
+to install and run it (100 GB). Because of this, we won’t be using this
+tool in class this time but Prokka to annotate microbial genomes.
+
+Use ``conda`` to install Prokka either on your laptop or on
+``cerberus``. Prokka is pretty light-weight tool that it will still run
+quite well if you run it on your laptop computer. However, it has some
+issues installing it through ``conda`` right off the bat. You should use
+the following command to create a virtual environment for Prokka and
+then activate the environment before running it.
+
+.. code:: bash
+
+   conda create -n prokka_env -c conda-forge -c bioconda prokka
+
+   conda activate prokka_env
+
+The latest version is 1.14.6. Once it’s installed, it is quite easy to
+run Prokka to annotate a genome. In today’s exercise, you will choose
+one of the MAGs you have obtained from a Metabat2 binning of your
+metaSPAdes assembly from last week. Just take one of the bins to run
+Prokka on (if the bin has a 16S, it would be easier to identify its
+lineage but bins without 16S are also ok to choose).
+
+An example command to run Prokka is shown below.
+
+.. code:: bash
+
+   prokka --outdir prokka_out --prefix bin10 --cpus 4 bin.10.fa
+
+If you are running ``prokka`` on ``cerberus``, please make sure to use
+an sbatch script to run it (**Do not run it on the login node**). The
+``prokka_out`` folder is the directory in which you will find Prokka
+results. In this case, I am using 4 CPU cores to run it. After the
+Prokka run has finished, go into the folder and see what files are being
+produced. The files ending with ``.faa`` contains amino acid sequences
+of coding regions identified in a given microbial genome. This is the
+file you will need for the next part of the exercise today. The file
+that ends with a ``.tsv`` contains tab-delimited entries of coding
+regions identified and their functional assignments.
+
+Look through the results to see what kind of functional proteins are
+being predicted by Prokka. The file that ends with a ``.gbf`` is a
+Genbank format file containing both DNA and amino acid sequences of the
+genome and detailed annotations of the regions (such as coordinates of
+the genes identified along the genome and on which contig, for example).
+The file that ends with a ``.ffn`` contains coding DNA sequences (genes)
+instead of the amino acid sequences that were translated from the
+primary DNA sequence. These are the main file formats you should be
+familiar with.
+
+Prokka also produced files with ``.err`` in which you will find some
+errors or problems encountered by Prokka during this run. The file that
+ends with a ``.val`` contains messages from the NCBI validation tool
+that can check for mistakes in ``.sqn`` files that was generated as part
+of the pipeline and is the file you will need to submit to NCBI Genbank
+when submitting a genome there.
+
+Introduction to KEGG and GhostKOALA
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Today, you will use this web-based tool known as GhostKOALA, which is a
+tool used for functional characterization of genomes and metagenomes.
+See the paper describing the tool here:
+https://pubmed.ncbi.nlm.nih.gov/26585406/. It is a tool to automatically
+assign KEGG Orthology (KO) to any genomic sequences of any origin (both
+prokaryotes and eukaryotes). KEGG stands for Kyoto Encyclopedia for
+Genes and Genomes and the website can be found here:
+https://www.genome.jp/kegg/. KEGG is a really useful database for
+biologists to identify, characterize, and reconstruct metabolic pathways
+in their organisms of interest and to see whether they might be able to
+perform certain metabolic functions based on proteins identified in
+their genomes.
+
+KEGG website also as this KAAS tool (KEGG Automatic Annotation Server),
+which performs similar functions as GhostKOALA. But GhostKOALA is
+becoming more popular to use because it can also handle metagenomic
+data. KAAS is meant for single genomes. KEGG also maintains a database
+of genomes with KEGG annotations so that you can quickly look up their
+metabolic pathway maps. For example, if you click on this link
+(https://www.genome.jp/kegg/genome.html) and choose “KEGG organisms”, it
+will give you a list of organisms (both prokaryotes and eukaryotes), the
+year in which their genomes were sequenced, their source of genomic
+sequence, and urls taking you to the annotated page of a particular
+genome. If you are interested in looking at the pathway map of *E. coli*
+O157:H7 (there are many!) which causes enterohemorrhagic colitis, click
+here as an example:
+https://www.genome.jp/kegg-bin/show_organism?org=ece.
+
+This brings you to a summary page of this organism and show you a bunch
+of things including papers describing the organism/genome. Click on the
+“Pathway map” link near the top. This will give you a list of metabolic
+pathways identified in this genome. Click on link to “Pathogenic
+Escherichia coli infection”
+(https://www.genome.jp/kegg-bin/show_pathway?ece05130) and you will see
+a number of proteins and pathways identified involved in causing this
+disease. This pathway is a bit more complicated because it describes not
+just the pathogenic components in *E. coli* but also how the host immune
+system responds to the infection. As the map shows, you can see that
+this pathogenic *E. coli* uses the Type III secretion system to deliver
+effectors into host cells. Those highlighted in green indicates they are
+present in genes encoded in this particular *E. coli*\ ’s genome. You
+can also see which effectors are causing problems or interferring with
+host immune system components.
+
+Now, go back to the previous page showing a list of metabolic pathways.
+Click on a pathway that’s something else other than disease related. For
+example, click on “Glycolysis/Gluconeogenesis” and it will show you the
+pathway map showing all the components (both metabolites and enzymes)
+involved in the pathway. Again, those in green indicate these enzymes
+are present in this *E. coli* genome. Click on the green icon with the
+numbers “5.4.2.2”. These are what we called “Enzyme Commission” numbers.
+We will come back to these numbers in a bit. So this particular enzyme
+is known as phosphoglucomutase, which is responsible for interconverting
+D-Glucose 1-phosphate and alpha-D-Glucose 6-phosphate. In this page
+(https://www.genome.jp/dbget-bin/www_bget?ece:Z0837) you can see both
+the DNA and amino acid sequences of this enzyme. On the right, you will
+see a number of links. Click on “KEGG REACTION” link. You will see 3
+reaction identification numbers and their definitions. Click on the
+first one. It will show you chemical structures of the two metabolites
+that this enzyme can interconvert.
+
+Click a few more additional metabolic pathway maps to explore the
+enzymes and metabolites found in them. In some pathways, if there are a
+lot of blanks (white boxes) for certain enzymes, then these pathways may
+not be complete and the organism may not be able to perform the stated
+functions. These are incomplete pathways and this may indicate that the
+organism may have at some point in their evolutionary history hosted a
+complete pathway but losing it due to gene loss. This happens a lot in
+strictly endosymbiotic organisms (such as bacteria found in the cells of
+aphids or other insects, for example). They have become endosymbiotic
+organisms and may rely on the host to provide some of the nutrients in
+exchange for something that they produce.
+
+Go back to the list of KEGG organisms page and click on *Buchnera
+aphidicola* APS (https://www.genome.jp/kegg-bin/show_organism?org=buc).
+This is an organism that has co-evolved together with pea aphid and in
+the process of their co-evolution, lost a significant number of genes
+and now left with a very reduced genome of roughly 640K bases. Click on
+the pathway map. From the list of pathways, explore those related to
+“Amino acid metabolism”. Can you identify which pathways are incomplete?
+And can you identify which amino acids the organism is unable to
+synthesize on its own?
+
+Running GhostKOALA on one of the genomes annotated by Prokka
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Next, you will take one of the genomes annotated by Prokka earlier and
+submit it to GhostKOALA website (https://www.kegg.jp/ghostkoala/) to
+annotate and reconstruct pathway maps in your MAGs. Chose one of the
+MAGs you have just annotated using Prokka and upload it to GhostKOALA
+website. There is an option to upload your ``.faa`` files in this page.
+After clicking on “Browse” button and uploading your amino acid
+sequences, choose “genus_prokaryotes” option below, provide your email
+address in a box below, then click on “Request for email confirmation”
+button. You will get an email to confirm your job request and will need
+to click on the link in this email in order to proceed with this
+automatic annotation.
+
+After that, you will wait a few minutes and you will get another email
+telling you that the job has finished and with a link to the annotation
+page. Once you get a URL to the annotation page, click on that and you
+will see two pie charts showing summaries of metabolic functions
+identified in your genome and a taxonomic breakdown of the proteins
+identified. Click on “Reconstruct Pathway” link and explore some of the
+pathways identified. Can you tell which ones are complete or incomplete?
+This is a time-consuming step because there can be thousands of enzymes
+involved in the pathways it is not easy to go through them all quickly.
+This is the part you will spend a lot of time one when analyzing a
+genome.
+
+To speed up analysis, click on “Module” tab near the top of the page.
+Here, the KEGG mapper has automatically identified complete metabolic
+modules in this genome. Metabolic modules are sub-components or blocks
+of pathways that are part of a bigger pathway map. For example, within
+the Glycolysis pathway, you can have “M00001 Glycolysis (Embden-Meyerhof
+pathway), glucose => pyruvate” and “M00002 Glycolysis, core module
+involving three-carbon compounds”. By default, it will only list the
+complete modules. If you click on one of the radio buttons for
+“including 1 block missing” and click “Exec”, it will list additional
+modules that are nearly complete but missing one block. This helps you
+to identify if some pathways might be nearly complete and if one enzyme
+is missing due to misannotation. You can also take steps to look for a
+missing enzyme to see if it’s missing due to incomplete nature of the
+genome or due to something else.
+
+Click on one of the complete modules and see what it shows and compare
+it with one of the incomplete modules (missing 1 block). Can you
+identify what’s missing in one of the incomplete modules and what they
+are? Based on some of the complete modules, what you can deduce from
+looking at the metabolic pathway maps of this organism?
