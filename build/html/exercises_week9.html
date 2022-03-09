@@ -1,0 +1,575 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computational Lab Exercises &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Week 9" href="Week9.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Week9.html" title="Week 9"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Computational Lab Exercises</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS overrides for cloud theme */
+
+/* nicer titles and more space for info and warning logos */
+
+div.admonition p.admonition-title {
+    background: rgba(0, 0, 0, .05);
+    margin: .5em -1em;
+    margin-top: -.5em !important;
+    padding: .5em .5em .5em 2.65em;
+}
+
+/* indent single paragraph */
+div.admonition {
+    text-indent: 20px;
+}
+/* don't indent multiple paragraphs */
+div.admonition > p {
+    text-indent: 0;
+}
+/* remove excessive padding */
+div.admonition.inline-title p.admonition-title {
+    padding-left: .2em;
+}
+</style>
+<div class="section" id="computational-lab-exercises">
+<h1>Computational Lab Exercises<a class="headerlink" href="#computational-lab-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-tools">
+<h2>Install Tools<a class="headerlink" href="#install-tools" title="Permalink to this headline">¶</a></h2>
+<p>You will need to install the following tools for today’s exercises. Use
+<code class="docutils literal notranslate"><span class="pre">conda</span></code> to install the following tools</p>
+<ul class="simple">
+<li><p>fastANI</p></li>
+<li><p>Roary</p></li>
+<li><p>Anvi’o</p></li>
+</ul>
+<p>Use RStudio to install the following tools</p>
+<ul class="simple">
+<li><p>genoPlotR (you will first need to install base R and Rstudio tools on
+your laptop)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="run-fastani-to-compare-genomes">
+<h1>Run fastANI to compare genomes<a class="headerlink" href="#run-fastani-to-compare-genomes" title="Permalink to this headline">¶</a></h1>
+<p>FastANI is a tool to compare how similar one organism is to the other at
+the genomic level. Back in the day when scientists need to describe
+discovery of a new species, they would need to submit genomic DNA
+isolated from a pure culture to a lab that has genomic DNA of a known
+bacterial/archaeal strain and perform DNA-DNA hybridization experiments.
+Based on the percentages of hybridization, one can determine whether an
+organism of interest could be a new/novel species or not. This process
+is labor-intensive and time-consuming and can take weeks to months to
+get results.</p>
+<p>However, thanks to genomic revolution brought about by next-generation
+sequencing technologies, we now have vast numbers of genomic sequences
+of microbes and rapidly compare their genomes for similarties. This made
+it possible to perform <em>in silico</em> DNA-DNA hybridization or to use an
+alternative measure of relatedness using purely DNA sequences. One
+measure is known as the “Average Nucleotide Identity” or ANI for short.</p>
+<p>We now have tools that can perform genome-to-genome comparisons to
+calculate ANI between related organisms and tell you quickly how related
+one organism is to another at the genomic level. Some of the tools that
+are available are, PyANI (<a class="reference external" href="https://github.com/widdowquinn/pyani">https://github.com/widdowquinn/pyani</a>) and
+FastANI (<a class="reference external" href="https://github.com/ParBLiSS/FastANI">https://github.com/ParBLiSS/FastANI</a>). PyANI uses pairwise
+alignment tools such as BLAST or MUMmer to compare genomes and FastANI
+uses alignment-free method known as “Mashmap” algorithm, which is
+essentially a k-mer-based tool. Today, you will install and run
+<code class="docutils literal notranslate"><span class="pre">fastANI</span></code> to perform genome comparisons between some of the
+metagenomic bins you have constructed from several weeks ago. You will
+also download a few reference genomes available on NCBI website to
+perform comparisons.</p>
+<div class="section" id="install-fastani">
+<h2>Install fastANI<a class="headerlink" href="#install-fastani" title="Permalink to this headline">¶</a></h2>
+<p>You may run into problems installing fastANI on your laptop computer. I
+have tested installing it on Cerberus and it works fine. Follow the
+instructions below to install fastANI on <strong>Cerberus</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n fastani
+conda activate fastani
+conda install <span class="nv">fastani</span><span class="o">=</span><span class="m">1</span>.33
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-fastani-to-compare-bins-produced-by-metabat2">
+<h2>Use fastANI to compare bins produced by Metabat2<a class="headerlink" href="#use-fastani-to-compare-bins-produced-by-metabat2" title="Permalink to this headline">¶</a></h2>
+<p>First, navigate into the folder where you last obtained metagenomic bins
+from a metaSPAdes run. This folder contains all the bins with <code class="docutils literal notranslate"><span class="pre">.fa</span></code>
+extension. Then create a list containing the names of these <code class="docutils literal notranslate"><span class="pre">.fa</span></code>
+files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls *.fa &gt; fa.list
+</pre></div>
+</div>
+<p>Then run <code class="docutils literal notranslate"><span class="pre">fastANI</span></code> by typing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastANI --ql fa.list --rl fa.list -o fastANI_results.txt
+</pre></div>
+</div>
+<p>This will perform all-vs-all comparison of all the bins you have
+obtained from the metaSPAdes assembly/binning. This will produce a file
+named <code class="docutils literal notranslate"><span class="pre">fastANI_results.txt</span></code> file. If you type
+<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">fastANI_results.txt</span></code>, this will print all the contents to screen
+and you can see what’s in it. It will contain 5 columns of the
+following: query genome name, reference genome name, ANI value, count of
+bidirectional fragment mappings, and total query fragments.</p>
+<p>So if the first and second columns show the same name, that means you
+are looking at self matches. This means the third column will most
+likely be 100 or something close. In order to filter out self matches,
+you can type like this in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>awk <span class="s1">&#39;{if($1 != $2) print $0}&#39;</span> fastANI_results.txt
+</pre></div>
+</div>
+<p>This will print only rows that contain non-self matches, i.e., between
+different genomic bins. The goal is to see if you have any bins that
+might be related based on ANI values. Currently, the threshold to
+consider if two organisms belong to the same species is if the ANI is
+above 96% or higher. Based on the ANI values you have obtained, can you
+verify if these bins may be related? Also look at your GTDB-Tk results
+from a few weeks ago to see if you can corroborate these results. Your
+GTDB-Tk matches will reveal if these bins are related at, let’s say,
+<em>Phylum</em> or <em>Class</em> or <em>Order</em> levels, etc.</p>
+</div>
+<div class="section" id="use-fastani-to-compare-close-relatives-of-known-bacteria">
+<h2>Use fastANI to compare close relatives of known bacteria<a class="headerlink" href="#use-fastani-to-compare-close-relatives-of-known-bacteria" title="Permalink to this headline">¶</a></h2>
+<p>Now, we will download a few <em>E. coli</em> and <em>Salmonella</em> genomes available
+from NCBI and see how related they are to each other.</p>
+<p>First download these 5 <em>E. coli</em> genomes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/018/455/GCF_003018455.1_ASM301845v1/GCF_003018455.1_ASM301845v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/018/455/GCF_003018455.1_ASM301845v1/GCF_003018455.1_ASM301845v1_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/018/895/GCF_003018895.1_ASM301889v1/GCF_003018895.1_ASM301889v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/018/895/GCF_003018895.1_ASM301889v1/GCF_003018895.1_ASM301889v1_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/220/265/GCF_002220265.1_ASM222026v1/GCF_002220265.1_ASM222026v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/220/265/GCF_002220265.1_ASM222026v1/GCF_002220265.1_ASM222026v1_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/018/055/GCF_003018055.1_ASM301805v1/GCF_003018055.1_ASM301805v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/018/055/GCF_003018055.1_ASM301805v1/GCF_003018055.1_ASM301805v1_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/865/295/GCF_001865295.1_ASM186529v1/GCF_001865295.1_ASM186529v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/865/295/GCF_001865295.1_ASM186529v1/GCF_001865295.1_ASM186529v1_genomic.fna.gz</a></p></li>
+</ul>
+<p>Save these ftp links in a text file named <code class="docutils literal notranslate"><span class="pre">ecoli.txt</span></code>.</p>
+<p>Then download 5 <em>Salmonella</em> genomes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/558/355/GCF_001558355.2_ASM155835v2/GCF_001558355.2_ASM155835v2_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/558/355/GCF_001558355.2_ASM155835v2/GCF_001558355.2_ASM155835v2_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/079/245/GCF_002079245.1_ASM207924v1/GCF_002079245.1_ASM207924v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/079/245/GCF_002079245.1_ASM207924v1/GCF_002079245.1_ASM207924v1_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/324/975/GCF_003324975.1_ASM332497v1/GCF_003324975.1_ASM332497v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/324/975/GCF_003324975.1_ASM332497v1/GCF_003324975.1_ASM332497v1_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/900/325/GCF_002900325.1_ASM290032v1/GCF_002900325.1_ASM290032v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/900/325/GCF_002900325.1_ASM290032v1/GCF_002900325.1_ASM290032v1_genomic.fna.gz</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/325/255/GCF_003325255.1_ASM332525v1/GCF_003325255.1_ASM332525v1_genomic.fna.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/003/325/255/GCF_003325255.1_ASM332525v1/GCF_003325255.1_ASM332525v1_genomic.fna.gz</a></p></li>
+</ul>
+<p>Save these ftp links in a text file name <code class="docutils literal notranslate"><span class="pre">salmon.txt</span></code>.</p>
+<p>After downloading them, make sure you are putting them in the same
+folder. For example, in the <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder, create something like
+<code class="docutils literal notranslate"><span class="pre">comparisons</span></code> or something like that. Navigate into the folder and
+unzip the files by typing <code class="docutils literal notranslate"><span class="pre">gunzip</span> <span class="pre">*.gz</span></code>. After downloading and
+creating the text files as shown above, type the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cut -d <span class="s1">&#39;/&#39;</span> -f <span class="m">11</span> ecoli.txt <span class="p">|</span> sed <span class="s1">&#39;s/.gz//g&#39;</span> &gt; ecoli.list
+cut -d <span class="s1">&#39;/&#39;</span> -f <span class="m">11</span> salmon.txt <span class="p">|</span> sed <span class="s1">&#39;s/.gz//g&#39;</span> &gt; salmon.list
+cat ecoli.list salmon.list &gt; all.list
+</pre></div>
+</div>
+<p>Now you are ready to run <code class="docutils literal notranslate"><span class="pre">fastANI</span></code> tool. First, run an all-vs-all
+search containing all <em>E. coli</em> and <em>Salmonella</em> genomes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastANI --ql all.list --rl all.list -o all_vs_all_fastANI.txt
+</pre></div>
+</div>
+<p>Inspect the <code class="docutils literal notranslate"><span class="pre">all_vs_all_fastANI.txt</span></code> file and see what you can
+conclude from this. Try to run the same <code class="docutils literal notranslate"><span class="pre">awk</span></code> command to filter out
+self matches. It may be difficult to see what’s going on because of the
+number of similar organisms and varying levels of sequence similarities
+between their genomes. Now, we will run just on the <em>E. coli</em> genomes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastANI --ql ecoli.list --rl ecoli.list -o E2E_fastANI.txt
+</pre></div>
+</div>
+<p>What can you tell from the results? Use the <code class="docutils literal notranslate"><span class="pre">awk</span></code> command to filter
+out self matches.</p>
+<p>We now run <code class="docutils literal notranslate"><span class="pre">fastANI</span></code> on just the <em>Salmonella</em> genomes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastANI --ql salmon.list --rl salmon.list -o S2S_fastANI.txt
+</pre></div>
+</div>
+<p>What can you tell from the results? Use the <code class="docutils literal notranslate"><span class="pre">awk</span></code> command to filter
+out self matches.</p>
+<p>Now run <code class="docutils literal notranslate"><span class="pre">fastANI</span></code> between <em>E. coli</em> and <em>Salmonella</em> genomes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastANI --ql ecoli.list --rl salmon.list -o ecoli_vs_salmon_fastANI.txt
+</pre></div>
+</div>
+<p>Inspect the results from <em>E. coli</em> vs <em>Salmonella</em> <code class="docutils literal notranslate"><span class="pre">fastANI</span></code> results
+and compare them to the <code class="docutils literal notranslate"><span class="pre">fastANI</span></code> searches between same species. What
+can you conclude from these searches?</p>
+</div>
+<div class="section" id="genome-alignment-visualizations-to-check-for-variations-between-genomes-of-closely-related-organisms">
+<h2>Genome alignment visualizations to check for variations between genomes of closely related organisms<a class="headerlink" href="#genome-alignment-visualizations-to-check-for-variations-between-genomes-of-closely-related-organisms" title="Permalink to this headline">¶</a></h2>
+<p>Now, we will try to visualize genome alignments between closely or
+distantly related organisms. First we check alignments between two <em>E.
+coli</em> genomes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastANI -q GCF_003018455.1_ASM301845v1_genomic.fna -r GCF_003018895.1_ASM301889v1_genomic.fna --visualize -o viz_fastani.out
+</pre></div>
+</div>
+<p>If you haven’t already installed the required R package, start RStudio
+and install the R package known as <code class="docutils literal notranslate"><span class="pre">genoPlotR</span></code>. Type:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;genoPlotR&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;genoPlotR&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In your terminal, download this R script to the folder where you have
+just run the <code class="docutils literal notranslate"><span class="pre">fastANI</span></code>.</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/ParBLiSS/FastANI/master/scripts/visualize.R">https://raw.githubusercontent.com/ParBLiSS/FastANI/master/scripts/visualize.R</a></p>
+<p>Then type this command in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Rscript visualize.R GCF_003018455.1_ASM301845v1_genomic.fna GCF_003018895.1_ASM301889v1_genomic.fna viz_fastani.out.visual
+</pre></div>
+</div>
+<p>This will produce a PDF file named <code class="docutils literal notranslate"><span class="pre">viz_fastani.out.visual.pdf</span></code>. Open
+this file and inspect what the alignment looks like. The query genome
+will be on top and the reference genome will be on the bottom. The
+regions matching between these two genomes are shown in dark red
+lines/rectangles. Darker shades mean they are more similar to each
+other.</p>
+<p>What can you tell from this alignment?</p>
+<p>Now, we will try to visualize genome alignments between an <em>E. coli</em> and
+a <em>Salmonella</em> genome. Type in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastANI -q GCF_003018455.1_ASM301845v1_genomic.fna -r GCF_001558355.2_ASM155835v2_genomic.fna --visualize -o EvS_viz.out
+
+and
+
+Rscript visualize.R GCF_003018455.1_ASM301845v1_genomic.fna GCF_001558355.2_ASM155835v2_genomic.fna EvS_viz.out.visual
+</pre></div>
+</div>
+<p>This will produce a PDF file named <code class="docutils literal notranslate"><span class="pre">EvS_viz.out.visual.pdf</span></code>. Open it
+and compare it to the previous plot generated for 2 <em>E. coli</em> genomes.
+What can you tell from these alignments?</p>
+</div>
+<div class="section" id="roary-to-compare-pan-genomic-contents">
+<h2>Roary to compare pan-genomic contents<a class="headerlink" href="#roary-to-compare-pan-genomic-contents" title="Permalink to this headline">¶</a></h2>
+<p>Roary is a tool to perform various analyses to compare genomes of
+closely related organisms. It is a tool that can determine pan-genomic
+contents, i.e., genes or gene families shared across multiple genomes.
+You can read about their paper here:
+<a class="reference external" href="http://bioinformatics.oxfordjournals.org/content/31/22/3691">http://bioinformatics.oxfordjournals.org/content/31/22/3691</a> and their
+Github page is located here: <a class="reference external" href="https://sanger-pathogens.github.io/Roary/">https://sanger-pathogens.github.io/Roary/</a></p>
+<p>We will try using <code class="docutils literal notranslate"><span class="pre">roary</span></code> with a few examples given on their Github
+page and also tutorials on this page:</p>
+<p><a class="reference external" href="https://github.com/microgenomics/tutorials/blob/master/pangenome.md">https://github.com/microgenomics/tutorials/blob/master/pangenome.md</a></p>
+</div>
+<div class="section" id="run-prokka-first">
+<h2>Run Prokka first!<a class="headerlink" href="#run-prokka-first" title="Permalink to this headline">¶</a></h2>
+<p>First, let’s go back into the folder where you have been running
+<code class="docutils literal notranslate"><span class="pre">fastANI</span></code> tool. In order to be able to run <code class="docutils literal notranslate"><span class="pre">roary</span></code>, you need to
+first annotate your genomes with <code class="docutils literal notranslate"><span class="pre">prokka</span></code>. Pleae revisit instructions
+on how to run <code class="docutils literal notranslate"><span class="pre">prokka</span></code> if you forgot how. We have compared 10 genomes
+(5 from <em>E. coli</em> and 5 from <em>Salmonella</em>) today. We will redo
+annotation using <code class="docutils literal notranslate"><span class="pre">prokka</span></code> on these genomes. You can either run
+<code class="docutils literal notranslate"><span class="pre">prokka</span></code> on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> or on your laptop. Remember to make sure you
+install <code class="docutils literal notranslate"><span class="pre">prokka</span></code> correctly as it requires lots of dependencies and can
+be difficult to install. The correct way to install it is like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge -c bioconda -c defaults prokka
+</pre></div>
+</div>
+<p>If you are running <code class="docutils literal notranslate"><span class="pre">prokka</span></code> on your laptop, then follow the for-loop
+example I have shown below. On <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, make sure to us an sbatch
+script to submit jobs!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## create a folder first</span>
+
+mkdir all_prokka
+
+<span class="k">for</span> i <span class="k">in</span> <span class="sb">`</span>ls *.fna <span class="p">|</span> sed <span class="s1">&#39;s/.fna//g&#39;</span><span class="sb">`</span><span class="p">;</span><span class="k">do</span>
+    prokka --kingdom Bacteria <span class="se">\</span>
+        --locustag <span class="si">${</span><span class="nv">i</span><span class="si">}</span> --prefix <span class="si">${</span><span class="nv">i</span><span class="si">}</span> <span class="se">\</span>
+        --increment <span class="m">1</span> --evalue <span class="m">0</span>.001 <span class="se">\</span>
+        --outdir all_prokka/<span class="si">${</span><span class="nv">i</span><span class="si">}</span> --cpus <span class="m">8</span> <span class="se">\</span>
+        <span class="si">${</span><span class="nv">i</span><span class="si">}</span>.fna
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>This will run <code class="docutils literal notranslate"><span class="pre">prokka</span></code> on all the genomes and you will have subfolders
+of the annotations in the <code class="docutils literal notranslate"><span class="pre">all_prokka</span></code> folder. After this, create a
+folder named <code class="docutils literal notranslate"><span class="pre">gffs</span></code> then copy all the files in subfolders of
+<code class="docutils literal notranslate"><span class="pre">all_prokka</span></code> with extension <code class="docutils literal notranslate"><span class="pre">.gff</span></code> into <code class="docutils literal notranslate"><span class="pre">gffs</span></code> folder.</p>
+<p>Then go into the <code class="docutils literal notranslate"><span class="pre">gffs</span></code> folder, then type the following commands from
+<code class="docutils literal notranslate"><span class="pre">roary</span></code> tool:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roary -e -n -p <span class="m">4</span> *.gff
+
+query_pan_genome -a union *.gff
+
+query_pan_genome -a complement *.gff
+</pre></div>
+</div>
+<p>This will produce a bunch of files after several minutes It will take a
+while but not hours. Note that you are comparing pan-genomes of genes
+shared between both <em>E. coli</em> and <em>Salmonella</em> genomes. If you want to
+limit this analysis to just <em>E. coli</em> or <em>Salmonella</em>, then you need to
+create different folders and copy only the <code class="docutils literal notranslate"><span class="pre">.gff</span></code> files of respective
+genomes.</p>
+<p>Look at the <code class="docutils literal notranslate"><span class="pre">summary_statistics.txt</span></code> file and see what it says. It
+will tell you the number of genes shared between the genomes and other
+things.</p>
+<p>After this, run this command to create a phylogenetic tree using core
+genomes found between all these organisms.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FastTree -fastest core_gene_alignment.aln &gt; fast.tree
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">FastTree</span></code> should have been installed when you installed <code class="docutils literal notranslate"><span class="pre">roary</span></code> as
+it is a dependency and as the name suggests, it is a very fast tool to
+construct approximate maximum likelihood trees. However, because we are
+running this tool on the concatenation of multiple core genes found in
+these 10 genomes, it will take a while to complete. If you want to speed
+things up, you may wish to run this tool on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> using an sbatch
+script. <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> has higher memory capacity than your laptop and may
+speed up the analysis. You can visualize this tree using FigTree to see
+how related the organisms are to each other based on core-gene
+alignments.</p>
+</div>
+</div>
+<div class="section" id="anvio">
+<h1>Anvi’o<a class="headerlink" href="#anvio" title="Permalink to this headline">¶</a></h1>
+<p>Anvi’o is a really handy tool for comparative genomic and pangenomic
+comparisons of microbial genomes. It is a tool actively developed and
+maintained by a community of researchers, mostly led by A. Murat Eren
+(aka Meren) (who was previously based at University of Chicago but now
+moved to Germany). It is able to perform many of the computational
+analyses you have already learned to use up to now, plus many more!
+Here’s the website for you to read more about it. <a class="reference external" href="https://anvio.org/">https://anvio.org/</a></p>
+<p>You can use Anvi’o to analyze individual or a collection of genomes that
+are from closely related organisms. It also allows you to work with the
+data interactively through a web browser. The range of capabilities it
+has is quite astounding and once you have an assembled genome, it can
+pretty much too most basic needs of a microbiologist or a microbial
+ecologist. Here’s the summary of what it is from the developers:</p>
+<blockquote>
+<div><p>Anvi’o is a comprehensive platform that brings together many aspects
+of today’s cutting-edge computational strategies of data-enabled
+microbiology, including genomics, metagenomics, metatranscriptomics,
+pangenomics, metapangenomics, phylogenomics, and microbial population
+genetics in an integrated and easy-to-use fashion through extensive
+interactive visualization capabilities.</p>
+</div></blockquote>
+<p>Today, you will learn to install and use Anvi’o to do basic pangenomic
+comparisons.</p>
+<div class="section" id="anvio-installation">
+<h2>Anvi’o installation<a class="headerlink" href="#anvio-installation" title="Permalink to this headline">¶</a></h2>
+<p>You should install Anvi’o on your laptop first. Anvi’o has interactive
+features and it is best run on your local computer rather than a remote
+computer for interactive data exploration. Follow the instructions from
+the Anvi’o website on how to install the tool.</p>
+<p><a class="reference external" href="https://anvio.org/install/">https://anvio.org/install/</a></p>
+<p>Some important steps are highlighted below for quick reference.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## update conda</span>
+conda update conda
+
+<span class="c1">## create a virtual environment for Anvi&#39;o</span>
+conda create -y --name anvio-7.1 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
+
+<span class="c1">## activate the environment</span>
+conda activate anvio-7.1
+
+<span class="c1">## install dependencies</span>
+conda install -y -c bioconda <span class="s2">&quot;sqlite &gt;=3.31.1&quot;</span>
+conda install -y -c bioconda prodigal
+conda install -y -c bioconda mcl
+conda install -y -c bioconda muscle
+conda install -y -c bioconda hmmer
+conda install -y -c bioconda diamond
+conda install -y -c bioconda blast
+conda install -y -c bioconda megahit
+conda install -y -c bioconda spades
+conda install -y -c bioconda bowtie2 <span class="nv">tbb</span><span class="o">=</span><span class="m">2019</span>.8
+conda install -y -c bioconda bwa
+conda install -y -c bioconda <span class="nv">samtools</span><span class="o">=</span><span class="m">1</span>.9
+conda install -y -c bioconda centrifuge
+conda install -y -c bioconda trimal
+conda install -y -c bioconda iqtree
+conda install -y -c bioconda trnascan-se
+conda install -y -c bioconda r-base
+conda install -y -c bioconda r-stringi
+conda install -y -c bioconda r-tidyverse
+conda install -y -c bioconda r-magrittr
+conda install -y -c bioconda r-optparse
+conda install -y -c bioconda bioconductor-qvalue
+conda install -y -c bioconda fasttree
+
+<span class="c1">## this tool may or may not install.. it&#39;s ok if it doesn&#39;t</span>
+conda install -y -c bioconda fastani
+
+<span class="c1">## download and install Anvi&#39;o</span>
+
+<span class="c1">### download latest Anvi&#39;o package (do this somewhere in a folder where you can keep this package, like &quot;tools&quot;)</span>
+curl -L https://github.com/merenlab/anvio/releases/download/v7.1/anvio-7.1.tar.gz <span class="se">\</span>
+        --output anvio-7.1.tar.gz
+<span class="c1">###</span>
+pip install anvio-7.1.tar.gz
+</pre></div>
+</div>
+<p>Hopefully, this will be it and you’re good to start using Anvi’o. But
+first before you start using it, you need to make sure it is installed
+and working correctly as it should. To do that, you will have to type
+this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>anvi-self-test --suite mini
+</pre></div>
+</div>
+<p>At the end of this self test, you should see something like this below:</p>
+<div class="figure align-default" id="id1">
+<img alt="test" src="_images/mini-test-screenshot.png" />
+<p class="caption"><span class="caption-text">test</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>If you see something like this on your default browser, then Anvi’o is
+ready to go!</p>
+</div>
+<div class="section" id="pangenomic-comparison-example">
+<h2>Pangenomic comparison example<a class="headerlink" href="#pangenomic-comparison-example" title="Permalink to this headline">¶</a></h2>
+<p>Today, you will try to follow an example of a pangenomic comparison
+published on Anvi’o website. The tutorial and steps involved in each
+step are documented in great details on Anvi’o website so I will just
+provide the link to this tutorial rather than reproduce the instructions
+on this website. Please go through the instructions here:</p>
+<p><a class="reference external" href="https://merenlab.org/tutorials/vibrio-jasicida-pangenome/">https://merenlab.org/tutorials/vibrio-jasicida-pangenome/</a></p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Computational Lab Exercises</a><ul>
+<li><a class="reference internal" href="#install-tools">Install Tools</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#run-fastani-to-compare-genomes">Run fastANI to compare genomes</a><ul>
+<li><a class="reference internal" href="#install-fastani">Install fastANI</a></li>
+<li><a class="reference internal" href="#use-fastani-to-compare-bins-produced-by-metabat2">Use fastANI to compare bins produced by Metabat2</a></li>
+<li><a class="reference internal" href="#use-fastani-to-compare-close-relatives-of-known-bacteria">Use fastANI to compare close relatives of known bacteria</a></li>
+<li><a class="reference internal" href="#genome-alignment-visualizations-to-check-for-variations-between-genomes-of-closely-related-organisms">Genome alignment visualizations to check for variations between genomes of closely related organisms</a></li>
+<li><a class="reference internal" href="#roary-to-compare-pan-genomic-contents">Roary to compare pan-genomic contents</a></li>
+<li><a class="reference internal" href="#run-prokka-first">Run Prokka first!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anvio">Anvi’o</a><ul>
+<li><a class="reference internal" href="#anvio-installation">Anvi’o installation</a></li>
+<li><a class="reference internal" href="#pangenomic-comparison-example">Pangenomic comparison example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="Week9.html"
+                          title="Previous page">&larr; Week 9</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/exercises_week9.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Week9.html" title="Week 9"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Computational Lab Exercises</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
