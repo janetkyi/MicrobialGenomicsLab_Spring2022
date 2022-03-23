@@ -203,9 +203,11 @@ see what’s going on.
 **For your assistance**,
 
 you can download my version of the DADA2 tutorial from here:
+
 https://github.com/cpavloud/16S_analysis/blob/main/DADA2_16S_forSpring2022.R
 
 and of the phyloseq tutorial from here:
+
 https://github.com/cpavloud/16S_analysis/blob/main/phyloseq_16S_forSpring2022.R
 
 You can copy the scripts and paste them in a new R script in Rstudio,
@@ -398,6 +400,6 @@ macro-organisms. Some of them are listed and explained below:
 
    https://en.wikipedia.org/wiki/Multidimensional_scaling
 
--  Bray-Curtis dissimilarity (see here:
+-  Bray-Curtis dissimilarity; see here:
 
-   https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity)
+   https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity
