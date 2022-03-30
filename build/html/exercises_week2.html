@@ -8,36 +8,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercises for today &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
 
     
     
      
-        <script src="../_static/jquery.cookie.js"></script>
+        <script src="_static/jquery.cookie.js"></script>
     
 
     
      
-        <script src="../_static/cloud.base.js"></script>
+        <script src="_static/cloud.base.js"></script>
     
 
     
      
-        <script src="../_static/cloud.js"></script>
+        <script src="_static/cloud.js"></script>
     
 
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Week 3" href="Week3.html" />
     <link rel="prev" title="Install tools for today’s lab" href="tools_week2.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +46,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
+          <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="Week3.html" title="Week 3"
@@ -56,7 +54,7 @@
         <li class="right" >
           <a href="tools_week2.html" title="Install tools for today’s lab"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Exercises for today</a></li> 
       </ul>
@@ -71,252 +69,6 @@
             
   
 <style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
 /* CSS overrides for cloud theme */
 
 /* nicer titles and more space for info and warning logos */
@@ -341,343 +93,376 @@ div.admonition.inline-title p.admonition-title {
     padding-left: .2em;
 }
 </style>
-<div class="section" id="Exercises-for-today">
-<h1>Exercises for today<a class="headerlink" href="#Exercises-for-today" title="Permalink to this headline">¶</a></h1>
-<p>You will be doing 3 exercises to become familar with some of the bioinformatic tools that are used by researchers today. These tools are currently being used actively by researchers who are studying microbial genomes.</p>
-<div class="section" id="1.-sra-tools">
-<h2>1. sra-tools<a class="headerlink" href="#1.-sra-tools" title="Permalink to this headline">¶</a></h2>
-<p>The first is sra-tools, which are a suite of tools that you can use to download data from NCBI sequence read archives (SRA) (see here: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra">https://www.ncbi.nlm.nih.gov/sra</a>). This database is essential to a lot of researchers. This is where they will deposit raw sequences that came out of sequencing instruments. You can search for research project focusing on a certain topic and download the data they have deposited to SRA. It is publicly accessible.</p>
-<p>For example, if you type “Yellowstone hot spring” in the search box, you will see a list of accessions with links to the data. An example is here:</p>
+<div class="section" id="exercises-for-today">
+<h1>Exercises for today<a class="headerlink" href="#exercises-for-today" title="Permalink to this headline">¶</a></h1>
+<p>You will be doing 3 exercises to become familar with some of the
+bioinformatic tools that are used by researchers today. These tools are
+currently being used actively by researchers who are studying microbial
+genomes.</p>
+<div class="section" id="sra-tools">
+<h2>1. sra-tools<a class="headerlink" href="#sra-tools" title="Permalink to this headline">¶</a></h2>
+<p>The first is sra-tools, which are a suite of tools that you can use to
+download data from NCBI sequence read archives (SRA) (see here:
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra">https://www.ncbi.nlm.nih.gov/sra</a>). This database is essential to a lot
+of researchers. This is where they will deposit raw sequences that came
+out of sequencing instruments. You can search for research project
+focusing on a certain topic and download the data they have deposited to
+SRA. It is publicly accessible.</p>
+<p>For example, if you type “Yellowstone hot spring” in the search box, you
+will see a list of accessions with links to the data. An example is
+here:</p>
 <p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRX9071323">https://www.ncbi.nlm.nih.gov/sra/SRX9071323</a></p>
-<p>If you click on that link, you will see that the study is titled “Seasonal hydrologic and geologic forcing drive hot spring geochemistry and microbial biodiversity”. And there is a link below that says “Run, # of spots, # of Bases” etc. To download this sequence data, you will need to click on the link that starts with “SRR”, click on the “Data access” tab, then click on the link provided next to the “run”.</p>
-<p>So it becomes very cumbersome and difficult to navigate these pages to access and download the data. This is where the sra-tools becomes very useful. You can download the raw sequence reads deposited to SRA by just typing the following command with the accession number next to the <code class="docutils literal notranslate"><span class="pre">[accn]</span></code>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fasterq-dump --split-3 SRR12584454
+<p>If you click on that link, you will see that the study is titled
+“Seasonal hydrologic and geologic forcing drive hot spring geochemistry
+and microbial biodiversity”. And there is a link below that says “Run, #
+of spots, # of Bases” etc. To download this sequence data, you will need
+to click on the link that starts with “SRR”, click on the “Data access”
+tab, then click on the link provided next to the “run”.</p>
+<p>So it becomes very cumbersome and difficult to navigate these pages to
+access and download the data. This is where the sra-tools becomes very
+useful. You can download the raw sequence reads deposited to SRA by just
+typing the following command with the accession number next to the
+<code class="docutils literal notranslate"><span class="pre">[accn]</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fasterq</span><span class="o">-</span><span class="n">dump</span> <span class="o">--</span><span class="n">split</span><span class="o">-</span><span class="mi">3</span> <span class="n">SRR12584454</span>
 </pre></div>
 </div>
-<p>The “SRR12584454” is the actual run accession number for that particular study. This is actually the number you need to enter when trying to download these raw sequences from NCBI SRA.</p>
-<p>First, you might want to explore what <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> means by typing <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span> <span class="pre">-h</span></code>. <code class="docutils literal notranslate"><span class="pre">-h</span></code> just means you are trying to bring up help menu to list the options available with this command.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>The “SRR12584454” is the actual run accession number for that particular
+study. This is actually the number you need to enter when trying to
+download these raw sequences from NCBI SRA.</p>
+<p>First, you might want to explore what <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> means by typing
+<code class="docutils literal notranslate"><span class="pre">fasterq-dump</span> <span class="pre">-h</span></code>. <code class="docutils literal notranslate"><span class="pre">-h</span></code> just means you are trying to bring up help
+menu to list the options available with this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 fasterq-dump -h
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">fasterq</span><span class="o">-</span><span class="n">dump</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
 
-Usage:
-  fasterq-dump &lt;path&gt; [options]
+<span class="n">Options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">o</span><span class="o">|--</span><span class="n">outfile</span>                     <span class="n">output</span><span class="o">-</span><span class="n">file</span>
+  <span class="o">-</span><span class="n">O</span><span class="o">|--</span><span class="n">outdir</span>                      <span class="n">output</span><span class="o">-</span><span class="nb">dir</span>
+  <span class="o">-</span><span class="n">b</span><span class="o">|--</span><span class="n">bufsize</span>                     <span class="n">size</span> <span class="n">of</span> <span class="n">file</span><span class="o">-</span><span class="n">buffer</span> <span class="n">dflt</span><span class="o">=</span><span class="mi">1</span><span class="n">MB</span>
+  <span class="o">-</span><span class="n">c</span><span class="o">|--</span><span class="n">curcache</span>                    <span class="n">size</span> <span class="n">of</span> <span class="n">cursor</span><span class="o">-</span><span class="n">cache</span> <span class="n">dflt</span><span class="o">=</span><span class="mi">10</span><span class="n">MB</span>
+  <span class="o">-</span><span class="n">m</span><span class="o">|--</span><span class="n">mem</span>                         <span class="n">memory</span> <span class="n">limit</span> <span class="k">for</span> <span class="n">sorting</span> <span class="n">dflt</span><span class="o">=</span><span class="mi">100</span><span class="n">MB</span>
+  <span class="o">-</span><span class="n">t</span><span class="o">|--</span><span class="n">temp</span>                        <span class="n">where</span> <span class="n">to</span> <span class="n">put</span> <span class="n">temp</span><span class="o">.</span> <span class="n">files</span> <span class="n">dflt</span><span class="o">=</span><span class="n">curr</span> <span class="nb">dir</span>
+  <span class="o">-</span><span class="n">e</span><span class="o">|--</span><span class="n">threads</span>                     <span class="n">how</span> <span class="n">many</span> <span class="n">thread</span> <span class="n">dflt</span><span class="o">=</span><span class="mi">6</span>
+  <span class="o">-</span><span class="n">p</span><span class="o">|--</span><span class="n">progress</span>                    <span class="n">show</span> <span class="n">progress</span>
+  <span class="o">-</span><span class="n">x</span><span class="o">|--</span><span class="n">details</span>                     <span class="nb">print</span> <span class="n">details</span>
+  <span class="o">-</span><span class="n">s</span><span class="o">|--</span><span class="n">split</span><span class="o">-</span><span class="n">spot</span>                  <span class="n">split</span> <span class="n">spots</span> <span class="n">into</span> <span class="n">reads</span>
+  <span class="o">-</span><span class="n">S</span><span class="o">|--</span><span class="n">split</span><span class="o">-</span><span class="n">files</span>                 <span class="n">write</span> <span class="n">reads</span> <span class="n">into</span> <span class="n">different</span> <span class="n">files</span>
+  <span class="o">-</span><span class="mi">3</span><span class="o">|--</span><span class="n">split</span><span class="o">-</span><span class="mi">3</span>                     <span class="n">writes</span> <span class="n">single</span> <span class="n">reads</span> <span class="ow">in</span> <span class="n">special</span> <span class="n">file</span>
+  <span class="o">--</span><span class="n">concatenate</span><span class="o">-</span><span class="n">reads</span>              <span class="n">writes</span> <span class="n">whole</span> <span class="n">spots</span> <span class="n">into</span> <span class="n">one</span> <span class="n">file</span>
+  <span class="o">-</span><span class="n">Z</span><span class="o">|--</span><span class="n">stdout</span>                      <span class="nb">print</span> <span class="n">output</span> <span class="n">to</span> <span class="n">stdout</span>
+  <span class="o">-</span><span class="n">f</span><span class="o">|--</span><span class="n">force</span>                       <span class="n">force</span> <span class="n">to</span> <span class="n">overwrite</span> <span class="n">existing</span> <span class="n">file</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">N</span><span class="o">|--</span><span class="n">rowid</span><span class="o">-</span><span class="k">as</span><span class="o">-</span><span class="n">name</span>               <span class="n">use</span> <span class="n">row</span><span class="o">-</span><span class="nb">id</span> <span class="k">as</span> <span class="n">name</span>
+  <span class="o">--</span><span class="n">skip</span><span class="o">-</span><span class="n">technical</span>                 <span class="n">skip</span> <span class="n">technical</span> <span class="n">reads</span>
+  <span class="o">--</span><span class="n">include</span><span class="o">-</span><span class="n">technical</span>              <span class="n">include</span> <span class="n">technical</span> <span class="n">reads</span>
+  <span class="o">-</span><span class="n">P</span><span class="o">|--</span><span class="nb">print</span><span class="o">-</span><span class="n">read</span><span class="o">-</span><span class="n">nr</span>               <span class="nb">print</span> <span class="n">read</span><span class="o">-</span><span class="n">numbers</span>
+  <span class="o">-</span><span class="n">M</span><span class="o">|--</span><span class="nb">min</span><span class="o">-</span><span class="n">read</span><span class="o">-</span><span class="nb">len</span>                <span class="nb">filter</span> <span class="n">by</span> <span class="n">sequence</span><span class="o">-</span><span class="nb">len</span>
+  <span class="o">--</span><span class="n">table</span>                          <span class="n">which</span> <span class="n">seq</span><span class="o">-</span><span class="n">table</span> <span class="n">to</span> <span class="n">use</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">of</span> <span class="n">pacbio</span>
+  <span class="o">--</span><span class="n">strict</span>                         <span class="n">terminate</span> <span class="n">on</span> <span class="n">invalid</span> <span class="n">read</span>
+  <span class="o">-</span><span class="n">B</span><span class="o">|--</span><span class="n">bases</span>                       <span class="nb">filter</span> <span class="n">by</span> <span class="n">bases</span>
+  <span class="o">-</span><span class="n">A</span><span class="o">|--</span><span class="n">append</span>                      <span class="n">append</span> <span class="n">to</span> <span class="n">output</span><span class="o">-</span><span class="n">file</span>
+  <span class="o">-</span><span class="n">h</span><span class="o">|--</span><span class="n">help</span>                        <span class="n">Output</span> <span class="n">brief</span> <span class="n">explanation</span> <span class="k">for</span> <span class="n">the</span> <span class="n">program</span><span class="o">.</span>
+  <span class="o">-</span><span class="n">V</span><span class="o">|--</span><span class="n">version</span>                     <span class="n">Display</span> <span class="n">the</span> <span class="n">version</span> <span class="n">of</span> <span class="n">the</span> <span class="n">program</span> <span class="n">then</span>
+                                   <span class="n">quit</span><span class="o">.</span>
+  <span class="o">-</span><span class="n">L</span><span class="o">|--</span><span class="n">log</span><span class="o">-</span><span class="n">level</span> <span class="o">&lt;</span><span class="n">level</span><span class="o">&gt;</span>           <span class="n">Logging</span> <span class="n">level</span> <span class="k">as</span> <span class="n">number</span> <span class="ow">or</span> <span class="n">enum</span> <span class="n">string</span><span class="o">.</span> <span class="n">One</span>
+                                   <span class="n">of</span> <span class="p">(</span><span class="n">fatal</span><span class="o">|</span><span class="n">sys</span><span class="o">|</span><span class="nb">int</span><span class="o">|</span><span class="n">err</span><span class="o">|</span><span class="n">warn</span><span class="o">|</span><span class="n">info</span><span class="o">|</span><span class="n">debug</span><span class="p">)</span> <span class="ow">or</span>
+                                   <span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span> <span class="n">Current</span><span class="o">/</span><span class="n">default</span> <span class="ow">is</span> <span class="n">warn</span>
+  <span class="o">-</span><span class="n">v</span><span class="o">|--</span><span class="n">verbose</span>                     <span class="n">Increase</span> <span class="n">the</span> <span class="n">verbosity</span> <span class="n">of</span> <span class="n">the</span> <span class="n">program</span>
+                                   <span class="n">status</span> <span class="n">messages</span><span class="o">.</span> <span class="n">Use</span> <span class="n">multiple</span> <span class="n">times</span> <span class="k">for</span> <span class="n">more</span>
+                                   <span class="n">verbosity</span><span class="o">.</span> <span class="n">Negates</span> <span class="n">quiet</span><span class="o">.</span>
+  <span class="o">-</span><span class="n">q</span><span class="o">|--</span><span class="n">quiet</span>                       <span class="n">Turn</span> <span class="n">off</span> <span class="nb">all</span> <span class="n">status</span> <span class="n">messages</span> <span class="k">for</span> <span class="n">the</span>
+                                   <span class="n">program</span><span class="o">.</span> <span class="n">Negated</span> <span class="n">by</span> <span class="n">verbose</span><span class="o">.</span>
+  <span class="o">--</span><span class="n">option</span><span class="o">-</span><span class="n">file</span> <span class="o">&lt;</span><span class="n">file</span><span class="o">&gt;</span>             <span class="n">Read</span> <span class="n">more</span> <span class="n">options</span> <span class="ow">and</span> <span class="n">parameters</span> <span class="kn">from</span> <span class="nn">the</span>
+                                   <span class="n">file</span><span class="o">.</span>
 
-Options:
-  -o|--outfile                     output-file
-  -O|--outdir                      output-dir
-  -b|--bufsize                     size of file-buffer dflt=1MB
-  -c|--curcache                    size of cursor-cache dflt=10MB
-  -m|--mem                         memory limit for sorting dflt=100MB
-  -t|--temp                        where to put temp. files dflt=curr dir
-  -e|--threads                     how many thread dflt=6
-  -p|--progress                    show progress
-  -x|--details                     print details
-  -s|--split-spot                  split spots into reads
-  -S|--split-files                 write reads into different files
-  -3|--split-3                     writes single reads in special file
-  --concatenate-reads              writes whole spots into one file
-  -Z|--stdout                      print output to stdout
-  -f|--force                       force to overwrite existing file(s)
-  -N|--rowid-as-name               use row-id as name
-  --skip-technical                 skip technical reads
-  --include-technical              include technical reads
-  -P|--print-read-nr               print read-numbers
-  -M|--min-read-len                filter by sequence-len
-  --table                          which seq-table to use in case of pacbio
-  --strict                         terminate on invalid read
-  -B|--bases                       filter by bases
-  -A|--append                      append to output-file
-  -h|--help                        Output brief explanation for the program.
-  -V|--version                     Display the version of the program then
-                                   quit.
-  -L|--log-level &lt;level&gt;           Logging level as number or enum string. One
-                                   of (fatal|sys|int|err|warn|info|debug) or
-                                   (0-6) Current/default is warn
-  -v|--verbose                     Increase the verbosity of the program
-                                   status messages. Use multiple times for more
-                                   verbosity. Negates quiet.
-  -q|--quiet                       Turn off all status messages for the
-                                   program. Negated by verbose.
-  --option-file &lt;file&gt;             Read more options and parameters from the
-                                   file.
-
-/Users/jsaw/miniconda3/bin/fasterq-dump : 2.10.1
-
-</pre></div></div>
-</div>
-<p>As you can see, there are multiple options available with this tool and you can even specify things like memory limitation for this command to run and the number of threads you want to use with this tool. Before actually typing the command, I want you to make sure that you change your directory to “exercises” directory that I made you create last week. I am giving you an example of where I created the folders and organize them.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jsaw</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">fasterq</span><span class="o">-</span><span class="n">dump</span> <span class="p">:</span> <span class="mf">2.10.1</span>
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>As you can see, there are multiple options available with this tool and
+you can even specify things like memory limitation for this command to
+run and the number of threads you want to use with this tool. Before
+actually typing the command, I want you to make sure that you change
+your directory to “exercises” directory that I made you create last
+week. I am giving you an example of where I created the folders and
+organize them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/
 tree MicrobialGenomicsLab
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-MicrobialGenomicsLab
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>MicrobialGenomicsLab
 ├── data
 ├── exercises
 ├── repositories
 └── tools
 
 4 directories, 0 files
-</pre></div></div>
+</pre></div>
 </div>
-<p>Here, you will see that I created the 4 folders inside “MicrobialGenomicsLab” folder which resides under “workspace”. Navigate into the exercises folder and run the <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool with the example command that I wrote earlier.</p>
+<p>Here, you will see that I created the 4 folders inside
+“MicrobialGenomicsLab” folder which resides under “workspace”. Navigate
+into the exercises folder and run the <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool with the
+example command that I wrote earlier.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fasterq-dump --split-3 SRR12584454
 </pre></div>
 </div>
-<p>The command will start downloading the raw sequence files from SRA to your “exercises” folder. It may take a few minutes and you will see the report printed to the screen once it’s done. Usually it will not tell you what is going on but you can increase the verbosity of the screen output by typing like this:</p>
+<p>The command will start downloading the raw sequence files from SRA to
+your “exercises” folder. It may take a few minutes and you will see the
+report printed to the screen once it’s done. Usually it will not tell
+you what is going on but you can increase the verbosity of the screen
+output by typing like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fasterq-dump -v --split-3 SRR12584454
 </pre></div>
 </div>
-<p>Once it’s done, you can type <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> to see what files the tool produced.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>Once it’s done, you can type <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> to see what files the tool
+produced.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/MicrobialGenomicsLab/exercises/
 ls -la
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-total 165888
-drwxr-xr-x 4 jsaw 982768932      128 Sep  9 09:05 .
-drwxr-xr-x 6 jsaw 982768932      192 Sep  9 08:58 ..
--rw-r--r-- 1 jsaw 982768932 70168140 Sep  9 09:05 SRR12584454_1.fastq
--rw-r--r-- 1 jsaw 982768932 70168140 Sep  9 09:05 SRR12584454_2.fastq
-</pre></div></div>
-</div>
-<p>Now, you should see 2 files being produced by the <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool. Both files end with a “.fastq” file extension. These are fastq-formatted files that can be observed/analyzed with tools like <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> or <code class="docutils literal notranslate"><span class="pre">bbmap</span></code>. Now, try to see what the contents of these fastq files look like.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="mi">165888</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">4</span> <span class="n">jsaw</span> <span class="mi">982768932</span>      <span class="mi">128</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">05</span> <span class="o">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">6</span> <span class="n">jsaw</span> <span class="mi">982768932</span>      <span class="mi">192</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">08</span><span class="p">:</span><span class="mi">58</span> <span class="o">..</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">70168140</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">05</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">70168140</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">05</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>Now, you should see 2 files being produced by the <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool.
+Both files end with a “.fastq” file extension. These are fastq-formatted
+files that can be observed/analyzed with tools like <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> or
+<code class="docutils literal notranslate"><span class="pre">bbmap</span></code>. Now, try to see what the contents of these fastq files look
+like.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/MicrobialGenomicsLab/exercises/
 head -8 SRR12584454_1.fastq
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-@SRR12584454.1 1 length=301
+<pre class="literal-block">&#64;SRR12584454.1 1 length=301
 GTGCCAGCCGCCGCGGTAATACCAGCCCCGCGAGTGGTCGGGACTCTTACTGGGCCTAAAGCGCCCGTAGCCGGCCCGACAAGTCACTCCTTAAAGACCCCGGCTCAACCGGGGGAATGGGGGTGATACTGTCGGGCTAGGGGGCGGAAGAGGCCAGCGGTACTCCCGGAGTAGGGGCGAAATCCTCAGATCCCGGGAGGACCACCAGTGGCGAAAGCGGCTGGCTAGAACGCGCCCGACGGTGGGGGGCGAAAGGCGGGGCAGAGAAAGGGATTAGAAAACCCTTGAGGTCAGATGGGAA
 +SRR12584454.1 1 length=301
-CCCCCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGDGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG@FCFGGGGGGGGGGGGGGGGGGGAFGGGGGGGEGGCCGGGGGCCGGGGGGGGGECGCFFGGGGGGGEFGGGGGGGGC6:CGGCGEEGGGGGGGGGG=:8EEC6C:C:?C*2&lt;:&lt;A&lt;959*:763**:,;)/:EG(1):*-(2/&gt;&lt;C@)-((.&lt;F483((2))0:9,;855*.-*((,)(--)+20+
-@SRR12584454.2 2 length=301
+<a class="reference external" href="mailto:CCCCCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGDGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG&#37;&#52;&#48;FCFGGGGGGGGGGGGGGGGGGGAFGGGGGGGEGGCCGGGGGCCGGGGGGGGGECGCFFGGGGGGGEFGGGGGGGGC6">CCCCCGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGDGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG<span>&#64;</span>FCFGGGGGGGGGGGGGGGGGGGAFGGGGGGGEGGCCGGGGGCCGGGGGGGGGECGCFFGGGGGGGEFGGGGGGGGC6</a>:CGGCGEEGGGGGGGGGG=:8EEC6C:C:?C*2&lt;:&lt;A&lt;959*:763**:,;)/:EG(1):<em>-(2/&gt;&lt;C&#64;)-((.&lt;F483((2))0:9,;855</em>.-<em>((,)(--)+20+
+&#64;SRR12584454.2 2 length=301
 GTGTCAGCAGCCGCGGTAATACGGAGGGTGCGAGCGTTACTCGGAATTACTGGGCGTAAAGCGCGCGTAGGTGGTTTGTTAAGTTGGATGTGAAATCCCCGGGCTCAACCTGGGAACTGCATTCCAAACTGACGAGCTAGAGTATGGTAGAGGGTGGTGGAATTTCCTGTGTAGCGGTGAAATGCGTAGATATAGGAAGGAACACCAGTGGCGAAGGCGACCACCTGGAATGATACTGACAGTGAGGTGCGAAAGCGGGGGGAGCAAACAGGATTAGATACCCCGGTAGTCCAGATCGGAA
 +SRR12584454.2 2 length=301
-CCCCCGGGAFGGGGGGGGGGGG,6FGG788C+CFGGGG7,9EF,+6CFGGGGFGGGGGGGGGG7+@FGGG,:EDGG844BFGG&lt;,F,,CFG9FFGCGGG+++@FGGGGG3F,BF&lt;F+=FFGGGG,,@FGGG,3&gt;++@F3DFGG,=3FG9,@FG:3CF&gt;FGGGGG,FG,?F&lt;FFFGGGGGGGGGGGGGGGGGGGCFG,BFGGGCFGGFGGGFEGGGGG=G*?E8*2CFG6&lt;+97CCEGD?E9&lt;&lt;7&gt;CGC5:D3C&gt;1:/3&gt;DDF@118?C*7;C?DFB&lt;C*@7CC)014(/8)294&lt;&gt;?EAE5
-</pre></div></div>
-</div>
-<p>I typed <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-8</span> <span class="pre">SRR12584454_1.fastq</span></code> to print the first 8 lines of the fastq file to the terminal screen. As you can see, the file stores a string of letters representing the bases of DNA and other weird characters. Try to see if you can see a pattern here. Each record for a single fragment of DNA is represented by 4 lines.</p>
-<p>The first line starts with a ‘&#64;’ followed by a string of alphabets and numbers. This should be unique to each sequence record. The actual DNA sequence is on the 2nd line. The third line starts with ‘+’ and same identifier as the first line. The 4th line contains characters that represent sequence quality for each of the DNA bases shown on the 2nd line. This is very important information for tools like <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> or <code class="docutils literal notranslate"><span class="pre">bbmap</span></code> that relies on this information to assess sequence quality.</p>
-<p>To understand more about how fastq files are encoded, see here: <a class="reference external" href="https://en.wikipedia.org/wiki/FASTQ_format">https://en.wikipedia.org/wiki/FASTQ_format</a></p>
-<p>You see 2 fastq files that end with “_1” and “_2” in their file names. The reason for that is Illumina sequences that produced these files is usually run to sequence two ends of a single DNA fragment and for each DNA fragment that was sequenced, you have two sequences that you know are physically linked and therefore we call them <strong>“read pairs”</strong>. Pairing information is very useful for genome assembly and mapping. We will come to that in later labs.</p>
-<p>Now that you have 2 fastq files, what do we do with them? First, what would you do if you want to know how many sequences are in these files? You can type something like this:</p>
+CCCCCGGGAFGGGGGGGGGGGG,6FGG788C+CFGGGG7,9EF,+6CFGGGGFGGGGGGGGGG7+&#64;FGGG,:EDGG844BFGG&lt;,F,,CFG9FFGCGGG+++&#64;FGGGGG3F,BF&lt;F+=FFGGGG,,&#64;FGGG,3&gt;++&#64;F3DFGG,=3FG9,&#64;FG:3CF&gt;FGGGGG,FG,?F&lt;FFFGGGGGGGGGGGGGGGGGGGCFG,BFGGGCFGGFGGGFEGGGGG=G</em>?E8*2CFG6&lt;+97CCEGD?E9&lt;&lt;7&gt;CGC5:D3C&gt;1:/3&gt;DDF&#64;118?C*7;C?DFB&lt;<a class="reference external" href="mailto:C*&#37;&#52;&#48;7CC">C*<span>&#64;</span>7CC</a>)014(/8)294&lt;&gt;?EAE5</pre>
+<p>I typed <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-8</span> <span class="pre">SRR12584454_1.fastq</span></code> to print the first 8 lines of
+the fastq file to the terminal screen. As you can see, the file stores a
+string of letters representing the bases of DNA and other weird
+characters. Try to see if you can see a pattern here. Each record for a
+single fragment of DNA is represented by 4 lines.</p>
+<p>The first line starts with a ‘&#64;’ followed by a string of alphabets and
+numbers. This should be unique to each sequence record. The actual DNA
+sequence is on the 2nd line. The third line starts with ‘+’ and same
+identifier as the first line. The 4th line contains characters that
+represent sequence quality for each of the DNA bases shown on the 2nd
+line. This is very important information for tools like <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> or
+<code class="docutils literal notranslate"><span class="pre">bbmap</span></code> that relies on this information to assess sequence quality.</p>
+<p>To understand more about how fastq files are encoded, see here:
+<a class="reference external" href="https://en.wikipedia.org/wiki/FASTQ_format">https://en.wikipedia.org/wiki/FASTQ_format</a></p>
+<p>You see 2 fastq files that end with “_1” and “_2” in their file names.
+The reason for that is Illumina sequences that produced these files is
+usually run to sequence two ends of a single DNA fragment and for each
+DNA fragment that was sequenced, you have two sequences that you know
+are physically linked and therefore we call them <strong>“read pairs”</strong>.
+Pairing information is very useful for genome assembly and mapping. We
+will come to that in later labs.</p>
+<p>Now that you have 2 fastq files, what do we do with them? First, what
+would you do if you want to know how many sequences are in these files?
+You can type something like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -c <span class="s2">&quot;@SRR12584454&quot;</span> SRR12584454_1.fastq
 grep -c <span class="s2">&quot;@SRR12584454&quot;</span> SRR12584454_2.fastq
 </pre></div>
 </div>
-<p>And both should return the same numbers. I will show you the example below. These are relatively small files by Illumina sequencing standards (only about 67 Mbp) so it is ok to run this <code class="docutils literal notranslate"><span class="pre">grep</span></code> command. I would not recommend this with files larger than several gigabytes large.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>And both should return the same numbers. I will show you the example
+below. These are relatively small files by Illumina sequencing standards
+(only about 67 Mbp) so it is ok to run this <code class="docutils literal notranslate"><span class="pre">grep</span></code> command. I would
+not recommend this with files larger than several gigabytes large.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/MicrobialGenomicsLab/exercises/
 grep -c <span class="s2">&quot;@SRR12584454&quot;</span> SRR12584454_1.fastq
 grep -c <span class="s2">&quot;@SRR12584454&quot;</span> SRR12584454_2.fastq
-<br/></pre></div>
+</pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">103842</span>
+<span class="mi">103842</span>
+</pre></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<p>As you can see, I am searching for the pattern “&#64;SRR12584454” in each
+fastq file because I know that this identifier is present in each of the
+header line of the sequences. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-c</span></code> just counts the occurrences of
+these identifiers instead of printing the matches to screen. I see that
+both fastq files contain 103842 sequences. This is very small number.
+Usually you will have millions of sequences per fastq file. So there is
+no way for you to manually inspect each and every one of these sequences
+for their quality. This is where the FastQC tool comes in.</p>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-103842
-103842
-</pre></div></div>
-</div>
-<p>As you can see, I am searching for the pattern “&#64;SRR12584454” in each fastq file because I know that this identifier is present in each of the header line of the sequences. <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-c</span></code> just counts the occurrences of these identifiers instead of printing the matches to screen. I see that both fastq files contain 103842 sequences. This is very small number. Usually you will have millions of sequences per fastq file. So there is no way for you to manually inspect each and every one of these
-sequences for their quality. This is where the FastQC tool comes in.</p>
-</div>
-<div class="section" id="2.-FastQC">
-<h2>2. FastQC<a class="headerlink" href="#2.-FastQC" title="Permalink to this headline">¶</a></h2>
-<p>FastQC tool can be found here: <a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a> but also through <code class="docutils literal notranslate"><span class="pre">conda</span></code> and you should have installed it through <code class="docutils literal notranslate"><span class="pre">conda</span></code> by now.</p>
-<p>It is a tool to analyze high-throughput sequencing data such as those produced by Illumina sequencing technology. It exists in both graphical and command line modes. After installation, if you just type <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> without any parameters, it will bring up the graphical interface. For bioinformaticians, however, we like to work in command line mode as much as possible due to large number of files that we usually need to process in automated fashion. Today, we will use fastqc to inspect the
-sequence quality of these 2 files you just downloaded from SRA.</p>
-<p>In Unix environment, using this command on multiple sequences becomes easier because you can use wild card characters. For example, if you want to run fastqc and create reports that can be viewed, you can just type like this:</p>
+<div class="section" id="fastqc">
+<h2>2. FastQC<a class="headerlink" href="#fastqc" title="Permalink to this headline">¶</a></h2>
+<p>FastQC tool can be found here:
+<a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a> but also
+through <code class="docutils literal notranslate"><span class="pre">conda</span></code> and you should have installed it through <code class="docutils literal notranslate"><span class="pre">conda</span></code> by
+now.</p>
+<p>It is a tool to analyze high-throughput sequencing data such as those
+produced by Illumina sequencing technology. It exists in both graphical
+and command line modes. After installation, if you just type <code class="docutils literal notranslate"><span class="pre">fastqc</span></code>
+without any parameters, it will bring up the graphical interface. For
+bioinformaticians, however, we like to work in command line mode as much
+as possible due to large number of files that we usually need to process
+in automated fashion. Today, we will use fastqc to inspect the sequence
+quality of these 2 files you just downloaded from SRA.</p>
+<p>In Unix environment, using this command on multiple sequences becomes
+easier because you can use wild card characters. For example, if you
+want to run fastqc and create reports that can be viewed, you can just
+type like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastqc *.fastq
 </pre></div>
 </div>
-<p>This means I am telling the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> tool to process any files in a given directory that ends with “.fastq” extension. I will show this below.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>This means I am telling the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> tool to process any files in a
+given directory that ends with “.fastq” extension. I will show this
+below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/MicrobialGenomicsLab/exercises/
 fastqc *.fastq
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Analysis complete for SRR12584454_1.fastq
-Analysis complete for SRR12584454_2.fastq
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Started analysis of SRR12584454_1.fastq
-Approx 5% complete for SRR12584454_1.fastq
-Approx 10% complete for SRR12584454_1.fastq
-Approx 15% complete for SRR12584454_1.fastq
-Approx 20% complete for SRR12584454_1.fastq
-Approx 25% complete for SRR12584454_1.fastq
-Approx 30% complete for SRR12584454_1.fastq
-Approx 35% complete for SRR12584454_1.fastq
-Approx 40% complete for SRR12584454_1.fastq
-Approx 45% complete for SRR12584454_1.fastq
-Approx 50% complete for SRR12584454_1.fastq
-Approx 55% complete for SRR12584454_1.fastq
-Approx 60% complete for SRR12584454_1.fastq
-Approx 65% complete for SRR12584454_1.fastq
-Approx 70% complete for SRR12584454_1.fastq
-Approx 75% complete for SRR12584454_1.fastq
-Approx 80% complete for SRR12584454_1.fastq
-Approx 85% complete for SRR12584454_1.fastq
-Approx 90% complete for SRR12584454_1.fastq
-Approx 95% complete for SRR12584454_1.fastq
-Started analysis of SRR12584454_2.fastq
-Approx 5% complete for SRR12584454_2.fastq
-Approx 10% complete for SRR12584454_2.fastq
-Approx 15% complete for SRR12584454_2.fastq
-Approx 20% complete for SRR12584454_2.fastq
-Approx 25% complete for SRR12584454_2.fastq
-Approx 30% complete for SRR12584454_2.fastq
-Approx 35% complete for SRR12584454_2.fastq
-Approx 40% complete for SRR12584454_2.fastq
-Approx 45% complete for SRR12584454_2.fastq
-Approx 50% complete for SRR12584454_2.fastq
-Approx 55% complete for SRR12584454_2.fastq
-Approx 60% complete for SRR12584454_2.fastq
-Approx 65% complete for SRR12584454_2.fastq
-Approx 70% complete for SRR12584454_2.fastq
-Approx 75% complete for SRR12584454_2.fastq
-Approx 80% complete for SRR12584454_2.fastq
-Approx 85% complete for SRR12584454_2.fastq
-Approx 90% complete for SRR12584454_2.fastq
-Approx 95% complete for SRR12584454_2.fastq
-</pre></div></div>
-</div>
-<p>This is what you would see if you type the commands in your terminal. You can now inspect what files are being produced after the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> command was run.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Analysis</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Analysis</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Started</span> <span class="n">analysis</span> <span class="n">of</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">5</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">10</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">15</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">20</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">25</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">30</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">35</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">40</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">45</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">50</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">55</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">60</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">65</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">70</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">75</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">80</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">85</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">90</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">95</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Started</span> <span class="n">analysis</span> <span class="n">of</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">5</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">10</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">15</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">20</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">25</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">30</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">35</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">40</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">45</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">50</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">55</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">60</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">65</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">70</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">75</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">80</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">85</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">90</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Approx</span> <span class="mi">95</span><span class="o">%</span> <span class="n">complete</span> <span class="k">for</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+</pre></div>
+</div>
+<p>This is what you would see if you type the commands in your terminal.
+You can now inspect what files are being produced after the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code>
+command was run.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/MicrobialGenomicsLab/exercises/
 ls -la
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-total 169600
-drwxr-xr-x 8 jsaw 982768932      256 Sep  9 09:41 .
-drwxr-xr-x 6 jsaw 982768932      192 Sep  9 08:58 ..
--rw-r--r-- 1 jsaw 982768932 70168140 Sep  9 09:05 SRR12584454_1.fastq
--rw-r--r-- 1 jsaw 982768932   974550 Sep  9 09:41 SRR12584454_1_fastqc.html
--rw-r--r-- 1 jsaw 982768932   881128 Sep  9 09:41 SRR12584454_1_fastqc.zip
--rw-r--r-- 1 jsaw 982768932 70168140 Sep  9 09:05 SRR12584454_2.fastq
--rw-r--r-- 1 jsaw 982768932   973629 Sep  9 09:41 SRR12584454_2_fastqc.html
--rw-r--r-- 1 jsaw 982768932   867986 Sep  9 09:41 SRR12584454_2_fastqc.zip
-</pre></div></div>
-</div>
-<p>As you can see, the command produced an “html” and a “zip” file for each fastq. Now, open the html files using your web browser. You should see something similar to this:</p>
-<img alt="fastqc" src="../_images/fqc.png" />
-<p>This is just a screenshot of the very beginning of the report. As you scroll down, you will see more information. Basically, the check marks under “Summary” will tell you whether the sequences are good or bad. If you see multiple red crosses, that means the sequences are of poor or bad quality and shouldn’t be used right away until further processing is done. An example of a good and a bad sequencing run are shown here:</p>
-<p><a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html</a></p>
-<p><a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html</a></p>
-<p>A few things to note about the histograms in the first plot. You can see that each sequence is 301 basepair long and the histogram is basically trying to depict average sequence quality within a given window of sequence. You will notice that average sequence quality starts to drop as you go towards the end of the sequence. This is due to the nature of Illumina sequencing technology. It uses fluorescent molecules to record unique bases (A, C, G, T), and the fluorescence signal fades towards the
-later cycles of sequencing. This makes it difficult to confidently assign correct letters of DNA towards the end and the instrument records lower read qualities near the end.</p>
-<p>Another thing you want to watch out for is the presence of “adapter” sequences (near the bottom of the report). See an example of bad sequence report. If the adapter sequences (which are artificial DNA constructs to facilitate sequencing) are left in the sequences for whatever reason, <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> will detect it. In this bad sequence example, you will notice that the adapter content histogram starts to increase near the end of the sequences. If you see something like this, you will need to remove
-the adapter sequences before the sequences can be used in genome assemblies or other analyses.</p>
-<p>This is where the <code class="docutils literal notranslate"><span class="pre">bbmap</span></code> tool comes in.</p>
-<p>A very useful website on how to read and interpret sequencing quality assessments: <a class="reference external" href="https://sequencing.qcfail.com/articles/?report=reader">https://sequencing.qcfail.com/articles/?report=reader</a></p>
-</div>
-<div class="section" id="3.-BBTools">
-<h2>3. BBTools<a class="headerlink" href="#3.-BBTools" title="Permalink to this headline">¶</a></h2>
-<p>BBTools is a collection of tools written by scientists at the Joint Genome Institute (JGI) in Berkeley, CA. See here: <a class="reference external" href="https://jgi.doe.gov/data-and-tools/bbtools/">https://jgi.doe.gov/data-and-tools/bbtools/</a></p>
-<p>It contains a number of tools that can perform tasks such as interconversion of file formats, processing of raw sequencing files into usable ones, mapping of sequence reads to reference genomes, etc. The tool we will be using today is <code class="docutils literal notranslate"><span class="pre">bbduk</span></code>, which is meant for filtering and trimming of reads for adapter, contaminants, and quality using k-mers. Before you can actually use this tool, you need a reference file containing all known adapter sequences. <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> can then look up for these
-sequences to know if it can find these contaminants in your sequences.</p>
-<p>First, download this adapter file here:</p>
-<p><a class="reference external" href="https://www.dropbox.com/s/f5mydteoupt8ugb/adapters.fa?dl=0">https://www.dropbox.com/s/f5mydteoupt8ugb/adapters.fa?dl=0</a></p>
-<p>I suggest you put this “adapter.fa” file somewhere safe where there is no likelihood of it being deleted by accident.</p>
-<p>Now, you can use <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> to perform quality trimming and contaminant removal. To see what options are available with <code class="docutils literal notranslate"><span class="pre">bbduk</span></code>, type:</p>
-<p><code class="docutils literal notranslate"><span class="pre">bbduk.sh</span> <span class="pre">-h</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="mi">169600</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">8</span> <span class="n">jsaw</span> <span class="mi">982768932</span>      <span class="mi">256</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="o">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">6</span> <span class="n">jsaw</span> <span class="mi">982768932</span>      <span class="mi">192</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">08</span><span class="p">:</span><span class="mi">58</span> <span class="o">..</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">70168140</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">05</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>   <span class="mi">974550</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_1_fastqc</span><span class="o">.</span><span class="n">html</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>   <span class="mi">881128</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_1_fastqc</span><span class="o">.</span><span class="n">zip</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">70168140</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">05</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>   <span class="mi">973629</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_2_fastqc</span><span class="o">.</span><span class="n">html</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span> <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>   <span class="mi">867986</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_2_fastqc</span><span class="o">.</span><span class="n">zip</span>
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>As you can see, the command produced an “html” and a “zip” file for each
+fastq. Now, open the html files using your web browser. You should see
+something similar to this:</p>
+<div class="figure align-default" id="id3">
+<img alt="fastqc" src="_images/fqc.png" />
+<p class="caption"><span class="caption-text">fastqc</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>This is just a screenshot of the very beginning of the report. As you
+scroll down, you will see more information. Basically, the check marks
+under “Summary” will tell you whether the sequences are good or bad. If
+you see multiple red crosses, that means the sequences are of poor or
+bad quality and shouldn’t be used right away until further processing is
+done. An example of a good and a bad sequencing run are shown here:</p>
+<p><a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html</a></p>
+<p><a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html</a></p>
+<p>A few things to note about the histograms in the first plot. You can see
+that each sequence is 301 basepair long and the histogram is basically
+trying to depict average sequence quality within a given window of
+sequence. You will notice that average sequence quality starts to drop
+as you go towards the end of the sequence. This is due to the nature of
+Illumina sequencing technology. It uses fluorescent molecules to record
+unique bases (A, C, G, T), and the fluorescence signal fades towards the
+later cycles of sequencing. This makes it difficult to confidently
+assign correct letters of DNA towards the end and the instrument records
+lower read qualities near the end.</p>
+<p>Another thing you want to watch out for is the presence of “adapter”
+sequences (near the bottom of the report). See an example of bad
+sequence report. If the adapter sequences (which are artificial DNA
+constructs to facilitate sequencing) are left in the sequences for
+whatever reason, <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> will detect it. In this bad sequence
+example, you will notice that the adapter content histogram starts to
+increase near the end of the sequences. If you see something like this,
+you will need to remove the adapter sequences before the sequences can
+be used in genome assemblies or other analyses.</p>
+<p>This is where the <code class="docutils literal notranslate"><span class="pre">bbmap</span></code> tool comes in.</p>
+<p>A very useful website on how to read and interpret sequencing quality
+assessments: <a class="reference external" href="https://sequencing.qcfail.com/articles/?report=reader">https://sequencing.qcfail.com/articles/?report=reader</a></p>
+</div>
+<div class="section" id="bbtools">
+<h2>3. BBTools<a class="headerlink" href="#bbtools" title="Permalink to this headline">¶</a></h2>
+<p>BBTools is a collection of tools written by scientists at the Joint
+Genome Institute (JGI) in Berkeley, CA. See here:
+<a class="reference external" href="https://jgi.doe.gov/data-and-tools/bbtools/">https://jgi.doe.gov/data-and-tools/bbtools/</a></p>
+<p>It contains a number of tools that can perform tasks such as
+interconversion of file formats, processing of raw sequencing files into
+usable ones, mapping of sequence reads to reference genomes, etc. The
+tool we will be using today is <code class="docutils literal notranslate"><span class="pre">bbduk</span></code>, which is meant for filtering
+and trimming of reads for adapter, contaminants, and quality using
+k-mers. Before you can actually use this tool, you need a reference file
+containing all known adapter sequences. <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> can then look up for
+these sequences to know if it can find these contaminants in your
+sequences.</p>
+<p>First, download this adapter file here:</p>
+<p><a class="reference external" href="https://www.dropbox.com/s/f5mydteoupt8ugb/adapters.fa?dl=0">https://www.dropbox.com/s/f5mydteoupt8ugb/adapters.fa?dl=0</a></p>
+<p>I suggest you put this “adapter.fa” file somewhere safe where there is
+no likelihood of it being deleted by accident.</p>
+<p>Now, you can use <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> to perform quality trimming and contaminant
+removal. To see what options are available with <code class="docutils literal notranslate"><span class="pre">bbduk</span></code>, type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">bbduk.sh</span> <span class="pre">-h</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 bbduk.sh -h
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-Written by Brian Bushnell
+<pre class="literal-block">Written by Brian Bushnell
 Last modified March 24, 2020
 
 Description:  Compares reads to the kmers in a reference dataset, optionally
 allowing an edit distance. Splits the reads into two outputs - those that
-match the reference, and those that don&#39;t. Can also trim (remove) the matching
+match the reference, and those that don't. Can also trim (remove) the matching
 parts of the reads rather than binning the reads.
 Please read bbmap/docs/guides/BBDukGuide.txt for more information.
 
@@ -706,7 +491,7 @@ samref=&lt;file&gt;       Optional reference fasta for processing sam files.
 
 Output parameters:
 out=&lt;file&gt;          (outnonmatch) Write reads here that do not contain
-                    kmers matching the database.  &#39;out=stdout.fq&#39; will pipe
+                    kmers matching the database.  'out=stdout.fq' will pipe
                     to standard out.
 out2=&lt;file&gt;         (outnonmatch2) Use this to write 2nd read of pairs to a
                     different file.
@@ -714,7 +499,7 @@ outm=&lt;file&gt;         (outmatch) Write reads here that fail filters.  In def
                     kfilter mode, this means any read with a matching kmer.
                     In any mode, it also includes reads that fail filters such
                     as minlength, mingc, maxgc, entropy, etc.  In other words,
-                    it includes all reads that do not go to &#39;out&#39;.
+                    it includes all reads that do not go to 'out'.
 outm2=&lt;file&gt;        (outmatch2) Use this to write 2nd read of pairs to a
                     different file.
 outs=&lt;file&gt;         (outsingle) Use this to write singleton reads whose mate
@@ -723,10 +508,10 @@ stats=&lt;file&gt;        Write statistics about which contamininants were detec
 refstats=&lt;file&gt;     Write statistics on a per-reference-file basis.
 rpkm=&lt;file&gt;         Write RPKM for each reference sequence (for RNA-seq).
 dump=&lt;file&gt;         Dump kmer tables to a file, in fasta format.
-duk=&lt;file&gt;          Write statistics in duk&#39;s format. *DEPRECATED*
+duk=&lt;file&gt;          Write statistics in duk's format. <em>DEPRECATED</em>
 nzo=t               Only write statistics about ref sequences with nonzero hits.
 overwrite=t         (ow) Grant permission to overwrite files.
-showspeed=t         (ss) &#39;f&#39; suppresses display of processing speed.
+showspeed=t         (ss) 'f' suppresses display of processing speed.
 ziplevel=2          (zl) Compression level; 1 (min) through 9 (max).
 fastawrap=70        Length of lines in fasta output.
 qout=auto           Output quality offset: 33 (Sanger), 64, or auto.
@@ -753,7 +538,7 @@ phist=&lt;file&gt;        Polymer length histogram.
 gchist=&lt;file&gt;       Read GC content histogram.
 enthist=&lt;file&gt;      Read entropy histogram.
 ihist=&lt;file&gt;        Insert size histogram, for paired reads in mapped sam.
-gcbins=100          Number gchist bins.  Set to &#39;auto&#39; to use read length.
+gcbins=100          Number gchist bins.  Set to 'auto' to use read length.
 maxhistlen=6000     Set an upper bound for histogram lengths; higher uses
                     more memory.  The default is 6000 for some histograms
                     and 80000 for others.
@@ -766,7 +551,7 @@ qahist=&lt;file&gt;       Quality accuracy histogram of error rates versus quali
 indelhist=&lt;file&gt;    Indel length histogram.
 mhist=&lt;file&gt;        Histogram of match, sub, del, and ins rates by position.
 idhist=&lt;file&gt;       Histogram of read count versus percent identity.
-idbins=100          Number idhist bins.  Set to &#39;auto&#39; to use read length.
+idbins=100          Number idhist bins.  Set to 'auto' to use read length.
 varfile=&lt;file&gt;      Ignore substitution errors listed in this file when
                     calculating error rates.  Can be generated with
                     CallVariants.
@@ -798,17 +583,17 @@ hammingdistance2=0  (hdist2) Sets hdist for short kmers, when using mink.
 qhdist2=0           Sets qhdist for short kmers, when using mink.
 editdistance2=0     (edist2) Sets edist for short kmers, when using mink.
 forbidn=f           (fn) Forbids matching of read kmers containing N.
-                    By default, these will match a reference &#39;A&#39; if
+                    By default, these will match a reference 'A' if
                     hdist&gt;0 or edist&gt;0, to increase sensitivity.
-removeifeitherbad=t (rieb) Paired reads get sent to &#39;outmatch&#39; if either is
+removeifeitherbad=t (rieb) Paired reads get sent to 'outmatch' if either is
                     match (or either is trimmed shorter than minlen).
                     Set to false to require both.
 trimfailures=f      Instead of discarding failed reads, trim them to 1bp.
                     This makes the statistics a bit odd.
 findbestmatch=f     (fbm) If multiple matches, associate read with sequence
                     sharing most kmers.  Reduces speed.
-skipr1=f            Don&#39;t do kmer-based operations on read 1.
-skipr2=f            Don&#39;t do kmer-based operations on read 2.
+skipr1=f            Don't do kmer-based operations on read 1.
+skipr2=f            Don't do kmer-based operations on read 2.
 ecco=f              For overlapping paired reads only.  Performs error-
                     correction with BBMerge prior to kmer operations.
 recalibrate=f       (recal) Recalibrate quality scores.  Requires calibration
@@ -835,21 +620,21 @@ rskip=              Set both minrskip and maxrskip to the same value.
 qskip=1             Skip query kmers to increase speed.  1 means use all.
 speed=0             Ignore this fraction of kmer space (0-15 out of 16) in both
                     reads and reference.  Increases speed and reduces memory.
-Note: Do not use more than one of &#39;speed&#39;, &#39;qskip&#39;, and &#39;rskip&#39;.
+Note: Do not use more than one of 'speed', 'qskip', and 'rskip'.
 
 Trimming/Filtering/Masking parameters:
 Note - if ktrim, kmask, and ksplit are unset, the default behavior is kfilter.
 All kmer processing modes are mutually exclusive.
-Reads only get sent to &#39;outm&#39; purely based on kmer matches in kfilter mode.
+Reads only get sent to 'outm' purely based on kmer matches in kfilter mode.
 
 ktrim=f             Trim reads to remove bases matching reference kmers.
                     Values:
-                       f (don&#39;t trim),
+                       f (don't trim),
                        r (trim to the right),
                        l (trim to the left)
 kmask=              Replace bases matching ref kmers with another symbol.
                     Allows any non-whitespace character, and processes short
-                    kmers on both ends if mink is set.  &#39;kmask=lc&#39; will
+                    kmers on both ends if mink is set.  'kmask=lc' will
                     convert masked bases to lowercase.
 maskfullycovered=f  (mfc) Only mask bases that are fully covered by kmers.
 ksplit=f            For single-ended reads only.  Reads will be split into
@@ -915,9 +700,9 @@ tossjunk=f          Discard reads with invalid characters as bases.
 swift=f             Trim Swift sequences: Trailing C/T/N R1, leading G/A/N R2.
 
 Header-parsing parameters - these require Illumina headers:
-chastityfilter=f    (cf) Discard reads with id containing &#39; 1:Y:&#39; or &#39; 2:Y:&#39;.
+chastityfilter=f    (cf) Discard reads with id containing ' 1:Y:' or ' 2:Y:'.
 barcodefilter=f     Remove reads with unexpected barcodes if barcodes is set,
-                    or barcodes containing &#39;N&#39; otherwise.  A barcode must be
+                    or barcodes containing 'N' otherwise.  A barcode must be
                     the last part of the read header.  Values:
                        t:     Remove reads with bad barcodes.
                        f:     Ignore barcodes.
@@ -941,7 +726,7 @@ filterpolyg=0       If greater than 0, remove reads with a poly-G prefix of
 Note: there are also equivalent poly-C flags.
 
 Polymer tracking:
-pratio=base,base    &#39;pratio=G,C&#39; will print the ratio of G to C polymers.
+pratio=base,base    'pratio=G,C' will print the ratio of G to C polymers.
 plen=20             Length of homopolymers to count.
 
 Entropy/Complexity parameters:
@@ -975,7 +760,7 @@ khistout=&lt;file&gt;     Kmer frequency histogram for output reads.
 
 Java Parameters:
 
--Xmx                This will set Java&#39;s memory usage, overriding autodetection.
+-Xmx                This will set Java's memory usage, overriding autodetection.
                     -Xmx20g will
                     specify 20 gigs of RAM, and -Xmx200m will specify 200 megs.
                     The max is typically 85% of physical memory.
@@ -983,11 +768,12 @@ Java Parameters:
                     out-of-memory exception occurs.  Requires Java 8u92+.
 -da                 Disable assertions.
 
-Please contact Brian Bushnell at bbushnell@lbl.gov if you encounter any problems.
-
-</pre></div></div>
-</div>
-<p>As you can see, the tool was written by Brian Bushnell and there are a lot of options you can specify with this tool. It can be pretty overwhelming to read and understand each of the parameter available for you to use. So I am giving you an example command with parameters I use for routing processing of raw sequence files.</p>
+Please contact Brian Bushnell at <a class="reference external" href="mailto:bbushnell&#37;&#52;&#48;lbl&#46;gov">bbushnell<span>&#64;</span>lbl<span>&#46;</span>gov</a> if you encounter any problems.</pre>
+<p>As you can see, the tool was written by Brian Bushnell and there are a
+lot of options you can specify with this tool. It can be pretty
+overwhelming to read and understand each of the parameter available for
+you to use. So I am giving you an example command with parameters I use
+for routing processing of raw sequence files.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bbduk.sh <span class="nv">ktrim</span><span class="o">=</span>r ordered <span class="nv">minlen</span><span class="o">=</span><span class="m">50</span> <span class="nv">mink</span><span class="o">=</span><span class="m">11</span> tbo <span class="nv">rcomp</span><span class="o">=</span>f <span class="nv">k</span><span class="o">=</span><span class="m">21</span> <span class="nv">ow</span><span class="o">=</span>t <span class="nv">ftm</span><span class="o">=</span><span class="m">5</span> <span class="nv">zl</span><span class="o">=</span><span class="m">4</span> <span class="se">\</span>
         <span class="nv">qtrim</span><span class="o">=</span>rl <span class="nv">trimq</span><span class="o">=</span><span class="m">20</span> <span class="se">\</span>
         <span class="nv">in1</span><span class="o">=</span>SRR12584454_1.fastq <span class="se">\</span>
@@ -997,13 +783,15 @@ Please contact Brian Bushnell at bbushnell@lbl.gov if you encounter any problems
         <span class="nv">out2</span><span class="o">=</span>SRR12584454_2.trimmed.fastq
 </pre></div>
 </div>
-<p>Here you will notice a few things that are important in this example. First, I am telling <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> to only keep sequences longer than 50 bases and quality higher than 20. And I am specifying the adapter file in <code class="docutils literal notranslate"><span class="pre">ref=adapters.fa</span></code> flag. <code class="docutils literal notranslate"><span class="pre">in1</span></code> and <code class="docutils literal notranslate"><span class="pre">in2</span></code> are where you specify input fastq files and <code class="docutils literal notranslate"><span class="pre">out1</span></code> and <code class="docutils literal notranslate"><span class="pre">out2</span></code> are where you specify output files, which should be named differently so that the program doesn’t overwrite the original files. I will show what it looks like when you type
-this command.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>Here you will notice a few things that are important in this example.
+First, I am telling <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> to only keep sequences longer than 50
+bases and quality higher than 20. And I am specifying the adapter file
+in <code class="docutils literal notranslate"><span class="pre">ref=adapters.fa</span></code> flag. <code class="docutils literal notranslate"><span class="pre">in1</span></code> and <code class="docutils literal notranslate"><span class="pre">in2</span></code> are where you specify
+input fastq files and <code class="docutils literal notranslate"><span class="pre">out1</span></code> and <code class="docutils literal notranslate"><span class="pre">out2</span></code> are where you specify output
+files, which should be named differently so that the program doesn’t
+overwrite the original files. I will show what it looks like when you
+type this command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/MicrobialGenomicsLab/exercises/
 bbduk.sh <span class="nv">ktrim</span><span class="o">=</span>r ordered <span class="nv">minlen</span><span class="o">=</span><span class="m">50</span> <span class="nv">mink</span><span class="o">=</span><span class="m">11</span> tbo <span class="nv">rcomp</span><span class="o">=</span>f <span class="nv">k</span><span class="o">=</span><span class="m">21</span> <span class="nv">ow</span><span class="o">=</span>t <span class="nv">ftm</span><span class="o">=</span><span class="m">5</span> <span class="nv">zl</span><span class="o">=</span><span class="m">4</span> <span class="se">\</span>
         <span class="nv">qtrim</span><span class="o">=</span>rl <span class="nv">trimq</span><span class="o">=</span><span class="m">20</span> <span class="se">\</span>
@@ -1014,105 +802,125 @@ bbduk.sh <span class="nv">ktrim</span><span class="o">=</span>r ordered <span cl
         <span class="nv">out2</span><span class="o">=</span>SRR12584454_2.trimmed.fastq
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/jsaw/miniconda3/opt/bbmap-38.86-0//calcmem.sh: line 75: [: -v: unary operator expected
-Max memory cannot be determined.  Attempting to use 1400 MB.
-If this fails, please add the -Xmx flag (e.g. -Xmx24g) to your command,
-or run this program qsubbed or from a qlogin session on Genepool, or set ulimit to an appropriate value.
-java -ea -Xmx1400m -Xms1400m -cp /Users/jsaw/miniconda3/opt/bbmap-38.86-0/current/ jgi.BBDuk ktrim=r ordered minlen=50 mink=11 tbo rcomp=f k=21 ow=t ftm=5 zl=4 qtrim=rl trimq=20 in1=SRR12584454_1.fastq in2=SRR12584454_2.fastq ref=adapters.fa out1=SRR12584454_1.trimmed.fastq out2=SRR12584454_2.trimmed.fastq
-Executing jgi.BBDuk [ktrim=r, ordered, minlen=50, mink=11, tbo, rcomp=f, k=21, ow=t, ftm=5, zl=4, qtrim=rl, trimq=20, in1=SRR12584454_1.fastq, in2=SRR12584454_2.fastq, ref=adapters.fa, out1=SRR12584454_1.trimmed.fastq, out2=SRR12584454_2.trimmed.fastq]
-Version 38.86
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jsaw</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">bbmap</span><span class="o">-</span><span class="mf">38.86</span><span class="o">-</span><span class="mi">0</span><span class="o">//</span><span class="n">calcmem</span><span class="o">.</span><span class="n">sh</span><span class="p">:</span> <span class="n">line</span> <span class="mi">75</span><span class="p">:</span> <span class="p">[:</span> <span class="o">-</span><span class="n">v</span><span class="p">:</span> <span class="n">unary</span> <span class="n">operator</span> <span class="n">expected</span>
+<span class="n">Max</span> <span class="n">memory</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">determined</span><span class="o">.</span>  <span class="n">Attempting</span> <span class="n">to</span> <span class="n">use</span> <span class="mi">1400</span> <span class="n">MB</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">this</span> <span class="n">fails</span><span class="p">,</span> <span class="n">please</span> <span class="n">add</span> <span class="n">the</span> <span class="o">-</span><span class="n">Xmx</span> <span class="n">flag</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="o">-</span><span class="n">Xmx24g</span><span class="p">)</span> <span class="n">to</span> <span class="n">your</span> <span class="n">command</span><span class="p">,</span>
+<span class="ow">or</span> <span class="n">run</span> <span class="n">this</span> <span class="n">program</span> <span class="n">qsubbed</span> <span class="ow">or</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">qlogin</span> <span class="n">session</span> <span class="n">on</span> <span class="n">Genepool</span><span class="p">,</span> <span class="ow">or</span> <span class="nb">set</span> <span class="n">ulimit</span> <span class="n">to</span> <span class="n">an</span> <span class="n">appropriate</span> <span class="n">value</span><span class="o">.</span>
+<span class="n">java</span> <span class="o">-</span><span class="n">ea</span> <span class="o">-</span><span class="n">Xmx1400m</span> <span class="o">-</span><span class="n">Xms1400m</span> <span class="o">-</span><span class="n">cp</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jsaw</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">bbmap</span><span class="o">-</span><span class="mf">38.86</span><span class="o">-</span><span class="mi">0</span><span class="o">/</span><span class="n">current</span><span class="o">/</span> <span class="n">jgi</span><span class="o">.</span><span class="n">BBDuk</span> <span class="n">ktrim</span><span class="o">=</span><span class="n">r</span> <span class="n">ordered</span> <span class="n">minlen</span><span class="o">=</span><span class="mi">50</span> <span class="n">mink</span><span class="o">=</span><span class="mi">11</span> <span class="n">tbo</span> <span class="n">rcomp</span><span class="o">=</span><span class="n">f</span> <span class="n">k</span><span class="o">=</span><span class="mi">21</span> <span class="n">ow</span><span class="o">=</span><span class="n">t</span> <span class="n">ftm</span><span class="o">=</span><span class="mi">5</span> <span class="n">zl</span><span class="o">=</span><span class="mi">4</span> <span class="n">qtrim</span><span class="o">=</span><span class="n">rl</span> <span class="n">trimq</span><span class="o">=</span><span class="mi">20</span> <span class="n">in1</span><span class="o">=</span><span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span> <span class="n">in2</span><span class="o">=</span><span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span> <span class="n">ref</span><span class="o">=</span><span class="n">adapters</span><span class="o">.</span><span class="n">fa</span> <span class="n">out1</span><span class="o">=</span><span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">trimmed</span><span class="o">.</span><span class="n">fastq</span> <span class="n">out2</span><span class="o">=</span><span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">trimmed</span><span class="o">.</span><span class="n">fastq</span>
+<span class="n">Executing</span> <span class="n">jgi</span><span class="o">.</span><span class="n">BBDuk</span> <span class="p">[</span><span class="n">ktrim</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">ordered</span><span class="p">,</span> <span class="n">minlen</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">mink</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">tbo</span><span class="p">,</span> <span class="n">rcomp</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">ow</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">ftm</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">zl</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">qtrim</span><span class="o">=</span><span class="n">rl</span><span class="p">,</span> <span class="n">trimq</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">in1</span><span class="o">=</span><span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span><span class="p">,</span> <span class="n">in2</span><span class="o">=</span><span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">adapters</span><span class="o">.</span><span class="n">fa</span><span class="p">,</span> <span class="n">out1</span><span class="o">=</span><span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">trimmed</span><span class="o">.</span><span class="n">fastq</span><span class="p">,</span> <span class="n">out2</span><span class="o">=</span><span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">trimmed</span><span class="o">.</span><span class="n">fastq</span><span class="p">]</span>
+<span class="n">Version</span> <span class="mf">38.86</span>
 
-Set ORDERED to true
-maskMiddle was disabled because useShortKmers=true
-0.038 seconds.
-Initial:
-Memory: max=1468m, total=1468m, free=1439m, used=29m
+<span class="n">Set</span> <span class="n">ORDERED</span> <span class="n">to</span> <span class="n">true</span>
+<span class="n">maskMiddle</span> <span class="n">was</span> <span class="n">disabled</span> <span class="n">because</span> <span class="n">useShortKmers</span><span class="o">=</span><span class="n">true</span>
+<span class="mf">0.038</span> <span class="n">seconds</span><span class="o">.</span>
+<span class="n">Initial</span><span class="p">:</span>
+<span class="n">Memory</span><span class="p">:</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1468</span><span class="n">m</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">1468</span><span class="n">m</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="mi">1439</span><span class="n">m</span><span class="p">,</span> <span class="n">used</span><span class="o">=</span><span class="mi">29</span><span class="n">m</span>
 
-Added 3225 kmers; time:         0.038 seconds.
-Memory: max=1468m, total=1468m, free=1433m, used=35m
+<span class="n">Added</span> <span class="mi">3225</span> <span class="n">kmers</span><span class="p">;</span> <span class="n">time</span><span class="p">:</span>     <span class="mf">0.038</span> <span class="n">seconds</span><span class="o">.</span>
+<span class="n">Memory</span><span class="p">:</span> <span class="nb">max</span><span class="o">=</span><span class="mi">1468</span><span class="n">m</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="mi">1468</span><span class="n">m</span><span class="p">,</span> <span class="n">free</span><span class="o">=</span><span class="mi">1433</span><span class="n">m</span><span class="p">,</span> <span class="n">used</span><span class="o">=</span><span class="mi">35</span><span class="n">m</span>
 
-Input is being processed as paired
-Started output streams: 0.034 seconds.
-Processing time:                6.863 seconds.
+<span class="n">Input</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">processed</span> <span class="k">as</span> <span class="n">paired</span>
+<span class="n">Started</span> <span class="n">output</span> <span class="n">streams</span><span class="p">:</span>     <span class="mf">0.034</span> <span class="n">seconds</span><span class="o">.</span>
+<span class="n">Processing</span> <span class="n">time</span><span class="p">:</span>            <span class="mf">6.863</span> <span class="n">seconds</span><span class="o">.</span>
 
-Input:                          207684 reads            62512884 bases.
-QTrimmed:                       155680 reads (74.96%)   14257391 bases (22.81%)
-FTrimmed:                       207684 reads (100.00%)  207684 bases (0.33%)
-KTrimmed:                       128 reads (0.06%)       25083 bases (0.04%)
-Trimmed by overlap:             167802 reads (80.80%)   1345557 bases (2.15%)
-Total Removed:                  12800 reads (6.16%)     15835715 bases (25.33%)
-Result:                         194884 reads (93.84%)   46677169 bases (74.67%)
+<span class="n">Input</span><span class="p">:</span>                      <span class="mi">207684</span> <span class="n">reads</span>            <span class="mi">62512884</span> <span class="n">bases</span><span class="o">.</span>
+<span class="n">QTrimmed</span><span class="p">:</span>                   <span class="mi">155680</span> <span class="n">reads</span> <span class="p">(</span><span class="mf">74.96</span><span class="o">%</span><span class="p">)</span>   <span class="mi">14257391</span> <span class="n">bases</span> <span class="p">(</span><span class="mf">22.81</span><span class="o">%</span><span class="p">)</span>
+<span class="n">FTrimmed</span><span class="p">:</span>                   <span class="mi">207684</span> <span class="n">reads</span> <span class="p">(</span><span class="mf">100.00</span><span class="o">%</span><span class="p">)</span>  <span class="mi">207684</span> <span class="n">bases</span> <span class="p">(</span><span class="mf">0.33</span><span class="o">%</span><span class="p">)</span>
+<span class="n">KTrimmed</span><span class="p">:</span>                   <span class="mi">128</span> <span class="n">reads</span> <span class="p">(</span><span class="mf">0.06</span><span class="o">%</span><span class="p">)</span>       <span class="mi">25083</span> <span class="n">bases</span> <span class="p">(</span><span class="mf">0.04</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Trimmed</span> <span class="n">by</span> <span class="n">overlap</span><span class="p">:</span>         <span class="mi">167802</span> <span class="n">reads</span> <span class="p">(</span><span class="mf">80.80</span><span class="o">%</span><span class="p">)</span>   <span class="mi">1345557</span> <span class="n">bases</span> <span class="p">(</span><span class="mf">2.15</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Total</span> <span class="n">Removed</span><span class="p">:</span>              <span class="mi">12800</span> <span class="n">reads</span> <span class="p">(</span><span class="mf">6.16</span><span class="o">%</span><span class="p">)</span>     <span class="mi">15835715</span> <span class="n">bases</span> <span class="p">(</span><span class="mf">25.33</span><span class="o">%</span><span class="p">)</span>
+<span class="n">Result</span><span class="p">:</span>                     <span class="mi">194884</span> <span class="n">reads</span> <span class="p">(</span><span class="mf">93.84</span><span class="o">%</span><span class="p">)</span>   <span class="mi">46677169</span> <span class="n">bases</span> <span class="p">(</span><span class="mf">74.67</span><span class="o">%</span><span class="p">)</span>
 
-Time:                           6.937 seconds.
-Reads Processed:        207k    29.94k reads/sec
-Bases Processed:      62512k    9.01m bases/sec
-</pre></div></div>
-</div>
-<p>When the tool finishes this task (which is pretty fast), you will see that it found 207,684 reads (if you combine the 2 fastq files) and removed 12,800 reads that do not meet the criteria I have set. And it retained 93.84% of the reads. The whole process only took less than 7 seconds. Now, if you look into the folder, you will notice 2 new files being produced that end with “<code class="docutils literal notranslate"><span class="pre">.trimmed.fastq</span></code>”.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<span class="n">Time</span><span class="p">:</span>                               <span class="mf">6.937</span> <span class="n">seconds</span><span class="o">.</span>
+<span class="n">Reads</span> <span class="n">Processed</span><span class="p">:</span>        <span class="mi">207</span><span class="n">k</span>        <span class="mf">29.94</span><span class="n">k</span> <span class="n">reads</span><span class="o">/</span><span class="n">sec</span>
+<span class="n">Bases</span> <span class="n">Processed</span><span class="p">:</span>      <span class="mi">62512</span><span class="n">k</span>        <span class="mf">9.01</span><span class="n">m</span> <span class="n">bases</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
-<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>When the tool finishes this task (which is pretty fast), you will see
+that it found 207,684 reads (if you combine the 2 fastq files) and
+removed 12,800 reads that do not meet the criteria I have set. And it
+retained 93.84% of the reads. The whole process only took less than 7
+seconds. Now, if you look into the folder, you will notice 2 new files
+being produced that end with “<code class="docutils literal notranslate"><span class="pre">.trimmed.fastq</span></code>”.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> ~/workspace/MicrobialGenomicsLab/exercises/
 ls -lah
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="mi">238</span><span class="n">M</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span> <span class="mi">11</span> <span class="n">jsaw</span> <span class="mi">982768932</span>  <span class="mi">352</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">10</span><span class="p">:</span><span class="mi">29</span> <span class="o">.</span>
+<span class="n">drwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span>  <span class="mi">6</span> <span class="n">jsaw</span> <span class="mi">982768932</span>  <span class="mi">192</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">08</span><span class="p">:</span><span class="mi">58</span> <span class="o">..</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>  <span class="mi">67</span><span class="n">M</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">05</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">fastq</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>  <span class="mi">53</span><span class="n">M</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">10</span><span class="p">:</span><span class="mi">29</span> <span class="n">SRR12584454_1</span><span class="o">.</span><span class="n">trimmed</span><span class="o">.</span><span class="n">fastq</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">952</span><span class="n">K</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_1_fastqc</span><span class="o">.</span><span class="n">html</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">861</span><span class="n">K</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_1_fastqc</span><span class="o">.</span><span class="n">zip</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>  <span class="mi">67</span><span class="n">M</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">05</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">fastq</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>  <span class="mi">44</span><span class="n">M</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">10</span><span class="p">:</span><span class="mi">29</span> <span class="n">SRR12584454_2</span><span class="o">.</span><span class="n">trimmed</span><span class="o">.</span><span class="n">fastq</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">951</span><span class="n">K</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_2_fastqc</span><span class="o">.</span><span class="n">html</span>
+<span class="o">-</span><span class="n">rw</span><span class="o">-</span><span class="n">r</span><span class="o">--</span><span class="n">r</span><span class="o">--</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span> <span class="mi">848</span><span class="n">K</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">09</span><span class="p">:</span><span class="mi">41</span> <span class="n">SRR12584454_2_fastqc</span><span class="o">.</span><span class="n">zip</span>
+<span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">x</span><span class="o">---</span>  <span class="mi">1</span> <span class="n">jsaw</span> <span class="mi">982768932</span>  <span class="mi">14</span><span class="n">K</span> <span class="n">Sep</span>  <span class="mi">9</span> <span class="mi">10</span><span class="p">:</span><span class="mi">28</span> <span class="n">adapters</span><span class="o">.</span><span class="n">fa</span>
+</pre></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-total 238M
-drwxr-xr-x 11 jsaw 982768932  352 Sep  9 10:29 .
-drwxr-xr-x  6 jsaw 982768932  192 Sep  9 08:58 ..
--rw-r--r--  1 jsaw 982768932  67M Sep  9 09:05 SRR12584454_1.fastq
--rw-r--r--  1 jsaw 982768932  53M Sep  9 10:29 SRR12584454_1.trimmed.fastq
--rw-r--r--  1 jsaw 982768932 952K Sep  9 09:41 SRR12584454_1_fastqc.html
--rw-r--r--  1 jsaw 982768932 861K Sep  9 09:41 SRR12584454_1_fastqc.zip
--rw-r--r--  1 jsaw 982768932  67M Sep  9 09:05 SRR12584454_2.fastq
--rw-r--r--  1 jsaw 982768932  44M Sep  9 10:29 SRR12584454_2.trimmed.fastq
--rw-r--r--  1 jsaw 982768932 951K Sep  9 09:41 SRR12584454_2_fastqc.html
--rw-r--r--  1 jsaw 982768932 848K Sep  9 09:41 SRR12584454_2_fastqc.zip
--rwxr-x---  1 jsaw 982768932  14K Sep  9 10:28 adapters.fa
-</pre></div></div>
-</div>
-<p>The next step after this is to check if sequence qualities have improved after you have run <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> tool. To do that, you run <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> tool again but on the trimmed fastq files. Type:</p>
+<p>The next step after this is to check if sequence qualities have improved
+after you have run <code class="docutils literal notranslate"><span class="pre">bbduk</span></code> tool. To do that, you run <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> tool
+again but on the trimmed fastq files. Type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastqc *.trimmed.fastq
 </pre></div>
 </div>
-<p>And inspect the sequence qualities by opening the html files produced by <code class="docutils literal notranslate"><span class="pre">fastqc</span></code>. Noticed any differences? You can open the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> report of the original file in another tab to see how different things are. You should see something like this:</p>
-<img alt="trimmed" src="../_images/fqct.png" />
-<p>As you might notice, the histogram denoting sequence quality have drastically improved (no more columns dipping into the red zone). Now, the sequences are good to be used in downstream processes.</p>
+<p>And inspect the sequence qualities by opening the html files produced by
+<code class="docutils literal notranslate"><span class="pre">fastqc</span></code>. Noticed any differences? You can open the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> report
+of the original file in another tab to see how different things are. You
+should see something like this:</p>
+<div class="figure align-default" id="id4">
+<img alt="trimmed" src="_images/fqct.png" />
+<p class="caption"><span class="caption-text">trimmed</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="4.-Preparations-for-next-week’s-lab">
-<h2>4. Preparations for next week’s lab<a class="headerlink" href="#4.-Preparations-for-next-week’s-lab" title="Permalink to this headline">¶</a></h2>
-<p>We will be doing genome and metagenome assemblies next week. For that, you will download a few publicly available datasets and also familiarize yourself with using <code class="docutils literal notranslate"><span class="pre">ssh</span></code> and <code class="docutils literal notranslate"><span class="pre">rsync</span></code> tools to remotely connect to and transfer files to other computers. You can look at this page for some examples of how to use <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.</p>
+<p>As you might notice, the histogram denoting sequence quality have
+drastically improved (no more columns dipping into the red zone). Now,
+the sequences are good to be used in downstream processes.</p>
+</div>
+<div class="section" id="preparations-for-next-weeks-lab">
+<h2>4. Preparations for next week’s lab<a class="headerlink" href="#preparations-for-next-weeks-lab" title="Permalink to this headline">¶</a></h2>
+<p>We will be doing genome and metagenome assemblies next week. For that,
+you will download a few publicly available datasets and also familiarize
+yourself with using <code class="docutils literal notranslate"><span class="pre">ssh</span></code> and <code class="docutils literal notranslate"><span class="pre">rsync</span></code> tools to remotely connect to
+and transfer files to other computers. You can look at this page for
+some examples of how to use <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.</p>
 <p><a class="reference external" href="https://phoenixnap.com/kb/linux-ssh-commands">https://phoenixnap.com/kb/linux-ssh-commands</a></p>
-<p>Another tool that will be crucial for you to use next week will be this tool known as <code class="docutils literal notranslate"><span class="pre">rsync</span></code>. It is a command line tool that can be used to transfer files between two remote computers or even for syncing directories inside the same computer. You can see some examples of how to use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> here:</p>
+<p>Another tool that will be crucial for you to use next week will be this
+tool known as <code class="docutils literal notranslate"><span class="pre">rsync</span></code>. It is a command line tool that can be used to
+transfer files between two remote computers or even for syncing
+directories inside the same computer. You can see some examples of how
+to use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> here:</p>
 <p><a class="reference external" href="https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/">https://www.tecmint.com/rsync-local-remote-file-synchronization-commands/</a></p>
 <p>and here:</p>
 <p><a class="reference external" href="https://phoenixnap.com/kb/rsync-command-linux-examples">https://phoenixnap.com/kb/rsync-command-linux-examples</a></p>
-<p>Try to play around with a few examples shown in these pages to become familar with how <code class="docutils literal notranslate"><span class="pre">rsync</span></code> works.</p>
-<div class="section" id="Download-data-for-next-week">
-<h3>Download data for next week<a class="headerlink" href="#Download-data-for-next-week" title="Permalink to this headline">¶</a></h3>
-<p>We will be using publicly available sequence data from NCBI SRA and see if you can replicate their results. The first one to download is here:</p>
+<p>Try to play around with a few examples shown in these pages to become
+familar with how <code class="docutils literal notranslate"><span class="pre">rsync</span></code> works.</p>
+<div class="section" id="download-data-for-next-week">
+<h3>Download data for next week<a class="headerlink" href="#download-data-for-next-week" title="Permalink to this headline">¶</a></h3>
+<p>We will be using publicly available sequence data from NCBI SRA and see
+if you can replicate their results. The first one to download is here:</p>
 <p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRX9094324">https://www.ncbi.nlm.nih.gov/sra/SRX9094324</a></p>
-<p>These are Illumina MiSeq sequences they have used to reconstruct the genome of a <em>Salmonella enteria</em> strain. This is a cultured isolate and represents a single organism. Use <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool to download this data. I recommend you put it in <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on your computer. These are fairly large files (each about 450 MB). In order to save space, you can compress them after they are downloaded. You can type like this:</p>
+<p>These are Illumina MiSeq sequences they have used to reconstruct the
+genome of a <em>Salmonella enteria</em> strain. This is a cultured isolate and
+represents a single organism. Use <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool to download this
+data. I recommend you put it in <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on your computer. These
+are fairly large files (each about 450 MB). In order to save space, you
+can compress them after they are downloaded. You can type like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gzip *.fastq
 </pre></div>
 </div>
-<p>And this will compress your text files into much smaller zipped files with extension “<a href="#id1"><span class="problematic" id="id2">*</span></a>.gz”. The file sizes are much smaller after being compressed (about 110-130 MB).</p>
+<p>And this will compress your text files into much smaller zipped files
+with extension “<a href="#id1"><span class="problematic" id="id2">*</span></a>.gz”. The file sizes are much smaller after being
+compressed (about 110-130 MB).</p>
 <p>For metagenome assemblies, we will be downloading this file:</p>
 <p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRX4741377">https://www.ncbi.nlm.nih.gov/sra/SRX4741377</a></p>
-<p>Make sure you use <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> to download it. Again, I recommend you put it in <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on your computer and also use <code class="docutils literal notranslate"><span class="pre">gzip</span></code> to compress the fastq files as these are very large files (each about 4.5 GB, a total of 9 GB). These compressed files can be used directly by both <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> and <code class="docutils literal notranslate"><span class="pre">bbduk</span></code>.</p>
+<p>Make sure you use <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> to download it. Again, I recommend
+you put it in <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on your computer and also use <code class="docutils literal notranslate"><span class="pre">gzip</span></code> to
+compress the fastq files as these are very large files (each about 4.5
+GB, a total of 9 GB). These compressed files can be used directly by
+both <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> and <code class="docutils literal notranslate"><span class="pre">bbduk</span></code>.</p>
 <p>Now you are ready for next week’s lab.</p>
 </div>
 </div>
@@ -1125,17 +933,17 @@ drwxr-xr-x  6 jsaw 982768932  192 Sep  9 08:58 ..
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-        <p class="logo"><a href="../index.html" title="index">
-          <img class="logo" src="../_static/gm_pan.png" alt="Logo"/>
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
         </a></p><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="../index.html">Page contents</a></h3>
+    <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Exercises for today</a><ul>
-<li><a class="reference internal" href="#1.-sra-tools">1. sra-tools</a></li>
-<li><a class="reference internal" href="#2.-FastQC">2. FastQC</a></li>
-<li><a class="reference internal" href="#3.-BBTools">3. BBTools</a></li>
-<li><a class="reference internal" href="#4.-Preparations-for-next-week’s-lab">4. Preparations for next week’s lab</a><ul>
-<li><a class="reference internal" href="#Download-data-for-next-week">Download data for next week</a></li>
+<li><a class="reference internal" href="#sra-tools">1. sra-tools</a></li>
+<li><a class="reference internal" href="#fastqc">2. FastQC</a></li>
+<li><a class="reference internal" href="#bbtools">3. BBTools</a></li>
+<li><a class="reference internal" href="#preparations-for-next-weeks-lab">4. Preparations for next week’s lab</a><ul>
+<li><a class="reference internal" href="#download-data-for-next-week">Download data for next week</a></li>
 </ul>
 </li>
 </ul>
@@ -1156,14 +964,14 @@ drwxr-xr-x  6 jsaw 982768932  192 Sep  9 08:58 ..
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/ipynbs/exercises_week2.ipynb.txt"
+      <li><a href="_sources/exercises_week2.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
+    <form class="search" action="search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
@@ -1197,7 +1005,7 @@ drwxr-xr-x  6 jsaw 982768932  192 Sep  9 08:58 ..
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
+          <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
           <a href="Week3.html" title="Week 3"
@@ -1205,7 +1013,7 @@ drwxr-xr-x  6 jsaw 982768932  192 Sep  9 08:58 ..
         <li class="right" >
           <a href="tools_week2.html" title="Install tools for today’s lab"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Exercises for today</a></li> 
       </ul>

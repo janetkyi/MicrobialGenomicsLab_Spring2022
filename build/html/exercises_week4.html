@@ -8,36 +8,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercises for Week4 &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
 
     
     
      
-        <script src="../_static/jquery.cookie.js"></script>
+        <script src="_static/jquery.cookie.js"></script>
     
 
     
      
-        <script src="../_static/cloud.base.js"></script>
+        <script src="_static/cloud.base.js"></script>
     
 
     
      
-        <script src="../_static/cloud.js"></script>
+        <script src="_static/cloud.js"></script>
     
 
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Week 5" href="Week5.html" />
     <link rel="prev" title="Week 4" href="Week4.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +46,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
+          <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="Week5.html" title="Week 5"
@@ -56,7 +54,7 @@
         <li class="right" >
           <a href="Week4.html" title="Week 4"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Exercises for Week4</a></li> 
       </ul>
@@ -71,252 +69,6 @@
             
   
 <style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
 /* CSS overrides for cloud theme */
 
 /* nicer titles and more space for info and warning logos */
@@ -341,44 +93,55 @@ div.admonition.inline-title p.admonition-title {
     padding-left: .2em;
 }
 </style>
-<div class="section" id="Exercises-for-Week4">
-<h1>Exercises for Week4<a class="headerlink" href="#Exercises-for-Week4" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Virtual-environments-in-Python">
-<h2>Virtual environments in Python<a class="headerlink" href="#Virtual-environments-in-Python" title="Permalink to this headline">¶</a></h2>
-<p>Miniconda/Bioconda is a fantastic way to manage and install tools but sometimes, you will encounter that some tools are incompatible with the Python version you have currently installed. For example, the Quast tool you will be using to assess SPAdes assembly metrics requires an earlier version of Python (3.6) and won’t run if you have latest version of Python if it’s higher than 3.6. If this happens you can create a Python virtual environment to install an earlier version of Python so that you
+<div class="section" id="exercises-for-week4">
+<h1>Exercises for Week4<a class="headerlink" href="#exercises-for-week4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="virtual-environments-in-python">
+<h2>Virtual environments in Python<a class="headerlink" href="#virtual-environments-in-python" title="Permalink to this headline">¶</a></h2>
+<p>Miniconda/Bioconda is a fantastic way to manage and install tools but
+sometimes, you will encounter that some tools are incompatible with the
+Python version you have currently installed. For example, the Quast tool
+you will be using to assess SPAdes assembly metrics requires an earlier
+version of Python (3.6) and won’t run if you have latest version of
+Python if it’s higher than 3.6. If this happens you can create a Python
+virtual environment to install an earlier version of Python so that you
 can install Quast.</p>
 <p>To create a new Python virtual environment, type something like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n quast_env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
 </pre></div>
 </div>
-<p>Here, <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">quast_env</span></code> flag means you are trying to create a new virtual environment with the name <code class="docutils literal notranslate"><span class="pre">quast_env</span></code>, something descriptive so that you remember what that environment is for. And you have specified that you want the Python version to be 3.6. To activate this new virtual environment, type:</p>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">quast_env</span></code> flag means you are trying to create a new virtual
+environment with the name <code class="docutils literal notranslate"><span class="pre">quast_env</span></code>, something descriptive so that
+you remember what that environment is for. And you have specified that
+you want the Python version to be 3.6. To activate this new virtual
+environment, type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate quast_env
 </pre></div>
 </div>
-<p>You will notice in your terminal that the name <code class="docutils literal notranslate"><span class="pre">quast_env</span></code> is inside the paranthese at the very beginning of your command prompt. This indicates that you are in this virtual environment. Now, you can install Quast using conda. Type:</p>
+<p>You will notice in your terminal that the name <code class="docutils literal notranslate"><span class="pre">quast_env</span></code> is inside
+the paranthese at the very beginning of your command prompt. This
+indicates that you are in this virtual environment. Now, you can install
+Quast using conda. Type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install quast
 </pre></div>
 </div>
-<p>And it should install fine now. To return to your original (base) Python environment, you type:</p>
+<p>And it should install fine now. To return to your original (base) Python
+environment, you type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda deactivate
 </pre></div>
 </div>
-<p>Now, you will see that the command prompt shows <code class="docutils literal notranslate"><span class="pre">base</span></code> at the very beginning.</p>
-<p>Virtual environments are useful ways to test and install new tools that might otherwise break or mess up with your base Python environment. You can also remove the virtual environment you just created by typing: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">quast_env</span></code>. To list all the virtual environments you have created, type: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>. To further learn how to use conda, here’s a cheat sheet with all the useful commands.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<p>Now, you will see that the command prompt shows <code class="docutils literal notranslate"><span class="pre">base</span></code> at the very
+beginning.</p>
+<p>Virtual environments are useful ways to test and install new tools that
+might otherwise break or mess up with your base Python environment. You
+can also remove the virtual environment you just created by typing:
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span> <span class="pre">--name</span> <span class="pre">quast_env</span></code>. To list all the virtual
+environments you have created, type: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>. To further
+learn how to use conda, here’s a cheat sheet with all the useful
+commands.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
 <iframe
     width="800"
     height="800"
@@ -386,99 +149,195 @@ can install Quast.</p>
     frameborder="0"
     allowfullscreen
 ></iframe></div>
-</div>
-</div>
-<div class="section" id="Connecting-to-GW-HPC-cluster-(Cerberus)">
-<h2>Connecting to GW HPC cluster (Cerberus)<a class="headerlink" href="#Connecting-to-GW-HPC-cluster-(Cerberus)" title="Permalink to this headline">¶</a></h2>
-<p>Today, you will be remotely connecting to a high performance computing (HPC) cluster at GW. This cluster has 10 nodes (think of it as 10 computers) with 128 GB of RAM and 28 CPU cores each. This means you can parallelize certain bioinformatic tasks over multiple CPUs and even across multiple nodes. Glen MacLachlan, who is helping us to set up this computing cluster is here with us today and he will be able to answer any questions you may have regarding this cluster.</p>
-<p>Today, you will be connecting to a high-performance computing (HPC) cluster at GW, which is given a name <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. This is where you will be transferring the two datasets you have downloaded over the past few weeks. To remotely connect to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, you will need to use SSH, which stands for “Secure Shell”. SSH (Secure Shell) is a network protocol that uses encryption technology to securely connect to another computer or securely transfer files to a remote computer. You can read more
-about ssh in the following links:</p>
+<div class="section" id="connecting-to-gw-hpc-cluster-cerberus">
+<h2>Connecting to GW HPC cluster (Cerberus)<a class="headerlink" href="#connecting-to-gw-hpc-cluster-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>Today, you will be remotely connecting to a high performance computing
+(HPC) cluster at GW. This cluster has 10 nodes (think of it as 10
+computers) with 128 GB of RAM and 28 CPU cores each. This means you can
+parallelize certain bioinformatic tasks over multiple CPUs and even
+across multiple nodes. Glen MacLachlan, who is helping us to set up this
+computing cluster is here with us today and he will be able to answer
+any questions you may have regarding this cluster.</p>
+<p>Today, you will be connecting to a high-performance computing (HPC)
+cluster at GW, which is given a name <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. This is where you
+will be transferring the two datasets you have downloaded over the past
+few weeks. To remotely connect to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, you will need to use
+SSH, which stands for “Secure Shell”. SSH (Secure Shell) is a network
+protocol that uses encryption technology to securely connect to another
+computer or securely transfer files to a remote computer. You can read
+more about ssh in the following links:</p>
 <p><a class="reference external" href="https://www.ssh.com/ssh/">https://www.ssh.com/ssh/</a></p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Ssh_(Secure_Shell">https://en.wikipedia.org/wiki/Ssh_(Secure_Shell</a>)</p>
-<p>Before even attempting to connect to the server, you need to first download and install VPN client on your laptop. Here is where you download the client: <a class="reference external" href="https://my.gwu.edu/mod/downloads/?category=VPN">https://my.gwu.edu/mod/downloads/?category=VPN</a></p>
-<p>There are both Windows and Mac versions. Choose the correct one. Only after installing the VPN and logging into GW’s VPN, you can attempt to access <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
-<p>The command to connect to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> is <code class="docutils literal notranslate"><span class="pre">ssh</span></code>. You will be using your GW NetID and password to connect to the server. To connect, an example command is shown below:</p>
+<p>Before even attempting to connect to the server, you need to first
+download and install VPN client on your laptop. Here is where you
+download the client: <a class="reference external" href="https://my.gwu.edu/mod/downloads/?category=VPN">https://my.gwu.edu/mod/downloads/?category=VPN</a></p>
+<p>There are both Windows and Mac versions. Choose the correct one. Only
+after installing the VPN and logging into GW’s VPN, you can attempt to
+access <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
+<p>The command to connect to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> is <code class="docutils literal notranslate"><span class="pre">ssh</span></code>. You will be using
+your GW NetID and password to connect to the server. To connect, an
+example command is shown below:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh jsaw@cerberus.colonialone.gwu.edu
 </pre></div>
 </div>
-<p>Here, I am using my NetID, which is <code class="docutils literal notranslate"><span class="pre">jsaw</span></code>. You will replace it with your NetID. If this is the first time you are connecting to the server, it will ask you a few questions and you should type “y” to say yes to the answers. When it asks for your password, type your password for the NetID (same as your email password, I believe). Once you’re logged in, you can type <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-a</span></code> and this will print some information about the operating system running on this machine, which is Linux and will aslo
+<p>Here, I am using my NetID, which is <code class="docutils literal notranslate"><span class="pre">jsaw</span></code>. You will replace it with
+your NetID. If this is the first time you are connecting to the server,
+it will ask you a few questions and you should type “y” to say yes to
+the answers. When it asks for your password, type your password for the
+NetID (same as your email password, I believe). Once you’re logged in,
+you can type <code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-a</span></code> and this will print some information about the
+operating system running on this machine, which is Linux and will aslo
 print the host name, which is <code class="docutils literal notranslate"><span class="pre">cerberus.colonialone.gwu.edu</span></code>.</p>
 <p>To logout, just type <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
 </div>
-<div class="section" id="Using-ssh-keys-to-log-in-to-cerberus">
-<h2>Using ssh keys to log in to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#Using-ssh-keys-to-log-in-to-cerberus" title="Permalink to this headline">¶</a></h2>
-<p>Each time you log in to a remote computer with the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> command, it will ask you to enter the password. It can get pretty tiring if you have to type this information every single time to log on to a remote computer. To get around this problem, you can use a <strong>ssh key</strong> to log in without having to type your password every single time. In order to generate a ssh key, you type <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> command. Detailed instructions on how to set up a ssh key and copy it to a remote computer are shown
-here:</p>
+<div class="section" id="using-ssh-keys-to-log-in-to-cerberus">
+<h2>Using ssh keys to log in to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#using-ssh-keys-to-log-in-to-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>Each time you log in to a remote computer with the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> command, it
+will ask you to enter the password. It can get pretty tiring if you have
+to type this information every single time to log on to a remote
+computer. To get around this problem, you can use a <strong>ssh key</strong> to log
+in without having to type your password every single time. In order to
+generate a ssh key, you type <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> command. Detailed
+instructions on how to set up a ssh key and copy it to a remote computer
+are shown here:</p>
 <p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys">https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys</a>–2</p>
 <p>Briefly, the steps involve the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t rsa
 ssh-copy-id xxxx@cerberus.colonialone.gwu.edu
 </pre></div>
 </div>
-<p>The first command will generate a ssh key and it will ask you to enter a “passphrase”. This is not a password but a phrase you should remember when using ssh key to connect to a remote machine. Usually, you enter this passphrase once and it will not ask for it again until you restart your computer. You can also leave it blank (no passphrase) but it is not recommended.</p>
-<p>The second command <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> will copy your public key to the remote computer (<code class="docutils literal notranslate"><span class="pre">cerberus</span></code>) and this is the id it will check to autheticate your remote computer (laptop) every time you try to log in. Make sure to replace the “xxxx” with your NetID.</p>
+<p>The first command will generate a ssh key and it will ask you to enter a
+“passphrase”. This is not a password but a phrase you should remember
+when using ssh key to connect to a remote machine. Usually, you enter
+this passphrase once and it will not ask for it again until you restart
+your computer. You can also leave it blank (no passphrase) but it is not
+recommended.</p>
+<p>The second command <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> will copy your public key to the
+remote computer (<code class="docutils literal notranslate"><span class="pre">cerberus</span></code>) and this is the id it will check to
+autheticate your remote computer (laptop) every time you try to log in.
+Make sure to replace the “xxxx” with your NetID.</p>
 </div>
-<div class="section" id="File-and-folder-organization-on-cerberus">
-<h2>File and folder organization on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#File-and-folder-organization-on-cerberus" title="Permalink to this headline">¶</a></h2>
-<p>Once you’re logged on, you will be directed to your home folder. For me, it is <code class="docutils literal notranslate"><span class="pre">/home/jsaw</span></code>. Here, you should create the following folders:</p>
+<div class="section" id="file-and-folder-organization-on-cerberus">
+<h2>File and folder organization on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#file-and-folder-organization-on-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>Once you’re logged on, you will be directed to your home folder. For me,
+it is <code class="docutils literal notranslate"><span class="pre">/home/jsaw</span></code>. Here, you should create the following folders:</p>
 <ul class="simple">
 <li><p>tools</p></li>
 <li><p>exercises</p></li>
 <li><p>data</p></li>
 <li><p>projects</p></li>
 </ul>
-<p>You will be downloading Miniconda to <code class="docutils literal notranslate"><span class="pre">tools</span></code> folder so that you can install your own copy of Miniconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> to manage and install additional bioinformatic tools (similar to what you have already done on your laptop).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">data</span></code> folder should be where you store your raw sequence files and actual work should be done inside the <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder. Later on, you will be working on group/individual projects and you should store those work in the <code class="docutils literal notranslate"><span class="pre">projects</span></code> folder.</p>
+<p>You will be downloading Miniconda to <code class="docutils literal notranslate"><span class="pre">tools</span></code> folder so that you can
+install your own copy of Miniconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> to manage and install
+additional bioinformatic tools (similar to what you have already done on
+your laptop).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">data</span></code> folder should be where you store your raw sequence files
+and actual work should be done inside the <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder. Later
+on, you will be working on group/individual projects and you should
+store those work in the <code class="docutils literal notranslate"><span class="pre">projects</span></code> folder.</p>
 </div>
-<div class="section" id="Transferring-files-to/from-cerberus">
-<h2>Transferring files to/from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#Transferring-files-to/from-cerberus" title="Permalink to this headline">¶</a></h2>
-<p>You will soon realize that it becomes a necessity to transfer files to/from a remote computer. You can run computational analyses on a remote computer but if you want to inspect the results on your laptop using graphical tools, then you will need to download those files to your laptop computer. There are several tools that will allow you to transfer files between computers. GUI-based (graphical user interface) tools such as Filezilla or Cyberduck can do these tasks.</p>
-<p>In this course, though, you will learn how to use command line based tools such as <code class="docutils literal notranslate"><span class="pre">rsync</span></code> or <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy or sync files between local and remote computers. I use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> exclusively because it is a very powerful tool that can automate things in a terminal environment and you can programmatically transfer files of a certain type or format, for example. Today, you will learn how to transfer the “adapters.fa” file you downloaded from last week to do sequence quality trimming and upload it
-to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
+<div class="section" id="transferring-files-to-from-cerberus">
+<h2>Transferring files to/from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#transferring-files-to-from-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>You will soon realize that it becomes a necessity to transfer files
+to/from a remote computer. You can run computational analyses on a
+remote computer but if you want to inspect the results on your laptop
+using graphical tools, then you will need to download those files to
+your laptop computer. There are several tools that will allow you to
+transfer files between computers. GUI-based (graphical user interface)
+tools such as Filezilla or Cyberduck can do these tasks.</p>
+<p>In this course, though, you will learn how to use command line based
+tools such as <code class="docutils literal notranslate"><span class="pre">rsync</span></code> or <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy or sync files between local
+and remote computers. I use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> exclusively because it is a very
+powerful tool that can automate things in a terminal environment and you
+can programmatically transfer files of a certain type or format, for
+example. Today, you will learn how to transfer the “adapters.fa” file
+you downloaded from last week to do sequence quality trimming and upload
+it to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
 <p><strong>To transfer file from your laptop to a remote computer</strong></p>
-<p>You should first go into the folder where you stored the adapter file. It should be named as <code class="docutils literal notranslate"><span class="pre">adapters.fa</span></code>. Then an example command to transfer this adapter file to my home folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> would look something like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rsync -avzP adapters.fa jsaw@cerberus.colonialone.gwu.edu:~/
+<p>You should first go into the folder where you stored the adapter file.
+It should be named as <code class="docutils literal notranslate"><span class="pre">adapters.fa</span></code>. Then an example command to
+transfer this adapter file to my home folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> would look
+something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rsync</span> <span class="o">-</span><span class="n">avzP</span> <span class="n">adapters</span><span class="o">.</span><span class="n">fa</span> <span class="n">jsaw</span><span class="nd">@cerberus</span><span class="o">.</span><span class="n">colonialone</span><span class="o">.</span><span class="n">gwu</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">~/</span>
 </pre></div>
 </div>
-<p>This will upload the <code class="docutils literal notranslate"><span class="pre">adapters.fa</span></code> file to Cerberus and the file will go directly into your home folder. Instead of <code class="docutils literal notranslate"><span class="pre">jsaw</span></code>, which is my username, you should type your NetID.</p>
-<p>To download files or folders from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> to your laptop computer, you can type something like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rsync -avzP jsaw@cerberus.colonialone.gwu.edu:~/file.txt .
+<p>This will upload the <code class="docutils literal notranslate"><span class="pre">adapters.fa</span></code> file to Cerberus and the file will
+go directly into your home folder. Instead of <code class="docutils literal notranslate"><span class="pre">jsaw</span></code>, which is my
+username, you should type your NetID.</p>
+<p>To download files or folders from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> to your laptop computer,
+you can type something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rsync</span> <span class="o">-</span><span class="n">avzP</span> <span class="n">jsaw</span><span class="nd">@cerberus</span><span class="o">.</span><span class="n">colonialone</span><span class="o">.</span><span class="n">gwu</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">~/</span><span class="n">file</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>The dot at the very end of this command is just to indicate that you want to download the remote <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> file to current folder or directory on your laptop. You can also use wild-card characters like <code class="docutils literal notranslate"><span class="pre">*</span></code> to transfer multiple files or folders. I will show some examples in class.</p>
+<p>The dot at the very end of this command is just to indicate that you
+want to download the remote <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> file to current folder or
+directory on your laptop. You can also use wild-card characters like
+<code class="docutils literal notranslate"><span class="pre">*</span></code> to transfer multiple files or folders. I will show some examples
+in class.</p>
 </div>
-<div class="section" id="Installation-of-Miniconda-and-Bioconda-on-cerberus">
-<h2>Installation of Miniconda and Bioconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#Installation-of-Miniconda-and-Bioconda-on-cerberus" title="Permalink to this headline">¶</a></h2>
-<p>You have already done Miniconda and Bioconda installation previously on your laptop and this shouldn’t be too problematic for you this time around. First, log in to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>. Once you’re in your home folder, change directory into the <code class="docutils literal notranslate"><span class="pre">tools</span></code> folder then type the following:</p>
+<div class="section" id="installation-of-miniconda-and-bioconda-on-cerberus">
+<h2>Installation of Miniconda and Bioconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#installation-of-miniconda-and-bioconda-on-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>You have already done Miniconda and Bioconda installation previously on
+your laptop and this shouldn’t be too problematic for you this time
+around. First, log in to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> using <code class="docutils literal notranslate"><span class="pre">ssh</span></code>. Once you’re in your
+home folder, change directory into the <code class="docutils literal notranslate"><span class="pre">tools</span></code> folder then type the
+following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 </pre></div>
 </div>
-<p>Follow the instructions, don’t change anything, and say yes to everything. Then logout by typing <code class="docutils literal notranslate"><span class="pre">exit</span></code>. Log back onto <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> again. Then add the Bioconda channels by typing:</p>
+<p>Follow the instructions, don’t change anything, and say yes to
+everything. Then logout by typing <code class="docutils literal notranslate"><span class="pre">exit</span></code>. Log back onto <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>
+again. Then add the Bioconda channels by typing:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
 </pre></div>
 </div>
-<p>Now your <code class="docutils literal notranslate"><span class="pre">conda</span></code> is set up to install the necesary bioinformatic tools.</p>
+<p>Now your <code class="docutils literal notranslate"><span class="pre">conda</span></code> is set up to install the necesary bioinformatic
+tools.</p>
 </div>
-<div class="section" id="File-transfer-between-computers-using-rsync">
-<h2>File transfer between computers using <code class="docutils literal notranslate"><span class="pre">rsync</span></code><a class="headerlink" href="#File-transfer-between-computers-using-rsync" title="Permalink to this headline">¶</a></h2>
-<p>Today, we will be running SPAdes on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> but before doing that, you need to transfer either the raw or trimmed fastq files to the remote server. Since you have already done trimming using <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> tool, I recommend you transfer the trimmed fastq files to the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. How do you do that? This is where the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command comes in handy.</p>
-<p><code class="docutils literal notranslate"><span class="pre">rsync</span></code> is a really useful tool to transfer files or folders between two computers or even between different locations within the same computer. Here, you can read more about several examples of how you can use <code class="docutils literal notranslate"><span class="pre">rsync</span></code>.</p>
+<div class="section" id="file-transfer-between-computers-using-rsync">
+<h2>File transfer between computers using <code class="docutils literal notranslate"><span class="pre">rsync</span></code><a class="headerlink" href="#file-transfer-between-computers-using-rsync" title="Permalink to this headline">¶</a></h2>
+<p>Today, we will be running SPAdes on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> but before doing that,
+you need to transfer either the raw or trimmed fastq files to the remote
+server. Since you have already done trimming using <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> tool, I
+recommend you transfer the trimmed fastq files to the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on
+<code class="docutils literal notranslate"><span class="pre">cerberus</span></code>. How do you do that? This is where the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command
+comes in handy.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rsync</span></code> is a really useful tool to transfer files or folders between
+two computers or even between different locations within the same
+computer. Here, you can read more about several examples of how you can
+use <code class="docutils literal notranslate"><span class="pre">rsync</span></code>.</p>
 <p><a class="reference external" href="https://www.linuxtechi.com/rsync-command-examples-linux/">https://www.linuxtechi.com/rsync-command-examples-linux/</a></p>
-<p>There are more examples than I have time to go through with you today. Please check it out at your own time. Today, you will use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> to copy the trimmed fastq files from your laptop to the remote computer. First, using your terminal, navigate to the folder on your laptop computer where you have these trimmed fastq files. Then type:</p>
+<p>There are more examples than I have time to go through with you today.
+Please check it out at your own time. Today, you will use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> to
+copy the trimmed fastq files from your laptop to the remote computer.
+First, using your terminal, navigate to the folder on your laptop
+computer where you have these trimmed fastq files. Then type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync -avzP *trimmed.fastq.gz xxxx@cerberus.colonialone.gwu.edu:~/data/
 </pre></div>
 </div>
-<p>Make sure to replace xxxx with your NetID. If you have created the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, the above command should copy the 2 trimmed fastq files to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
+<p>Make sure to replace xxxx with your NetID. If you have created the
+<code class="docutils literal notranslate"><span class="pre">data</span></code> folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, the above command should copy the 2
+trimmed fastq files to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
 </div>
-<div class="section" id="Submitting-jobs-on-cerberus">
-<h2>Submitting jobs on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#Submitting-jobs-on-cerberus" title="Permalink to this headline">¶</a></h2>
-<p>Now, you have those two files ready on the remote computer and you can start running a SPAdes assembly. But one thing you need to be aware of when working on a remote HPC computer like <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, you need to work with job schedulers that will prioritize these jobs according to the resources requested upon job submission. Read more about job schedulers here:</p>
+<div class="section" id="submitting-jobs-on-cerberus">
+<h2>Submitting jobs on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code><a class="headerlink" href="#submitting-jobs-on-cerberus" title="Permalink to this headline">¶</a></h2>
+<p>Now, you have those two files ready on the remote computer and you can
+start running a SPAdes assembly. But one thing you need to be aware of
+when working on a remote HPC computer like <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, you need to
+work with job schedulers that will prioritize these jobs according to
+the resources requested upon job submission. Read more about job
+schedulers here:</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Job_scheduler">https://en.wikipedia.org/wiki/Job_scheduler</a></p>
-<p>Here, we are using <strong>SLURM (Simple Linux Utility for Resource Management)</strong> to schedule and manage jobs. In order to submit a job to the job scheduler, you need to write a script with a few parameters telling what exactly you are doing, for how long, and the resources needed. For example, to run SPAdes, an example command I provided for you to run on your laptop is like this below:</p>
+<p>Here, we are using <strong>SLURM (Simple Linux Utility for Resource
+Management)</strong> to schedule and manage jobs. In order to submit a job to
+the job scheduler, you need to write a script with a few parameters
+telling what exactly you are doing, for how long, and the resources
+needed. For example, to run SPAdes, an example command I provided for
+you to run on your laptop is like this below:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py <span class="se">\</span>
     -t <span class="m">4</span> <span class="se">\</span>
     --pe1-1 data/SRR12610971_1.trimmed.fastq.gz <span class="se">\</span>
@@ -487,7 +346,10 @@ conda config --add channels conda-forge
     -o spades_assembly
 </pre></div>
 </div>
-<p>On <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, you cannot simply type those commands as soon as you are logged in. The computer to which you are logged in is known as the “login node” and you should not be running anything on the login node. You will write a script containing lines as shown below:</p>
+<p>On <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, you cannot simply type those commands as soon as you
+are logged in. The computer to which you are logged in is known as the
+“login node” and you should not be running anything on the login node.
+You will write a script containing lines as shown below:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH -o asm%j.out</span>
 <span class="c1">#SBATCH -e asm%j.err</span>
@@ -507,33 +369,91 @@ spades.py <span class="se">\</span>
     -o spades_assembly
 </pre></div>
 </div>
-<p>Here, I am specifying several things to tell the job scheduler: <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-D</span> <span class="pre">/home/jsaw/exercises</span></code> is to tell the scheduler that I want to run this task in this folder, <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-N</span> <span class="pre">1</span></code> means I am requesting one compute node for this task, <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-t</span> <span class="pre">1:00:00</span></code> means I am requesting time limit of 1 hour. This means if you don’t finish this assembly within 1 hour, the job is terminated. So you want to make sure you know how long certain tasks should take. <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-p</span> <span class="pre">defq</span></code> means I am
-submitting the job to default queue (don’t worry about it for now as we only have default nodes at the moment on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>). There are more parameters you can specify but I won’t go into that for now.</p>
-<p>There is a line that says: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">spades/3.14.1</span></code>. Cerberus comes with SPAdes already installed on it and to use it, you need to load it into your environment. If you don’t specify this, SPAdes won’t start. To see what else is installed on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, type <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> and you can see what is already available.</p>
-<p>You will then save this script into a file, let’s say <code class="docutils literal notranslate"><span class="pre">run_assembly.sh</span></code>. So how to create this script file on a remote computer?? Here, you can use command line text editors such as <code class="docutils literal notranslate"><span class="pre">vim</span></code>, <code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">pico</span></code>, <code class="docutils literal notranslate"><span class="pre">ed</span></code>, or <code class="docutils literal notranslate"><span class="pre">emacs</span></code> to create text files, edit and save them. My favorite editor is <code class="docutils literal notranslate"><span class="pre">vim</span></code>. There is a steep learning curve to use <code class="docutils literal notranslate"><span class="pre">vim</span></code> (see here: <a class="reference external" href="https://opensource.com/article/19/3/getting-started-vim">https://opensource.com/article/19/3/getting-started-vim</a>) but it has a lot of advantages over other tools like <code class="docutils literal notranslate"><span class="pre">nano</span></code> or <code class="docutils literal notranslate"><span class="pre">pico</span></code>.
-Some people prefer <code class="docutils literal notranslate"><span class="pre">emacs</span></code> over <code class="docutils literal notranslate"><span class="pre">vim</span></code> but that’s a matter of personal preference.</p>
+<p>Here, I am specifying several things to tell the job scheduler:
+<code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-D</span> <span class="pre">/home/jsaw/exercises</span></code> is to tell the scheduler that I want
+to run this task in this folder, <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-N</span> <span class="pre">1</span></code> means I am requesting
+one compute node for this task, <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-t</span> <span class="pre">1:00:00</span></code> means I am
+requesting time limit of 1 hour. This means if you don’t finish this
+assembly within 1 hour, the job is terminated. So you want to make sure
+you know how long certain tasks should take. <code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">-p</span> <span class="pre">defq</span></code> means I
+am submitting the job to default queue (don’t worry about it for now as
+we only have default nodes at the moment on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>). There are
+more parameters you can specify but I won’t go into that for now.</p>
+<p>There is a line that says: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">spades/3.14.1</span></code>. Cerberus comes
+with SPAdes already installed on it and to use it, you need to load it
+into your environment. If you don’t specify this, SPAdes won’t start. To
+see what else is installed on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>, type <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> and
+you can see what is already available.</p>
+<p>You will then save this script into a file, let’s say
+<code class="docutils literal notranslate"><span class="pre">run_assembly.sh</span></code>. So how to create this script file on a remote
+computer?? Here, you can use command line text editors such as <code class="docutils literal notranslate"><span class="pre">vim</span></code>,
+<code class="docutils literal notranslate"><span class="pre">nano</span></code>, <code class="docutils literal notranslate"><span class="pre">pico</span></code>, <code class="docutils literal notranslate"><span class="pre">ed</span></code>, or <code class="docutils literal notranslate"><span class="pre">emacs</span></code> to create text files, edit and
+save them. My favorite editor is <code class="docutils literal notranslate"><span class="pre">vim</span></code>. There is a steep learning
+curve to use <code class="docutils literal notranslate"><span class="pre">vim</span></code> (see here:
+<a class="reference external" href="https://opensource.com/article/19/3/getting-started-vim">https://opensource.com/article/19/3/getting-started-vim</a>) but it has a
+lot of advantages over other tools like <code class="docutils literal notranslate"><span class="pre">nano</span></code> or <code class="docutils literal notranslate"><span class="pre">pico</span></code>. Some
+people prefer <code class="docutils literal notranslate"><span class="pre">emacs</span></code> over <code class="docutils literal notranslate"><span class="pre">vim</span></code> but that’s a matter of personal
+preference.</p>
 <p>See below for a joke:</p>
-<img alt="xkcd" src="../_images/xkcd.jpg" />
-<p>Then to submit the job to run this assembly, type: <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_assembly.sh</span></code>. This will submit the job to the queue. To check and see whether your job has started running or not, type: <code class="docutils literal notranslate"><span class="pre">squeue</span></code>. This will display your job information and if it is running you should see an “R” under the “ST” header. You will notice that the assembly run on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> will be done significantly faster than if it were run on your laptop computer.</p>
+<div class="figure align-default" id="id1">
+<img alt="xkcd" src="_images/xkcd.jpg" />
+<p class="caption"><span class="caption-text">xkcd</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="Checking-assembly-results">
-<h2>Checking assembly results<a class="headerlink" href="#Checking-assembly-results" title="Permalink to this headline">¶</a></h2>
-<p>Once you are done with SPAdes assembly (by typing <code class="docutils literal notranslate"><span class="pre">squeue</span></code> and checking if there is no job shown in the status), use Quast to assess assembly results. You can either view the results on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> using the <code class="docutils literal notranslate"><span class="pre">less</span></code> command or download the results to your laptop using the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command, then viewing them locally. If you download the Quast results, you will be able to see graphs and plots generated by the tool.</p>
+<p>Then to submit the job to run this assembly, type:
+<code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">run_assembly.sh</span></code>. This will submit the job to the queue. To
+check and see whether your job has started running or not, type:
+<code class="docutils literal notranslate"><span class="pre">squeue</span></code>. This will display your job information and if it is running
+you should see an “R” under the “ST” header. You will notice that the
+assembly run on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> will be done significantly faster than if
+it were run on your laptop computer.</p>
 </div>
-<div class="section" id="Viewing-assemblies-with-Bandage">
-<h2>Viewing assemblies with Bandage<a class="headerlink" href="#Viewing-assemblies-with-Bandage" title="Permalink to this headline">¶</a></h2>
-<p>After assembling genomes using SPAdes or other assemblers, sometimes it is good have a graphical overview of how good the assembly really is. To do that, you can use a graphical tool known as “Bandage” to view connections between the contigs. If an assembly has very convoluted graph paths, you would see this quite quickly. Ideally, if you have one-to-one connection between contig edges, that means the assembler had figured out the optimal path between the contigs and it has made connections
-between them in the <code class="docutils literal notranslate"><span class="pre">.gfa</span></code> file that it produces. Bandage can take this file with the <code class="docutils literal notranslate"><span class="pre">.gfa</span></code> extension and produce a graphical representation of contigs and their connections to other contigs.</p>
-<p>The tool is graphical and you will need to visit this website to download the version compatible with your computer’s OS.</p>
+<div class="section" id="checking-assembly-results">
+<h2>Checking assembly results<a class="headerlink" href="#checking-assembly-results" title="Permalink to this headline">¶</a></h2>
+<p>Once you are done with SPAdes assembly (by typing <code class="docutils literal notranslate"><span class="pre">squeue</span></code> and
+checking if there is no job shown in the status), use Quast to assess
+assembly results. You can either view the results on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> using
+the <code class="docutils literal notranslate"><span class="pre">less</span></code> command or download the results to your laptop using the
+<code class="docutils literal notranslate"><span class="pre">rsync</span></code> command, then viewing them locally. If you download the Quast
+results, you will be able to see graphs and plots generated by the tool.</p>
+</div>
+<div class="section" id="viewing-assemblies-with-bandage">
+<h2>Viewing assemblies with Bandage<a class="headerlink" href="#viewing-assemblies-with-bandage" title="Permalink to this headline">¶</a></h2>
+<p>After assembling genomes using SPAdes or other assemblers, sometimes it
+is good have a graphical overview of how good the assembly really is. To
+do that, you can use a graphical tool known as “Bandage” to view
+connections between the contigs. If an assembly has very convoluted
+graph paths, you would see this quite quickly. Ideally, if you have
+one-to-one connection between contig edges, that means the assembler had
+figured out the optimal path between the contigs and it has made
+connections between them in the <code class="docutils literal notranslate"><span class="pre">.gfa</span></code> file that it produces. Bandage
+can take this file with the <code class="docutils literal notranslate"><span class="pre">.gfa</span></code> extension and produce a graphical
+representation of contigs and their connections to other contigs.</p>
+<p>The tool is graphical and you will need to visit this website to
+download the version compatible with your computer’s OS.</p>
 <p><a class="reference external" href="https://rrwick.github.io/Bandage/">https://rrwick.github.io/Bandage/</a></p>
-<p>An example of what the <em>Salmonella enteria</em> assembly looks like for me is shown below.</p>
-<img alt="*S. enterica* assembly" src="../_images/bandage.png" />
-<p>The thicker arcs are contigs and the thinner arcs connecting the thicker ones mean that these contigs should be physically linked. The SPAdes assembler has determined that even though they are separate contigs, there is information indicating that they should be linked. Those in the bottom without any links indicate singletons that have no known physical links to other contigs. These could be either artefacts of assembly and not part of the genome (usually very small contigs) or plasmids.
-Plasmids are extra-chromosomal DNA that encode things like virulence factors or other genetically selfish elements.</p>
+<p>An example of what the <em>Salmonella enteria</em> assembly looks like for me
+is shown below.</p>
+<div class="figure align-default" id="id2">
+<img alt="*S. enterica* assembly" src="_images/bandage.png" />
+<p class="caption"><span class="caption-text"><em>S. enterica</em> assembly</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="Transfer-metagenomic-data-to-cerberus-for-next-week">
-<h2>Transfer metagenomic data to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> for next week<a class="headerlink" href="#Transfer-metagenomic-data-to-cerberus-for-next-week" title="Permalink to this headline">¶</a></h2>
-<p>After you are done running SPAdes and checking the assembly results using Bandage, run the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command again to upload the trimmed metagenomic data you have downloaded to your laptop. Follow the example I have provided earlier (scroll up) to see how to use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> to the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
+<p>The thicker arcs are contigs and the thinner arcs connecting the thicker
+ones mean that these contigs should be physically linked. The SPAdes
+assembler has determined that even though they are separate contigs,
+there is information indicating that they should be linked. Those in the
+bottom without any links indicate singletons that have no known physical
+links to other contigs. These could be either artefacts of assembly and
+not part of the genome (usually very small contigs) or plasmids.
+Plasmids are extra-chromosomal DNA that encode things like virulence
+factors or other genetically selfish elements.</p>
+</div>
+<div class="section" id="transfer-metagenomic-data-to-cerberus-for-next-week">
+<h2>Transfer metagenomic data to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> for next week<a class="headerlink" href="#transfer-metagenomic-data-to-cerberus-for-next-week" title="Permalink to this headline">¶</a></h2>
+<p>After you are done running SPAdes and checking the assembly results
+using Bandage, run the <code class="docutils literal notranslate"><span class="pre">rsync</span></code> command again to upload the trimmed
+metagenomic data you have downloaded to your laptop. Follow the example
+I have provided earlier (scroll up) to see how to use <code class="docutils literal notranslate"><span class="pre">rsync</span></code> to the
+<code class="docutils literal notranslate"><span class="pre">data</span></code> folder on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code>.</p>
 </div>
 </div>
 
@@ -544,23 +464,23 @@ Plasmids are extra-chromosomal DNA that encode things like virulence factors or 
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-        <p class="logo"><a href="../index.html" title="index">
-          <img class="logo" src="../_static/gm_pan.png" alt="Logo"/>
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
         </a></p><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="../index.html">Page contents</a></h3>
+    <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Exercises for Week4</a><ul>
-<li><a class="reference internal" href="#Virtual-environments-in-Python">Virtual environments in Python</a></li>
-<li><a class="reference internal" href="#Connecting-to-GW-HPC-cluster-(Cerberus)">Connecting to GW HPC cluster (Cerberus)</a></li>
-<li><a class="reference internal" href="#Using-ssh-keys-to-log-in-to-cerberus">Using ssh keys to log in to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
-<li><a class="reference internal" href="#File-and-folder-organization-on-cerberus">File and folder organization on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
-<li><a class="reference internal" href="#Transferring-files-to/from-cerberus">Transferring files to/from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
-<li><a class="reference internal" href="#Installation-of-Miniconda-and-Bioconda-on-cerberus">Installation of Miniconda and Bioconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
-<li><a class="reference internal" href="#File-transfer-between-computers-using-rsync">File transfer between computers using <code class="docutils literal notranslate"><span class="pre">rsync</span></code></a></li>
-<li><a class="reference internal" href="#Submitting-jobs-on-cerberus">Submitting jobs on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
-<li><a class="reference internal" href="#Checking-assembly-results">Checking assembly results</a></li>
-<li><a class="reference internal" href="#Viewing-assemblies-with-Bandage">Viewing assemblies with Bandage</a></li>
-<li><a class="reference internal" href="#Transfer-metagenomic-data-to-cerberus-for-next-week">Transfer metagenomic data to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> for next week</a></li>
+<li><a class="reference internal" href="#virtual-environments-in-python">Virtual environments in Python</a></li>
+<li><a class="reference internal" href="#connecting-to-gw-hpc-cluster-cerberus">Connecting to GW HPC cluster (Cerberus)</a></li>
+<li><a class="reference internal" href="#using-ssh-keys-to-log-in-to-cerberus">Using ssh keys to log in to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
+<li><a class="reference internal" href="#file-and-folder-organization-on-cerberus">File and folder organization on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
+<li><a class="reference internal" href="#transferring-files-to-from-cerberus">Transferring files to/from <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
+<li><a class="reference internal" href="#installation-of-miniconda-and-bioconda-on-cerberus">Installation of Miniconda and Bioconda on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
+<li><a class="reference internal" href="#file-transfer-between-computers-using-rsync">File transfer between computers using <code class="docutils literal notranslate"><span class="pre">rsync</span></code></a></li>
+<li><a class="reference internal" href="#submitting-jobs-on-cerberus">Submitting jobs on <code class="docutils literal notranslate"><span class="pre">cerberus</span></code></a></li>
+<li><a class="reference internal" href="#checking-assembly-results">Checking assembly results</a></li>
+<li><a class="reference internal" href="#viewing-assemblies-with-bandage">Viewing assemblies with Bandage</a></li>
+<li><a class="reference internal" href="#transfer-metagenomic-data-to-cerberus-for-next-week">Transfer metagenomic data to <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> for next week</a></li>
 </ul>
 </li>
 </ul>
@@ -579,14 +499,14 @@ Plasmids are extra-chromosomal DNA that encode things like virulence factors or 
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/ipynbs/exercises_week4.ipynb.txt"
+      <li><a href="_sources/exercises_week4.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
+    <form class="search" action="search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
@@ -620,7 +540,7 @@ Plasmids are extra-chromosomal DNA that encode things like virulence factors or 
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
+          <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
           <a href="Week5.html" title="Week 5"
@@ -628,7 +548,7 @@ Plasmids are extra-chromosomal DNA that encode things like virulence factors or 
         <li class="right" >
           <a href="Week4.html" title="Week 4"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Exercises for Week4</a></li> 
       </ul>
