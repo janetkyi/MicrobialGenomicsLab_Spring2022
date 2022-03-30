@@ -1,0 +1,2297 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Python programming &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Week 10" href="Week11.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Week11.html" title="Week 10"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Introduction to Python programming</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for cloud theme */
+
+/* nicer titles and more space for info and warning logos */
+
+div.admonition p.admonition-title {
+    background: rgba(0, 0, 0, .05);
+    margin: .5em -1em;
+    margin-top: -.5em !important;
+    padding: .5em .5em .5em 2.65em;
+}
+
+/* indent single paragraph */
+div.admonition {
+    text-indent: 20px;
+}
+/* don't indent multiple paragraphs */
+div.admonition > p {
+    text-indent: 0;
+}
+/* remove excessive padding */
+div.admonition.inline-title p.admonition-title {
+    padding-left: .2em;
+}
+</style>
+<div class="section" id="Introduction-to-Python-programming">
+<h1>Introduction to Python programming<a class="headerlink" href="#Introduction-to-Python-programming" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="A-Brief-Introduction">
+<h2>A Brief Introduction<a class="headerlink" href="#A-Brief-Introduction" title="Permalink to this headline">¶</a></h2>
+<p>Python is a high-level programming language developed by a Dutch programmer Guido van Rossum in the 90’s (<a class="reference external" href="https://en.wikipedia.org/wiki/Python_(programming_language">https://en.wikipedia.org/wiki/Python_(programming_language</a>)). It is an interpreted language, which means the code does not need to be compiled prior to running it, like other languages such as C++ or Java. See here for more information: <a class="reference external" href="https://en.wikipedia.org/wiki/Interpreted_language">https://en.wikipedia.org/wiki/Interpreted_language</a></p>
+<p>It is different from many other programming languages because of significane of white spaces. For example, the two following code snippets are interpreted differently, even though they have very similar code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The difference is that the first one has 4 white spaces after code indentation, whereas the second one has only 2 white spaces. Python developers recommend the use of <strong>4</strong> white spaces to indent code for the code to be readable. See Python coding guidelines here: <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a></p>
+<p>It is easy to write any Python code but difficult to write <em>beautiful</em> code that is easy to read and easy to decipher/debug.</p>
+<p>Today, you will be using both the <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> and terminal environment to write simple Python scripts that you can use to help you along with your projects. I will not be going over exhaustively what you can do with Python programming language but just brief introduction and I will be showing you important things you should know with regard to using Python for genomics work.</p>
+</div>
+<div class="section" id="Basics">
+<h2>Basics<a class="headerlink" href="#Basics" title="Permalink to this headline">¶</a></h2>
+<p>Python is already installed and running in your terminal environment because you have already installed Miniconda, which by default will install versions of Python you have downloaded. There is a significant difference between Python versions 2 and 3. They have made a lot of changes to code syntax between the two. For example, in Python 2 series, you can type like this to print something to screen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+<p>But in Python 3 series, you need to type like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is just one of the examples. Since we are sticking to Python 3, we will need to use the code syntax as shown in the second example. In <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>, you can use code cells to start writing Python code right away. It works as a mini environment in which you can test things. For example, you can use it like a calculator.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[152]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello!
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">134</span><span class="o">+</span><span class="mi">8353</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">20</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4223.5
+</pre></div></div>
+</div>
+<p>Before we dive further into coding, a few important datatypes you need to know and remember in Python are listed below:</p>
+<ol class="arabic simple">
+<li><p><strong>Booleans</strong> are either True or False.</p></li>
+<li><p><strong>Numbers</strong> can be integers (1 and 2), floats (1.1 and 1.2), fractions (1/2 and 2/3), or even complex numbers.</p></li>
+<li><p><strong>Strings</strong> are sequences of Unicode characters, e.g. an HTML document.</p></li>
+<li><p><strong>Bytes</strong> and <strong>byte arrays</strong>, e.g. a JPEG image file.</p></li>
+<li><p><strong>Lists</strong> are ordered sequences of values.</p></li>
+<li><p><strong>Tuples</strong> are ordered, immutable sequences of values.</p></li>
+<li><p><strong>Sets</strong> are unordered bags of values.</p></li>
+<li><p><strong>Dictionaries</strong> are unordered bags of key-value pairs.</p></li>
+</ol>
+<p>For more details on the datatypes, refer to the tutorial here: <a class="reference external" href="https://diveintopython3.problemsolving.io/native-datatypes.html">https://diveintopython3.problemsolving.io/native-datatypes.html</a></p>
+<p>The most common datatypes you will encounter in bioinformatics/genomics related context would be <strong>numbers</strong>, <strong>strings</strong>, <strong>lists</strong>, <strong>tuples</strong>, <strong>sets</strong>, and <strong>dictionaries</strong>.</p>
+</div>
+<div class="section" id="Strings">
+<h2>Strings<a class="headerlink" href="#Strings" title="Permalink to this headline">¶</a></h2>
+<p>Strings can be anything that will be treated as text. For example, a sentence like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;This is a string&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;This is a string&#39;
+</pre></div></div>
+</div>
+<p>When I just pasted a string in <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> environment it just returns what’s being paste. However, you can put these strings into a variable. For example,</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[185]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">astring</span> <span class="o">=</span> <span class="s2">&quot;This is a string&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Now, you have a variable named <code class="docutils literal notranslate"><span class="pre">astring</span></code>. When you type this variable name in <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>, you see this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[154]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">astring</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[154]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;This is a string&#39;
+</pre></div></div>
+</div>
+<p>It just prints the string to screen. You can also turn anything into a string by using the <code class="docutils literal notranslate"><span class="pre">str()</span></code> function. For example, I have a bunch of numbers, which I want to treat it as text for some reason, I can do something like this:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[155]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now, I have stored this “12345” into a variable named <code class="docutils literal notranslate"><span class="pre">s</span></code>. If you want to know what type of variable it is, you can type like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[156]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="vm">__class__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[156]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+str
+</pre></div></div>
+</div>
+<p>It returns a <code class="docutils literal notranslate"><span class="pre">str</span></code>, which means the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> is a string. Once you have a string, you can do a lot of things with it. For example, you can split the string into individual words.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[160]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">astring</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[160]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;string&#39;]
+</pre></div></div>
+</div>
+<p>In the example above, I have split the string in the variable <code class="docutils literal notranslate"><span class="pre">astring</span></code> into individual words and using space (” “) as a delimiter. You can also split without specifying the delimiter, in which case, the default action is to split by a white space.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">astring</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;string&#39;]
+</pre></div></div>
+</div>
+<p>Here, after you split the string into individual words, you will notice that you have each words contained within a single quote and all of them are in square brackets. What does this mean? This mean these are a <strong>list</strong> of words. In Python, anything contained within square brackets are treated as contents of a list. Let’s try to play around with this list.</p>
+</div>
+<div class="section" id="Lists">
+<h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[187]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="n">astring</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">alist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[187]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;This&#39;
+</pre></div></div>
+</div>
+<p>What’s happening here? Here, I have stored the list produced as a result of string splittin function into a variable named <code class="docutils literal notranslate"><span class="pre">alist</span></code>. Then when you type <code class="docutils literal notranslate"><span class="pre">alist[0]</span></code>, it subsets the first content of the list, which is the word <code class="docutils literal notranslate"><span class="pre">'This'</span></code>. If you want to print the last item in the list, you can type:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;string&#39;
+</pre></div></div>
+</div>
+<p>The “-1” in a list means you are accessing the last item within a list. If you want to print the items in a list one by one, you can type like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[188]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+This
+is
+a
+string
+</pre></div></div>
+</div>
+<p>Here, I am running a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to print the contents of a list one after another. In this example, the letter <code class="docutils literal notranslate"><span class="pre">i</span></code> is a variable that temporarily stores the contents of a list one by one. Then the <code class="docutils literal notranslate"><span class="pre">print</span></code> function prints the variable to screen in a loop.</p>
+</div>
+<div class="section" id="Sets">
+<h2>Sets<a class="headerlink" href="#Sets" title="Permalink to this headline">¶</a></h2>
+<p>Another useful datatype you can use is a <code class="docutils literal notranslate"><span class="pre">set</span></code>. Sets are a collection of unique values or items. For example, if you a list of items as shown below, you can turn into a set by typing the <code class="docutils literal notranslate"><span class="pre">set()</span></code> function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+<span class="n">aset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">another_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aset</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;}
+</pre></div></div>
+</div>
+<p>As you can see, you have two instances of a <code class="docutils literal notranslate"><span class="pre">'B'</span></code> and when you turn the list into a set, then only one of it is retained. Sets are usually contained in curly brackets <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>. You can think of many scenarios in which sets can become useful; for example, getting unique names from a pool of names.</p>
+</div>
+<div class="section" id="Dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#Dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>Dictionaries are pairs of <strong>keys</strong> and <strong>values</strong>. As the name suggest, it behaves in the same way a dictionary would; it will explain meanings of a word, for example. Below is an example of a dictionary:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[173]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="s1">&#39;z&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, I have stored 3 keys named A, B, and C and their values x, y, and z. So when you want to look up what a key stored, you can type like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[176]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adict</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[176]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;x&#39;
+</pre></div></div>
+</div>
+<p>It prints the letter <code class="docutils literal notranslate"><span class="pre">x</span></code> which is stored as a value of the key <code class="docutils literal notranslate"><span class="pre">A</span></code>. You can only try to call key-value pairs that are present in this example dictionary. If you try to put a key that doesn’t exist, it will complain.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[177]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adict</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-177-75bfd13c0a1b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>adict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;D&#39;</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;D&#39;
+</pre></div></div>
+</div>
+<p>As you can see, it gives you an error as Python could not find the key <code class="docutils literal notranslate"><span class="pre">D</span></code> in this dictionary.</p>
+<p>To print all the keys in a dictionary, you can type like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[180]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[180]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+</pre></div></div>
+</div>
+<p>And all the values in a dictionary can be printed like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[181]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[181]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
+</pre></div></div>
+</div>
+<p>The usefulness of dictionaries is probably not apparent at this point but as you grow your programming skill sets, you will start to realize it is a very useful feature of a programming language.</p>
+</div>
+<div class="section" id="Tuples">
+<h2>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h2>
+<p>Tuples are similar to lists but they are immutable, which means it stores values that cannot be changed and they are stored in parantheses <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>. Other datatypes such as lists and dictionaries are mutable, which means you can modify the contents after being created. Usually, I would store things in a tuple that I shouldn’t modify, for example, GPS coordinates. An example is shown below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[182]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atuple</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[182]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1, 2, 3, 5)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[183]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-183-f087dd3c1bee&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>atuple<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">8</span>
+
+<span class="ansi-red-fg">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div></div>
+</div>
+<p>As you can see, it will not allow you to change the contents of it. A list, however, will allow you to do that. For example,</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[189]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[189]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;string&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[190]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Here&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[191]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[191]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Here&#39;, &#39;is&#39;, &#39;a&#39;, &#39;string&#39;]
+</pre></div></div>
+</div>
+<p>As you can see here, I have replaced the first item in the <code class="docutils literal notranslate"><span class="pre">alist</span></code> variable with a string <code class="docutils literal notranslate"><span class="pre">Here</span></code>. So these few examples are to get you started with learning Python but you should explore outside of class to learn more in depth.</p>
+</div>
+<div class="section" id="List-comprehensions">
+<h2>List comprehensions<a class="headerlink" href="#List-comprehensions" title="Permalink to this headline">¶</a></h2>
+<p>Another very useful feature of Python is list comprehension. Let’s say you want to pull everything from one list that matches a criterion you provided and store it in another list, you can type like this:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;Here&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blist</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Here&#39;]
+</pre></div></div>
+</div>
+<p>In this example, I have pull out the contents that match the string <code class="docutils literal notranslate"><span class="pre">'Here'</span></code> into another list named <code class="docutils literal notranslate"><span class="pre">blist</span></code>. Let’s say if you want to pull out words that contain a letter <code class="docutils literal notranslate"><span class="pre">s</span></code>, you can type like this:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[192]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">alist</span> <span class="k">if</span> <span class="s1">&#39;s&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[193]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blist</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[193]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;is&#39;, &#39;string&#39;]
+</pre></div></div>
+</div>
+<p>Again, the usefulness of such functions may not be apparent to you at this time but eventually you will reach a point when features like these are indispensible to your coding workflow.</p>
+</div>
+<div class="section" id="Useful-Python-libraries">
+<h2>Useful Python libraries<a class="headerlink" href="#Useful-Python-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Base python contains useful features that you can already start using but sometimes they come from other Python packages/libraries. Some of the important ones are listed below:</p>
+<ul class="simple">
+<li><p>pandas</p></li>
+<li><p>matplotlib</p></li>
+<li><p>numpy</p></li>
+<li><p>scipy</p></li>
+<li><p>seaborn</p></li>
+<li><p>biopython</p></li>
+</ul>
+</div>
+<div class="section" id="Pandas">
+<h2>Pandas<a class="headerlink" href="#Pandas" title="Permalink to this headline">¶</a></h2>
+<p>Pandas is a Python package oriented towards statistical analyses and provides a lot of useful features/functions that would otherwise take longer to code without it (see here: <a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a>). For example, if you want to put a table into a dataframe, you can simply type something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;table.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>in this example, you are importing a “tab-delimited” (as indicated by the <code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) table into a dataframe named <code class="docutils literal notranslate"><span class="pre">df</span></code>. But before you can use Pandas and its features, you first need to import the library into your Python environment by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>. This means you are importing the whole Pandas library and providing it a shortcut named <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Let’s try and use Pandas here today. Download this file into a directory (maybe in a subfolder in your <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder):
+<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/prokaryote_type_strain_report.txt">https://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/prokaryote_type_strain_report.txt</a></p>
+<p>This file contains “type” strains of bacteria and archaea. Now, we will use Pandas to see what you can do with the table.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[194]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;prokaryote_type_strain_report.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[195]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[195]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#scientific name</th>
+      <th>type materials and coidentical strains</th>
+      <th>has sequences from type material?</th>
+      <th>number of assemblies per taxon</th>
+      <th>number of assemblies from type materials per taxon</th>
+      <th>number of assemblies from type materials per species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>'Bacillus oceani' Liu et al. 2013</td>
+      <td>DSM 26213,DSM:26213,KCTC 33077,KCTC:33077,SCSI...</td>
+      <td>yes</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>'Burkholderia humi' Srinivasan et al. 2013</td>
+      <td>JCM 18069,JCM:18069,KEMC 7302-068,KEMC:7302-06...</td>
+      <td>yes</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>'Deinococcus soli' Zhang et al. 2011</td>
+      <td>CCTCC AB 208223,CCTCC:AB 208223,KCTC 13419,KCT...</td>
+      <td>yes</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>'Lysobacter humi' Akter et al. 2016</td>
+      <td>CCTCC AB 2015292,CCTCC:AB 2015292,KACC 18284,K...</td>
+      <td>yes</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>'Massilia aquatica' Holochova¦ü et al. 2020</td>
+      <td>BCCM/LMG:31211,CCM 8693,CCM:8693,LMG 31211,LMG...</td>
+      <td>no</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[196]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[196]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#scientific name</th>
+      <th>type materials and coidentical strains</th>
+      <th>has sequences from type material?</th>
+      <th>number of assemblies per taxon</th>
+      <th>number of assemblies from type materials per taxon</th>
+      <th>number of assemblies from type materials per species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19403</th>
+      <td>[Ruminococcus] faecis</td>
+      <td>Eg2,JCM 15917,JCM:15917,KCTC 5757,KCTC:5757</td>
+      <td>yes</td>
+      <td>10</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19404</th>
+      <td>[Ruminococcus] gnavus</td>
+      <td>ATCC 29149,ATCC:29149,VPI C7-9</td>
+      <td>yes</td>
+      <td>80</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>19405</th>
+      <td>[Ruminococcus] lactaris</td>
+      <td>ATCC 29176,ATCC:29176</td>
+      <td>yes</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19406</th>
+      <td>[Ruminococcus] torques</td>
+      <td>ATCC 27756,ATCC:27756</td>
+      <td>yes</td>
+      <td>18</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19407</th>
+      <td>[Scytonema hofmanni] UTEX B 1581</td>
+      <td>na</td>
+      <td>no</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>As you can see, I have just imported the table as a tab-delimited file, telling Pandas to put it into a dataframe named <code class="docutils literal notranslate"><span class="pre">df</span></code>. Once it’s put into a dataframe, it becomes easier to extract information from the table. For example, if you want to see all headers of the columns, type:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[197]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[197]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Index([&#39;#scientific name&#39;, &#39;type materials and coidentical strains&#39;,
+       &#39;has sequences from type material?&#39;, &#39;number of assemblies per taxon&#39;,
+       &#39;number of assemblies from type materials per taxon&#39;,
+       &#39;number of assemblies from type materials per species&#39;],
+      dtype=&#39;object&#39;)
+</pre></div></div>
+</div>
+<p>This will list all the headers of all the columns in this dataframe. Let’s say you want to pull out all rows that contain <em>Escherichia coli</em>, you can type like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;#scientific name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Escherichia&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#scientific name</th>
+      <th>type materials and coidentical strains</th>
+      <th>has sequences from type material?</th>
+      <th>number of assemblies per taxon</th>
+      <th>number of assemblies from type materials per taxon</th>
+      <th>number of assemblies from type materials per species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5808</th>
+      <td>Escherichia alba</td>
+      <td>na</td>
+      <td>no</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5809</th>
+      <td>Escherichia albertii</td>
+      <td>Albert 19982,BCCM/LMG:20976,CCUG 46494,CCUG:46...</td>
+      <td>yes</td>
+      <td>224</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5810</th>
+      <td>Escherichia coli</td>
+      <td>ATCC 11775,ATCC:11775,BCCM/LMG:2092,CCUG 24,CC...</td>
+      <td>yes</td>
+      <td>97292</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>5811</th>
+      <td>Escherichia fergusonii</td>
+      <td>ATCC 35469,ATCC:35469,BCCM/LMG:7866,CDC 0568-7...</td>
+      <td>yes</td>
+      <td>86</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5812</th>
+      <td>Escherichia marmotae</td>
+      <td>CGMCC 1.12862,CGMCC:1.12862,DSM 28771,DSM:2877...</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> will only print a few rows (perhaps up to 10 or 20). But when you write this code in a Python script, it will print everything to screen (if you run it in a terminal). Let’s count how many rows satisfy this criterion.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;#scientific name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Escherichia&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5
+</pre></div></div>
+</div>
+<p>Looks like there are only 5 with the genus <em>Escherichia</em>. How about <em>Salmonella</em>?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[200]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;#scientific name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Salmonella&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[200]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[203]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;#scientific name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Idiomarina&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[203]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#scientific name</th>
+      <th>type materials and coidentical strains</th>
+      <th>has sequences from type material?</th>
+      <th>number of assemblies per taxon</th>
+      <th>number of assemblies from type materials per taxon</th>
+      <th>number of assemblies from type materials per species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7752</th>
+      <td>Idiomarina abyssalis</td>
+      <td>ATCC BAA-312,ATCC:BAA-312,KMM 227,KMM:227,cult...</td>
+      <td>yes</td>
+      <td>13</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7753</th>
+      <td>Idiomarina aestuarii</td>
+      <td>JCM 16344,JCM:16344,KCTC 22740,KCTC:22740,KYW314</td>
+      <td>yes</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7754</th>
+      <td>Idiomarina andamanensis</td>
+      <td>BCCM/LMG:29773,JCM 31645,JCM:31645,LMG 29773,L...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7755</th>
+      <td>Idiomarina aquatica</td>
+      <td>BCCM/LMG:27613,CCM 8471,CCM:8471,CECT 8360,CEC...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7756</th>
+      <td>Idiomarina aquimaris</td>
+      <td>BCCM/LMG:25374,BCRC 80083,BCRC:80083,LMG 25374...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7757</th>
+      <td>Idiomarina atlantica</td>
+      <td>G5_TVMV8_7,KCTC 42141,KCTC:42141,MCCC 1A10513,...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7758</th>
+      <td>Idiomarina baltica</td>
+      <td>BCCM/LMG:21691,DSM 15154,DSM:15154,LMG 21691,L...</td>
+      <td>yes</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7759</th>
+      <td>Idiomarina donghaiensis</td>
+      <td>908033,CGMCC 1.7284,CGMCC:1.7284,JCM 15533,JCM...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7760</th>
+      <td>Idiomarina fontislapidosi</td>
+      <td>BCCM/LMG:22169,CECT 5859,CECT:5859,F23,LMG 221...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7761</th>
+      <td>Idiomarina halophila</td>
+      <td>BH195,KACC 17610,KACC:17610,NCAIM B 02544,NCAI...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7762</th>
+      <td>Idiomarina homiensis</td>
+      <td>DSM 17923,DSM:17923,KACC 11514,KACC:11514,PO-M2</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7763</th>
+      <td>Idiomarina indica</td>
+      <td>CGMCC 1.10824,CGMCC:1.10824,JCM 18138,JCM:1813...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7764</th>
+      <td>Idiomarina insulisalsae</td>
+      <td>BCCM/LMG:23123,CIP 108836,CIP:108836,CVS-6,LMG...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7765</th>
+      <td>Idiomarina loihiensis</td>
+      <td>ATCC BAA-735,ATCC:BAA-735,DSM 15497,DSM:15497,...</td>
+      <td>yes</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7766</th>
+      <td>Idiomarina mangrovi</td>
+      <td>KCTC 62455,KCTC:62455,MCCC 1K03495,MCCC:1K0349...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7767</th>
+      <td>Idiomarina marina</td>
+      <td>BCRC 17749,BCRC:17749,JCM 15083,JCM:15083,PIM1</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7768</th>
+      <td>Idiomarina maritima</td>
+      <td>908087,CGMCC 1.7285,CGMCC:1.7285,JCM 15534,JCM...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7769</th>
+      <td>Idiomarina piscisalsi</td>
+      <td>NBRC 108617,NBRC:108617,TISTR 2054,TISTR:2054,...</td>
+      <td>yes</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7770</th>
+      <td>Idiomarina planktonica</td>
+      <td>CGMCC 1.12458,CGMCC:1.12458,JCM 19263,JCM:1926...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7771</th>
+      <td>Idiomarina ramblicola</td>
+      <td>BCCM/LMG:22170,CECT 5858,CECT:5858,LMG 22170,L...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7772</th>
+      <td>Idiomarina salinarum</td>
+      <td>CCUG 54359,CCUG:54359,ISL-52,KCTC 12971,KCTC:1...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7773</th>
+      <td>Idiomarina sediminum</td>
+      <td>BCCM/LMG:24046,CICC 10319,CICC:10319,DSM 21906...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7774</th>
+      <td>Idiomarina seosinensis</td>
+      <td>CL-SP19,JCM 12526,JCM:12526,KCTC 12296,KCTC:12296</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7775</th>
+      <td>Idiomarina tainanensis</td>
+      <td>BCRC 17750,BCRC:17750,JCM 15084,JCM:15084,PIN1</td>
+      <td>yes</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7776</th>
+      <td>Idiomarina taiwanensis</td>
+      <td>BCRC 17465,BCRC:17465,JCM 13360,JCM:13360,PIT1</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7777</th>
+      <td>Idiomarina tyrosinivorans</td>
+      <td>BCRC 80745,BCRC:80745,CC-PW-9,JCM 19757,JCM:19757</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7778</th>
+      <td>Idiomarina woesei</td>
+      <td>BCCM/LMG:27903,DSM 27808,DSM:27808,JCM 19499,J...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7779</th>
+      <td>Idiomarina xiamenensis</td>
+      <td>10-D-4,BCCM/LMG:25227,CCTCC AB 209061,CCTCC:AB...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7780</th>
+      <td>Idiomarina zobellii</td>
+      <td>ATCC BAA-313,ATCC:BAA-313,KMM 231,KMM:231,cult...</td>
+      <td>yes</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>There are 10 entries for <em>Salmonella</em> in the table. Let’s create a boxplot of some values in a column for all the <em>Salmonella</em>. First, we put the rows in the dataframe that match the given condition into another dataframe named <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;#scientific name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Salmonella&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<p>Then we plot using the <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> function provided by Pandas on two of the columns.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;number of assemblies from type materials per taxon&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/exercises_week11_86_1.png" src="_images/exercises_week11_86_1.png" />
+</div>
+</div>
+<p>These are just a few examples on how to use a boxplot. See here for more examples: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html</a></p>
+</div>
+<div class="section" id="Matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#Matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>Python has a very useful package known as “matplotlib” (see here: <a class="reference external" href="https://matplotlib.org/">https://matplotlib.org/</a>). It provides a variety of plotting functions and plot types. See some examples here to learn what it can do: <a class="reference external" href="https://matplotlib.org/gallery/index.html">https://matplotlib.org/gallery/index.html</a></p>
+<p>These are plots that you wouldn’t be able to plot using Microsoft Excel. <code class="docutils literal notranslate"><span class="pre">R</span></code> has similar plot functionalities and maybe easier to use than Python libraries. Here, we will explore a few plotting functions. First, you need to import the library before you can use its features.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[213]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+
+<span class="c1">#plt.scatter(x, y, s=z)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[213]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.collections.PathCollection at 0x1239bf190&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/exercises_week11_90_1.png" src="_images/exercises_week11_90_1.png" />
+</div>
+</div>
+<p>In this example, I have created a scatter plot with 3 variables: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>. <code class="docutils literal notranslate"><span class="pre">x</span></code> contains coordinates of the x-axis, <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates of the y-axis, and <code class="docutils literal notranslate"><span class="pre">z</span></code> the sizes of the scatter dots. If you don’t specify the <code class="docutils literal notranslate"><span class="pre">s</span></code> in the scatter function it will produce dots with the same size. To learn more about this scatter function, you can type like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on function scatter in module matplotlib.pyplot:
+
+scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, verts=&lt;deprecated parameter&gt;, edgecolors=None, *, plotnonfinite=False, data=None, **kwargs)
+    A scatter plot of *y* vs. *x* with varying marker size and/or color.
+
+    Parameters
+    ----------
+    x, y : float or array-like, shape (n, )
+        The data positions.
+
+    s : float or array-like, shape (n, ), optional
+        The marker size in points**2.
+        Default is ``rcParams[&#39;lines.markersize&#39;] ** 2``.
+
+    c : array-like or list of colors or color, optional
+        The marker colors. Possible values:
+
+        - A scalar or sequence of n numbers to be mapped to colors using
+          *cmap* and *norm*.
+        - A 2-D array in which the rows are RGB or RGBA.
+        - A sequence of colors of length n.
+        - A single color format string.
+
+        Note that *c* should not be a single numeric RGB or RGBA sequence
+        because that is indistinguishable from an array of values to be
+        colormapped. If you want to specify the same RGB or RGBA value for
+        all points, use a 2-D array with a single row.  Otherwise, value-
+        matching will have precedence in case of a size matching with *x*
+        and *y*.
+
+        If you wish to specify a single color for all points
+        prefer the *color* keyword argument.
+
+        Defaults to `None`. In that case the marker color is determined
+        by the value of *color*, *facecolor* or *facecolors*. In case
+        those are not specified or `None`, the marker color is determined
+        by the next color of the ``Axes``&#39; current &#34;shape and fill&#34; color
+        cycle. This cycle defaults to :rc:`axes.prop_cycle`.
+
+    marker : `~.markers.MarkerStyle`, default: :rc:`scatter.marker`
+        The marker style. *marker* can be either an instance of the class
+        or the text shorthand for a particular marker.
+        See :mod:`matplotlib.markers` for more information about marker
+        styles.
+
+    cmap : str or `~matplotlib.colors.Colormap`, default: :rc:`image.cmap`
+        A `.Colormap` instance or registered colormap name. *cmap* is only
+        used if *c* is an array of floats.
+
+    norm : `~matplotlib.colors.Normalize`, default: None
+        If *c* is an array of floats, *norm* is used to scale the color
+        data, *c*, in the range 0 to 1, in order to map into the colormap
+        *cmap*.
+        If *None*, use the default `.colors.Normalize`.
+
+    vmin, vmax : float, default: None
+        *vmin* and *vmax* are used in conjunction with the default norm to
+        map the color array *c* to the colormap *cmap*. If None, the
+        respective min and max of the color array is used.
+        It is deprecated to use *vmin*/*vmax* when *norm* is given.
+
+    alpha : float, default: None
+        The alpha blending value, between 0 (transparent) and 1 (opaque).
+
+    linewidths : float or array-like, default: :rc:`lines.linewidth`
+        The linewidth of the marker edges. Note: The default *edgecolors*
+        is &#39;face&#39;. You may want to change this as well.
+
+    edgecolors : {&#39;face&#39;, &#39;none&#39;, *None*} or color or sequence of color, default: :rc:`scatter.edgecolors`
+        The edge color of the marker. Possible values:
+
+        - &#39;face&#39;: The edge color will always be the same as the face color.
+        - &#39;none&#39;: No patch boundary will be drawn.
+        - A color or sequence of colors.
+
+        For non-filled markers, the *edgecolors* kwarg is ignored and
+        forced to &#39;face&#39; internally.
+
+    plotnonfinite : bool, default: False
+        Set to plot points with nonfinite *c*, in conjunction with
+        `~matplotlib.colors.Colormap.set_bad`.
+
+    Returns
+    -------
+    `~matplotlib.collections.PathCollection`
+
+    Other Parameters
+    ----------------
+    **kwargs : `~matplotlib.collections.Collection` properties
+
+    See Also
+    --------
+    plot : To plot scatter plots when markers are identical in size and
+        color.
+
+    Notes
+    -----
+    * The `.plot` function will be faster for scatterplots where markers
+      don&#39;t vary in size or color.
+
+    * Any or all of *x*, *y*, *s*, and *c* may be masked arrays, in which
+      case all masks will be combined and only unmasked points will be
+      plotted.
+
+    * Fundamentally, scatter works with 1-D arrays; *x*, *y*, *s*, and *c*
+      may be input as N-D arrays, but within scatter they will be
+      flattened. The exception is *c*, which will be flattened only if its
+      size matches the size of *x* and *y*.
+
+    .. note::
+        In addition to the above described arguments, this function can take
+        a *data* keyword argument. If such a *data* argument is given,
+        the following arguments can also be string ``s``, which is
+        interpreted as ``data[s]`` (unless this raises an exception):
+        *x*, *y*, *s*, *linewidths*, *edgecolors*, *c*, *facecolor*, *facecolors*, *color*.
+
+        Objects passed as **data** must support item access (``data[s]``) and
+        membership test (``s in data``).
+
+</pre></div></div>
+</div>
+<p>This prints the help document associated with the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> function from Matplotlib. You can also go to the Matplotlib page to see examples on how to customize your plots.</p>
+</div>
+<div class="section" id="Seaborn">
+<h2>Seaborn<a class="headerlink" href="#Seaborn" title="Permalink to this headline">¶</a></h2>
+<p>Another Python package I really like using is known as “Seaborn” and it is designed to visualize statistical data. See here: <a class="reference external" href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></p>
+<p>Here, we will try to plot the x, y, and z data we just plotted earlier. First, you need to put the data into a dataframe before you can use Seaborn functions.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+     <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span>
+     <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">z</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#5710a3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/exercises_week11_96_0.png" src="_images/exercises_week11_96_0.png" />
+</div>
+</div>
+<p>Here, if you look at the code snippet, I am importing both <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to use features provided by these two packages. First, I used Pandas’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> function to put the list into a dataframe. For this to work, I had to put the list into a dictionary first (see the curly brackets). Then I use Seaborn’s <code class="docutils literal notranslate"><span class="pre">relplot</span></code> function to create a scatter plot. I provided a custom color code “#5710a3”, which is a hexadecimal code for colors. See here for other options:
+<a class="reference external" href="https://htmlcolorcodes.com/">https://htmlcolorcodes.com/</a></p>
+<p>For additional examples of what Seaborn can do, look here: <a class="reference external" href="https://seaborn.pydata.org/examples/index.html">https://seaborn.pydata.org/examples/index.html</a></p>
+</div>
+<div class="section" id="Biopython">
+<h2>Biopython<a class="headerlink" href="#Biopython" title="Permalink to this headline">¶</a></h2>
+<p>Last thing we will go over today is a package known as Biopython. It provides a plethora of useful functions and tools to analyze biological data. There is a vast range of capabilities provided by the library. See here (<a class="reference external" href="https://biopython.org/">https://biopython.org/</a>) and here (<a class="reference external" href="http://biopython.org/DIST/docs/tutorial/Tutorial.html">http://biopython.org/DIST/docs/tutorial/Tutorial.html</a>).</p>
+<p>This is my go-to package to analyze biological sequence data. You can browse through the tutorial to see what the package can offer. For example, we can download a genome from NCBI to do some sequence analysis. Download this file (as an example) into your folder where you have this Jupyter lab instance running.</p>
+<p><a class="reference external" href="ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/006/665/GCA_000006665.1_ASM666v1/GCA_000006665.1_ASM666v1_genomic.gbff.gz">ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/006/665/GCA_000006665.1_ASM666v1/GCA_000006665.1_ASM666v1_genomic.gbff.gz</a></p>
+<p>Then unzip the file using <code class="docutils literal notranslate"><span class="pre">gunzip</span></code>. Now, we can use this unzipped <code class="docutils literal notranslate"><span class="pre">gbff</span></code> file, which is in Genbank format. First, let’s look at basic statistics of this organism’s genome.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[214]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;GCA_000006665.1_ASM666v1_genomic.gbff&quot;</span><span class="p">,</span> <span class="s2">&quot;genbank&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[215]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found </span><span class="si">%i</span><span class="s2"> records&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Found 2 records
+</pre></div></div>
+</div>
+<p>First, we are “parsing” the Genbank file and putting the sequence objects into a list named <code class="docutils literal notranslate"><span class="pre">records</span></code>. It found 2 sequence records. Let’s see what they contain.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[216]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">records</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[216]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[SeqRecord(seq=Seq(&#39;AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAG...TTC&#39;, IUPACAmbiguousDNA()), id=&#39;AE005174.2&#39;, name=&#39;AE005174&#39;, description=&#39;Escherichia coli O157:H7 str. EDL933 genome&#39;, dbxrefs=[&#39;BioProject:PRJNA259&#39;, &#39;BioSample:SAMN02604092&#39;]),
+ SeqRecord(seq=Seq(&#39;ATGGCAGAGCAAAAACGACCGGTACTGACACTGAAGCGGAAAACGGAAGGAGAG...AGC&#39;, IUPACAmbiguousDNA()), id=&#39;AF074613.1&#39;, name=&#39;AF074613&#39;, description=&#39;Escherichia coli O157:H7 str. EDL933 plasmid pO157, complete sequence&#39;, dbxrefs=[&#39;BioProject:PRJNA259&#39;, &#39;BioSample:SAMN02604092&#39;])]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[217]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Escherichia coli O157:H7 str. EDL933 genome
+Escherichia coli O157:H7 str. EDL933 plasmid pO157, complete sequence
+</pre></div></div>
+</div>
+<p>So this Genbank file contains two sequences from <em>E. coli</em> O157:H7, a pathogenic form of the bacterium that causes food poisonings every year. Let’s take a closer look at the plasmid pO157 to see what genes it contains.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[130]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plasmid</span> <span class="o">=</span> <span class="n">records</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">plasmid</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;CDS&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="s1">&#39;locus_tag&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="s1">&#39;product&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Z_L7001 fertility inhibition protein (conjugal transfer repressor)
+Z_L7002 unknown
+Z_L7003 hypothetical protein 15.6 kDa protein in finO 3&#39; region precursor
+Z_L7004 putative hemolysin expression modulating protein
+Z_L7005 hypothetical protein
+Z_L7006 CopB protein (RepA2 protein)
+Z_L7007 replication initiation protein
+Z_L7008 replication initiation protein
+Z_L7009 replication protein
+Z_L7010 unknown
+Z_L7011 hypothetical protein
+Z_L7012 unknown
+Z_L7013 transposase (partial)
+Z_L7014 hypothetical protein
+Z_L7015 transposase
+Z_L7016 unknown
+Z_L7017 EHEC-catalase/peroxidase
+Z_L7018 hypothetical protein
+Z_L7019 transposase
+Z_L7020 putative exoprotein-precursor
+Z_L7021 unknown
+Z_L7022 transposase
+Z_L7023 hypothetical protein
+Z_L7024 regulatory protein
+Z_L7025 unknown
+Z_L7026 hypothetical protein
+Z_L7027 hypothetical protein
+Z_L7028 hypothetical protein
+Z_L7029 putative acyltransferase
+Z_L7030 unknown
+Z_L7031 hypothetical protein
+Z_L7032 type II secretion protein
+Z_L7033 type II secretion protein
+Z_L7034 type II secretion protein
+Z_L7035 type II secretion protein
+Z_L7036 type II secretion protein
+Z_L7037 type II secretion protein
+Z_L7038 type II secretion protein
+Z_L7039 type II secretion protein
+Z_L7040 type II secretion protein
+Z_L7041 type II secretion protein
+Z_L7042 type II secretion protein
+Z_L7043 type II secretion protein
+Z_L7044 type II secretion protein
+Z_L7045 hypothetical protein
+Z_L7046 ORFB of IS911
+Z_L7047 hemolysin transport protein
+Z_L7048 hemolysin toxin protein
+Z_L7049 hemolysin transport protein
+Z_L7050 hemolysin transport protein
+Z_L7051 hypothetical protein
+Z_L7052 hypothetical protein
+Z_L7053 hypothetical serine-threonine protein kinase
+Z_L7054 replication protein
+Z_L7055 replication protein
+Z_L7056 replication protein
+Z_L7057 replication protein
+Z_L7058 hypothetical protein
+Z_L7059 hypothetical protein
+Z_L7060 hypothetical protein
+Z_L7061 hypothetical protein
+Z_L7062 plasmid maintenance protein
+Z_L7063 plasmid maintenance protein
+Z_L7064 resolvase (protein d)
+Z_L7065 transposase
+Z_L7066 hypothetical protein
+Z_L7067 Rep protein E1
+Z_L7068 plasmid partitioning protein
+Z_L7069 plasmid partitioning protein
+Z_L7070 hypothetical protein
+Z_L7071 unknown
+Z_L7072 unknown
+Z_L7073 unknown
+Z_L7074 hypothetical protein
+Z_L7075 unknown
+Z_L7076 unknown
+Z_L7077 unknown
+Z_L7078 unknown
+Z_L7079 unknown
+Z_L7080 unknown
+Z_L7081 unknown
+Z_L7082 unknown
+Z_L7083 unknown
+Z_L7084 single strand binding protein
+Z_L7085 hypothetical protein
+Z_L7086 hypothetical protein
+Z_L7087 putative regulator of SOS induction
+Z_L7088 hypothetical protein
+Z_L7089 hypothetical protein
+Z_L7090 stable plasmid inheritance protein
+Z_L7091 putative nickase
+Z_L7092 hypothetical protein
+Z_L7093 putative transposase
+Z_L7094 transposase
+Z_L7095 putative cytotoxin
+Z_L7096 putative transposase
+Z_L7097 hypothetical protein
+Z_L7098 DNA helicase
+Z_L7099 acetylase for F pilin
+Z_L7100 hypothetical protein 31.7 kDa protein in traX-finO intergenic region
+</pre></div></div>
+</div>
+<p>Here, what you can see here is that I have listed all the coding sequences within this plasmid and printed their annotations. As you can see, it contains a lot of virulence factors such as “hemolysin toxin protein”, “type II secretion protein”, and “putative cytotoxin”, etc. There are also a bunch of hypothetical and unknown proteins. This is quite typical of microbial genomes. Roughly about 30% of the genes in microbial genomes tend to have no known function.</p>
+<p>So this plasmid is the reason this <em>E. coli</em> strain causes food poisoning in humans and animals. In non-pathogenic <em>E. coli</em> strains, you will not find this plasmid. Let’s say if you want to list the coding regions (gene coordinates) of these genes, you can type something like this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[132]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">plasmid</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;CDS&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">qualifiers</span><span class="p">[</span><span class="s1">&#39;locus_tag&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="o">.</span><span class="n">location</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Z_L7001 [0:561](+)
+Z_L7002 [697:949](+)
+Z_L7003 [1150:1612](+)
+Z_L7004 [1657:1867](+)
+Z_L7005 [1904:2243](+)
+Z_L7006 [2482:2737](+)
+Z_L7007 [2972:3047](+)
+Z_L7008 [3039:3897](+)
+Z_L7009 [4258:4453](+)
+Z_L7010 [4809:5094](+)
+Z_L7011 [5093:5369](+)
+Z_L7012 [5439:5727](-)
+Z_L7013 [5754:5976](-)
+Z_L7014 [6028:6763](-)
+Z_L7015 [6546:7056](-)
+Z_L7016 [7040:7280](+)
+Z_L7017 [7372:9583](+)
+Z_L7018 [9626:10016](+)
+Z_L7019 [10173:11061](+)
+Z_L7020 [11241:15144](+)
+Z_L7021 [15306:15414](-)
+Z_L7022 [15608:15881](-)
+Z_L7023 [16147:16297](-)
+Z_L7024 [16586:16721](+)
+Z_L7025 [16881:17055](+)
+Z_L7026 [17322:18144](+)
+Z_L7027 [18146:19250](+)
+Z_L7028 [19339:21061](+)
+Z_L7029 [21101:22133](+)
+Z_L7030 [22420:22594](+)
+Z_L7031 [23015:25712](+)
+Z_L7032 [25798:26674](+)
+Z_L7033 [26713:28642](+)
+Z_L7034 [28641:30147](+)
+Z_L7035 [30148:31372](+)
+Z_L7036 [31402:31837](+)
+Z_L7037 [31833:32388](+)
+Z_L7038 [32384:32750](+)
+Z_L7039 [32746:33346](+)
+Z_L7040 [33342:34320](+)
+Z_L7041 [34253:35531](+)
+Z_L7042 [35517:36030](+)
+Z_L7043 [36087:36921](+)
+Z_L7044 [37012:37414](+)
+Z_L7045 [37556:37898](+)
+Z_L7046 [37942:38764](+)
+Z_L7047 [39304:39820](+)
+Z_L7048 [39821:42818](+)
+Z_L7049 [42867:44988](+)
+Z_L7050 [44991:46431](+)
+Z_L7051 [46497:46692](+)
+Z_L7052 [46721:47006](+)
+Z_L7053 [47174:47405](+)
+Z_L7054 [47909:48266](+)
+Z_L7055 [47954:48272](-)
+Z_L7056 [48550:49504](-)
+Z_L7057 [49265:49595](+)
+Z_L7058 [49935:50172](-)
+Z_L7059 [50132:50753](-)
+Z_L7060 [50749:51433](-)
+Z_L7061 [51488:51683](+)
+Z_L7062 [51891:52110](+)
+Z_L7063 [52111:52417](+)
+Z_L7064 [52417:53224](+)
+Z_L7065 [53310:54201](-)
+Z_L7066 [54197:54524](-)
+Z_L7067 [54668:54824](+)
+Z_L7068 [55411:56578](+)
+Z_L7069 [56577:57549](+)
+Z_L7070 [57933:58206](+)
+Z_L7071 [58289:58586](-)
+Z_L7072 [58848:60573](+)
+Z_L7073 [60649:61552](+)
+Z_L7074 [61937:62621](+)
+Z_L7075 [62736:63291](+)
+Z_L7076 [63336:64113](+)
+Z_L7077 [64530:64956](+)
+Z_L7078 [65002:65425](+)
+Z_L7079 [65582:66113](-)
+Z_L7080 [66626:66887](-)
+Z_L7081 [66890:68252](+)
+Z_L7082 [68298:68862](+)
+Z_L7083 [68947:69403](-)
+Z_L7084 [69665:70157](+)
+Z_L7085 [70186:70447](+)
+Z_L7086 [70452:72471](+)
+Z_L7087 [72522:72960](+)
+Z_L7088 [72956:73718](+)
+Z_L7089 [73891:74104](+)
+Z_L7090 [73949:74108](+)
+Z_L7091 [74289:76263](+)
+Z_L7092 [76330:76762](+)
+Z_L7093 [77321:77681](-)
+Z_L7094 [77862:78273](+)
+Z_L7095 [78541:88051](+)
+Z_L7096 [88142:88415](+)
+Z_L7097 [88341:88845](-)
+Z_L7098 [88991:90290](+)
+Z_L7099 [90309:91056](+)
+Z_L7100 [91114:91975](+)
+</pre></div></div>
+</div>
+<p>This prints a list of gene coordinates for the coding sequences in this plasmid and also the coding strands (either plus or minus). You can even draw a genome diagram using Biopython. Here is an example.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[140]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reportlab.lib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="kn">from</span> <span class="nn">reportlab.lib.units</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">Bio.Graphics</span> <span class="kn">import</span> <span class="n">GenomeDiagram</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+
+<span class="n">gd_diagram</span> <span class="o">=</span> <span class="n">GenomeDiagram</span><span class="o">.</span><span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;E. coli plasmid&quot;</span><span class="p">)</span>
+<span class="n">gd_track_for_features</span> <span class="o">=</span> <span class="n">gd_diagram</span><span class="o">.</span><span class="n">new_track</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Annotated Features&quot;</span><span class="p">)</span>
+<span class="n">gd_feature_set</span> <span class="o">=</span> <span class="n">gd_track_for_features</span><span class="o">.</span><span class="n">new_set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">plasmid</span><span class="o">.</span><span class="n">features</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">feature</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">&quot;gene&quot;</span><span class="p">:</span>
+        <span class="c1"># Exclude this feature</span>
+        <span class="k">continue</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">gd_feature_set</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">blue</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">lightblue</span>
+    <span class="n">gd_feature_set</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">gd_diagram</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;landscape&quot;</span><span class="p">,</span>
+    <span class="n">pagesize</span><span class="o">=</span><span class="s2">&quot;A4&quot;</span><span class="p">,</span>
+    <span class="n">fragments</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">plasmid</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">gd_diagram</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;plasmid_linear.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;PDF&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>This will produce a file named “plasmid_linear.pdf” and will display the genes found in this plasmid in order. You can also create a circular genome diagram like this:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[141]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gd_diagram</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;circular&quot;</span><span class="p">,</span>
+    <span class="n">circular</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">pagesize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">cm</span><span class="p">,</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">cm</span><span class="p">),</span>
+    <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">plasmid</span><span class="p">),</span>
+    <span class="n">circle_core</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">gd_diagram</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;plasmid_circular.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;PDF&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>These produced the PDF files in the same folder as your Jupyter lab instance. Here’s an example of what it looks like:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;plasmid_circular.pdf&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<iframe
+    width="800"
+    height="800"
+    src="plasmid_circular.pdf"
+    frameborder="0"
+    allowfullscreen
+
+></iframe></div>
+</div>
+<p>Again, I am only showing you very briefly what Biopython is capable of doing. Try yourself some examples shown in the tutorials to see what else you can do with it.</p>
+</div>
+<div class="section" id="Exercise-1---Write-a-simple-Python-script">
+<h2>Exercise 1 - Write a simple Python script<a class="headerlink" href="#Exercise-1---Write-a-simple-Python-script" title="Permalink to this headline">¶</a></h2>
+<p>All the Python examples I have shown here are in the <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code> environment. What if you want to create a Python script and reuse it for some tasks that you frequently need to perform? You can create a standalone python script for that. An example of a very simple standalone python script that can do things we just went over looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And you need to save it in a plain text file with extension <code class="docutils literal notranslate"><span class="pre">.py</span></code>. For example, name it: <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>.</p>
+<p>To run it, you type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python hello.py
+</pre></div>
+</div>
+<p>And it simply prints <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code> to the screen if you run it in your terminal. Try it and see if you can create a simple script like this one.</p>
+</div>
+<div class="section" id="Exercise-2---Write-a-standalone-Python-script-to-parse-a-Genbank-file">
+<h2>Exercise 2 - Write a standalone Python script to parse a Genbank file<a class="headerlink" href="#Exercise-2---Write-a-standalone-Python-script-to-parse-a-Genbank-file" title="Permalink to this headline">¶</a></h2>
+<p>I’ve given you an example below and you should save it as something like <code class="docutils literal notranslate"><span class="pre">parse_gb.py</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;genbank&quot;</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To run this script with the Genbank file we used as an example, type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python parse_gb.py GCA_000006665.1_ASM666v1_genomic.gbff
+</pre></div>
+</div>
+<p>And this script will simply print the description of the records found in this Genbank file. Play around with the different features and functions we’ve gone over to see if you can make a script that you can reuse it over and over again.</p>
+</div>
+<div class="section" id="What-to-do-when-you-are-lost?">
+<h2>What to do when you are lost?<a class="headerlink" href="#What-to-do-when-you-are-lost?" title="Permalink to this headline">¶</a></h2>
+<p>A lot of the time, you can just Google for solutions to a particular problem you are having. But I would highly recommend this website known as “Stackoverflow”. See here: <a class="reference external" href="https://stackoverflow.com/">https://stackoverflow.com/</a></p>
+<p>There, you can search for solutions to all coding related questions or problems. There is a good chance that someone may have posted a question you have and someone may have already provided solution(s) to the problem.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Introduction to Python programming</a><ul>
+<li><a class="reference internal" href="#A-Brief-Introduction">A Brief Introduction</a></li>
+<li><a class="reference internal" href="#Basics">Basics</a></li>
+<li><a class="reference internal" href="#Strings">Strings</a></li>
+<li><a class="reference internal" href="#Lists">Lists</a></li>
+<li><a class="reference internal" href="#Sets">Sets</a></li>
+<li><a class="reference internal" href="#Dictionaries">Dictionaries</a></li>
+<li><a class="reference internal" href="#Tuples">Tuples</a></li>
+<li><a class="reference internal" href="#List-comprehensions">List comprehensions</a></li>
+<li><a class="reference internal" href="#Useful-Python-libraries">Useful Python libraries</a></li>
+<li><a class="reference internal" href="#Pandas">Pandas</a></li>
+<li><a class="reference internal" href="#Matplotlib">Matplotlib</a></li>
+<li><a class="reference internal" href="#Seaborn">Seaborn</a></li>
+<li><a class="reference internal" href="#Biopython">Biopython</a></li>
+<li><a class="reference internal" href="#Exercise-1---Write-a-simple-Python-script">Exercise 1 - Write a simple Python script</a></li>
+<li><a class="reference internal" href="#Exercise-2---Write-a-standalone-Python-script-to-parse-a-Genbank-file">Exercise 2 - Write a standalone Python script to parse a Genbank file</a></li>
+<li><a class="reference internal" href="#What-to-do-when-you-are-lost?">What to do when you are lost?</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="Week11.html"
+                          title="Previous page">&larr; Week 10</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/exercises_week11.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Week11.html" title="Week 10"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Introduction to Python programming</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Jimmy Saw.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

@@ -17,6 +17,8 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
 
     
     
@@ -85,42 +87,27 @@ div.admonition.inline-title p.admonition-title {
     padding-left: .2em;
 }
 </style>
-<div class="section" id="computational-lab-exercises">
-<h1>Computational lab exercises<a class="headerlink" href="#computational-lab-exercises" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="install-r-and-rstudio">
-<h2>Install R and RStudio<a class="headerlink" href="#install-r-and-rstudio" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Computational-lab-exercises">
+<h1>Computational lab exercises<a class="headerlink" href="#Computational-lab-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Install-R-and-RStudio">
+<h2>Install R and RStudio<a class="headerlink" href="#Install-R-and-RStudio" title="Permalink to this headline">¶</a></h2>
 <p>You should install both R and RStudio on your laptop.</p>
-<p>Go to R website here: <a class="reference external" href="https://www.r-project.org/">https://www.r-project.org/</a> Download and install
-the latest version of R, which is <strong>4.1.3</strong> (2022-03-10). They have
-versions for Mac, Linux, and Windows operating systems. Those of you
-using Windows OS but has Ubuntu should install the Windows version.</p>
-<p>Download and install RStudio here after R was installed first:
-<a class="reference external" href="https://rstudio.com/">https://rstudio.com/</a></p>
+<p>Go to R website here: <a class="reference external" href="https://www.r-project.org/">https://www.r-project.org/</a> Download and install the latest version of R, which is <strong>4.1.3</strong> (2022-03-10). They have versions for Mac, Linux, and Windows operating systems. Those of you using Windows OS but has Ubuntu should install the Windows version.</p>
+<p>Download and install RStudio here after R was installed first: <a class="reference external" href="https://rstudio.com/">https://rstudio.com/</a></p>
 <p>Choose the “RStudio Desktop” Free version.</p>
 </div>
-<div class="section" id="start-rstudio-and-install-required-packages">
-<h2>Start RStudio and install required packages<a class="headerlink" href="#start-rstudio-and-install-required-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Start-RStudio-and-install-required-packages">
+<h2>Start RStudio and install required packages<a class="headerlink" href="#Start-RStudio-and-install-required-packages" title="Permalink to this headline">¶</a></h2>
 <p>After starting RStudio, you will see three panels:</p>
 <p>the <strong>left panel</strong> is the R console</p>
-<p>the <strong>top right panel</strong> is the environment, where you will be able to
-see the data that you import and all the R objects that will be
-generated while you run your script</p>
-<p>the <strong>bottom right panel</strong> where you have the help and where you can see
-plots that are generated when you run your script</p>
+<p>the <strong>top right panel</strong> is the environment, where you will be able to see the data that you import and all the R objects that will be generated while you run your script</p>
+<p>the <strong>bottom right panel</strong> where you have the help and where you can see plots that are generated when you run your script</p>
 <p>Start by clicking</p>
-<p>File –&gt; New File –&gt; R script (instead, in Windows, you can use the
-shortcut Ctrl+Shift+N)</p>
+<p>File –&gt; New File –&gt; R script (instead, in Windows, you can use the shortcut Ctrl+Shift+N)</p>
 <p>Now you will see a new panel coming up on the <strong>top left</strong>.</p>
-<p>This is very handy because here you can type your commands, you can
-correct them and change them as many times as you want before you
-actually run them.</p>
-<p>Type the following commands in your new R script, select all of them and
-click the <strong>Run</strong> button.</p>
-<p>Alternatively, you can place your cursor at the beginning or at the end
-of each line and click run. This way, you will see the command running
-in the R console, the cursor will move to the next line on the R script,
-you will click again run etc etc. Running commands line by line makes it
-easier to identify and correct errors as you go.</p>
+<p>This is very handy because here you can type your commands, you can correct them and change them as many times as you want before you actually run them.</p>
+<p>Type the following commands in your new R script, select all of them and click the <strong>Run</strong> button.</p>
+<p>Alternatively, you can place your cursor at the beginning or at the end of each line and click run. This way, you will see the command running in the R console, the cursor will move to the next line on the R script, you will click again run etc etc. Running commands line by line makes it easier to identify and correct errors as you go.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#install the dada2 package</span>
 <span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
@@ -135,91 +122,48 @@ easier to identify and correct errors as you go.</p>
 <span class="nf">biocLite</span><span class="p">(</span><span class="s">&quot;phyloseq&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now, DADA2 and phyloseq should be installed on your R/RStudio
-environment.</p>
-<p>If you encounter errors, you can read into more detail the installation
-instructions</p>
+<p>Now, DADA2 and phyloseq should be installed on your R/RStudio environment.</p>
+<p>If you encounter errors, you can read into more detail the installation instructions</p>
 <p>for DADA2: <a class="reference external" href="https://benjjneb.github.io/dada2/dada-installation.html">https://benjjneb.github.io/dada2/dada-installation.html</a></p>
 <p>for phyloseq: <a class="reference external" href="https://joey711.github.io/phyloseq/install.html">https://joey711.github.io/phyloseq/install.html</a></p>
-<p>You can save your R scipt, so that you can use it again in the future,
-or go back to it when you want. You can also check the section
-<strong>Documenting your workflow in R</strong> below.</p>
+<p>You can save your R scipt, so that you can use it again in the future, or go back to it when you want. You can also check the section <strong>Documenting your workflow in R</strong> below.</p>
 </div>
-<div class="section" id="some-resources-for-learning-r">
-<h2>Some resources for learning R<a class="headerlink" href="#some-resources-for-learning-r" title="Permalink to this headline">¶</a></h2>
-<p>Now, the DADA2 is an <code class="docutils literal notranslate"><span class="pre">R</span></code> package meant for people who have some basic
-understanding of the <code class="docutils literal notranslate"><span class="pre">R</span></code> programming language. It has pretty steep
-learning curve and I won’t be teaching you how to use <code class="docutils literal notranslate"><span class="pre">R</span></code> in this
-course in detail. I will leave with you some resources here that you
-might want to look up outside of classroom hours to learn more about
-<code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
-<p>The first set of resources that you might find useful are so-called
-“cheat sheets”. People have designed and created these “cheat sheets”
-that are easy to look up some commonly used <code class="docutils literal notranslate"><span class="pre">R</span></code> commands and packages
-to analyze data and to plot graphs. Here are a few:</p>
+<div class="section" id="Some-resources-for-learning-R">
+<h2>Some resources for learning R<a class="headerlink" href="#Some-resources-for-learning-R" title="Permalink to this headline">¶</a></h2>
+<p>Now, the DADA2 is an <code class="docutils literal notranslate"><span class="pre">R</span></code> package meant for people who have some basic understanding of the <code class="docutils literal notranslate"><span class="pre">R</span></code> programming language. It has pretty steep learning curve and I won’t be teaching you how to use <code class="docutils literal notranslate"><span class="pre">R</span></code> in this course in detail. I will leave with you some resources here that you might want to look up outside of classroom hours to learn more about <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
+<p>The first set of resources that you might find useful are so-called “cheat sheets”. People have designed and created these “cheat sheets” that are easy to look up some commonly used <code class="docutils literal notranslate"><span class="pre">R</span></code> commands and packages to analyze data and to plot graphs. Here are a few:</p>
 <p><a class="reference external" href="https://rstudio.com/resources/cheatsheets/">https://rstudio.com/resources/cheatsheets/</a></p>
-<p>As you can see, the list of cheat sheets can be quite overwhelming and
-they can be for beginners or to advanced users who are developing
-packages. Some of the important ones you should at least take a look at
-are listed below:</p>
+<p>As you can see, the list of cheat sheets can be quite overwhelming and they can be for beginners or to advanced users who are developing packages. Some of the important ones you should at least take a look at are listed below:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/base-r.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/base-r.pdf</a>
-(R basics for beginners)</p></li>
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf</a>
-(useful for string manipulation)</p></li>
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf</a>
-(learn how to import data for analysis)</p></li>
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf</a>
-(learn how to transform data into different formats)</p></li>
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rstudio-ide.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/rstudio-ide.pdf</a>
-(learn how to use RStudio)</p></li>
-<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/regex.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/regex.pdf</a>
-(learn to find patterns in text or strings)</p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/base-r.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/base-r.pdf</a> (R basics for beginners)</p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/strings.pdf</a> (useful for string manipulation)</p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf</a> (learn how to import data for analysis)</p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf</a> (learn how to transform data into different formats)</p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rstudio-ide.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/rstudio-ide.pdf</a> (learn how to use RStudio)</p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/regex.pdf">https://raw.githubusercontent.com/rstudio/cheatsheets/master/regex.pdf</a> (learn to find patterns in text or strings)</p></li>
 </ul>
 </div>
-<div class="section" id="install-reference-data-files-needed-to-run-dada2">
-<h2>Install reference data files needed to run DADA2<a class="headerlink" href="#install-reference-data-files-needed-to-run-dada2" title="Permalink to this headline">¶</a></h2>
-<p>You will need to download some reference data files before you can start
-running DADA2 on your laptop. These are the files you need to download
-and save somewhere on your laptop computer. These are files you will be
-using when you will need to assign taxonomy to your sequences. More
-information can be found here:
-<a class="reference external" href="https://benjjneb.github.io/dada2/training.html">https://benjjneb.github.io/dada2/training.html</a></p>
-<p>We will be trying to analyze our data with both SILVA (version 138.1)
-and GTBD (Version 86), so the files that you need to download are:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">silva_nr99_v138</span><span class="mf">.1</span><span class="n">_train_set</span><span class="o">.</span><span class="n">fa</span><span class="o">.</span><span class="n">gz</span>
+<div class="section" id="Install-reference-data-files-needed-to-run-DADA2">
+<h2>Install reference data files needed to run DADA2<a class="headerlink" href="#Install-reference-data-files-needed-to-run-DADA2" title="Permalink to this headline">¶</a></h2>
+<p>You will need to download some reference data files before you can start running DADA2 on your laptop. These are the files you need to download and save somewhere on your laptop computer. These are files you will be using when you will need to assign taxonomy to your sequences. More information can be found here: <a class="reference external" href="https://benjjneb.github.io/dada2/training.html">https://benjjneb.github.io/dada2/training.html</a></p>
+<p>We will be trying to analyze our data with both SILVA (version 138.1) and GTBD (Version 86), so the files that you need to download are:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- silva_nr99_v138.1_train_set.fa.gz
 
-<span class="o">-</span> <span class="n">silva_species_assignment_v138</span><span class="mf">.1</span><span class="o">.</span><span class="n">fa</span><span class="o">.</span><span class="n">gz</span>
+- silva_species_assignment_v138.1.fa.gz
 
-<span class="o">-</span> <span class="n">GTDB_bac</span><span class="o">-</span><span class="n">arc_ssu_r86</span><span class="o">.</span><span class="n">fa</span><span class="o">.</span><span class="n">gz</span>
+- GTDB_bac-arc_ssu_r86.fa.gz
 
-<span class="o">-</span> <span class="n">GTDB_dada2_assignment_species</span><span class="o">.</span><span class="n">fa</span><span class="o">.</span><span class="n">gz</span>
+- GTDB_dada2_assignment_species.fa.gz
 </pre></div>
 </div>
-<p>I suggest you download them and move them in a <code class="docutils literal notranslate"><span class="pre">~/data/taxonomy</span></code>
-folder.</p>
+<p>I suggest you download them and move them in a <code class="docutils literal notranslate"><span class="pre">~/data/taxonomy</span></code> folder.</p>
 </div>
-<div class="section" id="run-an-example-dataset-using-dada2-tutorial">
-<h2>Run an example dataset using DADA2 tutorial<a class="headerlink" href="#run-an-example-dataset-using-dada2-tutorial" title="Permalink to this headline">¶</a></h2>
-<p>DADA2 tutorial is found here:
-<a class="reference external" href="https://benjjneb.github.io/dada2/tutorial.html">https://benjjneb.github.io/dada2/tutorial.html</a></p>
-<p>You can go through the tutorial as described on the web page <em>except</em>
-the part on using “DECIPHER”. Skip that part. You should be able to
-perform the tutorial from start to finish without any problems if you
-follow the instructions carefully. You should download this example
-dataset first, as instructed in the tutorial:
-<a class="reference external" href="https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip">https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip</a></p>
-<p>And unzip the file using either <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">miseqsopdata.zip</span></code> command or by
-any unzip utilities that might already be installed on your computer.
-For my case, I downloaded it to <code class="docutils literal notranslate"><span class="pre">data</span></code> folder and after unzipping,
-there will be a new folder named <code class="docutils literal notranslate"><span class="pre">~/data/MiSeq_SOP</span></code> so I would set my
-<code class="docutils literal notranslate"><span class="pre">path</span></code> in the tutorial as <code class="docutils literal notranslate"><span class="pre">path</span> <span class="pre">&lt;-</span> <span class="pre">&quot;~/data/MiSeq_SOP&quot;</span></code> when I follow
-the DADA2 tutorials.</p>
-<p>Follow the instructions on the DADA2 tutorial page from start to finish
-but please make sure you substitute a few file names in some parts. The
-first one is under the “Assign Taxonomy” part. First thing to do when
-you use <code class="docutils literal notranslate"><span class="pre">R</span></code> is to make sure that you are at the right working
-directory. To do that, you type like this in <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
+<div class="section" id="Run-an-example-dataset-using-DADA2-tutorial">
+<h2>Run an example dataset using DADA2 tutorial<a class="headerlink" href="#Run-an-example-dataset-using-DADA2-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>DADA2 tutorial is found here: <a class="reference external" href="https://benjjneb.github.io/dada2/tutorial.html">https://benjjneb.github.io/dada2/tutorial.html</a></p>
+<p>You can go through the tutorial as described on the web page <em>except</em> the part on using “DECIPHER”. Skip that part. You should be able to perform the tutorial from start to finish without any problems if you follow the instructions carefully. You should download this example dataset first, as instructed in the tutorial: <a class="reference external" href="https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip">https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip</a></p>
+<p>And unzip the file using either <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">miseqsopdata.zip</span></code> command or by any unzip utilities that might already be installed on your computer. For my case, I downloaded it to <code class="docutils literal notranslate"><span class="pre">data</span></code> folder and after unzipping, there will be a new folder named <code class="docutils literal notranslate"><span class="pre">~/data/MiSeq_SOP</span></code> so I would set my <code class="docutils literal notranslate"><span class="pre">path</span></code> in the tutorial as <code class="docutils literal notranslate"><span class="pre">path</span> <span class="pre">&lt;-</span> <span class="pre">&quot;~/data/MiSeq_SOP&quot;</span></code> when I follow the DADA2 tutorials.</p>
+<p>Follow the instructions on the DADA2 tutorial page from start to finish but please make sure you substitute a few file names in some parts. The first one is under the “Assign Taxonomy” part. First thing to do when you use <code class="docutils literal notranslate"><span class="pre">R</span></code> is to make sure that you are at the right working directory. To do that, you type like this in <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#First check in which working directory you are now (this command its like pwd in UNIX)</span>
 getwd<span class="o">()</span>
 
@@ -230,95 +174,55 @@ setwd<span class="o">(</span><span class="s2">&quot;~/data/MiSeq_SOP/&quot;</spa
 getwd<span class="o">()</span>
 </pre></div>
 </div>
-<p>Pay attention in the assign taxonomy step, you will need to specify the
-correct path and the correct database, i.e. the one you have downloaded.
-It should be, e.g.,</p>
+<p>Pay attention in the assign taxonomy step, you will need to specify the correct path and the correct database, i.e. the one you have downloaded. It should be, e.g.,</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">taxa</span> <span class="o">&lt;-</span> <span class="nf">assignTaxonomy</span><span class="p">(</span><span class="n">seqtab.nochim</span><span class="p">,</span> <span class="s">&quot;~/data/taxonomy/silva_nr99_v138.1_train_set.fa.gz&quot;</span><span class="p">,</span> <span class="n">multithread</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In addition, you should be careful at the next step, at the add species
-function. Again, it should be, e.g.</p>
+<p>In addition, you should be careful at the next step, at the add species function. Again, it should be, e.g.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">taxa</span> <span class="o">&lt;-</span> <span class="nf">addSpecies</span><span class="p">(</span><span class="n">taxa</span><span class="p">,</span> <span class="s">&quot;~/data/taxonomy/silva_species_assignment_v138.1.fa.gz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Make sure to read <strong>Considerations for your own data</strong> parts carefully.
-This is where you have to pay attention when you are trying to adapt the
-DADA2 pipeline to your own data, which will have different file names or
-sequences to begin with. Read each part carefully and try to make sense
-of what they are trying to do. It might be a bit difficult to make sense
-of in the beginning but we can go over the parts together carefully to
-see what’s going on.</p>
+<p>Make sure to read <strong>Considerations for your own data</strong> parts carefully. This is where you have to pay attention when you are trying to adapt the DADA2 pipeline to your own data, which will have different file names or sequences to begin with. Read each part carefully and try to make sense of what they are trying to do. It might be a bit difficult to make sense of in the beginning but we can go over the parts together carefully to see what’s going on.</p>
 <p><strong>For your assistance</strong>,</p>
-<p>you can download my version of the DADA2 tutorial from here:
-<a class="reference external" href="https://github.com/cpavloud/16S_analysis/blob/main/DADA2_16S_forSpring2022.R">https://github.com/cpavloud/16S_analysis/blob/main/DADA2_16S_forSpring2022.R</a></p>
-<p>and of the phyloseq tutorial from here:
-<a class="reference external" href="https://github.com/cpavloud/16S_analysis/blob/main/phyloseq_16S_forSpring2022.R">https://github.com/cpavloud/16S_analysis/blob/main/phyloseq_16S_forSpring2022.R</a></p>
-<p>You can copy the scripts and paste them in a new R script in Rstudio,
-run them or modify them as you want, provided that your modifications
-makes sense.</p>
+<p>you can download my version of the DADA2 tutorial from here:</p>
+<p><a class="reference external" href="https://github.com/cpavloud/16S_analysis/blob/main/DADA2_16S_forSpring2022.R">https://github.com/cpavloud/16S_analysis/blob/main/DADA2_16S_forSpring2022.R</a></p>
+<p>and of the phyloseq tutorial from here:</p>
+<p><a class="reference external" href="https://github.com/cpavloud/16S_analysis/blob/main/phyloseq_16S_forSpring2022.R">https://github.com/cpavloud/16S_analysis/blob/main/phyloseq_16S_forSpring2022.R</a></p>
+<p>You can copy the scripts and paste them in a new R script in Rstudio, run them or modify them as you want, provided that your modifications makes sense.</p>
 </div>
-<div class="section" id="run-dada2-on-16s-amplicon-data-from-publicly-available-datasets">
-<h2>Run DADA2 on 16S amplicon data from publicly available datasets<a class="headerlink" href="#run-dada2-on-16s-amplicon-data-from-publicly-available-datasets" title="Permalink to this headline">¶</a></h2>
-<p>Now you will run DADA2 on publicly available data. Use <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code>
-tool to download these from NCBI SRA database. I suggest you download
-them to a subfolder under your <code class="docutils literal notranslate"><span class="pre">data</span></code> folder. I would suggest naming
-it <code class="docutils literal notranslate"><span class="pre">sra</span></code> so it would be something like <code class="docutils literal notranslate"><span class="pre">~/data/sra/</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">SRR11477574</span>
-<span class="o">-</span> <span class="n">SRR11477573</span>
-<span class="o">-</span> <span class="n">SRR11477577</span>
-<span class="o">-</span> <span class="n">SRR11477575</span>
+<div class="section" id="Run-DADA2-on-16S-amplicon-data-from-publicly-available-datasets">
+<h2>Run DADA2 on 16S amplicon data from publicly available datasets<a class="headerlink" href="#Run-DADA2-on-16S-amplicon-data-from-publicly-available-datasets" title="Permalink to this headline">¶</a></h2>
+<p>Now you will run DADA2 on publicly available data. Use <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> tool to download these from NCBI SRA database. I suggest you download them to a subfolder under your <code class="docutils literal notranslate"><span class="pre">data</span></code> folder. I would suggest naming it <code class="docutils literal notranslate"><span class="pre">sra</span></code> so it would be something like <code class="docutils literal notranslate"><span class="pre">~/data/sra/</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- SRR11477574
+- SRR11477573
+- SRR11477577
+- SRR11477575
 </pre></div>
 </div>
-<p>These are relatively small files (compared to metagenomes) and should
-not take too long to download them all.</p>
-<p>You will notice that the files end with <code class="docutils literal notranslate"><span class="pre">.fastq</span></code> format (there should
-be 8 files).</p>
-<p>After all the files have been downloaded, you should first zip the files
-by typing: <code class="docutils literal notranslate"><span class="pre">gzip</span> <span class="pre">*.fastq</span></code></p>
-<p>Then try to run DADA2 pipeline using these files but make sure to adapt
-the original instructions in the page to fit the file names you have
-from these downloads.</p>
-<p>You need to make a few modifications to make sure that the names are
-matching. First, set your path to correct folder. The few important
-adaptations we will have to do are making sure the name patterns in your
-input files are matching. Here are the fist few things I have to make
-changes, for example:</p>
+<p>These are relatively small files (compared to metagenomes) and should not take too long to download them all.</p>
+<p>You will notice that the files end with <code class="docutils literal notranslate"><span class="pre">.fastq</span></code> format (there should be 8 files).</p>
+<p>After all the files have been downloaded, you should first zip the files by typing: <code class="docutils literal notranslate"><span class="pre">gzip</span> <span class="pre">*.fastq</span></code></p>
+<p>Then try to run DADA2 pipeline using these files but make sure to adapt the original instructions in the page to fit the file names you have from these downloads.</p>
+<p>You need to make a few modifications to make sure that the names are matching. First, set your path to correct folder. The few important adaptations we will have to do are making sure the name patterns in your input files are matching. Here are the fist few things I have to make changes, for example:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">&lt;-</span> <span class="s">&quot;~/workspace/data/sra&quot;</span>
 <span class="n">fnFs</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">list.files</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s">&quot;_1.fastq.gz&quot;</span><span class="p">,</span> <span class="n">full.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
 <span class="n">fnRs</span> <span class="o">&lt;-</span> <span class="nf">sort</span><span class="p">(</span><span class="nf">list.files</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s">&quot;_2.fastq.gz&quot;</span><span class="p">,</span> <span class="n">full.names</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>After these are set, then you should be able to proceed with the same
-set of commands mostly.</p>
-<p>Try to run from start to finish but skip these two parts: - on using
-DECIPHER - on “Evaluate accuracy”</p>
-<p>When you reach the part on <code class="docutils literal notranslate"><span class="pre">phyloseq</span></code>, then you will need to adapt a
-few things. The example shown were for a study on human microbiomes in
-different people and how the microbial communities shift or change under
-certain conditions.</p>
+<p>After these are set, then you should be able to proceed with the same set of commands mostly.</p>
+<p>Try to run from start to finish but skip these two parts: - on using DECIPHER - on “Evaluate accuracy”</p>
+<p>When you reach the part on <code class="docutils literal notranslate"><span class="pre">phyloseq</span></code>, then you will need to adapt a few things. The example shown were for a study on human microbiomes in different people and how the microbial communities shift or change under certain conditions.</p>
 <p>Here is their original study: <a class="reference external" href="https://aem.asm.org/content/79/17/5112">https://aem.asm.org/content/79/17/5112</a></p>
-<p>You can see more detail about how this study is being used in
-benchmarking tools here: <a class="reference external" href="https://mothur.org/wiki/miseq_sop/">https://mothur.org/wiki/miseq_sop/</a></p>
-<p>This study has been used as an example dataset for people to test the
-performance of their tools or to teach students how to use 16S amplicon
-data to survey and compare microbial communities. However, the data you
-just downloaded and tried to run DADA2 on is from hot springs. They came
-from two different hot springs (2 samples each). So here, you will try
-to calculate Alpha Diversity and microbial community composition in
-these springs. Their original sample names (along with their SRA
-accession numbers are:</p>
+<p>You can see more detail about how this study is being used in benchmarking tools here: <a class="reference external" href="https://mothur.org/wiki/miseq_sop/">https://mothur.org/wiki/miseq_sop/</a></p>
+<p>This study has been used as an example dataset for people to test the performance of their tools or to teach students how to use 16S amplicon data to survey and compare microbial communities. However, the data you just downloaded and tried to run DADA2 on is from hot springs. They came from two different hot springs (2 samples each). So here, you will try to calculate Alpha Diversity and microbial community composition in these springs. Their original sample names (along with their SRA accession
+numbers are:</p>
 <ul class="simple">
 <li><p>SRR11477573 (RC3)</p></li>
 <li><p>SRR11477574 (RC1)</p></li>
 <li><p>SRR11477575 (BP3)</p></li>
 <li><p>SRR11477577 (BP1)</p></li>
 </ul>
-<p>So for the part on <code class="docutils literal notranslate"><span class="pre">phyloseq</span></code>, you will need to make a few changes
-before proceeding to adapt your workflow to match the study names and
-conditions. Because we do not have similar conditions as the example
-study used in the tutorial, we need to change a few things here. I have
-modified the workflow and shown you below what you need to do for your
-downloaded samples. Go through them and see if they work for you.</p>
+<p>So for the part on <code class="docutils literal notranslate"><span class="pre">phyloseq</span></code>, you will need to make a few changes before proceeding to adapt your workflow to match the study names and conditions. Because we do not have similar conditions as the example study used in the tutorial, we need to change a few things here. I have modified the workflow and shown you below what you need to do for your downloaded samples. Go through them and see if they work for you.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">samples.out</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">seqtab.nochim</span><span class="p">)</span>
 
 <span class="n">subject</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">samples.out</span><span class="p">,</span> <span class="s">&quot;D&quot;</span><span class="p">),</span> <span class="n">`[`</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
@@ -367,51 +271,37 @@ downloaded samples. Go through them and see if they work for you.</p>
 <span class="c1">## What happens now?</span>
 </pre></div>
 </div>
-<p>We will go over the results in a little bit after everyone is done with
-the workflow. At the end of the plots generated at the end, what can you
-tell from these 4 samples? Which sample appears to be the most diverse?</p>
-<p>One thing you will note is that after the workflow you went through, no
-files (except the filtered fastq files) were being produced when you
-inspect the work folders using your terminal. Everything is contained
-within the <code class="docutils literal notranslate"><span class="pre">R</span></code> environment. If you want to save the plots being
-produced, then you need to click on “Export” option on the plotting
-panel and save it as PDF or image file.</p>
+<p>We will go over the results in a little bit after everyone is done with the workflow. At the end of the plots generated at the end, what can you tell from these 4 samples? Which sample appears to be the most diverse?</p>
+<p>One thing you will note is that after the workflow you went through, no files (except the filtered fastq files) were being produced when you inspect the work folders using your terminal. Everything is contained within the <code class="docutils literal notranslate"><span class="pre">R</span></code> environment. If you want to save the plots being produced, then you need to click on “Export” option on the plotting panel and save it as PDF or image file.</p>
 </div>
-<div class="section" id="documenting-your-workflow-in-r">
-<h2>Documenting your workflow in R<a class="headerlink" href="#documenting-your-workflow-in-r" title="Permalink to this headline">¶</a></h2>
-<p>One thing that is common for people to do in R is to save the commands
-you typed from start to finish in a script file that ends with an
-extension <code class="docutils literal notranslate"><span class="pre">.R</span></code>. This way, if you ever needed to go back and check what
-you did for a study or to produce a figure, you can do that. And
-provided you kept all the files in the right place, you can re-run your
-analysis from start to finish (even if you have to modify things
-slightly).</p>
-<p>In RStudio, you can do that by clicking on the “+” sign near top left of
-the menu bar, click on “R Script”, then copy and paste all the commands
-you have just typed (starting with <code class="docutils literal notranslate"><span class="pre">library()</span></code>).</p>
-<p>Create a new R script and paste all your commands typed in there (for
-both the example dataset and the public data you downloaded from SRA).
-Save the script as <code class="docutils literal notranslate"><span class="pre">DADA2_analysis.R</span></code> in your exercises folder.</p>
+<div class="section" id="Documenting-your-workflow-in-R">
+<h2>Documenting your workflow in R<a class="headerlink" href="#Documenting-your-workflow-in-R" title="Permalink to this headline">¶</a></h2>
+<p>One thing that is common for people to do in R is to save the commands you typed from start to finish in a script file that ends with an extension <code class="docutils literal notranslate"><span class="pre">.R</span></code>. This way, if you ever needed to go back and check what you did for a study or to produce a figure, you can do that. And provided you kept all the files in the right place, you can re-run your analysis from start to finish (even if you have to modify things slightly).</p>
+<p>In RStudio, you can do that by clicking on the “+” sign near top left of the menu bar, click on “R Script”, then copy and paste all the commands you have just typed (starting with <code class="docutils literal notranslate"><span class="pre">library()</span></code>).</p>
+<p>Create a new R script and paste all your commands typed in there (for both the example dataset and the public data you downloaded from SRA). Save the script as <code class="docutils literal notranslate"><span class="pre">DADA2_analysis.R</span></code> in your exercises folder.</p>
 </div>
-<div class="section" id="some-important-terminology-for-you-to-learn-and-remember">
-<h2>Some important terminology for you to learn and remember<a class="headerlink" href="#some-important-terminology-for-you-to-learn-and-remember" title="Permalink to this headline">¶</a></h2>
-<p>Microbial community analysis draws some concepts, practices, and
-terminology from the general field of Ecology. A lot of the terms used
-in microbial community analyses overlaps with those used in ecology of
-macro-organisms. Some of them are listed and explained below:</p>
-<ul class="simple">
-<li><p>OTU (Operational Taxonomic Unit, group of related individuals; see
-here: <a class="reference external" href="https://en.wikipedia.org/wiki/Operational_taxonomic_unit">https://en.wikipedia.org/wiki/Operational_taxonomic_unit</a>)</p></li>
-<li><p>Alpha Diversity (A measure of species diversity in a given habitat;
-see here: <a class="reference external" href="https://en.wikipedia.org/wiki/Alpha_diversity">https://en.wikipedia.org/wiki/Alpha_diversity</a>)</p></li>
-<li><p>Shannon Index (Diversity index; see here:
-<a class="reference external" href="https://en.wikipedia.org/wiki/Diversity_index">https://en.wikipedia.org/wiki/Diversity_index</a>)</p></li>
-<li><p>ASV (Amplicon Sequence Variant; see here:
-<a class="reference external" href="https://en.wikipedia.org/wiki/Amplicon_sequence_variant">https://en.wikipedia.org/wiki/Amplicon_sequence_variant</a>)</p></li>
-<li><p>NMDS (Non-metric Multi-Dimensional Scaling; see here:
-<a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling">https://en.wikipedia.org/wiki/Multidimensional_scaling</a>)</p></li>
-<li><p>Bray-Curtis dissimilarity (see here:
-<a class="reference external" href="https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity">https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity</a>)</p></li>
+<div class="section" id="Some-important-terminology-for-you-to-learn-and-remember">
+<h2>Some important terminology for you to learn and remember<a class="headerlink" href="#Some-important-terminology-for-you-to-learn-and-remember" title="Permalink to this headline">¶</a></h2>
+<p>Microbial community analysis draws some concepts, practices, and terminology from the general field of Ecology. A lot of the terms used in microbial community analyses overlaps with those used in ecology of macro-organisms. Some of them are listed and explained below:</p>
+<ul>
+<li><p>OTU (Operational Taxonomic Unit, group of related individuals); see here:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Operational_taxonomic_unit">https://en.wikipedia.org/wiki/Operational_taxonomic_unit</a></p>
+</li>
+<li><p>Alpha Diversity (A measure of species diversity in a given habitat); see here:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Alpha_diversity">https://en.wikipedia.org/wiki/Alpha_diversity</a></p>
+</li>
+<li><p>Shannon Index (A Diversity index); see here:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Diversity_index">https://en.wikipedia.org/wiki/Diversity_index</a></p>
+</li>
+<li><p>ASV (Amplicon Sequence Variant); see here:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Amplicon_sequence_variant">https://en.wikipedia.org/wiki/Amplicon_sequence_variant</a></p>
+</li>
+<li><p>NMDS (Non-metric Multi-Dimensional Scaling); see here:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling">https://en.wikipedia.org/wiki/Multidimensional_scaling</a></p>
+</li>
+<li><p>Bray-Curtis dissimilarity; see here:</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity">https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity</a></p>
+</li>
 </ul>
 </div>
 </div>
@@ -429,14 +319,14 @@ see here: <a class="reference external" href="https://en.wikipedia.org/wiki/Alph
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Computational lab exercises</a><ul>
-<li><a class="reference internal" href="#install-r-and-rstudio">Install R and RStudio</a></li>
-<li><a class="reference internal" href="#start-rstudio-and-install-required-packages">Start RStudio and install required packages</a></li>
-<li><a class="reference internal" href="#some-resources-for-learning-r">Some resources for learning R</a></li>
-<li><a class="reference internal" href="#install-reference-data-files-needed-to-run-dada2">Install reference data files needed to run DADA2</a></li>
-<li><a class="reference internal" href="#run-an-example-dataset-using-dada2-tutorial">Run an example dataset using DADA2 tutorial</a></li>
-<li><a class="reference internal" href="#run-dada2-on-16s-amplicon-data-from-publicly-available-datasets">Run DADA2 on 16S amplicon data from publicly available datasets</a></li>
-<li><a class="reference internal" href="#documenting-your-workflow-in-r">Documenting your workflow in R</a></li>
-<li><a class="reference internal" href="#some-important-terminology-for-you-to-learn-and-remember">Some important terminology for you to learn and remember</a></li>
+<li><a class="reference internal" href="#Install-R-and-RStudio">Install R and RStudio</a></li>
+<li><a class="reference internal" href="#Start-RStudio-and-install-required-packages">Start RStudio and install required packages</a></li>
+<li><a class="reference internal" href="#Some-resources-for-learning-R">Some resources for learning R</a></li>
+<li><a class="reference internal" href="#Install-reference-data-files-needed-to-run-DADA2">Install reference data files needed to run DADA2</a></li>
+<li><a class="reference internal" href="#Run-an-example-dataset-using-DADA2-tutorial">Run an example dataset using DADA2 tutorial</a></li>
+<li><a class="reference internal" href="#Run-DADA2-on-16S-amplicon-data-from-publicly-available-datasets">Run DADA2 on 16S amplicon data from publicly available datasets</a></li>
+<li><a class="reference internal" href="#Documenting-your-workflow-in-R">Documenting your workflow in R</a></li>
+<li><a class="reference internal" href="#Some-important-terminology-for-you-to-learn-and-remember">Some important terminology for you to learn and remember</a></li>
 </ul>
 </li>
 </ul>
@@ -445,7 +335,7 @@ see here: <a class="reference external" href="https://en.wikipedia.org/wiki/Alph
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/exercises_week10_Spring2022.rst.txt"
+      <li><a href="_sources/exercises_week10_Spring2022.ipynb.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>

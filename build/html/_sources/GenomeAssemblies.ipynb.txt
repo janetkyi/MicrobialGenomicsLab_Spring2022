@@ -1,0 +1,939 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Genome Assembly using SPAdes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Introduction to SPAdes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "SPAdes was originally designed as a tool to assemble single-cell genomic sequences that usualy comprise uneven sequence coverage. In order to be able to discern such unenven coverages, the authors developed special algorithms to detect such coverages and to account for such regions. Also, to correct for errors that might be introduced during multiple-displacement amplification (MDA), SPAdes incorporates an \"error-correction\" step to improve sequence quality in those regions.\n",
+    "\n",
+    "Since its intial development in 2012, the assembler has evolved to be able to handle different types of sequencing technologies and datasets. Now, it can handle not only single-cell genomic data but also genomic sequences from isolate genomes (cultures), metagenomes. It can also handle latest \"next-gen sequencing\" (NGS) data such as PacBio, Nanopore, etc. SPAdes is hosted at this website (https://cab.spbu.ru/software/spades/) but you can also visit their github page to see the latest version here (https://github.com/ablab/spades). The github page contains most updated information on how to run SPAdes and what options you can use.\n",
+    "\n",
+    "In today's computational exercise, you will use SPAdes to assemble a microbial genome sequenced with Illumina sequencing technology. In order to be able to run SPAdes, you will need to install SPAdes through the Miniconda Python package managing system."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Installing SPAdes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To install SPAdes on your laptop, you will first type this following command:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Loading channels: done\n",
+      "# Name                       Version           Build  Channel             \n",
+      "spades                         3.6.2               0  bioconda            \n",
+      "spades                         3.7.0               0  bioconda            \n",
+      "spades                         3.8.0               0  bioconda            \n",
+      "spades                         3.8.1               0  bioconda            \n",
+      "spades                         3.9.0               0  bioconda            \n",
+      "spades                         3.9.0          py27_1  bioconda            \n",
+      "spades                         3.9.0          py27_2  bioconda            \n",
+      "spades                         3.9.0          py34_1  bioconda            \n",
+      "spades                         3.9.0          py35_1  bioconda            \n",
+      "spades                         3.9.0          py35_2  bioconda            \n",
+      "spades                         3.9.1               0  bioconda            \n",
+      "spades                        3.10.0          py27_0  bioconda            \n",
+      "spades                        3.10.0          py34_0  bioconda            \n",
+      "spades                        3.10.0          py35_0  bioconda            \n",
+      "spades                        3.10.1               1  bioconda            \n",
+      "spades                        3.10.1          py27_0  bioconda            \n",
+      "spades                        3.10.1          py34_0  bioconda            \n",
+      "spades                        3.10.1          py35_0  bioconda            \n",
+      "spades                        3.11.0          py27_0  bioconda            \n",
+      "spades                        3.11.0          py27_1  bioconda            \n",
+      "spades                        3.11.0          py35_0  bioconda            \n",
+      "spades                        3.11.0          py35_1  bioconda            \n",
+      "spades                        3.11.0          py36_0  bioconda            \n",
+      "spades                        3.11.0          py36_1  bioconda            \n",
+      "spades                        3.11.1      h21aa3a5_2  bioconda            \n",
+      "spades                        3.11.1      h21aa3a5_3  bioconda            \n",
+      "spades                        3.11.1      hb249e0d_4  bioconda            \n",
+      "spades                        3.11.1      he4cf2ce_2  bioconda            \n",
+      "spades                        3.11.1          py27_0  bioconda            \n",
+      "spades                        3.11.1          py27_1  bioconda            \n",
+      "spades                        3.11.1          py35_0  bioconda            \n",
+      "spades                        3.11.1          py35_1  bioconda            \n",
+      "spades                        3.11.1          py36_0  bioconda            \n",
+      "spades                        3.11.1          py36_1  bioconda            \n",
+      "spades                        3.12.0               1  bioconda            \n",
+      "spades                        3.12.0          py27_0  bioconda            \n",
+      "spades                        3.12.0          py35_0  bioconda            \n",
+      "spades                        3.12.0          py36_0  bioconda            \n",
+      "spades                        3.13.0               0  bioconda            \n",
+      "spades                        3.13.1               0  bioconda            \n",
+      "spades                        3.13.1      h21ccd2c_2  bioconda            \n",
+      "spades                        3.13.1      h8f8a155_1  bioconda            \n",
+      "spades                        3.13.2      h21ccd2c_0  bioconda            \n",
+      "spades                        3.14.0      h21ccd2c_0  bioconda            \n",
+      "spades                        3.14.1      he641558_0  bioconda            \n",
+      "\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "conda search spades"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This brings up all the different versions of SPAdes currently on my `bioconda` channel. The latest version tends to be at the bottom of the page. Then to install the latest version, you would just type `conda install spades`. On my laptop, I have already installed a version of SPAdes. To check what version I have already install, I can type like this below:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "spades                    3.13.0                        0    bioconda\n",
+      "\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "conda list | grep spades"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "So, you can see that I have version 3.13.0 installed. If I want to be explicit about the specific version of SPAdes I want to install, I can type like this:\n",
+    "\n",
+    "`conda install spades=3.14.0`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This will install version 3.14.0. If you do not specify a version number, then it will install the latest version by default. Once you have SPAdes installed, you should be able to type this command `spades.py` right away in your terminal."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Running SPAdes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "SPAdes genome assembler v3.13.0\n",
+      "\n",
+      "Usage: /Users/jsaw/miniconda3/bin/spades.py [options] -o <output_dir>\n",
+      "\n",
+      "Basic options:\n",
+      "-o\t<output_dir>\tdirectory to store all the resulting files (required)\n",
+      "--sc\t\t\tthis flag is required for MDA (single-cell) data\n",
+      "--meta\t\t\tthis flag is required for metagenomic sample data\n",
+      "--rna\t\t\tthis flag is required for RNA-Seq data \n",
+      "--plasmid\t\truns plasmidSPAdes pipeline for plasmid detection \n",
+      "--iontorrent\t\tthis flag is required for IonTorrent data\n",
+      "--test\t\t\truns SPAdes on toy dataset\n",
+      "-h/--help\t\tprints this usage message\n",
+      "-v/--version\t\tprints version\n",
+      "\n",
+      "Input data:\n",
+      "--12\t<filename>\tfile with interlaced forward and reverse paired-end reads\n",
+      "-1\t<filename>\tfile with forward paired-end reads\n",
+      "-2\t<filename>\tfile with reverse paired-end reads\n",
+      "-s\t<filename>\tfile with unpaired reads\n",
+      "--merged\t<filename>\tfile with merged forward and reverse paired-end reads\n",
+      "--pe<#>-12\t<filename>\tfile with interlaced reads for paired-end library number <#> (<#> = 1,2,...,9)\n",
+      "--pe<#>-1\t<filename>\tfile with forward reads for paired-end library number <#> (<#> = 1,2,...,9)\n",
+      "--pe<#>-2\t<filename>\tfile with reverse reads for paired-end library number <#> (<#> = 1,2,...,9)\n",
+      "--pe<#>-s\t<filename>\tfile with unpaired reads for paired-end library number <#> (<#> = 1,2,...,9)\n",
+      "--pe<#>-m\t<filename>\tfile with merged reads for paired-end library number <#> (<#> = 1,2,...,9)\n",
+      "--pe<#>-<or>\torientation of reads for paired-end library number <#> (<#> = 1,2,...,9; <or> = fr, rf, ff)\n",
+      "--s<#>\t\t<filename>\tfile with unpaired reads for single reads library number <#> (<#> = 1,2,...,9)\n",
+      "--mp<#>-12\t<filename>\tfile with interlaced reads for mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--mp<#>-1\t<filename>\tfile with forward reads for mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--mp<#>-2\t<filename>\tfile with reverse reads for mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--mp<#>-s\t<filename>\tfile with unpaired reads for mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--mp<#>-<or>\torientation of reads for mate-pair library number <#> (<#> = 1,2,..,9; <or> = fr, rf, ff)\n",
+      "--hqmp<#>-12\t<filename>\tfile with interlaced reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--hqmp<#>-1\t<filename>\tfile with forward reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--hqmp<#>-2\t<filename>\tfile with reverse reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--hqmp<#>-s\t<filename>\tfile with unpaired reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9)\n",
+      "--hqmp<#>-<or>\torientation of reads for high-quality mate-pair library number <#> (<#> = 1,2,..,9; <or> = fr, rf, ff)\n",
+      "--nxmate<#>-1\t<filename>\tfile with forward reads for Lucigen NxMate library number <#> (<#> = 1,2,..,9)\n",
+      "--nxmate<#>-2\t<filename>\tfile with reverse reads for Lucigen NxMate library number <#> (<#> = 1,2,..,9)\n",
+      "--sanger\t<filename>\tfile with Sanger reads\n",
+      "--pacbio\t<filename>\tfile with PacBio reads\n",
+      "--nanopore\t<filename>\tfile with Nanopore reads\n",
+      "--tslr\t<filename>\tfile with TSLR-contigs\n",
+      "--trusted-contigs\t<filename>\tfile with trusted contigs\n",
+      "--untrusted-contigs\t<filename>\tfile with untrusted contigs\n",
+      "\n",
+      "Pipeline options:\n",
+      "--only-error-correction\truns only read error correction (without assembling)\n",
+      "--only-assembler\truns only assembling (without read error correction)\n",
+      "--careful\t\ttries to reduce number of mismatches and short indels\n",
+      "--continue\t\tcontinue run from the last available check-point\n",
+      "--restart-from\t<cp>\trestart run with updated options and from the specified check-point ('ec', 'as', 'k<int>', 'mc', 'last')\n",
+      "--disable-gzip-output\tforces error correction not to compress the corrected reads\n",
+      "--disable-rr\t\tdisables repeat resolution stage of assembling\n",
+      "\n",
+      "Advanced options:\n",
+      "--dataset\t<filename>\tfile with dataset description in YAML format\n",
+      "-t/--threads\t<int>\t\tnumber of threads\n",
+      "\t\t\t\t[default: 16]\n",
+      "-m/--memory\t<int>\t\tRAM limit for SPAdes in Gb (terminates if exceeded)\n",
+      "\t\t\t\t[default: 250]\n",
+      "--tmp-dir\t<dirname>\tdirectory for temporary files\n",
+      "\t\t\t\t[default: <output_dir>/tmp]\n",
+      "-k\t\t<int,int,...>\tcomma-separated list of k-mer sizes (must be odd and\n",
+      "\t\t\t\tless than 128) [default: 'auto']\n",
+      "--cov-cutoff\t<float>\t\tcoverage cutoff value (a positive float number, or 'auto', or 'off') [default: 'off']\n",
+      "--phred-offset\t<33 or 64>\tPHRED quality offset in the input reads (33 or 64)\n",
+      "\t\t\t\t[default: auto-detect]\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%bash\n",
+    "spades.py"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "I have to type `%%bash` before my command in order to be able to show command line outputs in Jupyter Lab environment. When you are typing `spades.py` in your own terminal, you do not need to type this `%%bash` command. As you can see, you are given a number of options that you can specify when running SPAdes. For example, if you are running a metagenome assembly using SPAdes, then you would add an `--meta` flag to indicate the program that you are running a metagenome assembly.\n",
+    "\n",
+    "In today's exercise, you will run SPAdes to assemble a genome belonging to a bacterium (*Salmonella enterica*) that you have downloaded previously from the following website: https://www.ncbi.nlm.nih.gov/sra/SRX9094324\n",
+    "\n",
+    "You have also done processing of this raw data into a form that is suitable to be used as an input for the SPAdes assembler. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Checking sequence qualities"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To check sequence qualities of the two `fastq` files you have downloaded previously, you will run the `fastqc` tool. First, using your terminal, nagivate to the folder where you have downloaded these sequences. For example, if you downloaded the sequences in `/home/yourname/data`, then you would type:\n",
+    "\n",
+    "`cd /home/yourname/data`\n",
+    "\n",
+    "In my case, I have downloaded them into another folder named `data`.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To check the quality of the downloaded sequences, you would run the FastQC tool, which you have installed previously. To run, navigate into the folder containing the data, then type:\n",
+    "\n",
+    "`fastqc *.fastq`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Inspect the quality and statistics reported in this html file to see what the report is telling you. Remember, these are paired fastq files and this means \"SRR12610971_1_fastqc.html\" is only one of the pair. You will need to inspect the second file \"SRR12610971_2_fastqc.html\" as well."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Trimming the sequences"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To trim the possible Illumina adapter sequences and poor quality regions, you can use several trimming tools such as Trimmomatic, bbduk, or cutadapt. Here, you will use bbduk, which is part of a suite of tools that come with bbmap tool. You can run bbduk with the following commands:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```bash\n",
+    "bbduk.sh -Xmx12g ktrim=r ordered minlen=50 mink=11 tbo=t rcomp=f k=21 ow=t zl=4 \\\n",
+    "        qtrim=rl trimq=20 \\\n",
+    "        in1=SRR12610971_1.fastq.gz \\\n",
+    "        in2=SRR12610971_2.fastq.gz \\\n",
+    "        ref=~/databases/adapters/adapters.fa  \\\n",
+    "        out1=SRR12610971_1.trimmed.fastq.gz \\\n",
+    "        out2=SRR12610971_2.trimmed.fastq.gz\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The `-Xmx12g` parameter I am providing here is to tell `bbduk.sh` that I want to use 12GB of my computer's memory for this task. This parameter may look a bit different from the one shown a few weeks ago.\n",
+    "\n",
+    "It will take a few minutes to complete this task. Note that I am using the \"\\\\\" to enter the command in multiple lines due to the long list of parameters I need to specify with this tool. You can actually type the whole thing in one line without having to type the \"\\\\\" but it is more difficult to see all the options in one screen. There are several parameters that I am entering here to tell the trimming tool what to do exactly with the raw sequences. Detailed options/parameters available with this tool can be seen when you type this:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Written by Brian Bushnell\n",
+      "Last modified March 24, 2020\n",
+      "\n",
+      "Description:  Compares reads to the kmers in a reference dataset, optionally \n",
+      "allowing an edit distance. Splits the reads into two outputs - those that \n",
+      "match the reference, and those that don't. Can also trim (remove) the matching \n",
+      "parts of the reads rather than binning the reads.\n",
+      "Please read bbmap/docs/guides/BBDukGuide.txt for more information.\n",
+      "\n",
+      "Usage:  bbduk.sh in=<input file> out=<output file> ref=<contaminant files>\n",
+      "\n",
+      "Input may be stdin or a fasta or fastq file, compressed or uncompressed.\n",
+      "If you pipe via stdin/stdout, please include the file type; e.g. for gzipped \n",
+      "fasta input, set in=stdin.fa.gz\n",
+      "\n",
+      "Input parameters:\n",
+      "in=<file>           Main input. in=stdin.fq will pipe from stdin.\n",
+      "in2=<file>          Input for 2nd read of pairs in a different file.\n",
+      "ref=<file,file>     Comma-delimited list of reference files.\n",
+      "                    In addition to filenames, you may also use the keywords:\n",
+      "                    adapters, artifacts, phix, lambda, pjet, mtst, kapa\n",
+      "literal=<seq,seq>   Comma-delimited list of literal reference sequences.\n",
+      "touppercase=f       (tuc) Change all bases upper-case.\n",
+      "interleaved=auto    (int) t/f overrides interleaved autodetection.\n",
+      "qin=auto            Input quality offset: 33 (Sanger), 64, or auto.\n",
+      "reads=-1            If positive, quit after processing X reads or pairs.\n",
+      "copyundefined=f     (cu) Process non-AGCT IUPAC reference bases by making all\n",
+      "                    possible unambiguous copies.  Intended for short motifs\n",
+      "                    or adapter barcodes, as time/memory use is exponential.\n",
+      "samplerate=1        Set lower to only process a fraction of input reads.\n",
+      "samref=<file>       Optional reference fasta for processing sam files.\n",
+      "\n",
+      "Output parameters:\n",
+      "out=<file>          (outnonmatch) Write reads here that do not contain \n",
+      "                    kmers matching the database.  'out=stdout.fq' will pipe \n",
+      "                    to standard out.\n",
+      "out2=<file>         (outnonmatch2) Use this to write 2nd read of pairs to a \n",
+      "                    different file.\n",
+      "outm=<file>         (outmatch) Write reads here that fail filters.  In default\n",
+      "                    kfilter mode, this means any read with a matching kmer.\n",
+      "                    In any mode, it also includes reads that fail filters such\n",
+      "                    as minlength, mingc, maxgc, entropy, etc.  In other words,\n",
+      "                    it includes all reads that do not go to 'out'.\n",
+      "outm2=<file>        (outmatch2) Use this to write 2nd read of pairs to a \n",
+      "                    different file.\n",
+      "outs=<file>         (outsingle) Use this to write singleton reads whose mate \n",
+      "                    was trimmed shorter than minlen.\n",
+      "stats=<file>        Write statistics about which contamininants were detected.\n",
+      "refstats=<file>     Write statistics on a per-reference-file basis.\n",
+      "rpkm=<file>         Write RPKM for each reference sequence (for RNA-seq).\n",
+      "dump=<file>         Dump kmer tables to a file, in fasta format.\n",
+      "duk=<file>          Write statistics in duk's format. *DEPRECATED*\n",
+      "nzo=t               Only write statistics about ref sequences with nonzero hits.\n",
+      "overwrite=t         (ow) Grant permission to overwrite files.\n",
+      "showspeed=t         (ss) 'f' suppresses display of processing speed.\n",
+      "ziplevel=2          (zl) Compression level; 1 (min) through 9 (max).\n",
+      "fastawrap=70        Length of lines in fasta output.\n",
+      "qout=auto           Output quality offset: 33 (Sanger), 64, or auto.\n",
+      "statscolumns=3      (cols) Number of columns for stats output, 3 or 5.\n",
+      "                    5 includes base counts.\n",
+      "rename=f            Rename reads to indicate which sequences they matched.\n",
+      "refnames=f          Use names of reference files rather than scaffold IDs.\n",
+      "trd=f               Truncate read and ref names at the first whitespace.\n",
+      "ordered=f           Set to true to output reads in same order as input.\n",
+      "maxbasesout=-1      If positive, quit after writing approximately this many\n",
+      "                    bases to out (outu/outnonmatch).\n",
+      "maxbasesoutm=-1     If positive, quit after writing approximately this many\n",
+      "                    bases to outm (outmatch).\n",
+      "json=f              Print to screen in json format.\n",
+      "\n",
+      "Histogram output parameters:\n",
+      "bhist=<file>        Base composition histogram by position.\n",
+      "qhist=<file>        Quality histogram by position.\n",
+      "qchist=<file>       Count of bases with each quality value.\n",
+      "aqhist=<file>       Histogram of average read quality.\n",
+      "bqhist=<file>       Quality histogram designed for box plots.\n",
+      "lhist=<file>        Read length histogram.\n",
+      "phist=<file>        Polymer length histogram.\n",
+      "gchist=<file>       Read GC content histogram.\n",
+      "enthist=<file>      Read entropy histogram.\n",
+      "ihist=<file>        Insert size histogram, for paired reads in mapped sam.\n",
+      "gcbins=100          Number gchist bins.  Set to 'auto' to use read length.\n",
+      "maxhistlen=6000     Set an upper bound for histogram lengths; higher uses \n",
+      "                    more memory.  The default is 6000 for some histograms\n",
+      "                    and 80000 for others.\n",
+      "\n",
+      "Histograms for mapped sam/bam files only:\n",
+      "histbefore=t        Calculate histograms from reads before processing.\n",
+      "ehist=<file>        Errors-per-read histogram.\n",
+      "qahist=<file>       Quality accuracy histogram of error rates versus quality \n",
+      "                    score.\n",
+      "indelhist=<file>    Indel length histogram.\n",
+      "mhist=<file>        Histogram of match, sub, del, and ins rates by position.\n",
+      "idhist=<file>       Histogram of read count versus percent identity.\n",
+      "idbins=100          Number idhist bins.  Set to 'auto' to use read length.\n",
+      "varfile=<file>      Ignore substitution errors listed in this file when \n",
+      "                    calculating error rates.  Can be generated with\n",
+      "                    CallVariants.\n",
+      "vcf=<file>          Ignore substitution errors listed in this VCF file \n",
+      "                    when calculating error rates.\n",
+      "ignorevcfindels=t   Also ignore indels listed in the VCF.\n",
+      "\n",
+      "Processing parameters:\n",
+      "k=27                Kmer length used for finding contaminants.  Contaminants \n",
+      "                    shorter than k will not be found.  k must be at least 1.\n",
+      "rcomp=t             Look for reverse-complements of kmers in addition to \n",
+      "                    forward kmers.\n",
+      "maskmiddle=t        (mm) Treat the middle base of a kmer as a wildcard, to \n",
+      "                    increase sensitivity in the presence of errors.\n",
+      "minkmerhits=1       (mkh) Reads need at least this many matching kmers \n",
+      "                    to be considered as matching the reference.\n",
+      "minkmerfraction=0.0 (mkf) A reads needs at least this fraction of its total\n",
+      "                    kmers to hit a ref, in order to be considered a match.\n",
+      "                    If this and minkmerhits are set, the greater is used.\n",
+      "mincovfraction=0.0  (mcf) A reads needs at least this fraction of its total\n",
+      "                    bases to be covered by ref kmers to be considered a match.\n",
+      "                    If specified, mcf overrides mkh and mkf.\n",
+      "hammingdistance=0   (hdist) Maximum Hamming distance for ref kmers (subs only).\n",
+      "                    Memory use is proportional to (3*K)^hdist.\n",
+      "qhdist=0            Hamming distance for query kmers; impacts speed, not memory.\n",
+      "editdistance=0      (edist) Maximum edit distance from ref kmers (subs \n",
+      "                    and indels).  Memory use is proportional to (8*K)^edist.\n",
+      "hammingdistance2=0  (hdist2) Sets hdist for short kmers, when using mink.\n",
+      "qhdist2=0           Sets qhdist for short kmers, when using mink.\n",
+      "editdistance2=0     (edist2) Sets edist for short kmers, when using mink.\n",
+      "forbidn=f           (fn) Forbids matching of read kmers containing N.\n",
+      "                    By default, these will match a reference 'A' if \n",
+      "                    hdist>0 or edist>0, to increase sensitivity.\n",
+      "removeifeitherbad=t (rieb) Paired reads get sent to 'outmatch' if either is \n",
+      "                    match (or either is trimmed shorter than minlen).  \n",
+      "                    Set to false to require both.\n",
+      "trimfailures=f      Instead of discarding failed reads, trim them to 1bp.\n",
+      "                    This makes the statistics a bit odd.\n",
+      "findbestmatch=f     (fbm) If multiple matches, associate read with sequence \n",
+      "                    sharing most kmers.  Reduces speed.\n",
+      "skipr1=f            Don't do kmer-based operations on read 1.\n",
+      "skipr2=f            Don't do kmer-based operations on read 2.\n",
+      "ecco=f              For overlapping paired reads only.  Performs error-\n",
+      "                    correction with BBMerge prior to kmer operations.\n",
+      "recalibrate=f       (recal) Recalibrate quality scores.  Requires calibration\n",
+      "                    matrices generated by CalcTrueQuality.\n",
+      "sam=<file,file>     If recalibration is desired, and matrices have not already\n",
+      "                    been generated, BBDuk will create them from the sam file.\n",
+      "amino=f             Run in amino acid mode.  Some features have not been\n",
+      "                    tested, but kmer-matching works fine.  Maximum k is 12.\n",
+      "\n",
+      "Speed and Memory parameters:\n",
+      "threads=auto        (t) Set number of threads to use; default is number of \n",
+      "                    logical processors.\n",
+      "prealloc=f          Preallocate memory in table.  Allows faster table loading \n",
+      "                    and more efficient memory usage, for a large reference.\n",
+      "monitor=f           Kill this process if it crashes.  monitor=600,0.01 would \n",
+      "                    kill after 600 seconds under 1% usage.\n",
+      "minrskip=1          (mns) Force minimal skip interval when indexing reference \n",
+      "                    kmers.  1 means use all, 2 means use every other kmer, etc.\n",
+      "maxrskip=1          (mxs) Restrict maximal skip interval when indexing \n",
+      "                    reference kmers. Normally all are used for scaffolds<100kb, \n",
+      "                    but with longer scaffolds, up to maxrskip-1 are skipped.\n",
+      "rskip=              Set both minrskip and maxrskip to the same value.\n",
+      "                    If not set, rskip will vary based on sequence length.\n",
+      "qskip=1             Skip query kmers to increase speed.  1 means use all.\n",
+      "speed=0             Ignore this fraction of kmer space (0-15 out of 16) in both\n",
+      "                    reads and reference.  Increases speed and reduces memory.\n",
+      "Note: Do not use more than one of 'speed', 'qskip', and 'rskip'.\n",
+      "\n",
+      "Trimming/Filtering/Masking parameters:\n",
+      "Note - if ktrim, kmask, and ksplit are unset, the default behavior is kfilter.\n",
+      "All kmer processing modes are mutually exclusive.\n",
+      "Reads only get sent to 'outm' purely based on kmer matches in kfilter mode.\n",
+      "\n",
+      "ktrim=f             Trim reads to remove bases matching reference kmers.\n",
+      "                    Values: \n",
+      "                       f (don't trim), \n",
+      "                       r (trim to the right), \n",
+      "                       l (trim to the left)\n",
+      "kmask=              Replace bases matching ref kmers with another symbol.\n",
+      "                    Allows any non-whitespace character, and processes short\n",
+      "                    kmers on both ends if mink is set.  'kmask=lc' will\n",
+      "                    convert masked bases to lowercase.\n",
+      "maskfullycovered=f  (mfc) Only mask bases that are fully covered by kmers.\n",
+      "ksplit=f            For single-ended reads only.  Reads will be split into\n",
+      "                    pairs around the kmer.  If the kmer is at the end of the\n",
+      "                    read, it will be trimmed instead.  Singletons will go to\n",
+      "                    out, and pairs will go to outm.  Do not use ksplit with\n",
+      "                    other operations such as quality-trimming or filtering.\n",
+      "mink=0              Look for shorter kmers at read tips down to this length, \n",
+      "                    when k-trimming or masking.  0 means disabled.  Enabling\n",
+      "                    this will disable maskmiddle.\n",
+      "qtrim=f             Trim read ends to remove bases with quality below trimq.\n",
+      "                    Performed AFTER looking for kmers.  Values: \n",
+      "                       rl (trim both ends), \n",
+      "                       f (neither end), \n",
+      "                       r (right end only), \n",
+      "                       l (left end only),\n",
+      "                       w (sliding window).\n",
+      "trimq=6             Regions with average quality BELOW this will be trimmed,\n",
+      "                    if qtrim is set to something other than f.  Can be a \n",
+      "                    floating-point number like 7.3.\n",
+      "trimclip=f          Trim soft-clipped bases from sam files.\n",
+      "minlength=10        (ml) Reads shorter than this after trimming will be \n",
+      "                    discarded.  Pairs will be discarded if both are shorter.\n",
+      "mlf=0               (minlengthfraction) Reads shorter than this fraction of \n",
+      "                    original length after trimming will be discarded.\n",
+      "maxlength=          Reads longer than this after trimming will be discarded.\n",
+      "minavgquality=0     (maq) Reads with average quality (after trimming) below \n",
+      "                    this will be discarded.\n",
+      "maqb=0              If positive, calculate maq from this many initial bases.\n",
+      "minbasequality=0    (mbq) Reads with any base below this quality (after \n",
+      "                    trimming) will be discarded.\n",
+      "maxns=-1            If non-negative, reads with more Ns than this \n",
+      "                    (after trimming) will be discarded.\n",
+      "mcb=0               (minconsecutivebases) Discard reads without at least \n",
+      "                    this many consecutive called bases.\n",
+      "ottm=f              (outputtrimmedtomatch) Output reads trimmed to shorter \n",
+      "                    than minlength to outm rather than discarding.\n",
+      "tp=0                (trimpad) Trim this much extra around matching kmers.\n",
+      "tbo=f               (trimbyoverlap) Trim adapters based on where paired \n",
+      "                    reads overlap.\n",
+      "strictoverlap=t     Adjust sensitivity for trimbyoverlap mode.\n",
+      "minoverlap=14       Require this many bases of overlap for detection.\n",
+      "mininsert=40        Require insert size of at least this for overlap.\n",
+      "                    Should be reduced to 16 for small RNA sequencing.\n",
+      "tpe=f               (trimpairsevenly) When kmer right-trimming, trim both \n",
+      "                    reads to the minimum length of either.\n",
+      "forcetrimleft=0     (ftl) If positive, trim bases to the left of this position\n",
+      "                    (exclusive, 0-based).\n",
+      "forcetrimright=0    (ftr) If positive, trim bases to the right of this position\n",
+      "                    (exclusive, 0-based).\n",
+      "forcetrimright2=0   (ftr2) If positive, trim this many bases on the right end.\n",
+      "forcetrimmod=0      (ftm) If positive, right-trim length to be equal to zero,\n",
+      "                    modulo this number.\n",
+      "restrictleft=0      If positive, only look for kmer matches in the \n",
+      "                    leftmost X bases.\n",
+      "restrictright=0     If positive, only look for kmer matches in the \n",
+      "                    rightmost X bases.\n",
+      "mingc=0             Discard reads with GC content below this.\n",
+      "maxgc=1             Discard reads with GC content above this.\n",
+      "gcpairs=t           Use average GC of paired reads.\n",
+      "                    Also affects gchist.\n",
+      "tossjunk=f          Discard reads with invalid characters as bases.\n",
+      "swift=f             Trim Swift sequences: Trailing C/T/N R1, leading G/A/N R2.\n",
+      "\n",
+      "Header-parsing parameters - these require Illumina headers:\n",
+      "chastityfilter=f    (cf) Discard reads with id containing ' 1:Y:' or ' 2:Y:'.\n",
+      "barcodefilter=f     Remove reads with unexpected barcodes if barcodes is set,\n",
+      "                    or barcodes containing 'N' otherwise.  A barcode must be\n",
+      "                    the last part of the read header.  Values:\n",
+      "                       t:     Remove reads with bad barcodes.\n",
+      "                       f:     Ignore barcodes.\n",
+      "                       crash: Crash upon encountering bad barcodes.\n",
+      "barcodes=           Comma-delimited list of barcodes or files of barcodes.\n",
+      "xmin=-1             If positive, discard reads with a lesser X coordinate.\n",
+      "ymin=-1             If positive, discard reads with a lesser Y coordinate.\n",
+      "xmax=-1             If positive, discard reads with a greater X coordinate.\n",
+      "ymax=-1             If positive, discard reads with a greater Y coordinate.\n",
+      "\n",
+      "Polymer trimming:\n",
+      "trimpolya=0         If greater than 0, trim poly-A or poly-T tails of\n",
+      "                    at least this length on either end of reads.\n",
+      "trimpolygleft=0     If greater than 0, trim poly-G prefixes of at least this\n",
+      "                    length on the left end of reads.  Does not trim poly-C.\n",
+      "trimpolygright=0    If greater than 0, trim poly-G tails of at least this \n",
+      "                    length on the right end of reads.  Does not trim poly-C.\n",
+      "trimpolyg=0         This sets both left and right at once.\n",
+      "filterpolyg=0       If greater than 0, remove reads with a poly-G prefix of\n",
+      "                    at least this length (on the left).\n",
+      "Note: there are also equivalent poly-C flags.\n",
+      "\n",
+      "Polymer tracking:\n",
+      "pratio=base,base    'pratio=G,C' will print the ratio of G to C polymers.\n",
+      "plen=20             Length of homopolymers to count.\n",
+      "\n",
+      "Entropy/Complexity parameters:\n",
+      "entropy=-1          Set between 0 and 1 to filter reads with entropy below\n",
+      "                    that value.  Higher is more stringent.\n",
+      "entropywindow=50    Calculate entropy using a sliding window of this length.\n",
+      "entropyk=5          Calculate entropy using kmers of this length.\n",
+      "minbasefrequency=0  Discard reads with a minimum base frequency below this.\n",
+      "entropytrim=f       Values:\n",
+      "                       f:  (false) Do not entropy-trim.\n",
+      "                       r:  (right) Trim low entropy on the right end only.\n",
+      "                       l:  (left) Trim low entropy on the left end only.\n",
+      "                       rl: (both) Trim low entropy on both ends.\n",
+      "entropymask=f       Values:\n",
+      "                       f:  (filter) Discard low-entropy sequences.\n",
+      "                       t:  (true) Mask low-entropy parts of sequences with N.\n",
+      "                       lc: Change low-entropy parts of sequences to lowercase.\n",
+      "entropymark=f       Mark each base with its entropy value.  This is on a scale\n",
+      "                    of 0-41 and is reported as quality scores, so the output\n",
+      "                    should be fastq or fasta+qual.\n",
+      "NOTE: If set, entropytrim overrides entropymask.\n",
+      "\n",
+      "Cardinality estimation:\n",
+      "cardinality=f       (loglog) Count unique kmers using the LogLog algorithm.\n",
+      "cardinalityout=f    (loglogout) Count unique kmers in output reads.\n",
+      "loglogk=31          Use this kmer length for counting.\n",
+      "loglogbuckets=2048  Use this many buckets for counting.\n",
+      "khist=<file>        Kmer frequency histogram; plots number of kmers versus\n",
+      "                    kmer depth.  This is approximate.\n",
+      "khistout=<file>     Kmer frequency histogram for output reads.\n",
+      "\n",
+      "Java Parameters:\n",
+      "\n",
+      "-Xmx                This will set Java's memory usage, overriding autodetection.\n",
+      "                    -Xmx20g will \n",
+      "                    specify 20 gigs of RAM, and -Xmx200m will specify 200 megs.  \n",
+      "                    The max is typically 85% of physical memory.\n",
+      "-eoom               This flag will cause the process to exit if an \n",
+      "                    out-of-memory exception occurs.  Requires Java 8u92+.\n",
+      "-da                 Disable assertions.\n",
+      "\n",
+      "Please contact Brian Bushnell at bbushnell@lbl.gov if you encounter any problems.\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%bash\n",
+    "bbduk.sh -h"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As you can see, there are several options and what each of these options does when you select a certain one. In some cases, you can specify only one option but not together with another one."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Run fastqc on quality-trimmed sequences to compare its quality with untrimmed sequences"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now that you have done trimming the raw sequences, you will then check what the quality looks like. Run fastqc again on trimmed sequences by typing `fastqc *.trimmed.fastq.gz` in the folder where the trimmed files are located. You should inspect the quality reports produced by fastqc to make sure it did what you intended it to do.\n",
+    "\n",
+    "You can now use the trimmed fastq files as input to run SPAdes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Running the assembly on your laptop or home computer"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "SPAdes can be run on your home desktop or a laptop computer with a given example dataset provided. It will take a while to complete but it will get done. To run, type the following commands (shown as an example):"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```bash\n",
+    "spades.py \\\n",
+    "    -t 4 \\\n",
+    "    --pe1-1 data/SRR12610971_1.trimmed.fastq.gz \\\n",
+    "    --pe1-2 data/SRR12610971_2.trimmed.fastq.gz \\\n",
+    "    -k 21,33,55,77 \\\n",
+    "    -o spades_assembly\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This example is one of the simplest examples to run a genome assembly using this particular assembler. Again, this tool also has a number of options/parameters that you can specify, depending on the type of data you have, the size of the data, etc. In this example, `-t 4` means I am using 4 cpus to run this tool. If you have more cpu cores on your computer, you can specify a larger number. However, with larger datasets (such as metagenomic data), you will require not only more cpus but also larger amount of memory. For this, you will require the use of a high-performance computaional (HPC) clusters that will have larger memory and cpu cores.\n",
+    "\n",
+    "The `-k 21,33,55,77` means that I am using 4 different k-mers (read the original SPAdes paper) to run this assembly. You can specify more k-mers but this may cause the assembler to run longer and may not necessarily lead to improved assemblies. This is more of an optimization problem. By design, k-mers need to be odd numbers.\n",
+    "\n",
+    "The `-o spades_assembly` parameter tells the program to put output files into a new directory named 'spades_assembly'. To see more options, type:\n",
+    "\n",
+    "`spades.py -h`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This particular data set run on my iMac with 4 cpus took less than 1 hour to complete. Let it run until it finishes. Next task for you would be to check the assembly quality after it is done."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Running the assembly on a cluster at GW"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "While the previous example of SPAdes assembly using *Salmonella entrica* sequences you have downloaded from NCBI can be done on your laptop, larger datasets such as metagenomes you have downloaded during the 2nd week of the class are too big to be assembled on your laptop. They will need to be run on much more powerful computers such as high-performance computational (HPC) clusters we have at GW.\n",
+    "\n",
+    "We will be connceting to a remote HPC cluster known as `cerberus` next week to perform genome or metagenome assemblies of larger datasets. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Checking the quality of assemblies"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Next thing to do after running these assemblies is to assess how well the assembly was and some other basic metrics related to the assembly. Remember, you started with millions of individual DNA fragments which are only a few hundred bases long and the assembler has magically put together these highly complicated puzzle pieces into a more complete picture, i.e., a draft genome assembly. This assembly is not complete by any means. In fact, most microbial genomes sequenced with only Illumina reads will not give you a complete genome after you run an assembly using SPAdes. \n",
+    "\n",
+    "So you are still missing a lot of pieces and thus the assemblies will yield incomplete but partially assembled DNA fragments that are known as \"**contigs**\". They range in size from only a few hundred to hundreds of thousands of bases. You wouldn't normally inspect them by using Word processor to count these bases. There are tools specifically designed for you to inspect these metrics, thankfully. One of these tools is known as \"**Quast**\"\" and it happens to be the tool written by the same authors as SPAdes. You will install Quast using `conda`.\n",
+    "\n",
+    "```bash\n",
+    "conda search quast\n",
+    "conda install quast\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Before running Quast on your assemblies, you need to first inspect what SPAdes produced after the assembly. Let's check it out."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "K21\n",
+      "K33\n",
+      "K55\n",
+      "K77\n",
+      "assembly_graph.fastg\n",
+      "assembly_graph_with_scaffolds.gfa\n",
+      "before_rr.fasta\n",
+      "contigs.fasta\n",
+      "contigs.paths\n",
+      "corrected\n",
+      "dataset.info\n",
+      "input_dataset.yaml\n",
+      "misc\n",
+      "params.txt\n",
+      "scaffolds.fasta\n",
+      "scaffolds.paths\n",
+      "spades.log\n",
+      "tmp\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%bash\n",
+    "cd /Volumes/BackupWork/teaching/BISC4234_6234/spades_assembly\n",
+    "ls"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now, that's a lot of files and folders. Where do you begin? What is the most important thing for you to inspect? The only files you would need after the assembly are `contigs.fasta` and `scaffolds.fasta` files. `contigs.fasta` contains contigs (incomplete DNA fragments of the genome) of *Salmonella enterica* you just assembled. What about `scaffolds.fasta` file? It is basically similar to `contigs.fasta` file but it has scaffolding information. For example, if the SPAdes assembler has determined that two or more contigs should be physically linked due to pairing information from original reads, then it will put them together but with \"N\" characters to indicate that there are missing pieces that should be filled.\n",
+    "\n",
+    "I normally work with contig files instead of scaffold files for a number of reasons. We will get to that when we start working on genome annotation. For now, let's use Quast to inspect the assembly metrics for the contigs. You need to first be in the folder containing the SPAdes assembly. Then type:\n",
+    "\n",
+    "```bash\n",
+    "quast.py contigs.fasta -o quast_contigs\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This will run Quast on the contigs file and it will produce a folder `quast_contigs` which contains the assembly metrics. Now, let's see what Quast found."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., \"# contigs (>= 0 bp)\" and \"Total length (>= 0 bp)\" include all contigs).\n",
+      "\n",
+      "Assembly                    contigs\n",
+      "# contigs (>= 0 bp)         135    \n",
+      "# contigs (>= 1000 bp)      67     \n",
+      "# contigs (>= 5000 bp)      53     \n",
+      "# contigs (>= 10000 bp)     51     \n",
+      "# contigs (>= 25000 bp)     43     \n",
+      "# contigs (>= 50000 bp)     32     \n",
+      "Total length (>= 0 bp)      5097086\n",
+      "Total length (>= 1000 bp)   5075927\n",
+      "Total length (>= 5000 bp)   5039163\n",
+      "Total length (>= 10000 bp)  5024899\n",
+      "Total length (>= 25000 bp)  4900465\n",
+      "Total length (>= 50000 bp)  4481295\n",
+      "# contigs                   77     \n",
+      "Largest contig              282699 \n",
+      "Total length                5082069\n",
+      "GC (%)                      52.08  \n",
+      "N50                         170524 \n",
+      "N75                         94555  \n",
+      "L50                         12     \n",
+      "L75                         24     \n",
+      "# N's per 100 kbp           0.00   \n"
+     ]
+    }
+   ],
+   "source": [
+    "%%bash\n",
+    "cd /Volumes/BackupWork/teaching/BISC4234_6234/spades_assembly\n",
+    "cat quast_contigs/report.txt"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It found 135 contigs in the assembly and the total size of the assembly is about 5 Mbp, which is roughly the genome size of *Salmonella enterica*. The largest contig is more than 280 Kbp long! And G+C% of the geome is about 52%. N50 is another metric that is quite important to assess how well the assembly went. That is the number at which 50% of the assembly size is accounted for by contigs that are longer than 170,524 bases. In this example, 12 contigs can account for 50% of the genome, which is great because fewer contigs mean it's closer to finishing the puzzle to obtain the complete genome. Quast also produces some plots of these metrics in PDF format and an html page containing visualization of the contigs. You can open `icarus.html` file using your web brower to inspect these plots, which are interactive."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Test trimming parameters and run another SPAdes assembly"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A lot of microbial genome assemblies and the qualities are impacted by how well (either aggressively or less aggressively) you trim the original raw sequence reads. Now, go back to the step where you used `bbduk.sh` command to trim these reads. Change one or two parameters to see if you can trim more aggressively (eg: increasing `qtrim` to a higher number, for example) and see if your SPAdes assembly improves or got worse. Make sure to name the assembly differently so that you are not overwriting the previous assembly or the SPAdes assembler won't proceed due to previous assembly folder being present. The parameter you need to change is `-o`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Cluster login info"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For next week, we will be connecting to the HPC cluster known as `cerberus` and I have put some useful information to prepare you for next week's exercises.\n",
+    "\n",
+    "An example command to login to this remote computer is shown below.  \n",
+    "\n",
+    "```bash\n",
+    "ssh jsaw@cerberus.colonialone.gwu.edu\n",
+    "```\n",
+    "\n",
+    "However, before you can connect to this computer, I will need to provide the system administrator with your email information so that he can give you permission to connect to this computer. Therefore, you will need to let me know the email address you are using for your GW user id (the same as the login name used for your email account).\n",
+    "\n",
+    "This remote computer has the following specifications:\n",
+    "\n",
+    "- 28 CPU cores\n",
+    "- 128 GB RAM"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

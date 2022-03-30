@@ -17,6 +17,8 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
 
     
     
@@ -61,6 +63,252 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for cloud theme */
 
 /* nicer titles and more space for info and warning logos */
@@ -85,231 +333,208 @@ div.admonition.inline-title p.admonition-title {
     padding-left: .2em;
 }
 </style>
-<div class="section" id="genome-assembly-using-spades">
-<h1>Genome Assembly using SPAdes<a class="headerlink" href="#genome-assembly-using-spades" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction-to-spades">
-<h2>Introduction to SPAdes<a class="headerlink" href="#introduction-to-spades" title="Permalink to this headline">¶</a></h2>
-<p>SPAdes was originally designed as a tool to assemble single-cell genomic
-sequences that usualy comprise uneven sequence coverage. In order to be
-able to discern such unenven coverages, the authors developed special
-algorithms to detect such coverages and to account for such regions.
-Also, to correct for errors that might be introduced during
-multiple-displacement amplification (MDA), SPAdes incorporates an
-“error-correction” step to improve sequence quality in those regions.</p>
-<p>Since its intial development in 2012, the assembler has evolved to be
-able to handle different types of sequencing technologies and datasets.
-Now, it can handle not only single-cell genomic data but also genomic
-sequences from isolate genomes (cultures), metagenomes. It can also
-handle latest “next-gen sequencing” (NGS) data such as PacBio, Nanopore,
-etc. SPAdes is hosted at this website
-(<a class="reference external" href="https://cab.spbu.ru/software/spades/">https://cab.spbu.ru/software/spades/</a>) but you can also visit their
-github page to see the latest version here
-(<a class="reference external" href="https://github.com/ablab/spades">https://github.com/ablab/spades</a>). The github page contains most updated
-information on how to run SPAdes and what options you can use.</p>
-<p>In today’s computational exercise, you will use SPAdes to assemble a
-microbial genome sequenced with Illumina sequencing technology. In order
-to be able to run SPAdes, you will need to install SPAdes through the
-Miniconda Python package managing system.</p>
+<div class="section" id="Genome-Assembly-using-SPAdes">
+<h1>Genome Assembly using SPAdes<a class="headerlink" href="#Genome-Assembly-using-SPAdes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Introduction-to-SPAdes">
+<h2>Introduction to SPAdes<a class="headerlink" href="#Introduction-to-SPAdes" title="Permalink to this headline">¶</a></h2>
+<p>SPAdes was originally designed as a tool to assemble single-cell genomic sequences that usualy comprise uneven sequence coverage. In order to be able to discern such unenven coverages, the authors developed special algorithms to detect such coverages and to account for such regions. Also, to correct for errors that might be introduced during multiple-displacement amplification (MDA), SPAdes incorporates an “error-correction” step to improve sequence quality in those regions.</p>
+<p>Since its intial development in 2012, the assembler has evolved to be able to handle different types of sequencing technologies and datasets. Now, it can handle not only single-cell genomic data but also genomic sequences from isolate genomes (cultures), metagenomes. It can also handle latest “next-gen sequencing” (NGS) data such as PacBio, Nanopore, etc. SPAdes is hosted at this website (<a class="reference external" href="https://cab.spbu.ru/software/spades/">https://cab.spbu.ru/software/spades/</a>) but you can also visit their github page to see the latest version
+here (<a class="reference external" href="https://github.com/ablab/spades">https://github.com/ablab/spades</a>). The github page contains most updated information on how to run SPAdes and what options you can use.</p>
+<p>In today’s computational exercise, you will use SPAdes to assemble a microbial genome sequenced with Illumina sequencing technology. In order to be able to run SPAdes, you will need to install SPAdes through the Miniconda Python package managing system.</p>
 </div>
-<div class="section" id="installing-spades">
-<h2>Installing SPAdes<a class="headerlink" href="#installing-spades" title="Permalink to this headline">¶</a></h2>
-<p>To install SPAdes on your laptop, you will first type this following
-command:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">search</span> <span class="n">spades</span>
+<div class="section" id="Installing-SPAdes">
+<h2>Installing SPAdes<a class="headerlink" href="#Installing-SPAdes" title="Permalink to this headline">¶</a></h2>
+<p>To install SPAdes on your laptop, you will first type this following command:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="n">done</span>
-<span class="c1"># Name                       Version           Build  Channel</span>
-<span class="n">spades</span>                         <span class="mf">3.6.2</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.7.0</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.8.0</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.8.1</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.9.0</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.9.0</span>          <span class="n">py27_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.9.0</span>          <span class="n">py27_2</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.9.0</span>          <span class="n">py34_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.9.0</span>          <span class="n">py35_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.9.0</span>          <span class="n">py35_2</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                         <span class="mf">3.9.1</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.10.0</span>          <span class="n">py27_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.10.0</span>          <span class="n">py34_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.10.0</span>          <span class="n">py35_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.10.1</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.10.1</span>          <span class="n">py27_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.10.1</span>          <span class="n">py34_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.10.1</span>          <span class="n">py35_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.0</span>          <span class="n">py27_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.0</span>          <span class="n">py27_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.0</span>          <span class="n">py35_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.0</span>          <span class="n">py35_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.0</span>          <span class="n">py36_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.0</span>          <span class="n">py36_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>      <span class="n">h21aa3a5_2</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>      <span class="n">h21aa3a5_3</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>      <span class="n">hb249e0d_4</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>      <span class="n">he4cf2ce_2</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>          <span class="n">py27_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>          <span class="n">py27_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>          <span class="n">py35_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>          <span class="n">py35_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>          <span class="n">py36_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.11.1</span>          <span class="n">py36_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.12.0</span>               <span class="mi">1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.12.0</span>          <span class="n">py27_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.12.0</span>          <span class="n">py35_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.12.0</span>          <span class="n">py36_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.13.0</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.13.1</span>               <span class="mi">0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.13.1</span>      <span class="n">h21ccd2c_2</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.13.1</span>      <span class="n">h8f8a155_1</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.13.2</span>      <span class="n">h21ccd2c_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.14.0</span>      <span class="n">h21ccd2c_0</span>  <span class="n">bioconda</span>
-<span class="n">spades</span>                        <span class="mf">3.14.1</span>      <span class="n">he641558_0</span>  <span class="n">bioconda</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">search</span> <span class="n">spades</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Loading channels: done
+# Name                       Version           Build  Channel
+spades                         3.6.2               0  bioconda
+spades                         3.7.0               0  bioconda
+spades                         3.8.0               0  bioconda
+spades                         3.8.1               0  bioconda
+spades                         3.9.0               0  bioconda
+spades                         3.9.0          py27_1  bioconda
+spades                         3.9.0          py27_2  bioconda
+spades                         3.9.0          py34_1  bioconda
+spades                         3.9.0          py35_1  bioconda
+spades                         3.9.0          py35_2  bioconda
+spades                         3.9.1               0  bioconda
+spades                        3.10.0          py27_0  bioconda
+spades                        3.10.0          py34_0  bioconda
+spades                        3.10.0          py35_0  bioconda
+spades                        3.10.1               1  bioconda
+spades                        3.10.1          py27_0  bioconda
+spades                        3.10.1          py34_0  bioconda
+spades                        3.10.1          py35_0  bioconda
+spades                        3.11.0          py27_0  bioconda
+spades                        3.11.0          py27_1  bioconda
+spades                        3.11.0          py35_0  bioconda
+spades                        3.11.0          py35_1  bioconda
+spades                        3.11.0          py36_0  bioconda
+spades                        3.11.0          py36_1  bioconda
+spades                        3.11.1      h21aa3a5_2  bioconda
+spades                        3.11.1      h21aa3a5_3  bioconda
+spades                        3.11.1      hb249e0d_4  bioconda
+spades                        3.11.1      he4cf2ce_2  bioconda
+spades                        3.11.1          py27_0  bioconda
+spades                        3.11.1          py27_1  bioconda
+spades                        3.11.1          py35_0  bioconda
+spades                        3.11.1          py35_1  bioconda
+spades                        3.11.1          py36_0  bioconda
+spades                        3.11.1          py36_1  bioconda
+spades                        3.12.0               1  bioconda
+spades                        3.12.0          py27_0  bioconda
+spades                        3.12.0          py35_0  bioconda
+spades                        3.12.0          py36_0  bioconda
+spades                        3.13.0               0  bioconda
+spades                        3.13.1               0  bioconda
+spades                        3.13.1      h21ccd2c_2  bioconda
+spades                        3.13.1      h8f8a155_1  bioconda
+spades                        3.13.2      h21ccd2c_0  bioconda
+spades                        3.14.0      h21ccd2c_0  bioconda
+spades                        3.14.1      he641558_0  bioconda
 
-<span class="n">Note</span><span class="p">:</span> <span class="n">you</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">restart</span> <span class="n">the</span> <span class="n">kernel</span> <span class="n">to</span> <span class="n">use</span> <span class="n">updated</span> <span class="n">packages</span><span class="o">.</span>
+Note: you may need to restart the kernel to use updated packages.
+</pre></div></div>
+</div>
+<p>This brings up all the different versions of SPAdes currently on my <code class="docutils literal notranslate"><span class="pre">bioconda</span></code> channel. The latest version tends to be at the bottom of the page. Then to install the latest version, you would just type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">spades</span></code>. On my laptop, I have already installed a version of SPAdes. To check what version I have already install, I can type like this below:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<p>This brings up all the different versions of SPAdes currently on my
-<code class="docutils literal notranslate"><span class="pre">bioconda</span></code> channel. The latest version tends to be at the bottom of
-the page. Then to install the latest version, you would just type
-<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">spades</span></code>. On my laptop, I have already installed a
-version of SPAdes. To check what version I have already install, I can
-type like this below:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">spades</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">spades</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spades</span>                    <span class="mf">3.13.0</span>                        <span class="mi">0</span>    <span class="n">bioconda</span>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+spades                    3.13.0                        0    bioconda
 
-<span class="n">Note</span><span class="p">:</span> <span class="n">you</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">restart</span> <span class="n">the</span> <span class="n">kernel</span> <span class="n">to</span> <span class="n">use</span> <span class="n">updated</span> <span class="n">packages</span><span class="o">.</span>
-</pre></div>
+Note: you may need to restart the kernel to use updated packages.
+</pre></div></div>
 </div>
-<p>So, you can see that I have version 3.13.0 installed. If I want to be
-explicit about the specific version of SPAdes I want to install, I can
-type like this:</p>
+<p>So, you can see that I have version 3.13.0 installed. If I want to be explicit about the specific version of SPAdes I want to install, I can type like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">spades=3.14.0</span></code></p>
-<p>This will install version 3.14.0. If you do not specify a version
-number, then it will install the latest version by default. Once you
-have SPAdes installed, you should be able to type this command
-<code class="docutils literal notranslate"><span class="pre">spades.py</span></code> right away in your terminal.</p>
+<p>This will install version 3.14.0. If you do not specify a version number, then it will install the latest version by default. Once you have SPAdes installed, you should be able to type this command <code class="docutils literal notranslate"><span class="pre">spades.py</span></code> right away in your terminal.</p>
 </div>
-<div class="section" id="running-spades">
-<h2>Running SPAdes<a class="headerlink" href="#running-spades" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<div class="section" id="Running-SPAdes">
+<h2>Running SPAdes<a class="headerlink" href="#Running-SPAdes" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 spades.py
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SPAdes</span> <span class="n">genome</span> <span class="n">assembler</span> <span class="n">v3</span><span class="mf">.13.0</span>
-
-<span class="n">Usage</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jsaw</span><span class="o">/</span><span class="n">miniconda3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">spades</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">-</span><span class="n">o</span> <span class="o">&lt;</span><span class="n">output_dir</span><span class="o">&gt;</span>
-
-<span class="n">Basic</span> <span class="n">options</span><span class="p">:</span>
-<span class="o">-</span><span class="n">o</span>  <span class="o">&lt;</span><span class="n">output_dir</span><span class="o">&gt;</span>    <span class="n">directory</span> <span class="n">to</span> <span class="n">store</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">resulting</span> <span class="n">files</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
-<span class="o">--</span><span class="n">sc</span>                        <span class="n">this</span> <span class="n">flag</span> <span class="ow">is</span> <span class="n">required</span> <span class="k">for</span> <span class="n">MDA</span> <span class="p">(</span><span class="n">single</span><span class="o">-</span><span class="n">cell</span><span class="p">)</span> <span class="n">data</span>
-<span class="o">--</span><span class="n">meta</span>                      <span class="n">this</span> <span class="n">flag</span> <span class="ow">is</span> <span class="n">required</span> <span class="k">for</span> <span class="n">metagenomic</span> <span class="n">sample</span> <span class="n">data</span>
-<span class="o">--</span><span class="n">rna</span>                       <span class="n">this</span> <span class="n">flag</span> <span class="ow">is</span> <span class="n">required</span> <span class="k">for</span> <span class="n">RNA</span><span class="o">-</span><span class="n">Seq</span> <span class="n">data</span>
-<span class="o">--</span><span class="n">plasmid</span>           <span class="n">runs</span> <span class="n">plasmidSPAdes</span> <span class="n">pipeline</span> <span class="k">for</span> <span class="n">plasmid</span> <span class="n">detection</span>
-<span class="o">--</span><span class="n">iontorrent</span>                <span class="n">this</span> <span class="n">flag</span> <span class="ow">is</span> <span class="n">required</span> <span class="k">for</span> <span class="n">IonTorrent</span> <span class="n">data</span>
-<span class="o">--</span><span class="n">test</span>                      <span class="n">runs</span> <span class="n">SPAdes</span> <span class="n">on</span> <span class="n">toy</span> <span class="n">dataset</span>
-<span class="o">-</span><span class="n">h</span><span class="o">/--</span><span class="n">help</span>           <span class="n">prints</span> <span class="n">this</span> <span class="n">usage</span> <span class="n">message</span>
-<span class="o">-</span><span class="n">v</span><span class="o">/--</span><span class="n">version</span>                <span class="n">prints</span> <span class="n">version</span>
-
-<span class="n">Input</span> <span class="n">data</span><span class="p">:</span>
-<span class="o">--</span><span class="mi">12</span>        <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">interlaced</span> <span class="n">forward</span> <span class="ow">and</span> <span class="n">reverse</span> <span class="n">paired</span><span class="o">-</span><span class="n">end</span> <span class="n">reads</span>
-<span class="o">-</span><span class="mi">1</span>  <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">forward</span> <span class="n">paired</span><span class="o">-</span><span class="n">end</span> <span class="n">reads</span>
-<span class="o">-</span><span class="mi">2</span>  <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">reverse</span> <span class="n">paired</span><span class="o">-</span><span class="n">end</span> <span class="n">reads</span>
-<span class="o">-</span><span class="n">s</span>  <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">unpaired</span> <span class="n">reads</span>
-<span class="o">--</span><span class="n">merged</span>    <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">merged</span> <span class="n">forward</span> <span class="ow">and</span> <span class="n">reverse</span> <span class="n">paired</span><span class="o">-</span><span class="n">end</span> <span class="n">reads</span>
-<span class="o">--</span><span class="n">pe</span><span class="o">&lt;</span><span class="c1">#&gt;-12  &lt;filename&gt;      file with interlaced reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)</span>
-<span class="o">--</span><span class="n">pe</span><span class="o">&lt;</span><span class="c1">#&gt;-1   &lt;filename&gt;      file with forward reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)</span>
-<span class="o">--</span><span class="n">pe</span><span class="o">&lt;</span><span class="c1">#&gt;-2   &lt;filename&gt;      file with reverse reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)</span>
-<span class="o">--</span><span class="n">pe</span><span class="o">&lt;</span><span class="c1">#&gt;-s   &lt;filename&gt;      file with unpaired reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)</span>
-<span class="o">--</span><span class="n">pe</span><span class="o">&lt;</span><span class="c1">#&gt;-m   &lt;filename&gt;      file with merged reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)</span>
-<span class="o">--</span><span class="n">pe</span><span class="o">&lt;</span><span class="c1">#&gt;-&lt;or&gt;        orientation of reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9; &lt;or&gt; = fr, rf, ff)</span>
-<span class="o">--</span><span class="n">s</span><span class="o">&lt;</span><span class="c1">#&gt;              &lt;filename&gt;      file with unpaired reads for single reads library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)</span>
-<span class="o">--</span><span class="n">mp</span><span class="o">&lt;</span><span class="c1">#&gt;-12  &lt;filename&gt;      file with interlaced reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">mp</span><span class="o">&lt;</span><span class="c1">#&gt;-1   &lt;filename&gt;      file with forward reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">mp</span><span class="o">&lt;</span><span class="c1">#&gt;-2   &lt;filename&gt;      file with reverse reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">mp</span><span class="o">&lt;</span><span class="c1">#&gt;-s   &lt;filename&gt;      file with unpaired reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">mp</span><span class="o">&lt;</span><span class="c1">#&gt;-&lt;or&gt;        orientation of reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff)</span>
-<span class="o">--</span><span class="n">hqmp</span><span class="o">&lt;</span><span class="c1">#&gt;-12        &lt;filename&gt;      file with interlaced reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">hqmp</span><span class="o">&lt;</span><span class="c1">#&gt;-1 &lt;filename&gt;      file with forward reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">hqmp</span><span class="o">&lt;</span><span class="c1">#&gt;-2 &lt;filename&gt;      file with reverse reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">hqmp</span><span class="o">&lt;</span><span class="c1">#&gt;-s &lt;filename&gt;      file with unpaired reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">hqmp</span><span class="o">&lt;</span><span class="c1">#&gt;-&lt;or&gt;      orientation of reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff)</span>
-<span class="o">--</span><span class="n">nxmate</span><span class="o">&lt;</span><span class="c1">#&gt;-1       &lt;filename&gt;      file with forward reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">nxmate</span><span class="o">&lt;</span><span class="c1">#&gt;-2       &lt;filename&gt;      file with reverse reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)</span>
-<span class="o">--</span><span class="n">sanger</span>    <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">Sanger</span> <span class="n">reads</span>
-<span class="o">--</span><span class="n">pacbio</span>    <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">PacBio</span> <span class="n">reads</span>
-<span class="o">--</span><span class="n">nanopore</span>  <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">Nanopore</span> <span class="n">reads</span>
-<span class="o">--</span><span class="n">tslr</span>      <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">TSLR</span><span class="o">-</span><span class="n">contigs</span>
-<span class="o">--</span><span class="n">trusted</span><span class="o">-</span><span class="n">contigs</span>   <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">trusted</span> <span class="n">contigs</span>
-<span class="o">--</span><span class="n">untrusted</span><span class="o">-</span><span class="n">contigs</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">untrusted</span> <span class="n">contigs</span>
-
-<span class="n">Pipeline</span> <span class="n">options</span><span class="p">:</span>
-<span class="o">--</span><span class="n">only</span><span class="o">-</span><span class="n">error</span><span class="o">-</span><span class="n">correction</span>     <span class="n">runs</span> <span class="n">only</span> <span class="n">read</span> <span class="n">error</span> <span class="n">correction</span> <span class="p">(</span><span class="n">without</span> <span class="n">assembling</span><span class="p">)</span>
-<span class="o">--</span><span class="n">only</span><span class="o">-</span><span class="n">assembler</span>    <span class="n">runs</span> <span class="n">only</span> <span class="n">assembling</span> <span class="p">(</span><span class="n">without</span> <span class="n">read</span> <span class="n">error</span> <span class="n">correction</span><span class="p">)</span>
-<span class="o">--</span><span class="n">careful</span>           <span class="n">tries</span> <span class="n">to</span> <span class="n">reduce</span> <span class="n">number</span> <span class="n">of</span> <span class="n">mismatches</span> <span class="ow">and</span> <span class="n">short</span> <span class="n">indels</span>
-<span class="o">--</span><span class="k">continue</span>          <span class="k">continue</span> <span class="n">run</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">last</span> <span class="n">available</span> <span class="n">check</span><span class="o">-</span><span class="n">point</span>
-<span class="o">--</span><span class="n">restart</span><span class="o">-</span><span class="kn">from</span>      <span class="o">&lt;</span><span class="n">cp</span><span class="o">&gt;</span>    <span class="n">restart</span> <span class="n">run</span> <span class="k">with</span> <span class="n">updated</span> <span class="n">options</span> <span class="ow">and</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">specified</span> <span class="n">check</span><span class="o">-</span><span class="n">point</span> <span class="p">(</span><span class="s1">&#39;ec&#39;</span><span class="p">,</span> <span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;k&lt;int&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;mc&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">)</span>
-<span class="o">--</span><span class="n">disable</span><span class="o">-</span><span class="n">gzip</span><span class="o">-</span><span class="n">output</span>       <span class="n">forces</span> <span class="n">error</span> <span class="n">correction</span> <span class="ow">not</span> <span class="n">to</span> <span class="n">compress</span> <span class="n">the</span> <span class="n">corrected</span> <span class="n">reads</span>
-<span class="o">--</span><span class="n">disable</span><span class="o">-</span><span class="n">rr</span>                <span class="n">disables</span> <span class="n">repeat</span> <span class="n">resolution</span> <span class="n">stage</span> <span class="n">of</span> <span class="n">assembling</span>
-
-<span class="n">Advanced</span> <span class="n">options</span><span class="p">:</span>
-<span class="o">--</span><span class="n">dataset</span>   <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span>      <span class="n">file</span> <span class="k">with</span> <span class="n">dataset</span> <span class="n">description</span> <span class="ow">in</span> <span class="n">YAML</span> <span class="nb">format</span>
-<span class="o">-</span><span class="n">t</span><span class="o">/--</span><span class="n">threads</span>        <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span>           <span class="n">number</span> <span class="n">of</span> <span class="n">threads</span>
-                            <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="mi">16</span><span class="p">]</span>
-<span class="o">-</span><span class="n">m</span><span class="o">/--</span><span class="n">memory</span> <span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span>           <span class="n">RAM</span> <span class="n">limit</span> <span class="k">for</span> <span class="n">SPAdes</span> <span class="ow">in</span> <span class="n">Gb</span> <span class="p">(</span><span class="n">terminates</span> <span class="k">if</span> <span class="n">exceeded</span><span class="p">)</span>
-                            <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="mi">250</span><span class="p">]</span>
-<span class="o">--</span><span class="n">tmp</span><span class="o">-</span><span class="nb">dir</span>   <span class="o">&lt;</span><span class="n">dirname</span><span class="o">&gt;</span>       <span class="n">directory</span> <span class="k">for</span> <span class="n">temporary</span> <span class="n">files</span>
-                            <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">output_dir</span><span class="o">&gt;/</span><span class="n">tmp</span><span class="p">]</span>
-<span class="o">-</span><span class="n">k</span>          <span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span><span class="nb">int</span><span class="p">,</span><span class="o">...&gt;</span>   <span class="n">comma</span><span class="o">-</span><span class="n">separated</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">k</span><span class="o">-</span><span class="n">mer</span> <span class="n">sizes</span> <span class="p">(</span><span class="n">must</span> <span class="n">be</span> <span class="n">odd</span> <span class="ow">and</span>
-                            <span class="n">less</span> <span class="n">than</span> <span class="mi">128</span><span class="p">)</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="s1">&#39;auto&#39;</span><span class="p">]</span>
-<span class="o">--</span><span class="n">cov</span><span class="o">-</span><span class="n">cutoff</span>        <span class="o">&lt;</span><span class="nb">float</span><span class="o">&gt;</span>         <span class="n">coverage</span> <span class="n">cutoff</span> <span class="n">value</span> <span class="p">(</span><span class="n">a</span> <span class="n">positive</span> <span class="nb">float</span> <span class="n">number</span><span class="p">,</span> <span class="ow">or</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="ow">or</span> <span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="s1">&#39;off&#39;</span><span class="p">]</span>
-<span class="o">--</span><span class="n">phred</span><span class="o">-</span><span class="n">offset</span>      <span class="o">&lt;</span><span class="mi">33</span> <span class="ow">or</span> <span class="mi">64</span><span class="o">&gt;</span>      <span class="n">PHRED</span> <span class="n">quality</span> <span class="n">offset</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">reads</span> <span class="p">(</span><span class="mi">33</span> <span class="ow">or</span> <span class="mi">64</span><span class="p">)</span>
-                            <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">auto</span><span class="o">-</span><span class="n">detect</span><span class="p">]</span>
-</pre></div>
 </div>
-<p>I have to type <code class="docutils literal notranslate"><span class="pre">%%bash</span></code> before my command in order to be able to show
-command line outputs in Jupyter Lab environment. When you are typing
-<code class="docutils literal notranslate"><span class="pre">spades.py</span></code> in your own terminal, you do not need to type this
-<code class="docutils literal notranslate"><span class="pre">%%bash</span></code> command. As you can see, you are given a number of options
-that you can specify when running SPAdes. For example, if you are
-running a metagenome assembly using SPAdes, then you would add an
-<code class="docutils literal notranslate"><span class="pre">--meta</span></code> flag to indicate the program that you are running a
-metagenome assembly.</p>
-<p>In today’s exercise, you will run SPAdes to assemble a genome belonging
-to a bacterium (<em>Salmonella enterica</em>) that you have downloaded
-previously from the following website:
-<a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRX9094324">https://www.ncbi.nlm.nih.gov/sra/SRX9094324</a></p>
-<p>You have also done processing of this raw data into a form that is
-suitable to be used as an input for the SPAdes assembler.</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="section" id="checking-sequence-qualities">
-<h2>Checking sequence qualities<a class="headerlink" href="#checking-sequence-qualities" title="Permalink to this headline">¶</a></h2>
-<p>To check sequence qualities of the two <code class="docutils literal notranslate"><span class="pre">fastq</span></code> files you have
-downloaded previously, you will run the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> tool. First, using
-your terminal, nagivate to the folder where you have downloaded these
-sequences. For example, if you downloaded the sequences in
-<code class="docutils literal notranslate"><span class="pre">/home/yourname/data</span></code>, then you would type:</p>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+SPAdes genome assembler v3.13.0
+
+Usage: /Users/jsaw/miniconda3/bin/spades.py [options] -o &lt;output_dir&gt;
+
+Basic options:
+-o      &lt;output_dir&gt;      directory to store all the resulting files (required)
+--sc                    this flag is required for MDA (single-cell) data
+--meta                  this flag is required for metagenomic sample data
+--rna                   this flag is required for RNA-Seq data
+--plasmid               runs plasmidSPAdes pipeline for plasmid detection
+--iontorrent            this flag is required for IonTorrent data
+--test                  runs SPAdes on toy dataset
+-h/--help               prints this usage message
+-v/--version            prints version
+
+Input data:
+--12    &lt;filename&gt;        file with interlaced forward and reverse paired-end reads
+-1      &lt;filename&gt;        file with forward paired-end reads
+-2      &lt;filename&gt;        file with reverse paired-end reads
+-s      &lt;filename&gt;        file with unpaired reads
+--merged        &lt;filename&gt;        file with merged forward and reverse paired-end reads
+--pe&lt;#&gt;-12        &lt;filename&gt;        file with interlaced reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)
+--pe&lt;#&gt;-1 &lt;filename&gt;        file with forward reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)
+--pe&lt;#&gt;-2 &lt;filename&gt;        file with reverse reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)
+--pe&lt;#&gt;-s &lt;filename&gt;        file with unpaired reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)
+--pe&lt;#&gt;-m &lt;filename&gt;        file with merged reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)
+--pe&lt;#&gt;-&lt;or&gt;        orientation of reads for paired-end library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9; &lt;or&gt; = fr, rf, ff)
+--s&lt;#&gt;            &lt;filename&gt;        file with unpaired reads for single reads library number &lt;#&gt; (&lt;#&gt; = 1,2,...,9)
+--mp&lt;#&gt;-12        &lt;filename&gt;        file with interlaced reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--mp&lt;#&gt;-1 &lt;filename&gt;        file with forward reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--mp&lt;#&gt;-2 &lt;filename&gt;        file with reverse reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--mp&lt;#&gt;-s &lt;filename&gt;        file with unpaired reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--mp&lt;#&gt;-&lt;or&gt;        orientation of reads for mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff)
+--hqmp&lt;#&gt;-12      &lt;filename&gt;        file with interlaced reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--hqmp&lt;#&gt;-1       &lt;filename&gt;        file with forward reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--hqmp&lt;#&gt;-2       &lt;filename&gt;        file with reverse reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--hqmp&lt;#&gt;-s       &lt;filename&gt;        file with unpaired reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--hqmp&lt;#&gt;-&lt;or&gt;      orientation of reads for high-quality mate-pair library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9; &lt;or&gt; = fr, rf, ff)
+--nxmate&lt;#&gt;-1     &lt;filename&gt;        file with forward reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--nxmate&lt;#&gt;-2     &lt;filename&gt;        file with reverse reads for Lucigen NxMate library number &lt;#&gt; (&lt;#&gt; = 1,2,..,9)
+--sanger        &lt;filename&gt;        file with Sanger reads
+--pacbio        &lt;filename&gt;        file with PacBio reads
+--nanopore      &lt;filename&gt;        file with Nanopore reads
+--tslr  &lt;filename&gt;        file with TSLR-contigs
+--trusted-contigs       &lt;filename&gt;        file with trusted contigs
+--untrusted-contigs     &lt;filename&gt;        file with untrusted contigs
+
+Pipeline options:
+--only-error-correction runs only read error correction (without assembling)
+--only-assembler        runs only assembling (without read error correction)
+--careful               tries to reduce number of mismatches and short indels
+--continue              continue run from the last available check-point
+--restart-from  &lt;cp&gt;      restart run with updated options and from the specified check-point (&#39;ec&#39;, &#39;as&#39;, &#39;k&lt;int&gt;&#39;, &#39;mc&#39;, &#39;last&#39;)
+--disable-gzip-output   forces error correction not to compress the corrected reads
+--disable-rr            disables repeat resolution stage of assembling
+
+Advanced options:
+--dataset       &lt;filename&gt;        file with dataset description in YAML format
+-t/--threads    &lt;int&gt;             number of threads
+                                [default: 16]
+-m/--memory     &lt;int&gt;             RAM limit for SPAdes in Gb (terminates if exceeded)
+                                [default: 250]
+--tmp-dir       &lt;dirname&gt; directory for temporary files
+                                [default: &lt;output_dir&gt;/tmp]
+-k              &lt;int,int,...&gt;     comma-separated list of k-mer sizes (must be odd and
+                                less than 128) [default: &#39;auto&#39;]
+--cov-cutoff    &lt;float&gt;           coverage cutoff value (a positive float number, or &#39;auto&#39;, or &#39;off&#39;) [default: &#39;off&#39;]
+--phred-offset  &lt;33 or 64&gt;        PHRED quality offset in the input reads (33 or 64)
+                                [default: auto-detect]
+</pre></div></div>
+</div>
+<p>I have to type <code class="docutils literal notranslate"><span class="pre">%%bash</span></code> before my command in order to be able to show command line outputs in Jupyter Lab environment. When you are typing <code class="docutils literal notranslate"><span class="pre">spades.py</span></code> in your own terminal, you do not need to type this <code class="docutils literal notranslate"><span class="pre">%%bash</span></code> command. As you can see, you are given a number of options that you can specify when running SPAdes. For example, if you are running a metagenome assembly using SPAdes, then you would add an <code class="docutils literal notranslate"><span class="pre">--meta</span></code> flag to indicate the program that you are running a metagenome assembly.</p>
+<p>In today’s exercise, you will run SPAdes to assemble a genome belonging to a bacterium (<em>Salmonella enterica</em>) that you have downloaded previously from the following website: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/SRX9094324">https://www.ncbi.nlm.nih.gov/sra/SRX9094324</a></p>
+<p>You have also done processing of this raw data into a form that is suitable to be used as an input for the SPAdes assembler.</p>
+</div>
+<div class="section" id="Checking-sequence-qualities">
+<h2>Checking sequence qualities<a class="headerlink" href="#Checking-sequence-qualities" title="Permalink to this headline">¶</a></h2>
+<p>To check sequence qualities of the two <code class="docutils literal notranslate"><span class="pre">fastq</span></code> files you have downloaded previously, you will run the <code class="docutils literal notranslate"><span class="pre">fastqc</span></code> tool. First, using your terminal, nagivate to the folder where you have downloaded these sequences. For example, if you downloaded the sequences in <code class="docutils literal notranslate"><span class="pre">/home/yourname/data</span></code>, then you would type:</p>
 <p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/home/yourname/data</span></code></p>
 <p>In my case, I have downloaded them into another folder named <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
-<p>To check the quality of the downloaded sequences, you would run the
-FastQC tool, which you have installed previously. To run, navigate into
-the folder containing the data, then type:</p>
+<p>To check the quality of the downloaded sequences, you would run the FastQC tool, which you have installed previously. To run, navigate into the folder containing the data, then type:</p>
 <p><code class="docutils literal notranslate"><span class="pre">fastqc</span> <span class="pre">*.fastq</span></code></p>
-<p>Inspect the quality and statistics reported in this html file to see
-what the report is telling you. Remember, these are paired fastq files
-and this means “SRR12610971_1_fastqc.html” is only one of the pair. You
-will need to inspect the second file “SRR12610971_2_fastqc.html” as
-well.</p>
+<p>Inspect the quality and statistics reported in this html file to see what the report is telling you. Remember, these are paired fastq files and this means “SRR12610971_1_fastqc.html” is only one of the pair. You will need to inspect the second file “SRR12610971_2_fastqc.html” as well.</p>
 </div>
-<div class="section" id="trimming-the-sequences">
-<h2>Trimming the sequences<a class="headerlink" href="#trimming-the-sequences" title="Permalink to this headline">¶</a></h2>
-<p>To trim the possible Illumina adapter sequences and poor quality
-regions, you can use several trimming tools such as Trimmomatic, bbduk,
-or cutadapt. Here, you will use bbduk, which is part of a suite of tools
-that come with bbmap tool. You can run bbduk with the following
-commands:</p>
+<div class="section" id="Trimming-the-sequences">
+<h2>Trimming the sequences<a class="headerlink" href="#Trimming-the-sequences" title="Permalink to this headline">¶</a></h2>
+<p>To trim the possible Illumina adapter sequences and poor quality regions, you can use several trimming tools such as Trimmomatic, bbduk, or cutadapt. Here, you will use bbduk, which is part of a suite of tools that come with bbmap tool. You can run bbduk with the following commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bbduk.sh -Xmx12g <span class="nv">ktrim</span><span class="o">=</span>r ordered <span class="nv">minlen</span><span class="o">=</span><span class="m">50</span> <span class="nv">mink</span><span class="o">=</span><span class="m">11</span> <span class="nv">tbo</span><span class="o">=</span>t <span class="nv">rcomp</span><span class="o">=</span>f <span class="nv">k</span><span class="o">=</span><span class="m">21</span> <span class="nv">ow</span><span class="o">=</span>t <span class="nv">zl</span><span class="o">=</span><span class="m">4</span> <span class="se">\</span>
         <span class="nv">qtrim</span><span class="o">=</span>rl <span class="nv">trimq</span><span class="o">=</span><span class="m">20</span> <span class="se">\</span>
         <span class="nv">in1</span><span class="o">=</span>SRR12610971_1.fastq.gz <span class="se">\</span>
@@ -319,27 +544,30 @@ commands:</p>
         <span class="nv">out2</span><span class="o">=</span>SRR12610971_2.trimmed.fastq.gz
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">-Xmx12g</span></code> parameter I am providing here is to tell <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code>
-that I want to use 12GB of my computer’s memory for this task. This
-parameter may look a bit different from the one shown a few weeks ago.</p>
-<p>It will take a few minutes to complete this task. Note that I am using
-the “\” to enter the command in multiple lines due to the long list of
-parameters I need to specify with this tool. You can actually type the
-whole thing in one line without having to type the “\” but it is more
-difficult to see all the options in one screen. There are several
-parameters that I am entering here to tell the trimming tool what to do
-exactly with the raw sequences. Detailed options/parameters available
-with this tool can be seen when you type this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>The <code class="docutils literal notranslate"><span class="pre">-Xmx12g</span></code> parameter I am providing here is to tell <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> that I want to use 12GB of my computer’s memory for this task. This parameter may look a bit different from the one shown a few weeks ago.</p>
+<p>It will take a few minutes to complete this task. Note that I am using the “\” to enter the command in multiple lines due to the long list of parameters I need to specify with this tool. You can actually type the whole thing in one line without having to type the “\” but it is more difficult to see all the options in one screen. There are several parameters that I am entering here to tell the trimming tool what to do exactly with the raw sequences. Detailed options/parameters available with
+this tool can be seen when you type this:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 bbduk.sh -h
 </pre></div>
 </div>
-<pre class="literal-block">Written by Brian Bushnell
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Written by Brian Bushnell
 Last modified March 24, 2020
 
 Description:  Compares reads to the kmers in a reference dataset, optionally
 allowing an edit distance. Splits the reads into two outputs - those that
-match the reference, and those that don't. Can also trim (remove) the matching
+match the reference, and those that don&#39;t. Can also trim (remove) the matching
 parts of the reads rather than binning the reads.
 Please read bbmap/docs/guides/BBDukGuide.txt for more information.
 
@@ -368,7 +596,7 @@ samref=&lt;file&gt;       Optional reference fasta for processing sam files.
 
 Output parameters:
 out=&lt;file&gt;          (outnonmatch) Write reads here that do not contain
-                    kmers matching the database.  'out=stdout.fq' will pipe
+                    kmers matching the database.  &#39;out=stdout.fq&#39; will pipe
                     to standard out.
 out2=&lt;file&gt;         (outnonmatch2) Use this to write 2nd read of pairs to a
                     different file.
@@ -376,7 +604,7 @@ outm=&lt;file&gt;         (outmatch) Write reads here that fail filters.  In def
                     kfilter mode, this means any read with a matching kmer.
                     In any mode, it also includes reads that fail filters such
                     as minlength, mingc, maxgc, entropy, etc.  In other words,
-                    it includes all reads that do not go to 'out'.
+                    it includes all reads that do not go to &#39;out&#39;.
 outm2=&lt;file&gt;        (outmatch2) Use this to write 2nd read of pairs to a
                     different file.
 outs=&lt;file&gt;         (outsingle) Use this to write singleton reads whose mate
@@ -385,10 +613,10 @@ stats=&lt;file&gt;        Write statistics about which contamininants were detec
 refstats=&lt;file&gt;     Write statistics on a per-reference-file basis.
 rpkm=&lt;file&gt;         Write RPKM for each reference sequence (for RNA-seq).
 dump=&lt;file&gt;         Dump kmer tables to a file, in fasta format.
-duk=&lt;file&gt;          Write statistics in duk's format. <em>DEPRECATED</em>
+duk=&lt;file&gt;          Write statistics in duk&#39;s format. *DEPRECATED*
 nzo=t               Only write statistics about ref sequences with nonzero hits.
 overwrite=t         (ow) Grant permission to overwrite files.
-showspeed=t         (ss) 'f' suppresses display of processing speed.
+showspeed=t         (ss) &#39;f&#39; suppresses display of processing speed.
 ziplevel=2          (zl) Compression level; 1 (min) through 9 (max).
 fastawrap=70        Length of lines in fasta output.
 qout=auto           Output quality offset: 33 (Sanger), 64, or auto.
@@ -415,7 +643,7 @@ phist=&lt;file&gt;        Polymer length histogram.
 gchist=&lt;file&gt;       Read GC content histogram.
 enthist=&lt;file&gt;      Read entropy histogram.
 ihist=&lt;file&gt;        Insert size histogram, for paired reads in mapped sam.
-gcbins=100          Number gchist bins.  Set to 'auto' to use read length.
+gcbins=100          Number gchist bins.  Set to &#39;auto&#39; to use read length.
 maxhistlen=6000     Set an upper bound for histogram lengths; higher uses
                     more memory.  The default is 6000 for some histograms
                     and 80000 for others.
@@ -428,7 +656,7 @@ qahist=&lt;file&gt;       Quality accuracy histogram of error rates versus quali
 indelhist=&lt;file&gt;    Indel length histogram.
 mhist=&lt;file&gt;        Histogram of match, sub, del, and ins rates by position.
 idhist=&lt;file&gt;       Histogram of read count versus percent identity.
-idbins=100          Number idhist bins.  Set to 'auto' to use read length.
+idbins=100          Number idhist bins.  Set to &#39;auto&#39; to use read length.
 varfile=&lt;file&gt;      Ignore substitution errors listed in this file when
                     calculating error rates.  Can be generated with
                     CallVariants.
@@ -460,17 +688,17 @@ hammingdistance2=0  (hdist2) Sets hdist for short kmers, when using mink.
 qhdist2=0           Sets qhdist for short kmers, when using mink.
 editdistance2=0     (edist2) Sets edist for short kmers, when using mink.
 forbidn=f           (fn) Forbids matching of read kmers containing N.
-                    By default, these will match a reference 'A' if
+                    By default, these will match a reference &#39;A&#39; if
                     hdist&gt;0 or edist&gt;0, to increase sensitivity.
-removeifeitherbad=t (rieb) Paired reads get sent to 'outmatch' if either is
+removeifeitherbad=t (rieb) Paired reads get sent to &#39;outmatch&#39; if either is
                     match (or either is trimmed shorter than minlen).
                     Set to false to require both.
 trimfailures=f      Instead of discarding failed reads, trim them to 1bp.
                     This makes the statistics a bit odd.
 findbestmatch=f     (fbm) If multiple matches, associate read with sequence
                     sharing most kmers.  Reduces speed.
-skipr1=f            Don't do kmer-based operations on read 1.
-skipr2=f            Don't do kmer-based operations on read 2.
+skipr1=f            Don&#39;t do kmer-based operations on read 1.
+skipr2=f            Don&#39;t do kmer-based operations on read 2.
 ecco=f              For overlapping paired reads only.  Performs error-
                     correction with BBMerge prior to kmer operations.
 recalibrate=f       (recal) Recalibrate quality scores.  Requires calibration
@@ -497,21 +725,21 @@ rskip=              Set both minrskip and maxrskip to the same value.
 qskip=1             Skip query kmers to increase speed.  1 means use all.
 speed=0             Ignore this fraction of kmer space (0-15 out of 16) in both
                     reads and reference.  Increases speed and reduces memory.
-Note: Do not use more than one of 'speed', 'qskip', and 'rskip'.
+Note: Do not use more than one of &#39;speed&#39;, &#39;qskip&#39;, and &#39;rskip&#39;.
 
 Trimming/Filtering/Masking parameters:
 Note - if ktrim, kmask, and ksplit are unset, the default behavior is kfilter.
 All kmer processing modes are mutually exclusive.
-Reads only get sent to 'outm' purely based on kmer matches in kfilter mode.
+Reads only get sent to &#39;outm&#39; purely based on kmer matches in kfilter mode.
 
 ktrim=f             Trim reads to remove bases matching reference kmers.
                     Values:
-                       f (don't trim),
+                       f (don&#39;t trim),
                        r (trim to the right),
                        l (trim to the left)
 kmask=              Replace bases matching ref kmers with another symbol.
                     Allows any non-whitespace character, and processes short
-                    kmers on both ends if mink is set.  'kmask=lc' will
+                    kmers on both ends if mink is set.  &#39;kmask=lc&#39; will
                     convert masked bases to lowercase.
 maskfullycovered=f  (mfc) Only mask bases that are fully covered by kmers.
 ksplit=f            For single-ended reads only.  Reads will be split into
@@ -577,9 +805,9 @@ tossjunk=f          Discard reads with invalid characters as bases.
 swift=f             Trim Swift sequences: Trailing C/T/N R1, leading G/A/N R2.
 
 Header-parsing parameters - these require Illumina headers:
-chastityfilter=f    (cf) Discard reads with id containing ' 1:Y:' or ' 2:Y:'.
+chastityfilter=f    (cf) Discard reads with id containing &#39; 1:Y:&#39; or &#39; 2:Y:&#39;.
 barcodefilter=f     Remove reads with unexpected barcodes if barcodes is set,
-                    or barcodes containing 'N' otherwise.  A barcode must be
+                    or barcodes containing &#39;N&#39; otherwise.  A barcode must be
                     the last part of the read header.  Values:
                        t:     Remove reads with bad barcodes.
                        f:     Ignore barcodes.
@@ -603,7 +831,7 @@ filterpolyg=0       If greater than 0, remove reads with a poly-G prefix of
 Note: there are also equivalent poly-C flags.
 
 Polymer tracking:
-pratio=base,base    'pratio=G,C' will print the ratio of G to C polymers.
+pratio=base,base    &#39;pratio=G,C&#39; will print the ratio of G to C polymers.
 plen=20             Length of homopolymers to count.
 
 Entropy/Complexity parameters:
@@ -637,7 +865,7 @@ khistout=&lt;file&gt;     Kmer frequency histogram for output reads.
 
 Java Parameters:
 
--Xmx                This will set Java's memory usage, overriding autodetection.
+-Xmx                This will set Java&#39;s memory usage, overriding autodetection.
                     -Xmx20g will
                     specify 20 gigs of RAM, and -Xmx200m will specify 200 megs.
                     The max is typically 85% of physical memory.
@@ -645,25 +873,20 @@ Java Parameters:
                     out-of-memory exception occurs.  Requires Java 8u92+.
 -da                 Disable assertions.
 
-Please contact Brian Bushnell at <a class="reference external" href="mailto:bbushnell&#37;&#52;&#48;lbl&#46;gov">bbushnell<span>&#64;</span>lbl<span>&#46;</span>gov</a> if you encounter any problems.</pre>
-<p>As you can see, there are several options and what each of these options
-does when you select a certain one. In some cases, you can specify only
-one option but not together with another one.</p>
+Please contact Brian Bushnell at bbushnell@lbl.gov if you encounter any problems.
+
+</pre></div></div>
 </div>
-<div class="section" id="run-fastqc-on-quality-trimmed-sequences-to-compare-its-quality-with-untrimmed-sequences">
-<h2>Run fastqc on quality-trimmed sequences to compare its quality with untrimmed sequences<a class="headerlink" href="#run-fastqc-on-quality-trimmed-sequences-to-compare-its-quality-with-untrimmed-sequences" title="Permalink to this headline">¶</a></h2>
-<p>Now that you have done trimming the raw sequences, you will then check
-what the quality looks like. Run fastqc again on trimmed sequences by
-typing <code class="docutils literal notranslate"><span class="pre">fastqc</span> <span class="pre">*.trimmed.fastq.gz</span></code> in the folder where the trimmed
-files are located. You should inspect the quality reports produced by
-fastqc to make sure it did what you intended it to do.</p>
+<p>As you can see, there are several options and what each of these options does when you select a certain one. In some cases, you can specify only one option but not together with another one.</p>
+</div>
+<div class="section" id="Run-fastqc-on-quality-trimmed-sequences-to-compare-its-quality-with-untrimmed-sequences">
+<h2>Run fastqc on quality-trimmed sequences to compare its quality with untrimmed sequences<a class="headerlink" href="#Run-fastqc-on-quality-trimmed-sequences-to-compare-its-quality-with-untrimmed-sequences" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have done trimming the raw sequences, you will then check what the quality looks like. Run fastqc again on trimmed sequences by typing <code class="docutils literal notranslate"><span class="pre">fastqc</span> <span class="pre">*.trimmed.fastq.gz</span></code> in the folder where the trimmed files are located. You should inspect the quality reports produced by fastqc to make sure it did what you intended it to do.</p>
 <p>You can now use the trimmed fastq files as input to run SPAdes.</p>
 </div>
-<div class="section" id="running-the-assembly-on-your-laptop-or-home-computer">
-<h2>Running the assembly on your laptop or home computer<a class="headerlink" href="#running-the-assembly-on-your-laptop-or-home-computer" title="Permalink to this headline">¶</a></h2>
-<p>SPAdes can be run on your home desktop or a laptop computer with a given
-example dataset provided. It will take a while to complete but it will
-get done. To run, type the following commands (shown as an example):</p>
+<div class="section" id="Running-the-assembly-on-your-laptop-or-home-computer">
+<h2>Running the assembly on your laptop or home computer<a class="headerlink" href="#Running-the-assembly-on-your-laptop-or-home-computer" title="Permalink to this headline">¶</a></h2>
+<p>SPAdes can be run on your home desktop or a laptop computer with a given example dataset provided. It will take a while to complete but it will get done. To run, type the following commands (shown as an example):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spades.py <span class="se">\</span>
     -t <span class="m">4</span> <span class="se">\</span>
     --pe1-1 data/SRR12610971_1.trimmed.fastq.gz <span class="se">\</span>
@@ -672,183 +895,128 @@ get done. To run, type the following commands (shown as an example):</p>
     -o spades_assembly
 </pre></div>
 </div>
-<p>This example is one of the simplest examples to run a genome assembly
-using this particular assembler. Again, this tool also has a number of
-options/parameters that you can specify, depending on the type of data
-you have, the size of the data, etc. In this example, <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">4</span></code> means I
-am using 4 cpus to run this tool. If you have more cpu cores on your
-computer, you can specify a larger number. However, with larger datasets
-(such as metagenomic data), you will require not only more cpus but also
-larger amount of memory. For this, you will require the use of a
-high-performance computaional (HPC) clusters that will have larger
-memory and cpu cores.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">-k</span> <span class="pre">21,33,55,77</span></code> means that I am using 4 different k-mers (read
-the original SPAdes paper) to run this assembly. You can specify more
-k-mers but this may cause the assembler to run longer and may not
-necessarily lead to improved assemblies. This is more of an optimization
-problem. By design, k-mers need to be odd numbers.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">spades_assembly</span></code> parameter tells the program to put output
-files into a new directory named ‘spades_assembly’. To see more options,
-type:</p>
+<p>This example is one of the simplest examples to run a genome assembly using this particular assembler. Again, this tool also has a number of options/parameters that you can specify, depending on the type of data you have, the size of the data, etc. In this example, <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">4</span></code> means I am using 4 cpus to run this tool. If you have more cpu cores on your computer, you can specify a larger number. However, with larger datasets (such as metagenomic data), you will require not only more cpus but also
+larger amount of memory. For this, you will require the use of a high-performance computaional (HPC) clusters that will have larger memory and cpu cores.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-k</span> <span class="pre">21,33,55,77</span></code> means that I am using 4 different k-mers (read the original SPAdes paper) to run this assembly. You can specify more k-mers but this may cause the assembler to run longer and may not necessarily lead to improved assemblies. This is more of an optimization problem. By design, k-mers need to be odd numbers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">spades_assembly</span></code> parameter tells the program to put output files into a new directory named ‘spades_assembly’. To see more options, type:</p>
 <p><code class="docutils literal notranslate"><span class="pre">spades.py</span> <span class="pre">-h</span></code></p>
-<p>This particular data set run on my iMac with 4 cpus took less than 1
-hour to complete. Let it run until it finishes. Next task for you would
-be to check the assembly quality after it is done.</p>
+<p>This particular data set run on my iMac with 4 cpus took less than 1 hour to complete. Let it run until it finishes. Next task for you would be to check the assembly quality after it is done.</p>
 </div>
-<div class="section" id="running-the-assembly-on-a-cluster-at-gw">
-<h2>Running the assembly on a cluster at GW<a class="headerlink" href="#running-the-assembly-on-a-cluster-at-gw" title="Permalink to this headline">¶</a></h2>
-<p>While the previous example of SPAdes assembly using <em>Salmonella entrica</em>
-sequences you have downloaded from NCBI can be done on your laptop,
-larger datasets such as metagenomes you have downloaded during the 2nd
-week of the class are too big to be assembled on your laptop. They will
-need to be run on much more powerful computers such as high-performance
-computational (HPC) clusters we have at GW.</p>
-<p>We will be connceting to a remote HPC cluster known as <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> next
-week to perform genome or metagenome assemblies of larger datasets.</p>
+<div class="section" id="Running-the-assembly-on-a-cluster-at-GW">
+<h2>Running the assembly on a cluster at GW<a class="headerlink" href="#Running-the-assembly-on-a-cluster-at-GW" title="Permalink to this headline">¶</a></h2>
+<p>While the previous example of SPAdes assembly using <em>Salmonella entrica</em> sequences you have downloaded from NCBI can be done on your laptop, larger datasets such as metagenomes you have downloaded during the 2nd week of the class are too big to be assembled on your laptop. They will need to be run on much more powerful computers such as high-performance computational (HPC) clusters we have at GW.</p>
+<p>We will be connceting to a remote HPC cluster known as <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> next week to perform genome or metagenome assemblies of larger datasets.</p>
 </div>
-<div class="section" id="checking-the-quality-of-assemblies">
-<h2>Checking the quality of assemblies<a class="headerlink" href="#checking-the-quality-of-assemblies" title="Permalink to this headline">¶</a></h2>
-<p>Next thing to do after running these assemblies is to assess how well
-the assembly was and some other basic metrics related to the assembly.
-Remember, you started with millions of individual DNA fragments which
-are only a few hundred bases long and the assembler has magically put
-together these highly complicated puzzle pieces into a more complete
-picture, i.e., a draft genome assembly. This assembly is not complete by
-any means. In fact, most microbial genomes sequenced with only Illumina
-reads will not give you a complete genome after you run an assembly
-using SPAdes.</p>
-<p>So you are still missing a lot of pieces and thus the assemblies will
-yield incomplete but partially assembled DNA fragments that are known as
-“<strong>contigs</strong>”. They range in size from only a few hundred to hundreds of
-thousands of bases. You wouldn’t normally inspect them by using Word
-processor to count these bases. There are tools specifically designed
-for you to inspect these metrics, thankfully. One of these tools is
-known as “<strong>Quast</strong>”” and it happens to be the tool written by the same
+<div class="section" id="Checking-the-quality-of-assemblies">
+<h2>Checking the quality of assemblies<a class="headerlink" href="#Checking-the-quality-of-assemblies" title="Permalink to this headline">¶</a></h2>
+<p>Next thing to do after running these assemblies is to assess how well the assembly was and some other basic metrics related to the assembly. Remember, you started with millions of individual DNA fragments which are only a few hundred bases long and the assembler has magically put together these highly complicated puzzle pieces into a more complete picture, i.e., a draft genome assembly. This assembly is not complete by any means. In fact, most microbial genomes sequenced with only Illumina reads
+will not give you a complete genome after you run an assembly using SPAdes.</p>
+<p>So you are still missing a lot of pieces and thus the assemblies will yield incomplete but partially assembled DNA fragments that are known as “<strong>contigs</strong>”. They range in size from only a few hundred to hundreds of thousands of bases. You wouldn’t normally inspect them by using Word processor to count these bases. There are tools specifically designed for you to inspect these metrics, thankfully. One of these tools is known as “<strong>Quast</strong>”” and it happens to be the tool written by the same
 authors as SPAdes. You will install Quast using <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda search quast
 conda install quast
 </pre></div>
 </div>
-<p>Before running Quast on your assemblies, you need to first inspect what
-SPAdes produced after the assembly. Let’s check it out.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>Before running Quast on your assemblies, you need to first inspect what SPAdes produced after the assembly. Let’s check it out.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> /Volumes/BackupWork/teaching/BISC4234_6234/spades_assembly
 ls
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">K21</span>
-<span class="n">K33</span>
-<span class="n">K55</span>
-<span class="n">K77</span>
-<span class="n">assembly_graph</span><span class="o">.</span><span class="n">fastg</span>
-<span class="n">assembly_graph_with_scaffolds</span><span class="o">.</span><span class="n">gfa</span>
-<span class="n">before_rr</span><span class="o">.</span><span class="n">fasta</span>
-<span class="n">contigs</span><span class="o">.</span><span class="n">fasta</span>
-<span class="n">contigs</span><span class="o">.</span><span class="n">paths</span>
-<span class="n">corrected</span>
-<span class="n">dataset</span><span class="o">.</span><span class="n">info</span>
-<span class="n">input_dataset</span><span class="o">.</span><span class="n">yaml</span>
-<span class="n">misc</span>
-<span class="n">params</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">scaffolds</span><span class="o">.</span><span class="n">fasta</span>
-<span class="n">scaffolds</span><span class="o">.</span><span class="n">paths</span>
-<span class="n">spades</span><span class="o">.</span><span class="n">log</span>
-<span class="n">tmp</span>
-</pre></div>
 </div>
-<p>Now, that’s a lot of files and folders. Where do you begin? What is the
-most important thing for you to inspect? The only files you would need
-after the assembly are <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> and <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code> files.
-<code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> contains contigs (incomplete DNA fragments of the
-genome) of <em>Salmonella enterica</em> you just assembled. What about
-<code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code> file? It is basically similar to <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code>
-file but it has scaffolding information. For example, if the SPAdes
-assembler has determined that two or more contigs should be physically
-linked due to pairing information from original reads, then it will put
-them together but with “N” characters to indicate that there are missing
-pieces that should be filled.</p>
-<p>I normally work with contig files instead of scaffold files for a number
-of reasons. We will get to that when we start working on genome
-annotation. For now, let’s use Quast to inspect the assembly metrics for
-the contigs. You need to first be in the folder containing the SPAdes
-assembly. Then type:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+K21
+K33
+K55
+K77
+assembly_graph.fastg
+assembly_graph_with_scaffolds.gfa
+before_rr.fasta
+contigs.fasta
+contigs.paths
+corrected
+dataset.info
+input_dataset.yaml
+misc
+params.txt
+scaffolds.fasta
+scaffolds.paths
+spades.log
+tmp
+</pre></div></div>
+</div>
+<p>Now, that’s a lot of files and folders. Where do you begin? What is the most important thing for you to inspect? The only files you would need after the assembly are <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> and <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code> files. <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> contains contigs (incomplete DNA fragments of the genome) of <em>Salmonella enterica</em> you just assembled. What about <code class="docutils literal notranslate"><span class="pre">scaffolds.fasta</span></code> file? It is basically similar to <code class="docutils literal notranslate"><span class="pre">contigs.fasta</span></code> file but it has scaffolding information. For example, if the SPAdes assembler has
+determined that two or more contigs should be physically linked due to pairing information from original reads, then it will put them together but with “N” characters to indicate that there are missing pieces that should be filled.</p>
+<p>I normally work with contig files instead of scaffold files for a number of reasons. We will get to that when we start working on genome annotation. For now, let’s use Quast to inspect the assembly metrics for the contigs. You need to first be in the folder containing the SPAdes assembly. Then type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>quast.py contigs.fasta -o quast_contigs
 </pre></div>
 </div>
-<p>This will run Quast on the contigs file and it will produce a folder
-<code class="docutils literal notranslate"><span class="pre">quast_contigs</span></code> which contains the assembly metrics. Now, let’s see
-what Quast found.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>This will run Quast on the contigs file and it will produce a folder <code class="docutils literal notranslate"><span class="pre">quast_contigs</span></code> which contains the assembly metrics. Now, let’s see what Quast found.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span> /Volumes/BackupWork/teaching/BISC4234_6234/spades_assembly
 cat quast_contigs/report.txt
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">All</span> <span class="n">statistics</span> <span class="n">are</span> <span class="n">based</span> <span class="n">on</span> <span class="n">contigs</span> <span class="n">of</span> <span class="n">size</span> <span class="o">&gt;=</span> <span class="mi">500</span> <span class="n">bp</span><span class="p">,</span> <span class="n">unless</span> <span class="n">otherwise</span> <span class="n">noted</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="s2">&quot;# contigs (&gt;= 0 bp)&quot;</span> <span class="ow">and</span> <span class="s2">&quot;Total length (&gt;= 0 bp)&quot;</span> <span class="n">include</span> <span class="nb">all</span> <span class="n">contigs</span><span class="p">)</span><span class="o">.</span>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+All statistics are based on contigs of size &gt;= 500 bp, unless otherwise noted (e.g., &#34;# contigs (&gt;= 0 bp)&#34; and &#34;Total length (&gt;= 0 bp)&#34; include all contigs).
 
-<span class="n">Assembly</span>                    <span class="n">contigs</span>
-<span class="c1"># contigs (&gt;= 0 bp)         135</span>
-<span class="c1"># contigs (&gt;= 1000 bp)      67</span>
-<span class="c1"># contigs (&gt;= 5000 bp)      53</span>
-<span class="c1"># contigs (&gt;= 10000 bp)     51</span>
-<span class="c1"># contigs (&gt;= 25000 bp)     43</span>
-<span class="c1"># contigs (&gt;= 50000 bp)     32</span>
-<span class="n">Total</span> <span class="n">length</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mi">0</span> <span class="n">bp</span><span class="p">)</span>      <span class="mi">5097086</span>
-<span class="n">Total</span> <span class="n">length</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mi">1000</span> <span class="n">bp</span><span class="p">)</span>   <span class="mi">5075927</span>
-<span class="n">Total</span> <span class="n">length</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mi">5000</span> <span class="n">bp</span><span class="p">)</span>   <span class="mi">5039163</span>
-<span class="n">Total</span> <span class="n">length</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mi">10000</span> <span class="n">bp</span><span class="p">)</span>  <span class="mi">5024899</span>
-<span class="n">Total</span> <span class="n">length</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mi">25000</span> <span class="n">bp</span><span class="p">)</span>  <span class="mi">4900465</span>
-<span class="n">Total</span> <span class="n">length</span> <span class="p">(</span><span class="o">&gt;=</span> <span class="mi">50000</span> <span class="n">bp</span><span class="p">)</span>  <span class="mi">4481295</span>
-<span class="c1"># contigs                   77</span>
-<span class="n">Largest</span> <span class="n">contig</span>              <span class="mi">282699</span>
-<span class="n">Total</span> <span class="n">length</span>                <span class="mi">5082069</span>
-<span class="n">GC</span> <span class="p">(</span><span class="o">%</span><span class="p">)</span>                      <span class="mf">52.08</span>
-<span class="n">N50</span>                         <span class="mi">170524</span>
-<span class="n">N75</span>                         <span class="mi">94555</span>
-<span class="n">L50</span>                         <span class="mi">12</span>
-<span class="n">L75</span>                         <span class="mi">24</span>
-<span class="c1"># N&#39;s per 100 kbp           0.00</span>
-</pre></div>
+Assembly                    contigs
+# contigs (&gt;= 0 bp)         135
+# contigs (&gt;= 1000 bp)      67
+# contigs (&gt;= 5000 bp)      53
+# contigs (&gt;= 10000 bp)     51
+# contigs (&gt;= 25000 bp)     43
+# contigs (&gt;= 50000 bp)     32
+Total length (&gt;= 0 bp)      5097086
+Total length (&gt;= 1000 bp)   5075927
+Total length (&gt;= 5000 bp)   5039163
+Total length (&gt;= 10000 bp)  5024899
+Total length (&gt;= 25000 bp)  4900465
+Total length (&gt;= 50000 bp)  4481295
+# contigs                   77
+Largest contig              282699
+Total length                5082069
+GC (%)                      52.08
+N50                         170524
+N75                         94555
+L50                         12
+L75                         24
+# N&#39;s per 100 kbp           0.00
+</pre></div></div>
 </div>
-<p>It found 135 contigs in the assembly and the total size of the assembly
-is about 5 Mbp, which is roughly the genome size of <em>Salmonella
-enterica</em>. The largest contig is more than 280 Kbp long! And G+C% of the
-geome is about 52%. N50 is another metric that is quite important to
-assess how well the assembly went. That is the number at which 50% of
-the assembly size is accounted for by contigs that are longer than
-170,524 bases. In this example, 12 contigs can account for 50% of the
-genome, which is great because fewer contigs mean it’s closer to
-finishing the puzzle to obtain the complete genome. Quast also produces
-some plots of these metrics in PDF format and an html page containing
-visualization of the contigs. You can open <code class="docutils literal notranslate"><span class="pre">icarus.html</span></code> file using
-your web brower to inspect these plots, which are interactive.</p>
+<p>It found 135 contigs in the assembly and the total size of the assembly is about 5 Mbp, which is roughly the genome size of <em>Salmonella enterica</em>. The largest contig is more than 280 Kbp long! And G+C% of the geome is about 52%. N50 is another metric that is quite important to assess how well the assembly went. That is the number at which 50% of the assembly size is accounted for by contigs that are longer than 170,524 bases. In this example, 12 contigs can account for 50% of the genome, which
+is great because fewer contigs mean it’s closer to finishing the puzzle to obtain the complete genome. Quast also produces some plots of these metrics in PDF format and an html page containing visualization of the contigs. You can open <code class="docutils literal notranslate"><span class="pre">icarus.html</span></code> file using your web brower to inspect these plots, which are interactive.</p>
 </div>
-<div class="section" id="test-trimming-parameters-and-run-another-spades-assembly">
-<h2>Test trimming parameters and run another SPAdes assembly<a class="headerlink" href="#test-trimming-parameters-and-run-another-spades-assembly" title="Permalink to this headline">¶</a></h2>
-<p>A lot of microbial genome assemblies and the qualities are impacted by
-how well (either aggressively or less aggressively) you trim the
-original raw sequence reads. Now, go back to the step where you used
-<code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> command to trim these reads. Change one or two parameters
-to see if you can trim more aggressively (eg: increasing <code class="docutils literal notranslate"><span class="pre">qtrim</span></code> to a
-higher number, for example) and see if your SPAdes assembly improves or
-got worse. Make sure to name the assembly differently so that you are
-not overwriting the previous assembly or the SPAdes assembler won’t
-proceed due to previous assembly folder being present. The parameter you
-need to change is <code class="docutils literal notranslate"><span class="pre">-o</span></code>.</p>
+<div class="section" id="Test-trimming-parameters-and-run-another-SPAdes-assembly">
+<h2>Test trimming parameters and run another SPAdes assembly<a class="headerlink" href="#Test-trimming-parameters-and-run-another-SPAdes-assembly" title="Permalink to this headline">¶</a></h2>
+<p>A lot of microbial genome assemblies and the qualities are impacted by how well (either aggressively or less aggressively) you trim the original raw sequence reads. Now, go back to the step where you used <code class="docutils literal notranslate"><span class="pre">bbduk.sh</span></code> command to trim these reads. Change one or two parameters to see if you can trim more aggressively (eg: increasing <code class="docutils literal notranslate"><span class="pre">qtrim</span></code> to a higher number, for example) and see if your SPAdes assembly improves or got worse. Make sure to name the assembly differently so that you are not
+overwriting the previous assembly or the SPAdes assembler won’t proceed due to previous assembly folder being present. The parameter you need to change is <code class="docutils literal notranslate"><span class="pre">-o</span></code>.</p>
 </div>
-<div class="section" id="cluster-login-info">
-<h2>Cluster login info<a class="headerlink" href="#cluster-login-info" title="Permalink to this headline">¶</a></h2>
-<p>For next week, we will be connecting to the HPC cluster known as
-<code class="docutils literal notranslate"><span class="pre">cerberus</span></code> and I have put some useful information to prepare you for
-next week’s exercises.</p>
+<div class="section" id="Cluster-login-info">
+<h2>Cluster login info<a class="headerlink" href="#Cluster-login-info" title="Permalink to this headline">¶</a></h2>
+<p>For next week, we will be connecting to the HPC cluster known as <code class="docutils literal notranslate"><span class="pre">cerberus</span></code> and I have put some useful information to prepare you for next week’s exercises.</p>
 <p>An example command to login to this remote computer is shown below.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh jsaw@cerberus.colonialone.gwu.edu
 </pre></div>
 </div>
-<p>However, before you can connect to this computer, I will need to provide
-the system administrator with your email information so that he can give
-you permission to connect to this computer. Therefore, you will need to
-let me know the email address you are using for your GW user id (the
-same as the login name used for your email account).</p>
+<p>However, before you can connect to this computer, I will need to provide the system administrator with your email information so that he can give you permission to connect to this computer. Therefore, you will need to let me know the email address you are using for your GW user id (the same as the login name used for your email account).</p>
 <p>This remote computer has the following specifications:</p>
 <ul class="simple">
 <li><p>28 CPU cores</p></li>
@@ -870,17 +1038,17 @@ same as the login name used for your email account).</p>
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Genome Assembly using SPAdes</a><ul>
-<li><a class="reference internal" href="#introduction-to-spades">Introduction to SPAdes</a></li>
-<li><a class="reference internal" href="#installing-spades">Installing SPAdes</a></li>
-<li><a class="reference internal" href="#running-spades">Running SPAdes</a></li>
-<li><a class="reference internal" href="#checking-sequence-qualities">Checking sequence qualities</a></li>
-<li><a class="reference internal" href="#trimming-the-sequences">Trimming the sequences</a></li>
-<li><a class="reference internal" href="#run-fastqc-on-quality-trimmed-sequences-to-compare-its-quality-with-untrimmed-sequences">Run fastqc on quality-trimmed sequences to compare its quality with untrimmed sequences</a></li>
-<li><a class="reference internal" href="#running-the-assembly-on-your-laptop-or-home-computer">Running the assembly on your laptop or home computer</a></li>
-<li><a class="reference internal" href="#running-the-assembly-on-a-cluster-at-gw">Running the assembly on a cluster at GW</a></li>
-<li><a class="reference internal" href="#checking-the-quality-of-assemblies">Checking the quality of assemblies</a></li>
-<li><a class="reference internal" href="#test-trimming-parameters-and-run-another-spades-assembly">Test trimming parameters and run another SPAdes assembly</a></li>
-<li><a class="reference internal" href="#cluster-login-info">Cluster login info</a></li>
+<li><a class="reference internal" href="#Introduction-to-SPAdes">Introduction to SPAdes</a></li>
+<li><a class="reference internal" href="#Installing-SPAdes">Installing SPAdes</a></li>
+<li><a class="reference internal" href="#Running-SPAdes">Running SPAdes</a></li>
+<li><a class="reference internal" href="#Checking-sequence-qualities">Checking sequence qualities</a></li>
+<li><a class="reference internal" href="#Trimming-the-sequences">Trimming the sequences</a></li>
+<li><a class="reference internal" href="#Run-fastqc-on-quality-trimmed-sequences-to-compare-its-quality-with-untrimmed-sequences">Run fastqc on quality-trimmed sequences to compare its quality with untrimmed sequences</a></li>
+<li><a class="reference internal" href="#Running-the-assembly-on-your-laptop-or-home-computer">Running the assembly on your laptop or home computer</a></li>
+<li><a class="reference internal" href="#Running-the-assembly-on-a-cluster-at-GW">Running the assembly on a cluster at GW</a></li>
+<li><a class="reference internal" href="#Checking-the-quality-of-assemblies">Checking the quality of assemblies</a></li>
+<li><a class="reference internal" href="#Test-trimming-parameters-and-run-another-SPAdes-assembly">Test trimming parameters and run another SPAdes assembly</a></li>
+<li><a class="reference internal" href="#Cluster-login-info">Cluster login info</a></li>
 </ul>
 </li>
 </ul>
@@ -889,7 +1057,7 @@ same as the login name used for your email account).</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/GenomeAssemblies.rst.txt"
+      <li><a href="_sources/GenomeAssemblies.ipynb.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>

@@ -1,0 +1,112 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Week 1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Agenda for (01/12/2022)\n",
+    "\n",
+    "  - Introduction to the course\n",
+    "  - Setting up your computing environment\n",
+    "  - Introduction to Unix/Linux commands\n",
+    "  - Install Miniconda\n",
+    "  - Install git \n",
+    "  - Install Jupyter lab\n",
+    "  - Install and test some bioinformatic tools\n",
+    "  - Assignments:\n",
+    "    - Assignment 1\n",
+    "    - Reading assignments"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Introduction to the course"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This week, due to the spike in Omicron variant of the SARS-CoV-2, we will be meeting virtually on WebEx.\n",
+    "\n",
+    "There will be a Powerpoint presentation given over WebEx or Zoom. I will go over the details of how the class will be taught and what platforms we will be using in the Powerpoint presentation but I outline below these for you to remember."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Classroom location"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "When we're not meeting virtually, we will be meeting physically in the basement of Rome Hall. The classroom is located in **Rome B104**."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Where is the virtual classroom?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We will be meeting either on **WebEx** and/or **Zoom** platforms, depending on how well they work. WebEx record time stamps of when a person enters and leaves the room so it helps me to use WebEx for recording attendance. WebEx link for the virtual classroom is given on Blackboard or on Slack #lab channel. Please refer to these platforms for more information."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Besides the virtual classroom, what else will we be using?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Besides using either WebEx or Zoom, we will use **Slack** to communicate, discuss, and disseminate information such as reading materials, videos,code snippets, etc. You will get an invitation to join a Slack group created for this course. While Blackboard works fine, due to the cross-listed nature of the course, it becomes very difficult to organize content across both courses on Blackboard. We will use Blackboard for grading and submission of assignments but for sharing of content, we will use Slack.\n",
+    "\n",
+    "We will also be using **Github** to share certain course content that cannot be easily shared on Blackboard. For example, the computational instructions you are seeing now was shared through a Github repository. Therefore, you will need to create an account on Github website and let me know your account information so that I can add you as a member of the course and you will be able to download course materials.\n",
+    "\n",
+    "Computational instructions will be updated on a weekly basis and will be available on Wednesday at noon. You will need to use `git pull` command to update course repository and will be able to view the updated instructions each week."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

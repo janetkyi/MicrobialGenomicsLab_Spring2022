@@ -17,6 +17,8 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
 
     
     
@@ -35,9 +37,7 @@
     
 
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Unix and commandline environment" href="Unix.html" />
-    <link rel="prev" title="Week 1" href="Week1.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -48,12 +48,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="Unix.html" title="Unix and commandline environment"
-             accesskey="N">next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="Week1.html" title="Week 1"
-             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Setting up your computing environment</a></li> 
@@ -93,105 +87,58 @@ div.admonition.inline-title p.admonition-title {
     padding-left: .2em;
 }
 </style>
-<div class="section" id="setting-up-your-computing-environment">
-<h1>Setting up your computing environment<a class="headerlink" href="#setting-up-your-computing-environment" title="Permalink to this headline">¶</a></h1>
-<p>Computational exercises you will be performing in this course require
-operating systems (OS) with Unix or Linux-like commands. This means you
-needs to set up your environment to make sure those commands are
-avaiable in a commandline environment, for example a terminal window. It
-is <strong>crucial</strong> that you set this up correctly/properly as the course
-heavily relies on tools that need to be run in command line environment.</p>
-<p>The following sets of instructions will help you to set up your
-environment correctly to make sure that these sets of commands are
-available. If you are already using Linux or Unix operating system (OS),
-then you are all set. If not, you will want to follow the instructions
-to configure your environment.</p>
-<div class="section" id="windows-os">
-<h2>Windows OS<a class="headerlink" href="#windows-os" title="Permalink to this headline">¶</a></h2>
-<p>Your Windows OS should already come installed with Windows Powershell
-(if the OS version is fairly recent), which you will need for the
-following instructions.</p>
-<p>You will need to turn on Windows Subsystem for Linux (WSL) feature on in
-order to enable and run Unix/Linux commands natively on Windows
-operating system. You can follow instructions on this page on how to set
-up and configure your Windows OS to enable Unix commands:</p>
+<div class="section" id="Setting-up-your-computing-environment">
+<h1>Setting up your computing environment<a class="headerlink" href="#Setting-up-your-computing-environment" title="Permalink to this headline">¶</a></h1>
+<p>Computational exercises you will be performing in this course require operating systems (OS) with Unix or Linux-like commands. This means you needs to set up your environment to make sure those commands are avaiable in a commandline environment, for example a terminal window. It is <strong>crucial</strong> that you set this up correctly/properly as the course heavily relies on tools that need to be run in command line environment.</p>
+<p>The following sets of instructions will help you to set up your environment correctly to make sure that these sets of commands are available. If you are already using Linux or Unix operating system (OS), then you are all set. If not, you will want to follow the instructions to configure your environment.</p>
+<div class="section" id="Windows-OS">
+<h2>Windows OS<a class="headerlink" href="#Windows-OS" title="Permalink to this headline">¶</a></h2>
+<p>Your Windows OS should already come installed with Windows Powershell (if the OS version is fairly recent), which you will need for the following instructions.</p>
+<p>You will need to turn on Windows Subsystem for Linux (WSL) feature on in order to enable and run Unix/Linux commands natively on Windows operating system. You can follow instructions on this page on how to set up and configure your Windows OS to enable Unix commands:</p>
 <p><a class="reference external" href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/</a></p>
 <p>and here:</p>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
-<p>Please follow the instructions shown in both pages I have referred to
-above. WSL would allow you to use <code class="docutils literal notranslate"><span class="pre">bash</span></code> and Unix commands natively in
-Windows OS. You will also have an opportunity to install a Linux
-distribution as shown in both pages. I would highly recommend that you
-choose Ubuntu as the distribution as it is more widely used and has more
-user support than other distributions.</p>
-<p>Briefly, the steps described in those two websites involve the
-following:</p>
+<p>Please follow the instructions shown in both pages I have referred to above. WSL would allow you to use <code class="docutils literal notranslate"><span class="pre">bash</span></code> and Unix commands natively in Windows OS. You will also have an opportunity to install a Linux distribution as shown in both pages. I would highly recommend that you choose Ubuntu as the distribution as it is more widely used and has more user support than other distributions.</p>
+<p>Briefly, the steps described in those two websites involve the following:</p>
 <ul class="simple">
 <li><p>enabling WSL on Windows Features</p></li>
-<li><p>installing a Linux distribution system (Ubuntu, for example) on
-Windows</p></li>
+<li><p>installing a Linux distribution system (Ubuntu, for example) on Windows</p></li>
 </ul>
-<p>Some instructions require that you run the Windows Powershell in
-administrator mode. To do that, you need to right click on the Windows
-Powershell icon to display other options and select the option that says
-“run as Admin” or something similar.</p>
-<p>Setting up the command line environment for Windows can be a bit
-challenging compared to Mac OS but it is not impossible.</p>
+<p>Some instructions require that you run the Windows Powershell in administrator mode. To do that, you need to right click on the Windows Powershell icon to display other options and select the option that says “run as Admin” or something similar.</p>
+<p>Setting up the command line environment for Windows can be a bit challenging compared to Mac OS but it is not impossible.</p>
 </div>
-<div class="section" id="mac-os">
-<h2>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h2>
-<p>Setting up the command line environment in Mac is a lot easier as Mac OS
-evolved from BSD, which is an offshoot of earlier Unix operating
-systems. Consequently, there are more Unix-like tools already built into
-the operating system. Nevertheless, it is not quite the usual GNU
-Unix/Linux type of commands you might want to use. In order to set up
-the environment correctly, follow the instructions below.</p>
-<p>This website has pretty good instructions (although a bit old) on how to
-set up the command line environement without having to install the whole
-Xcode, which is usually a precursor needed to install command line tools
-and requires a large space.</p>
+<div class="section" id="Mac-OS">
+<h2>Mac OS<a class="headerlink" href="#Mac-OS" title="Permalink to this headline">¶</a></h2>
+<p>Setting up the command line environment in Mac is a lot easier as Mac OS evolved from BSD, which is an offshoot of earlier Unix operating systems. Consequently, there are more Unix-like tools already built into the operating system. Nevertheless, it is not quite the usual GNU Unix/Linux type of commands you might want to use. In order to set up the environment correctly, follow the instructions below.</p>
+<p>This website has pretty good instructions (although a bit old) on how to set up the command line environement without having to install the whole Xcode, which is usually a precursor needed to install command line tools and requires a large space.</p>
 <p><a class="reference external" href="https://mac-how-to.gadgethacks.com/how-to/install-command-line-developer-tools-without-xcode-0168115/">https://mac-how-to.gadgethacks.com/how-to/install-command-line-developer-tools-without-xcode-0168115/</a></p>
 <p>Basically, you would first:</p>
 <ol class="arabic simple">
 <li><p>Open your terminal</p></li>
 <li><p>Then type this: <code class="docutils literal notranslate"><span class="pre">xcode-select</span> <span class="pre">--install</span></code></p></li>
-<li><p>Then follow the instructions from the pop-up windows and it should
-install the necessary tools for the command line environment.</p></li>
+<li><p>Then follow the instructions from the pop-up windows and it should install the necessary tools for the command line environment.</p></li>
 </ol>
-<p>A few additional websites on how to set up the command line environment
-on Mac OS are shown below:</p>
+<p>A few additional websites on how to set up the command line environment on Mac OS are shown below:</p>
 <p><a class="reference external" href="https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/</a></p>
 <p><a class="reference external" href="https://www.maketecheasier.com/install-command-line-tools-without-xcode/">https://www.maketecheasier.com/install-command-line-tools-without-xcode/</a></p>
-<p>Once the steps shown in these pages are followed, your command line
-environment should be ready for this course.</p>
-<div class="section" id="install-homebrew">
-<h3>Install Homebrew<a class="headerlink" href="#install-homebrew" title="Permalink to this headline">¶</a></h3>
-<p>Next, you want to install Homebrew, which allows you to use the <code class="docutils literal notranslate"><span class="pre">brew</span></code>
-command on your Mac OS terminal. It is a package managing system that
-allows you to install basic utilities and even some bioinformatics tools
-on your Mac without needing admin privileges.</p>
+<p>Once the steps shown in these pages are followed, your command line environment should be ready for this course.</p>
+<div class="section" id="Install-Homebrew">
+<h3>Install Homebrew<a class="headerlink" href="#Install-Homebrew" title="Permalink to this headline">¶</a></h3>
+<p>Next, you want to install Homebrew, which allows you to use the <code class="docutils literal notranslate"><span class="pre">brew</span></code> command on your Mac OS terminal. It is a package managing system that allows you to install basic utilities and even some bioinformatics tools on your Mac without needing admin privileges.</p>
 <ul class="simple">
-<li><p>First, go here and follow the instructions:
-(<a class="reference external" href="https://docs.brew.sh/Installation">https://docs.brew.sh/Installation</a>)</p></li>
+<li><p>First, go here and follow the instructions: (<a class="reference external" href="https://docs.brew.sh/Installation">https://docs.brew.sh/Installation</a>)</p></li>
 <li><p>Open your terminal</p></li>
 <li><p>Then type:</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd
 
-<span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span>
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
 
-<span class="n">brew</span> <span class="n">install</span> <span class="n">coreutils</span> <span class="n">findutils</span> <span class="n">gnu</span><span class="o">-</span><span class="n">tar</span> <span class="n">gnu</span><span class="o">-</span><span class="n">sed</span> <span class="n">gawk</span> <span class="n">gnutls</span> <span class="n">gnu</span><span class="o">-</span><span class="n">indent</span> <span class="n">gnu</span><span class="o">-</span><span class="n">getopt</span> <span class="n">grep</span>
+brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
 </pre></div>
 </div>
-<p>The first <code class="docutils literal notranslate"><span class="pre">cd</span></code> commands takes you back to your home directory where
-you want to be installing Homebrew. The rest of the commands shown will
-install GNU Unix commands, which are different from original Unix-like
-commands that come installed with Mac OS.</p>
-<p>Once Homebrew is installed, it will be very easy to install other tools
-such as <code class="docutils literal notranslate"><span class="pre">git</span></code>, which you will need to check out the course Github code
-repository and see the instructions. Remember, <code class="docutils literal notranslate"><span class="pre">brew</span></code> command is your
-best friend on any Mac OS to install and configure tools you would need
-for pretty much anything.</p>
+<p>The first <code class="docutils literal notranslate"><span class="pre">cd</span></code> commands takes you back to your home directory where you want to be installing Homebrew. The rest of the commands shown will install GNU Unix commands, which are different from original Unix-like commands that come installed with Mac OS.</p>
+<p>Once Homebrew is installed, it will be very easy to install other tools such as <code class="docutils literal notranslate"><span class="pre">git</span></code>, which you will need to check out the course Github code repository and see the instructions. Remember, <code class="docutils literal notranslate"><span class="pre">brew</span></code> command is your best friend on any Mac OS to install and configure tools you would need for pretty much anything.</p>
 </div>
 </div>
 </div>
@@ -209,9 +156,9 @@ for pretty much anything.</p>
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Setting up your computing environment</a><ul>
-<li><a class="reference internal" href="#windows-os">Windows OS</a></li>
-<li><a class="reference internal" href="#mac-os">Mac OS</a><ul>
-<li><a class="reference internal" href="#install-homebrew">Install Homebrew</a></li>
+<li><a class="reference internal" href="#Windows-OS">Windows OS</a></li>
+<li><a class="reference internal" href="#Mac-OS">Mac OS</a><ul>
+<li><a class="reference internal" href="#Install-Homebrew">Install Homebrew</a></li>
 </ul>
 </li>
 </ul>
@@ -219,20 +166,10 @@ for pretty much anything.</p>
 </ul>
 
   </div>
-  <div class="sphinxprev">
-    <h4>Previous page</h4>
-    <p class="topless"><a href="Week1.html"
-                          title="Previous page">&larr; Week 1</a></p>
-  </div>
-  <div class="sphinxnext">
-    <h4>Next page</h4>
-    <p class="topless"><a href="Unix.html"
-                          title="Next page">&rarr; Unix and commandline environment</a></p>
-  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/OS_setup.rst.txt"
+      <li><a href="_sources/OS_setup.ipynb.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -275,12 +212,6 @@ for pretty much anything.</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="Unix.html" title="Unix and commandline environment"
-             >next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="Week1.html" title="Week 1"
-             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Setting up your computing environment</a></li> 
