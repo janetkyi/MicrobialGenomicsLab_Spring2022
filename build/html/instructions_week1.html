@@ -8,34 +8,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
 
     
     
      
-        <script src="_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script src="_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script src="_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -44,9 +46,9 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Introduction</a></li> 
       </ul>
@@ -61,6 +63,252 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for cloud theme */
 
 /* nicer titles and more space for info and warning logos */
@@ -85,37 +333,23 @@ div.admonition.inline-title p.admonition-title {
     padding-left: .2em;
 }
 </style>
-<div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to the Microbial Genomics Laboratory course for the Spring 2022
-semester at The George Washington University! This is a computer-based
-lab course which will teach you how to use latest and free computational
-tools to analyze microbial genomes and metagenomes.</p>
+<div class="section" id="Introduction">
+<h1>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the Microbial Genomics Laboratory course for the Spring 2022 semester at The George Washington University! This is a computer-based lab course which will teach you how to use latest and free computational tools to analyze microbial genomes and metagenomes.</p>
 <p>Detailed course syllabus for the course can be found here:</p>
 <p><a class="reference external" href="https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022/blob/main/instructions/pdfs/syllabus.pdf">https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022/blob/main/instructions/pdfs/syllabus.pdf</a></p>
-<div class="section" id="about-this-documentation">
-<h2>About this documentation<a class="headerlink" href="#about-this-documentation" title="Permalink to this headline">¶</a></h2>
-<p>This documentation system includes a collection of instructions on
-computational exercises designed for you throughout the semester. It is
-impossible to properly display the html pages of these instructions on
-Blackboard. In order to display the pages correctly, you will need to
-download the files through our course Github repository, which is
-located here:</p>
+<div class="section" id="About-this-documentation">
+<h2>About this documentation<a class="headerlink" href="#About-this-documentation" title="Permalink to this headline">¶</a></h2>
+<p>This documentation system includes a collection of instructions on computational exercises designed for you throughout the semester. It is impossible to properly display the html pages of these instructions on Blackboard. In order to display the pages correctly, you will need to download the files through our course Github repository, which is located here:</p>
 <p><a class="reference external" href="https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022">https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022</a></p>
-<p>However, in order for you to see this repository, you will need to
-create a Github account and let me know your username and email used to
-create an account there. Only then can I add you into the list of people
-allowed to view the pages and files there.</p>
-<p>You cannot download the contents of this page just simply through this
-web address but they need to be “cloned” to your computer through a
-special command known as <code class="docutils literal notranslate"><span class="pre">git</span></code>. We will be setting up these necessary
-commandline tools during the first week of class.</p>
+<p>However, in order for you to see this repository, you will need to create a Github account and let me know your username and email used to create an account there. Only then can I add you into the list of people allowed to view the pages and files there.</p>
+<p>You cannot download the contents of this page just simply through this web address but they need to be “cloned” to your computer through a special command known as <code class="docutils literal notranslate"><span class="pre">git</span></code>. We will be setting up these necessary commandline tools during the first week of class.</p>
 </div>
 </div>
-<div class="section" id="week-1">
-<h1>Week 1<a class="headerlink" href="#week-1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="agenda-for-01-12-2022">
-<h2>Agenda for (01/12/2022)<a class="headerlink" href="#agenda-for-01-12-2022" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Week-1">
+<h1>Week 1<a class="headerlink" href="#Week-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Agenda-for-(01/12/2022)">
+<h2>Agenda for (01/12/2022)<a class="headerlink" href="#Agenda-for-(01/12/2022)" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Introduction to the course</p></li>
 <li><p>Setting up your computing environment</p></li>
@@ -132,356 +366,232 @@ commandline tools during the first week of class.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="introduction-to-the-course">
-<h2>Introduction to the course<a class="headerlink" href="#introduction-to-the-course" title="Permalink to this headline">¶</a></h2>
-<p>This week, due to the spike in Omicron variant of the SARS-CoV-2, we
-will be meeting virtually on WebEx.</p>
-<p>There will be a Powerpoint presentation given over WebEx or Zoom. I will
-go over the details of how the class will be taught and what platforms
-we will be using in the Powerpoint presentation but I outline below
-these for you to remember.</p>
-<div class="section" id="classroom-location">
-<h3>Classroom location<a class="headerlink" href="#classroom-location" title="Permalink to this headline">¶</a></h3>
-<p>When we’re not meeting virtually, we will be meeting physically in the
-basement of Rome Hall. The classroom is located in <strong>Rome B104</strong>.</p>
+<div class="section" id="Introduction-to-the-course">
+<h2>Introduction to the course<a class="headerlink" href="#Introduction-to-the-course" title="Permalink to this headline">¶</a></h2>
+<p>This week, due to the spike in Omicron variant of the SARS-CoV-2, we will be meeting virtually on WebEx.</p>
+<p>There will be a Powerpoint presentation given over WebEx or Zoom. I will go over the details of how the class will be taught and what platforms we will be using in the Powerpoint presentation but I outline below these for you to remember.</p>
+<div class="section" id="Classroom-location">
+<h3>Classroom location<a class="headerlink" href="#Classroom-location" title="Permalink to this headline">¶</a></h3>
+<p>When we’re not meeting virtually, we will be meeting physically in the basement of Rome Hall. The classroom is located in <strong>Rome B104</strong>.</p>
 </div>
-<div class="section" id="where-is-the-virtual-classroom">
-<h3>Where is the virtual classroom?<a class="headerlink" href="#where-is-the-virtual-classroom" title="Permalink to this headline">¶</a></h3>
-<p>We will be meeting either on <strong>WebEx</strong> and/or <strong>Zoom</strong> platforms,
-depending on how well they work. WebEx record time stamps of when a
-person enters and leaves the room so it helps me to use WebEx for
-recording attendance. Currently, the WebEx link for the class is shown
-below.</p>
+<div class="section" id="Where-is-the-virtual-classroom?">
+<h3>Where is the virtual classroom?<a class="headerlink" href="#Where-is-the-virtual-classroom?" title="Permalink to this headline">¶</a></h3>
+<p>We will be meeting either on <strong>WebEx</strong> and/or <strong>Zoom</strong> platforms, depending on how well they work. WebEx record time stamps of when a person enters and leaves the room so it helps me to use WebEx for recording attendance. Currently, the WebEx link for the class is shown below.</p>
 <p><a class="reference external" href="https://gwu.webex.com/gwu/j.php?MTID=mf096d6b29554d8fdd2b17519e9ea2357">https://gwu.webex.com/gwu/j.php?MTID=mf096d6b29554d8fdd2b17519e9ea2357</a></p>
 <p>Meeting number: 2624 258 8428</p>
 <p>Password: ppFmVRME223</p>
 </div>
-<div class="section" id="besides-the-virtual-classroom-what-else-will-we-be-using">
-<h3>Besides the virtual classroom, what else will we be using?<a class="headerlink" href="#besides-the-virtual-classroom-what-else-will-we-be-using" title="Permalink to this headline">¶</a></h3>
-<p>Besides using either WebEx or Zoom, we will use <strong>Slack</strong> to
-communicate, discuss, and disseminate information such as reading
-materials, videos,code snippets, etc. You will get an invitation to join
-a Slack group created for this course. While Blackboard works fine, due
-to the cross-listed nature of the course, it becomes very difficult to
-organize content across both courses on Blackboard. We will use
-Blackboard for grading and submission of assignments but for sharing of
-content, we will use Slack.</p>
-<p>We will also be using <strong>Github</strong> to share certain course content that
-cannot be easily shared on Blackboard. For example, the computational
-instructions you are seeing now was shared through a Github repository.
-Therefore, you will need to create an account on Github website and let
-me know your account information so that I can add you as a member of
-the course and you will be able to download course materials.</p>
-<p>Computational instructions will be updated on a weekly basis and will be
-available on Wednesday at noon. You will need to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>
-command to update course repository and will be able to view the updated
-instructions each week.</p>
+<div class="section" id="Besides-the-virtual-classroom,-what-else-will-we-be-using?">
+<h3>Besides the virtual classroom, what else will we be using?<a class="headerlink" href="#Besides-the-virtual-classroom,-what-else-will-we-be-using?" title="Permalink to this headline">¶</a></h3>
+<p>Besides using either WebEx or Zoom, we will use <strong>Slack</strong> to communicate, discuss, and disseminate information such as reading materials, videos,code snippets, etc. You will get an invitation to join a Slack group created for this course. While Blackboard works fine, due to the cross-listed nature of the course, it becomes very difficult to organize content across both courses on Blackboard. We will use Blackboard for grading and submission of assignments but for sharing of content, we will use
+Slack.</p>
+<p>We will also be using <strong>Github</strong> to share certain course content that cannot be easily shared on Blackboard. For example, the computational instructions you are seeing now was shared through a Github repository. Therefore, you will need to create an account on Github website and let me know your account information so that I can add you as a member of the course and you will be able to download course materials.</p>
+<p>Computational instructions will be updated on a weekly basis and will be available on Wednesday at noon. You will need to use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> command to update course repository and will be able to view the updated instructions each week.</p>
 </div>
 </div>
 </div>
-<div class="section" id="setting-up-your-computing-environment">
-<h1>Setting up your computing environment<a class="headerlink" href="#setting-up-your-computing-environment" title="Permalink to this headline">¶</a></h1>
-<p>Computational exercises you will be performing in this course require
-operating systems (OS) with Unix or Linux-like commands. This means you
-needs to set up your environment to make sure those commands are
-avaiable in a commandline environment, for example a terminal window. It
-is <strong>crucial</strong> that you set this up correctly/properly as the course
-heavily relies on tools that need to be run in command line environment.</p>
-<p>The following sets of instructions will help you to set up your
-environment correctly to make sure that these sets of commands are
-available. If you are already using Linux or Unix operating system (OS),
-then you are all set. If not, you will want to follow the instructions
-to configure your environment.</p>
-<div class="section" id="windows-os">
-<h2>Windows OS<a class="headerlink" href="#windows-os" title="Permalink to this headline">¶</a></h2>
-<p>Your Windows OS should already come installed with Windows Powershell
-(if the OS version is fairly recent), which you will need for the
-following instructions.</p>
-<p>You will need to turn on Windows Subsystem for Linux (WSL) feature on in
-order to enable and run Unix/Linux commands natively on Windows
-operating system. You can follow instructions on this page on how to set
-up and configure your Windows OS to enable Unix commands:</p>
+<div class="section" id="Setting-up-your-computing-environment">
+<h1>Setting up your computing environment<a class="headerlink" href="#Setting-up-your-computing-environment" title="Permalink to this headline">¶</a></h1>
+<p>Computational exercises you will be performing in this course require operating systems (OS) with Unix or Linux-like commands. This means you needs to set up your environment to make sure those commands are avaiable in a commandline environment, for example a terminal window. It is <strong>crucial</strong> that you set this up correctly/properly as the course heavily relies on tools that need to be run in command line environment.</p>
+<p>The following sets of instructions will help you to set up your environment correctly to make sure that these sets of commands are available. If you are already using Linux or Unix operating system (OS), then you are all set. If not, you will want to follow the instructions to configure your environment.</p>
+<div class="section" id="Windows-OS">
+<h2>Windows OS<a class="headerlink" href="#Windows-OS" title="Permalink to this headline">¶</a></h2>
+<p>Your Windows OS should already come installed with Windows Powershell (if the OS version is fairly recent), which you will need for the following instructions.</p>
+<p>You will need to turn on Windows Subsystem for Linux (WSL) feature on in order to enable and run Unix/Linux commands natively on Windows operating system. You can follow instructions on this page on how to set up and configure your Windows OS to enable Unix commands:</p>
 <p><a class="reference external" href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/</a></p>
 <p>and here:</p>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
-<p>Please follow the instructions shown in both pages I have referred to
-above. WSL would allow you to use <code class="docutils literal notranslate"><span class="pre">bash</span></code> and Unix commands natively in
-Windows OS. You will also have an opportunity to install a Linux
-distribution as shown in both pages. I would highly recommend that you
-choose Ubuntu as the distribution as it is more widely used and has more
-user support than other distributions.</p>
-<p>Briefly, the steps described in those two websites involve the
-following:</p>
+<p>Please follow the instructions shown in both pages I have referred to above. WSL would allow you to use <code class="docutils literal notranslate"><span class="pre">bash</span></code> and Unix commands natively in Windows OS. You will also have an opportunity to install a Linux distribution as shown in both pages. I would highly recommend that you choose Ubuntu as the distribution as it is more widely used and has more user support than other distributions.</p>
+<p>Briefly, the steps described in those two websites involve the following:</p>
 <ul class="simple">
 <li><p>enabling WSL on Windows Features</p></li>
-<li><p>installing a Linux distribution system (Ubuntu, for example) on
-Windows</p></li>
+<li><p>installing a Linux distribution system (Ubuntu, for example) on Windows</p></li>
 </ul>
-<p>Some instructions require that you run the Windows Powershell in
-administrator mode. To do that, you need to right click on the Windows
-Powershell icon to display other options and select the option that says
-“run as Admin” or something similar.</p>
-<p>Setting up the command line environment for Windows can be a bit
-challenging compared to Mac OS but it is not impossible.</p>
+<p>Some instructions require that you run the Windows Powershell in administrator mode. To do that, you need to right click on the Windows Powershell icon to display other options and select the option that says “run as Admin” or something similar.</p>
+<p>Setting up the command line environment for Windows can be a bit challenging compared to Mac OS but it is not impossible.</p>
 </div>
-<div class="section" id="mac-os">
-<h2>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h2>
-<p>Setting up the command line environment in Mac is a lot easier as Mac OS
-evolved from BSD, which is an offshoot of earlier Unix operating
-systems. Consequently, there are more Unix-like tools already built into
-the operating system. Nevertheless, it is not quite the usual GNU
-Unix/Linux type of commands you might want to use. In order to set up
-the environment correctly, follow the instructions below.</p>
-<p>This website has pretty good instructions (although a bit old) on how to
-set up the command line environement without having to install the whole
-Xcode, which is usually a precursor needed to install command line tools
-and requires a large space.</p>
+<div class="section" id="Mac-OS">
+<h2>Mac OS<a class="headerlink" href="#Mac-OS" title="Permalink to this headline">¶</a></h2>
+<p>Setting up the command line environment in Mac is a lot easier as Mac OS evolved from BSD, which is an offshoot of earlier Unix operating systems. Consequently, there are more Unix-like tools already built into the operating system. Nevertheless, it is not quite the usual GNU Unix/Linux type of commands you might want to use. In order to set up the environment correctly, follow the instructions below.</p>
+<p>This website has pretty good instructions (although a bit old) on how to set up the command line environement without having to install the whole Xcode, which is usually a precursor needed to install command line tools and requires a large space.</p>
 <p><a class="reference external" href="https://mac-how-to.gadgethacks.com/how-to/install-command-line-developer-tools-without-xcode-0168115/">https://mac-how-to.gadgethacks.com/how-to/install-command-line-developer-tools-without-xcode-0168115/</a></p>
 <p>Basically, you would first:</p>
 <ol class="arabic simple">
 <li><p>Open your terminal</p></li>
 <li><p>Then type this: <code class="docutils literal notranslate"><span class="pre">xcode-select</span> <span class="pre">--install</span></code></p></li>
-<li><p>Then follow the instructions from the pop-up windows and it should
-install the necessary tools for the command line environment.</p></li>
+<li><p>Then follow the instructions from the pop-up windows and it should install the necessary tools for the command line environment.</p></li>
 </ol>
-<p>A few additional websites on how to set up the command line environment
-on Mac OS are shown below:</p>
+<p>A few additional websites on how to set up the command line environment on Mac OS are shown below:</p>
 <p><a class="reference external" href="https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/">https://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/</a></p>
 <p><a class="reference external" href="https://www.maketecheasier.com/install-command-line-tools-without-xcode/">https://www.maketecheasier.com/install-command-line-tools-without-xcode/</a></p>
-<p>Once the steps shown in these pages are followed, your command line
-environment should be ready for this course.</p>
-<div class="section" id="install-homebrew">
-<h3>Install Homebrew<a class="headerlink" href="#install-homebrew" title="Permalink to this headline">¶</a></h3>
-<p>Next, you want to install Homebrew, which allows you to use the <code class="docutils literal notranslate"><span class="pre">brew</span></code>
-command on your Mac OS terminal. It is a package managing system that
-allows you to install basic utilities and even some bioinformatics tools
-on your Mac without needing admin privileges.</p>
+<p>Once the steps shown in these pages are followed, your command line environment should be ready for this course.</p>
+<div class="section" id="Install-Homebrew">
+<h3>Install Homebrew<a class="headerlink" href="#Install-Homebrew" title="Permalink to this headline">¶</a></h3>
+<p>Next, you want to install Homebrew, which allows you to use the <code class="docutils literal notranslate"><span class="pre">brew</span></code> command on your Mac OS terminal. It is a package managing system that allows you to install basic utilities and even some bioinformatics tools on your Mac without needing admin privileges.</p>
 <ul class="simple">
-<li><p>First, go here and follow the instructions:
-(<a class="reference external" href="https://docs.brew.sh/Installation">https://docs.brew.sh/Installation</a>)</p></li>
+<li><p>First, go here and follow the instructions: (<a class="reference external" href="https://docs.brew.sh/Installation">https://docs.brew.sh/Installation</a>)</p></li>
 <li><p>Open your terminal</p></li>
 <li><p>Then type:</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd
 
-<span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span>
+/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
 
-<span class="n">brew</span> <span class="n">install</span> <span class="n">coreutils</span> <span class="n">findutils</span> <span class="n">gnu</span><span class="o">-</span><span class="n">tar</span> <span class="n">gnu</span><span class="o">-</span><span class="n">sed</span> <span class="n">gawk</span> <span class="n">gnutls</span> <span class="n">gnu</span><span class="o">-</span><span class="n">indent</span> <span class="n">gnu</span><span class="o">-</span><span class="n">getopt</span> <span class="n">grep</span>
+brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
 </pre></div>
 </div>
-<p>The first <code class="docutils literal notranslate"><span class="pre">cd</span></code> commands takes you back to your home directory where
-you want to be installing Homebrew. The rest of the commands shown will
-install GNU Unix commands, which are different from original Unix-like
-commands that come installed with Mac OS.</p>
-<p>Once Homebrew is installed, it will be very easy to install other tools
-such as <code class="docutils literal notranslate"><span class="pre">git</span></code>, which you will need to check out the course Github code
-repository and see the instructions. Remember, <code class="docutils literal notranslate"><span class="pre">brew</span></code> command is your
-best friend on any Mac OS to install and configure tools you would need
-for pretty much anything.</p>
+<p>The first <code class="docutils literal notranslate"><span class="pre">cd</span></code> commands takes you back to your home directory where you want to be installing Homebrew. The rest of the commands shown will install GNU Unix commands, which are different from original Unix-like commands that come installed with Mac OS.</p>
+<p>Once Homebrew is installed, it will be very easy to install other tools such as <code class="docutils literal notranslate"><span class="pre">git</span></code>, which you will need to check out the course Github code repository and see the instructions. Remember, <code class="docutils literal notranslate"><span class="pre">brew</span></code> command is your best friend on any Mac OS to install and configure tools you would need for pretty much anything.</p>
 </div>
 </div>
 </div>
-<div class="section" id="unix-and-commandline-environment">
-<h1>Unix and commandline environment<a class="headerlink" href="#unix-and-commandline-environment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Unix-and-commandline-environment">
+<h1>Unix and commandline environment<a class="headerlink" href="#Unix-and-commandline-environment" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
 <h2>Introduction<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>You will be learning how to use bioinformatic tools that run in command
-line environment. Part of being able to run these tools require at least
-some basic knowledge of Unix (or Linux) commands. In this Wiki page, I
-will explain how to use some of these commands but not all of it.</p>
+<p>You will be learning how to use bioinformatic tools that run in command line environment. Part of being able to run these tools require at least some basic knowledge of Unix (or Linux) commands. In this Wiki page, I will explain how to use some of these commands but not all of it.</p>
 </div>
-<div class="section" id="useful-list-of-commands">
-<h2>Useful list of commands<a class="headerlink" href="#useful-list-of-commands" title="Permalink to this headline">¶</a></h2>
-<p>This website has a handy list of Unix/Linux commands you will be using
-mostly.</p>
+<div class="section" id="Useful-list-of-commands">
+<h2>Useful list of commands<a class="headerlink" href="#Useful-list-of-commands" title="Permalink to this headline">¶</a></h2>
+<p>This website has a handy list of Unix/Linux commands you will be using mostly.</p>
 <p><a class="reference external" href="https://files.fosswire.com/2007/08/fwunixref.pdf">https://files.fosswire.com/2007/08/fwunixref.pdf</a></p>
-<p>I will display it below for a quick preview but you should download it
-from the url listed above for your reference.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<p>I will display it below for a quick preview but you should download it from the url listed above for your reference.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 
 <span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;https://files.fosswire.com/2007/08/fwunixref.pdf&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
 <iframe
     width="800"
     height="800"
     src="https://files.fosswire.com/2007/08/fwunixref.pdf"
     frameborder="0"
     allowfullscreen
-></iframe><p>As you can see, it categorized commands by the type of activity such as
-working with files or checking processes. Please learn these commands as
-they are some of the most basic commands any bioinformaticians can use.</p>
+></iframe></div>
 </div>
-<div class="section" id="basic-unix-commands">
-<h2>Basic Unix commands<a class="headerlink" href="#basic-unix-commands" title="Permalink to this headline">¶</a></h2>
-<p>First, before you can start using these sets of commands, you must have
-set up your computing environment to install basic utilities that allow
-you to use these commands. Make sure you refer to the section on
-“Setting up your computing environment” to make sure you have correctly
-set up the environment. You will need to use a terminal or Jupyter-lab
-to be able to use Unix commands.</p>
-<p>Mac OS typically comes with a terminal application installed and you
-will need to look through your list of applications. On Windows, you
-will need to use the Linux Subsystem with an Ubuntu (or a different
-Linux) distribution installed in order for you to use a terminal.
-Terminal on Mac OS looks something like this:</p>
-<div class="figure align-default" id="id2">
-<img alt="Terminal" src="_images/term.png" />
-<p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p>As you can see, it categorized commands by the type of activity such as working with files or checking processes. Please learn these commands as they are some of the most basic commands any bioinformaticians can use.</p>
 </div>
-<div class="section" id="navigating-between-directories">
-<h3>Navigating between directories<a class="headerlink" href="#navigating-between-directories" title="Permalink to this headline">¶</a></h3>
-<p>To navigate between folders, the most basic command you can use is
-<code class="docutils literal notranslate"><span class="pre">cd</span></code>, which means to change directory to something. First, before you
-do anything, to see where you are located, type <code class="docutils literal notranslate"><span class="pre">pwd</span></code>. <code class="docutils literal notranslate"><span class="pre">pwd</span></code> stands
-for print working directory. For example, if I were to type this in my
-terminal (using Jupyter-lab as an interface), you would see something
-like this (ignore the first line that says <code class="docutils literal notranslate"><span class="pre">%%bash</span></code>. It is for
-Jupyter-lab environment, which I will talk about a little later):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<div class="section" id="Basic-Unix-commands">
+<h2>Basic Unix commands<a class="headerlink" href="#Basic-Unix-commands" title="Permalink to this headline">¶</a></h2>
+<p>First, before you can start using these sets of commands, you must have set up your computing environment to install basic utilities that allow you to use these commands. Make sure you refer to the section on “Setting up your computing environment” to make sure you have correctly set up the environment. You will need to use a terminal or Jupyter-lab to be able to use Unix commands.</p>
+<p>Mac OS typically comes with a terminal application installed and you will need to look through your list of applications. On Windows, you will need to use the Linux Subsystem with an Ubuntu (or a different Linux) distribution installed in order for you to use a terminal. Terminal on Mac OS looks something like this:</p>
+<img alt="Terminal" src="../_images/term.png" />
+<div class="section" id="Navigating-between-directories">
+<h3>Navigating between directories<a class="headerlink" href="#Navigating-between-directories" title="Permalink to this headline">¶</a></h3>
+<p>To navigate between folders, the most basic command you can use is <code class="docutils literal notranslate"><span class="pre">cd</span></code>, which means to change directory to something. First, before you do anything, to see where you are located, type <code class="docutils literal notranslate"><span class="pre">pwd</span></code>. <code class="docutils literal notranslate"><span class="pre">pwd</span></code> stands for print working directory. For example, if I were to type this in my terminal (using Jupyter-lab as an interface), you would see something like this (ignore the first line that says <code class="docutils literal notranslate"><span class="pre">%%bash</span></code>. It is for Jupyter-lab environment, which I will talk about a little later):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span>
 <span class="nb">pwd</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jsaw</span>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/Users/jsaw
+</pre></div></div>
+</div>
+<p>First, typing the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command without any parameters brings you to your “Home” directory in any Unix-like environment. Here, my home directory is “jsaw” under “Users”. If I want to navigate into a folder under “jsaw” named “tools”, then I would type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">tools</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<p>First, typing the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command without any parameters brings you to
-your “Home” directory in any Unix-like environment. Here, my home
-directory is “jsaw” under “Users”. If I want to navigate into a folder
-under “jsaw” named “tools”, then I would type:</p>
-<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">tools</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 <span class="nb">cd</span>
 <span class="nb">cd</span> tools
 <span class="nb">pwd</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jsaw</span><span class="o">/</span><span class="n">tools</span>
-</pre></div>
 </div>
-<p>Now, I’m in a folder named “tools”. If I want to go back up one folder
-into “jsaw”, then I would type:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/Users/jsaw/tools
+</pre></div></div>
+</div>
+<p>Now, I’m in a folder named “tools”. If I want to go back up one folder into “jsaw”, then I would type:</p>
 <p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p>
-<p>The two dots mean I want to go back up to a higher ranking folder than
-current one.</p>
+<p>The two dots mean I want to go back up to a higher ranking folder than current one.</p>
 </div>
-<div class="section" id="creating-and-removing-directories">
-<h3>Creating and removing directories<a class="headerlink" href="#creating-and-removing-directories" title="Permalink to this headline">¶</a></h3>
-<p>So, first thing for you to do is to navigate to your home directory and
-create 4 folders named as <code class="docutils literal notranslate"><span class="pre">tools</span></code>, <code class="docutils literal notranslate"><span class="pre">repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">exercises</span></code>.</p>
+<div class="section" id="Creating-and-removing-directories">
+<h3>Creating and removing directories<a class="headerlink" href="#Creating-and-removing-directories" title="Permalink to this headline">¶</a></h3>
+<p>So, first thing for you to do is to navigate to your home directory and create 4 folders named as <code class="docutils literal notranslate"><span class="pre">tools</span></code>, <code class="docutils literal notranslate"><span class="pre">repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>, and <code class="docutils literal notranslate"><span class="pre">exercises</span></code>.</p>
 <p>Type in your terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span>
 mkdir tools repositories data exercises
 ls
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command means “make directory” and it will create a
-directory after the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> command means list the contents of a directory. When you type
-this command in your home folder, you will see a bunch of folders such
-as “Documents”, “Downloads”, etc, in addition to the 4 folders you have
-just created. You will be using these folders for the following
-purposes:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command means “make directory” and it will create a directory after the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> command means list the contents of a directory. When you type this command in your home folder, you will see a bunch of folders such as “Documents”, “Downloads”, etc, in addition to the 4 folders you have just created. You will be using these folders for the following purposes:</p>
 <ul class="simple">
-<li><p>tools (any software tools that I might make you download and install
-prior to exercises)</p></li>
-<li><p>repositories (this is where you will “clone” the course repository
-into, or any other public repositories of interest)</p></li>
-<li><p>data (this is where you will store data that we will be using in the
-class)</p></li>
-<li><p>exercises (this is a folder for you to do your course exercies and
-assignments)</p></li>
+<li><p>tools (any software tools that I might make you download and install prior to exercises)</p></li>
+<li><p>repositories (this is where you will “clone” the course repository into, or any other public repositories of interest)</p></li>
+<li><p>data (this is where you will store data that we will be using in the class)</p></li>
+<li><p>exercises (this is a folder for you to do your course exercies and assignments)</p></li>
 </ul>
-<p><strong>Warning:</strong> Unix/Linux commands are case-sensitive, which means you
-need to type exactly as shown. If you type <code class="docutils literal notranslate"><span class="pre">Ls</span> <span class="pre">instead</span> <span class="pre">of</span> <span class="pre">ls</span></code>, the
-command is not going to work. Next, you also want to make sure that
-files and folder names do not have <em>any</em> spaces between them. This will
-avoid a lot of headaches down the line. For example, if you were to
-create a folder name “My Folder” by typing <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">My</span> <span class="pre">Folder</span></code>, it will
-create two separate folders named “My” and “Folder” instead of what you
-have intended.</p>
+<p><strong>Warning:</strong> Unix/Linux commands are case-sensitive, which means you need to type exactly as shown. If you type <code class="docutils literal notranslate"><span class="pre">Ls</span> <span class="pre">instead</span> <span class="pre">of</span> <span class="pre">ls</span></code>, the command is not going to work. Next, you also want to make sure that files and folder names do not have <em>any</em> spaces between them. This will avoid a lot of headaches down the line. For example, if you were to create a folder name “My Folder” by typing <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">My</span> <span class="pre">Folder</span></code>, it will create two separate folders named “My” and “Folder” instead of what you have
+intended.</p>
 </div>
-<div class="section" id="copying-renaming-and-moving-files-folders">
-<h3>Copying, renaming, and moving files/folders<a class="headerlink" href="#copying-renaming-and-moving-files-folders" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Copying,-renaming,-and-moving-files/folders">
+<h3>Copying, renaming, and moving files/folders<a class="headerlink" href="#Copying,-renaming,-and-moving-files/folders" title="Permalink to this headline">¶</a></h3>
 <p>To copy one file to another location, you can type something like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file.txt</span> <span class="pre">some_folder/</span></code></p>
-<p>And this command will copy the <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> file into the
-<code class="docutils literal notranslate"><span class="pre">some_folder</span></code> folder. If you want to rename the <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> into
-<code class="docutils literal notranslate"><span class="pre">file2.txt</span></code>, then type:</p>
+<p>And this command will copy the <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> file into the <code class="docutils literal notranslate"><span class="pre">some_folder</span></code> folder. If you want to rename the <code class="docutils literal notranslate"><span class="pre">file.txt</span></code> into <code class="docutils literal notranslate"><span class="pre">file2.txt</span></code>, then type:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">file.txt</span> <span class="pre">file2.txt</span></code></p>
-<p>You can use the same syntax to rename folders. For example if you want
-to rename the <code class="docutils literal notranslate"><span class="pre">some_folder</span></code> into <code class="docutils literal notranslate"><span class="pre">my_folder</span></code>, then type:</p>
+<p>You can use the same syntax to rename folders. For example if you want to rename the <code class="docutils literal notranslate"><span class="pre">some_folder</span></code> into <code class="docutils literal notranslate"><span class="pre">my_folder</span></code>, then type:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">some_folder</span> <span class="pre">my_folder</span></code></p>
 </div>
-<div class="section" id="removing-deleting-files-folders">
-<h3>Removing/deleting files/folders<a class="headerlink" href="#removing-deleting-files-folders" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Removing/deleting-files/folders">
+<h3>Removing/deleting files/folders<a class="headerlink" href="#Removing/deleting-files/folders" title="Permalink to this headline">¶</a></h3>
 <p>If you want to delete a file or folder, you type something like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">file.txt</span></code></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command will remove the file. To remove a directory, you can
-either type <code class="docutils literal notranslate"><span class="pre">rmdir</span> <span class="pre">or</span> <span class="pre">rm</span></code> commands depending on whether the folder is
-empty or not. If the folder is not empty (has some files in it), you
-will need to type something like this:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rm</span></code> command will remove the file. To remove a directory, you can either type <code class="docutils literal notranslate"><span class="pre">rmdir</span> <span class="pre">or</span> <span class="pre">rm</span></code> commands depending on whether the folder is empty or not. If the folder is not empty (has some files in it), you will need to type something like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">non_empty_directory</span></code></p>
-<p><strong>Warning:</strong> Be very careful with the <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code> command. It will not
-ask you for confirmation on whether you <em>really</em> want to remove
-something. It will just silently carry out the task. You do not want to
-accidentally remove anything important using this command. A lot of
-people have learned this the hard way and they may shout and scream and
-pull their hair out after realizing what they have done.</p>
+<p><strong>Warning:</strong> Be very careful with the <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code> command. It will not ask you for confirmation on whether you <em>really</em> want to remove something. It will just silently carry out the task. You do not want to accidentally remove anything important using this command. A lot of people have learned this the hard way and they may shout and scream and pull their hair out after realizing what they have done.</p>
 </div>
-<div class="section" id="file-permissions">
-<h3>File permissions<a class="headerlink" href="#file-permissions" title="Permalink to this headline">¶</a></h3>
-<p>On a related note, you want to learn how to set permissions to files and
-folders so that other people can (or cannot) read/write/excute/delete or
-mess them up in anyway. For now, you are working on your own so this is
-not an issue, but on servers where you work with multiple people and
-groups, this is very important. If you type <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> in your terminal,
-you will see something like this:</p>
-<div class="figure align-default" id="id3">
-<img alt="Terminal" src="_images/term.png" />
-<p class="caption"><span class="caption-text">Terminal</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<p>Here, you will notice that files (such as “README.md”) has some funny
-notations at the very beginning. These are file permissions. I have
-shown below what these mean.</p>
-<div class="figure align-default" id="id4">
-<img alt="Permissions" src="_images/permissions.jpg" />
-<p class="caption"><span class="caption-text">Permissions</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<p>For example, the first character shows the type of file. If it is a
-file, you will see a “-” but if it is a directory, you will see a “d”.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">w</span> <span class="pre">and</span> <span class="pre">x</span></code> following the first position mean read, write, and
-execute permissions for the owner (that is you, if you created this
-file). This means you have read/write/execute permissions for this file.
-If you’re missing a letter and instead have an “-” means you don’t have
-that permission. For example, if you want to remove the “read”
-permission of a file to others beside you and group members, you type
-like this:</p>
+<div class="section" id="File-permissions">
+<h3>File permissions<a class="headerlink" href="#File-permissions" title="Permalink to this headline">¶</a></h3>
+<p>On a related note, you want to learn how to set permissions to files and folders so that other people can (or cannot) read/write/excute/delete or mess them up in anyway. For now, you are working on your own so this is not an issue, but on servers where you work with multiple people and groups, this is very important. If you type <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> in your terminal, you will see something like this:</p>
+<img alt="Terminal" src="../_images/term.png" />
+<p>Here, you will notice that files (such as “README.md”) has some funny notations at the very beginning. These are file permissions. I have shown below what these mean.</p>
+<img alt="Permissions" src="../_images/permissions.jpg" />
+<p>For example, the first character shows the type of file. If it is a file, you will see a “-” but if it is a directory, you will see a “d”.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">w</span> <span class="pre">and</span> <span class="pre">x</span></code> following the first position mean read, write, and execute permissions for the owner (that is you, if you created this file). This means you have read/write/execute permissions for this file. If you’re missing a letter and instead have an “-” means you don’t have that permission. For example, if you want to remove the “read” permission of a file to others beside you and group members, you type like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">o-r</span> <span class="pre">file.txt</span></code></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">chmod</span></code> is the command for changing permissions. The <code class="docutils literal notranslate"><span class="pre">o-r</span></code> means
-you are removing (a minus sign) read permissions to others <code class="docutils literal notranslate"><span class="pre">o</span></code>. If you
-want to add write permission to group members, then you type something
-like this:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">chmod</span></code> is the command for changing permissions. The <code class="docutils literal notranslate"><span class="pre">o-r</span></code> means you are removing (a minus sign) read permissions to others <code class="docutils literal notranslate"><span class="pre">o</span></code>. If you want to add write permission to group members, then you type something like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">g+w</span> <span class="pre">file.txt</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">g+w</span></code> means you are adding the write permission for group members.</p>
-<p>These are some of the very basic Unix commands for you to learn for now.
-We will revisit and talk more about additional commands that will become
-necessary as the course progresses.</p>
+<p>These are some of the very basic Unix commands for you to learn for now. We will revisit and talk more about additional commands that will become necessary as the course progresses.</p>
 </div>
 </div>
-<div class="section" id="install-and-configure-miniconda-and-bioconda">
-<h2>Install and configure Miniconda and Bioconda<a class="headerlink" href="#install-and-configure-miniconda-and-bioconda" title="Permalink to this headline">¶</a></h2>
-<p>Go here to download Miniconda package manager:
-<a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
-<div class="section" id="install-miniconda">
-<h3>Install Miniconda<a class="headerlink" href="#install-miniconda" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Install-and-configure-Miniconda-and-Bioconda">
+<h2>Install and configure Miniconda and Bioconda<a class="headerlink" href="#Install-and-configure-Miniconda-and-Bioconda" title="Permalink to this headline">¶</a></h2>
+<p>Go here to download Miniconda package manager: <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
+<div class="section" id="Install-Miniconda">
+<h3>Install Miniconda<a class="headerlink" href="#Install-Miniconda" title="Permalink to this headline">¶</a></h3>
 <p>Follow instructions for both Mac and Windows. Choose Python 3.7 version.</p>
-<p>For <strong>Mac</strong>, I recommend you download the “pkg” version which is a
-graphical version of the installer.</p>
-<p>For <strong>Windows/WSL</strong>, open your Ubuntu shell (right-click on the icon and
-run as Administrator). Then type:</p>
+<p>For <strong>Mac</strong>, I recommend you download the “pkg” version which is a graphical version of the installer.</p>
+<p>For <strong>Windows/WSL</strong>, open your Ubuntu shell (right-click on the icon and run as Administrator). Then type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /mnt/c
 mkdir tools
 <span class="nb">cd</span> tools
@@ -490,220 +600,167 @@ chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 </pre></div>
 </div>
-<p>Follow the instructions along and make sure you say “yes” at the very
-end when it asked you if you want the installer to prepend it to path.</p>
-<p>You can visit this page for more tips on how to instlall Miniconda on
-WSL.</p>
+<p>Follow the instructions along and make sure you say “yes” at the very end when it asked you if you want the installer to prepend it to path.</p>
+<p>You can visit this page for more tips on how to instlall Miniconda on WSL.</p>
 <p><a class="reference external" href="https://gist.github.com/kauffmanes/5e74916617f9993bc3479f401dfec7da">https://gist.github.com/kauffmanes/5e74916617f9993bc3479f401dfec7da</a></p>
 <p><strong>After installation:</strong></p>
 <p>For <strong>Mac</strong>:</p>
-<p>Close your terminal and open it again. Try typing <code class="docutils literal notranslate"><span class="pre">conda</span></code> to see if
-the command works. You will see a bunch of options you can type with the
-conda command.</p>
+<p>Close your terminal and open it again. Try typing <code class="docutils literal notranslate"><span class="pre">conda</span></code> to see if the command works. You will see a bunch of options you can type with the conda command.</p>
 <p>For <strong>Windows</strong>:</p>
-<p>Close your Ubuntu shell, then restart it by right-cliking on the Ubuntu
-icon and run it as Administrator. Try typing <code class="docutils literal notranslate"><span class="pre">conda</span></code> to see if it
-shows options.</p>
+<p>Close your Ubuntu shell, then restart it by right-cliking on the Ubuntu icon and run it as Administrator. Try typing <code class="docutils literal notranslate"><span class="pre">conda</span></code> to see if it shows options.</p>
 </div>
-<div class="section" id="install-bioconda">
-<h3>Install Bioconda<a class="headerlink" href="#install-bioconda" title="Permalink to this headline">¶</a></h3>
-<p>After Miniconda is installed, you will need to configure Bioconda
-channels. Bioconda allows you to install <em>most</em> bioinformatics tools
-with ease without learning to use compilers or to figure out software
-dependencies.</p>
+<div class="section" id="Install-Bioconda">
+<h3>Install Bioconda<a class="headerlink" href="#Install-Bioconda" title="Permalink to this headline">¶</a></h3>
+<p>After Miniconda is installed, you will need to configure Bioconda channels. Bioconda allows you to install <em>most</em> bioinformatics tools with ease without learning to use compilers or to figure out software dependencies.</p>
 <p>Install bioconda by typing the following commands in your terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">defaults</span>
-<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">bioconda</span>
-<span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
 </pre></div>
 </div>
-<p>These commands will add bioinformatics related tools “channels” to
-miniconda. Now, you should be able to search and install tools locally
-on your computer. Try install jupyter first.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">search</span> <span class="n">jupyter</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="n">jupyter</span>
+<p>These commands will add bioinformatics related tools “channels” to miniconda. Now, you should be able to search and install tools locally on your computer. Try install jupyter first.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda search jupyter
+conda install jupyter
 
-<span class="n">conda</span> <span class="n">search</span> <span class="n">jupyterlab</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="n">jupyterlab</span>
+conda search jupyterlab
+conda install jupyterlab
 </pre></div>
 </div>
-<p>After you have configured the bioconda channels, most of the
-bioinformatics tools we will use in this course should be available for
-installation through <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<p>After you have configured the bioconda channels, most of the bioinformatics tools we will use in this course should be available for installation through <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
 </div>
 </div>
 </div>
-<div class="section" id="git-and-github">
-<h1>Git and Github<a class="headerlink" href="#git-and-github" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-git">
-<h2>What is git?<a class="headerlink" href="#what-is-git" title="Permalink to this headline">¶</a></h2>
-<p>Git is a tool for version control that allows you to track changes so
-that you can work collaboratively in a team environment. A lot of
-software developers and engineers use it but scientists also use it to
-maintain their software/code generated for research. Although I will
-cover some basics on using Git, you will need to read up on what it is
-and how to use it at your own time. See here for more information:</p>
+<div class="section" id="Git-and-Github">
+<h1>Git and Github<a class="headerlink" href="#Git-and-Github" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="What-is-git?">
+<h2>What is git?<a class="headerlink" href="#What-is-git?" title="Permalink to this headline">¶</a></h2>
+<p>Git is a tool for version control that allows you to track changes so that you can work collaboratively in a team environment. A lot of software developers and engineers use it but scientists also use it to maintain their software/code generated for research. Although I will cover some basics on using Git, you will need to read up on what it is and how to use it at your own time. See here for more information:</p>
 <p><a class="reference external" href="https://guides.github.com/introduction/git-handbook/">https://guides.github.com/introduction/git-handbook/</a></p>
-<p>Here is another resource on Git. It is for Bitbucket repository but
-command examples are the same as what you would be using with Github.</p>
+<p>Here is another resource on Git. It is for Bitbucket repository but command examples are the same as what you would be using with Github.</p>
 <p><a class="reference external" href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud</a></p>
 </div>
-<div class="section" id="how-to-install-git">
-<h2>How to install Git<a class="headerlink" href="#how-to-install-git" title="Permalink to this headline">¶</a></h2>
-<p>First, you will try to install <code class="docutils literal notranslate"><span class="pre">git</span></code> tool through command line tools
-such as Homebrew on Mac.</p>
-<p>On <strong>Mac OS</strong>, you will type like this in your terminal:
-<code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
-<p>On <strong>Windows OS</strong> running <strong>Linux</strong> subsystem with <strong>Ubuntu</strong>, you can
-type something like this in your terminal: <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
-<p>And this will install the tool on your command line environment. You may
-need root privileges to install tools on Ubuntu. If this happens, you
-just type: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code> and it should work. You will
-have to type your password though.</p>
-<p>Another way of installing <code class="docutils literal notranslate"><span class="pre">git</span></code> is to use your Miniconda package
-managing system. It is actually my preferred method of installing new
-tools in my commandline environment. If you have set up Miniconda
-correctly, then you can just type:</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">git</span></code> in either Mac or Windows OS terminal and this
-would install <code class="docutils literal notranslate"><span class="pre">git</span></code> on your system. Here is an example of what you
-will see when you use Miniconda to search if git is in its list of
-packages that you can install through <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<div class="section" id="How-to-install-Git">
+<h2>How to install Git<a class="headerlink" href="#How-to-install-Git" title="Permalink to this headline">¶</a></h2>
+<p>First, you will try to install <code class="docutils literal notranslate"><span class="pre">git</span></code> tool through command line tools such as Homebrew on Mac.</p>
+<p>On <strong>Mac OS</strong>, you will type like this in your terminal: <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
+<p>On <strong>Windows OS</strong> running <strong>Linux</strong> subsystem with <strong>Ubuntu</strong>, you can type something like this in your terminal: <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
+<p>And this will install the tool on your command line environment. You may need root privileges to install tools on Ubuntu. If this happens, you just type: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code> and it should work. You will have to type your password though.</p>
+<p>Another way of installing <code class="docutils literal notranslate"><span class="pre">git</span></code> is to use your Miniconda package managing system. It is actually my preferred method of installing new tools in my commandline environment. If you have set up Miniconda correctly, then you can just type:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">git</span></code> in either Mac or Windows OS terminal and this would install <code class="docutils literal notranslate"><span class="pre">git</span></code> on your system. Here is an example of what you will see when you use Miniconda to search if git is in its list of packages that you can install through <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 conda search git
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="o">...</span><span class="n">working</span><span class="o">...</span> <span class="n">done</span>
-<span class="c1"># Name                       Version           Build  Channel</span>
-<span class="n">git</span>                           <span class="mf">2.12.2</span>               <span class="mi">4</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.13.3</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.14.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.14.1</span>               <span class="mi">1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.14.1</span> <span class="n">pl526ha558ef4_2</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.14.1</span> <span class="n">pl526hcdafd81_2</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">2</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.14.2</span>               <span class="mi">3</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.15.0</span> <span class="n">pl526h6165b5f_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.16.1</span>      <span class="n">h74bb3f6_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.16.1</span> <span class="n">pl526h74bb3f6_1</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.17.0</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.17.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.17.1</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.18.0</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.18.0</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.18.0</span> <span class="n">pl526hbb17d3c_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.19.0</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h028e6c8_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h28b1069_1001</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526h6951d83_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.19.1</span> <span class="n">pl526hbb17d3c_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.19.2</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.19.2</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.20.0</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.20.0</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h28b1069_1000</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h28b1069_1001</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h3e3e3d1_1002</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526h6951d83_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.20.1</span> <span class="n">pl526hbb17d3c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.21.0</span> <span class="n">pl526h3e3e3d1_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.22.0</span> <span class="n">pl526hbdf3604_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526h6951d83_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526hbdf3604_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526hbdf3604_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.23.0</span> <span class="n">pl526hbdf3604_2</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.24.0</span> <span class="n">pl526hdc91d69_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.24.0</span> <span class="n">pl526hdc91d69_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.25.0</span> <span class="n">pl526hdc91d69_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.26.0</span> <span class="n">pl526h561ab23_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.26.1</span> <span class="n">pl526hcc376a2_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.26.2</span> <span class="n">pl526hcc376a2_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.27.0</span> <span class="n">pl526hcc376a2_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.28.0</span> <span class="n">pl526hde3ca24_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">git</span>                           <span class="mf">2.28.0</span> <span class="n">pl526hde3ca24_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-</pre></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Loading channels: ...working... done
+# Name                       Version           Build  Channel
+git                           2.12.2               4  conda-forge
+git                           2.13.3               0  conda-forge
+git                           2.14.1               0  conda-forge
+git                           2.14.1               1  conda-forge
+git                           2.14.1 pl526ha558ef4_2  pkgs/main
+git                           2.14.1 pl526hcdafd81_2  pkgs/main
+git                           2.14.2               0  conda-forge
+git                           2.14.2               1  conda-forge
+git                           2.14.2               2  conda-forge
+git                           2.14.2               3  conda-forge
+git                           2.15.0 pl526h6165b5f_0  pkgs/main
+git                           2.16.1      h74bb3f6_0  pkgs/main
+git                           2.16.1 pl526h74bb3f6_1  pkgs/main
+git                           2.17.0 pl526h028e6c8_0  pkgs/main
+git                           2.17.1               0  conda-forge
+git                           2.17.1 pl526h028e6c8_0  pkgs/main
+git                           2.18.0               0  conda-forge
+git                           2.18.0 pl526h028e6c8_0  pkgs/main
+git                           2.18.0 pl526hbb17d3c_1  conda-forge
+git                           2.19.0 pl526hbb17d3c_0  conda-forge
+git                           2.19.1 pl526h028e6c8_0  pkgs/main
+git                           2.19.1 pl526h28b1069_1000  conda-forge
+git                           2.19.1 pl526h28b1069_1001  conda-forge
+git                           2.19.1 pl526h6951d83_0  pkgs/main
+git                           2.19.1 pl526hbb17d3c_0  conda-forge
+git                           2.19.1 pl526hbb17d3c_1  conda-forge
+git                           2.19.2 pl526h28b1069_1000  conda-forge
+git                           2.19.2 pl526hbb17d3c_0  conda-forge
+git                           2.20.0 pl526h28b1069_1000  conda-forge
+git                           2.20.0 pl526hbb17d3c_0  conda-forge
+git                           2.20.1 pl526h28b1069_1000  conda-forge
+git                           2.20.1 pl526h28b1069_1001  conda-forge
+git                           2.20.1 pl526h3e3e3d1_1002  conda-forge
+git                           2.20.1 pl526h6951d83_0  pkgs/main
+git                           2.20.1 pl526hbb17d3c_0  conda-forge
+git                           2.21.0 pl526h3e3e3d1_0  conda-forge
+git                           2.22.0 pl526hbdf3604_0  conda-forge
+git                           2.23.0 pl526h6951d83_0  pkgs/main
+git                           2.23.0 pl526hbdf3604_0  conda-forge
+git                           2.23.0 pl526hbdf3604_1  conda-forge
+git                           2.23.0 pl526hbdf3604_2  conda-forge
+git                           2.24.0 pl526hdc91d69_0  conda-forge
+git                           2.24.0 pl526hdc91d69_1  conda-forge
+git                           2.25.0 pl526hdc91d69_0  conda-forge
+git                           2.26.0 pl526h561ab23_0  conda-forge
+git                           2.26.1 pl526hcc376a2_0  conda-forge
+git                           2.26.2 pl526hcc376a2_0  conda-forge
+git                           2.27.0 pl526hcc376a2_0  conda-forge
+git                           2.28.0 pl526hde3ca24_0  conda-forge
+git                           2.28.0 pl526hde3ca24_1  conda-forge
+</pre></div></div>
 </div>
 </div>
-<div class="section" id="cloning-course-repository-on-github">
-<h2>Cloning course repository on Github<a class="headerlink" href="#cloning-course-repository-on-github" title="Permalink to this headline">¶</a></h2>
-<p>As a member of the Microbial Genomics Lab 2022, you will have access to
-our code repository.</p>
+<div class="section" id="Cloning-course-repository-on-Github">
+<h2>Cloning course repository on Github<a class="headerlink" href="#Cloning-course-repository-on-Github" title="Permalink to this headline">¶</a></h2>
+<p>As a member of the Microbial Genomics Lab 2022, you will have access to our code repository.</p>
 <p>If you log in to Github and visit this URL:</p>
 <p><a class="reference external" href="https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022">https://github.com/SawLabGW/MicrobialGenomicsLab_Spring2022</a></p>
-<p>you will be able to download the code repository to your laptop. First,
-if you haven’t already downloaded the code repository to your drive, you
-want to “clone” it.</p>
-<p>First, create a folder where you would want to store this repository.
-For example, in your command line environment, type <code class="docutils literal notranslate"><span class="pre">cd</span></code> to go back to
-your home directory. Then to create a folder named “repositories”.</p>
+<p>you will be able to download the code repository to your laptop. First, if you haven’t already downloaded the code repository to your drive, you want to “clone” it.</p>
+<p>First, create a folder where you would want to store this repository. For example, in your command line environment, type <code class="docutils literal notranslate"><span class="pre">cd</span></code> to go back to your home directory. Then to create a folder named “repositories”.</p>
 <p>Type: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">repositories</span></code></p>
 <p>Then go into that folder by typing: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">repositories</span></code>.</p>
-<p>Then type:
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/SawLabGW/MicrobialGenomicsLab_Fall2020.git</span></code></p>
-<p>Now, you will see the folder “MicrobialGenomicsLab_Spring2022” in the
-repositories folder.</p>
+<p>Then type: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/SawLabGW/MicrobialGenomicsLab_Fall2020.git</span></code></p>
+<p>Now, you will see the folder “MicrobialGenomicsLab_Spring2022” in the repositories folder.</p>
 </div>
-<div class="section" id="committing-to-the-repository">
-<h2>Committing to the repository<a class="headerlink" href="#committing-to-the-repository" title="Permalink to this headline">¶</a></h2>
-<p>For example, if you have a new file named text.txt which created and you
-want to make it part of the repository, you will need to type the
-command git add text.txt. You may type this command in the folder that
-this file is located or from the root folder. If it is in a subfolder
-named alison/notes/text.txt, then you want to type git add
-alison/notes/text.txt in the root folder.</p>
+<div class="section" id="Committing-to-the-repository">
+<h2>Committing to the repository<a class="headerlink" href="#Committing-to-the-repository" title="Permalink to this headline">¶</a></h2>
+<p>For example, if you have a new file named text.txt which created and you want to make it part of the repository, you will need to type the command git add text.txt. You may type this command in the folder that this file is located or from the root folder. If it is in a subfolder named alison/notes/text.txt, then you want to type git add alison/notes/text.txt in the root folder.</p>
 <p>After adding the file, you will need to type the following command.</p>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code></p>
-<p>It will bring up the vim editor, which will prompt you to enter a
-message before you can commit this file to the repository. If you would
-rather bypass this step, you can specify in your previous git command
-like this:</p>
+<p>It will bring up the vim editor, which will prompt you to enter a message before you can commit this file to the repository. If you would rather bypass this step, you can specify in your previous git command like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;created</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">file&quot;</span></code></p>
-<p>Here, you have put in quotes the text you wanted to convey along with
-the commit command to let people know that you have created a new file
-and added it to the repository. This helps your teammates and
-collaborators keep track of what you did to the repository.</p>
-<p>Finally, type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code> to “push” your changes to the
-repository.</p>
-<p>Before committing or pushing anything to the repository, you should
-always type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code> to get the latest updated version
-of the repository. This is because there is a built-in check for people
-to prevent overwriting things or missing something if someone else had
-made a very recent commit to the repository.</p>
-<p><strong>Note:</strong> The repository you just downloaded is read-only and you cannot
-add or remove files from it. We will discuss how to create your own
-repositories later in the semester.</p>
+<p>Here, you have put in quotes the text you wanted to convey along with the commit command to let people know that you have created a new file and added it to the repository. This helps your teammates and collaborators keep track of what you did to the repository.</p>
+<p>Finally, type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code> to “push” your changes to the repository.</p>
+<p>Before committing or pushing anything to the repository, you should always type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">master</span></code> to get the latest updated version of the repository. This is because there is a built-in check for people to prevent overwriting things or missing something if someone else had made a very recent commit to the repository.</p>
+<p><strong>Note:</strong> The repository you just downloaded is read-only and you cannot add or remove files from it. We will discuss how to create your own repositories later in the semester.</p>
 </div>
-<div class="section" id="install-jupyter-and-jupyter-lab">
-<h2>Install Jupyter and Jupyter-lab<a class="headerlink" href="#install-jupyter-and-jupyter-lab" title="Permalink to this headline">¶</a></h2>
-<p>We will make extensive use of Jupyter-lab to document work and to take
-notes. You will also need to use Jupyter-lab as a notebook that you will
-submit at the end of the semester for your final project. To install
-them, type in your terminal:</p>
+<div class="section" id="Install-Jupyter-and-Jupyter-lab">
+<h2>Install Jupyter and Jupyter-lab<a class="headerlink" href="#Install-Jupyter-and-Jupyter-lab" title="Permalink to this headline">¶</a></h2>
+<p>We will make extensive use of Jupyter-lab to document work and to take notes. You will also need to use Jupyter-lab as a notebook that you will submit at the end of the semester for your final project. To install them, type in your terminal:</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span></code></p>
 <p>and</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code></p>
-<p>You will have to type “y” when you are prompted for confirmation after
-typing these commands. Now these tools should be installed in your
-command line environment.</p>
-<div class="section" id="how-to-use-jupyter-lab">
-<h3>How to use Jupyter-lab?<a class="headerlink" href="#how-to-use-jupyter-lab" title="Permalink to this headline">¶</a></h3>
+<p>You will have to type “y” when you are prompted for confirmation after typing these commands. Now these tools should be installed in your command line environment.</p>
+<div class="section" id="How-to-use-Jupyter-lab?">
+<h3>How to use Jupyter-lab?<a class="headerlink" href="#How-to-use-Jupyter-lab?" title="Permalink to this headline">¶</a></h3>
 <p>I will be demonstrating its use during class.</p>
 </div>
 </div>
-<div class="section" id="tools-to-install-for-next-week">
-<h2>Tools to install for next week<a class="headerlink" href="#tools-to-install-for-next-week" title="Permalink to this headline">¶</a></h2>
-<p>Using <code class="docutils literal notranslate"><span class="pre">conda</span></code>, you will need to install a few tools that we will be
-using during class next week. The tools are:</p>
+<div class="section" id="Tools-to-install-for-next-week">
+<h2>Tools to install for next week<a class="headerlink" href="#Tools-to-install-for-next-week" title="Permalink to this headline">¶</a></h2>
+<p>Using <code class="docutils literal notranslate"><span class="pre">conda</span></code>, you will need to install a few tools that we will be using during class next week. The tools are:</p>
 <ul class="simple">
 <li><p>sra-tools</p></li>
 <li><p>fastqc</p></li>
 <li><p>bbmap</p></li>
 </ul>
-<p>Using examples I have shown above, search and install these three tools
-on your computer.</p>
+<p>Using examples I have shown above, search and install these three tools on your computer.</p>
 </div>
 </div>
 
@@ -714,61 +771,61 @@ on your computer.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-        <p class="logo"><a href="index.html" title="index">
-          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/gm_pan.png" alt="Logo"/>
         </a></p><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="index.html">Page contents</a></h3>
+    <h3><a href="../index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
-<li><a class="reference internal" href="#about-this-documentation">About this documentation</a></li>
+<li><a class="reference internal" href="#About-this-documentation">About this documentation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#week-1">Week 1</a><ul>
-<li><a class="reference internal" href="#agenda-for-01-12-2022">Agenda for (01/12/2022)</a></li>
-<li><a class="reference internal" href="#introduction-to-the-course">Introduction to the course</a><ul>
-<li><a class="reference internal" href="#classroom-location">Classroom location</a></li>
-<li><a class="reference internal" href="#where-is-the-virtual-classroom">Where is the virtual classroom?</a></li>
-<li><a class="reference internal" href="#besides-the-virtual-classroom-what-else-will-we-be-using">Besides the virtual classroom, what else will we be using?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#setting-up-your-computing-environment">Setting up your computing environment</a><ul>
-<li><a class="reference internal" href="#windows-os">Windows OS</a></li>
-<li><a class="reference internal" href="#mac-os">Mac OS</a><ul>
-<li><a class="reference internal" href="#install-homebrew">Install Homebrew</a></li>
+<li><a class="reference internal" href="#Week-1">Week 1</a><ul>
+<li><a class="reference internal" href="#Agenda-for-(01/12/2022)">Agenda for (01/12/2022)</a></li>
+<li><a class="reference internal" href="#Introduction-to-the-course">Introduction to the course</a><ul>
+<li><a class="reference internal" href="#Classroom-location">Classroom location</a></li>
+<li><a class="reference internal" href="#Where-is-the-virtual-classroom?">Where is the virtual classroom?</a></li>
+<li><a class="reference internal" href="#Besides-the-virtual-classroom,-what-else-will-we-be-using?">Besides the virtual classroom, what else will we be using?</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#unix-and-commandline-environment">Unix and commandline environment</a><ul>
+<li><a class="reference internal" href="#Setting-up-your-computing-environment">Setting up your computing environment</a><ul>
+<li><a class="reference internal" href="#Windows-OS">Windows OS</a></li>
+<li><a class="reference internal" href="#Mac-OS">Mac OS</a><ul>
+<li><a class="reference internal" href="#Install-Homebrew">Install Homebrew</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Unix-and-commandline-environment">Unix and commandline environment</a><ul>
 <li><a class="reference internal" href="#id1">Introduction</a></li>
-<li><a class="reference internal" href="#useful-list-of-commands">Useful list of commands</a></li>
-<li><a class="reference internal" href="#basic-unix-commands">Basic Unix commands</a><ul>
-<li><a class="reference internal" href="#navigating-between-directories">Navigating between directories</a></li>
-<li><a class="reference internal" href="#creating-and-removing-directories">Creating and removing directories</a></li>
-<li><a class="reference internal" href="#copying-renaming-and-moving-files-folders">Copying, renaming, and moving files/folders</a></li>
-<li><a class="reference internal" href="#removing-deleting-files-folders">Removing/deleting files/folders</a></li>
-<li><a class="reference internal" href="#file-permissions">File permissions</a></li>
+<li><a class="reference internal" href="#Useful-list-of-commands">Useful list of commands</a></li>
+<li><a class="reference internal" href="#Basic-Unix-commands">Basic Unix commands</a><ul>
+<li><a class="reference internal" href="#Navigating-between-directories">Navigating between directories</a></li>
+<li><a class="reference internal" href="#Creating-and-removing-directories">Creating and removing directories</a></li>
+<li><a class="reference internal" href="#Copying,-renaming,-and-moving-files/folders">Copying, renaming, and moving files/folders</a></li>
+<li><a class="reference internal" href="#Removing/deleting-files/folders">Removing/deleting files/folders</a></li>
+<li><a class="reference internal" href="#File-permissions">File permissions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#install-and-configure-miniconda-and-bioconda">Install and configure Miniconda and Bioconda</a><ul>
-<li><a class="reference internal" href="#install-miniconda">Install Miniconda</a></li>
-<li><a class="reference internal" href="#install-bioconda">Install Bioconda</a></li>
+<li><a class="reference internal" href="#Install-and-configure-Miniconda-and-Bioconda">Install and configure Miniconda and Bioconda</a><ul>
+<li><a class="reference internal" href="#Install-Miniconda">Install Miniconda</a></li>
+<li><a class="reference internal" href="#Install-Bioconda">Install Bioconda</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#git-and-github">Git and Github</a><ul>
-<li><a class="reference internal" href="#what-is-git">What is git?</a></li>
-<li><a class="reference internal" href="#how-to-install-git">How to install Git</a></li>
-<li><a class="reference internal" href="#cloning-course-repository-on-github">Cloning course repository on Github</a></li>
-<li><a class="reference internal" href="#committing-to-the-repository">Committing to the repository</a></li>
-<li><a class="reference internal" href="#install-jupyter-and-jupyter-lab">Install Jupyter and Jupyter-lab</a><ul>
-<li><a class="reference internal" href="#how-to-use-jupyter-lab">How to use Jupyter-lab?</a></li>
+<li><a class="reference internal" href="#Git-and-Github">Git and Github</a><ul>
+<li><a class="reference internal" href="#What-is-git?">What is git?</a></li>
+<li><a class="reference internal" href="#How-to-install-Git">How to install Git</a></li>
+<li><a class="reference internal" href="#Cloning-course-repository-on-Github">Cloning course repository on Github</a></li>
+<li><a class="reference internal" href="#Committing-to-the-repository">Committing to the repository</a></li>
+<li><a class="reference internal" href="#Install-Jupyter-and-Jupyter-lab">Install Jupyter and Jupyter-lab</a><ul>
+<li><a class="reference internal" href="#How-to-use-Jupyter-lab?">How to use Jupyter-lab?</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#tools-to-install-for-next-week">Tools to install for next week</a></li>
+<li><a class="reference internal" href="#Tools-to-install-for-next-week">Tools to install for next week</a></li>
 </ul>
 </li>
 </ul>
@@ -777,14 +834,14 @@ on your computer.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/instructions_week1.rst.txt"
+      <li><a href="../_sources/ipynbs/instructions_week1.ipynb.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
@@ -818,9 +875,9 @@ on your computer.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              >index</a></li>
-    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Introduction</a></li> 
       </ul>

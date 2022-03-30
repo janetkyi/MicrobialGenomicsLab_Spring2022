@@ -8,34 +8,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A brief introduction to pandoc &#8212; Microbial Genomics Lab Spring 2022  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
 
     
     
      
-        <script src="_static/jquery.cookie.js"></script>
+        <script src="../_static/jquery.cookie.js"></script>
     
 
     
      
-        <script src="_static/cloud.base.js"></script>
+        <script src="../_static/cloud.base.js"></script>
     
 
     
      
-        <script src="_static/cloud.js"></script>
+        <script src="../_static/cloud.js"></script>
     
 
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Brief introduction to Markdown" href="markdown.html" />
     <link rel="prev" title="Week 2" href="Week2.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +48,7 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="markdown.html" title="Brief introduction to Markdown"
@@ -54,7 +56,7 @@
         <li class="right" >
           <a href="Week2.html" title="Week 2"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">A brief introduction to <code class="docutils literal notranslate"><span class="pre">pandoc</span></code></a></li> 
       </ul>
@@ -69,6 +71,252 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for cloud theme */
 
 /* nicer titles and more space for info and warning logos */
@@ -93,79 +341,79 @@ div.admonition.inline-title p.admonition-title {
     padding-left: .2em;
 }
 </style>
-<div class="section" id="a-brief-introduction-to-pandoc">
-<h1>A brief introduction to <code class="docutils literal notranslate"><span class="pre">pandoc</span></code><a class="headerlink" href="#a-brief-introduction-to-pandoc" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">pandoc</span></code> is a really handy tool for a lot of bioinformaticians due to
-its ability to inter-convert between different document formats. For
-example, if you want to convert a simple text file into a Word document
-or a PDF file, you can convert it within a command line environment. Its
-usefulness will become highly evident in work settings where you need to
-generate documents or reports on the fly as a part of a bioinformatic
-workflow or a pipeline, for example.</p>
-<p>In your assignment 1, I instructed you to generate a PDF document from a
-Markdown text file. First, you need to install <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> through
-<code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<div class="section" id="A-brief-introduction-to-pandoc">
+<h1>A brief introduction to <code class="docutils literal notranslate"><span class="pre">pandoc</span></code><a class="headerlink" href="#A-brief-introduction-to-pandoc" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">pandoc</span></code> is a really handy tool for a lot of bioinformaticians due to its ability to inter-convert between different document formats. For example, if you want to convert a simple text file into a Word document or a PDF file, you can convert it within a command line environment. Its usefulness will become highly evident in work settings where you need to generate documents or reports on the fly as a part of a bioinformatic workflow or a pipeline, for example.</p>
+<p>In your assignment 1, I instructed you to generate a PDF document from a Markdown text file. First, you need to install <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> through <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 conda search pandoc
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="o">...</span><span class="n">working</span><span class="o">...</span> <span class="n">done</span>
-<span class="c1"># Name                       Version           Build  Channel</span>
-<span class="n">pandoc</span>                      <span class="mf">1.16.0.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                      <span class="mf">1.17.0.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                      <span class="mf">1.17.0.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                        <span class="mf">1.17.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                        <span class="mf">1.17.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                          <span class="mf">1.18</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                          <span class="mf">1.19</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                        <span class="mf">1.19.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                        <span class="mf">1.19.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                      <span class="mf">1.19.2.1</span>      <span class="n">ha5e8f32_1</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">pandoc</span>                       <span class="mf">2.0.0.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                       <span class="mf">2.0.0.1</span>               <span class="mi">1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.0.3</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.0.4</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.0.5</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.1.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.1.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.1.3</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.2</span>      <span class="n">hde52d81_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.2.1</span>      <span class="n">h1a437c5_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">pandoc</span>                         <span class="mf">2.2.1</span>      <span class="n">hde52d81_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.2.2</span>      <span class="n">hde52d81_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.2.2</span>      <span class="n">hde52d81_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                       <span class="mf">2.2.3.2</span>               <span class="mi">0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">pandoc</span>                           <span class="mf">2.3</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.3.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.4</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.5</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.5</span>               <span class="mi">1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.6</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.6</span>               <span class="mi">1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.7.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.7.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.7.3</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.8</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                       <span class="mf">2.8.0.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.8.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                           <span class="mf">2.9</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.9.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                       <span class="mf">2.9.1.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                         <span class="mf">2.9.2</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                       <span class="mf">2.9.2.1</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                       <span class="mf">2.9.2.1</span>               <span class="mi">0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">pandoc</span>                          <span class="mf">2.10</span>               <span class="mi">0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                          <span class="mf">2.10</span>               <span class="mi">0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">pandoc</span>                          <span class="mf">2.10</span>      <span class="n">h1de35cc_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">pandoc</span>                        <span class="mf">2.10.1</span>               <span class="mi">0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">pandoc</span>                        <span class="mf">2.10.1</span>      <span class="n">haf1e3a3_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-</pre></div>
 </div>
-<p>To install, <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>, just type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">pandoc</span></code> and it will
-install the latest version of it.</p>
-<p>In order to convert this Markdown text file into a PDF file, I gave as
-an example the following commands you need to type in your terminal:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Loading channels: ...working... done
+# Name                       Version           Build  Channel
+pandoc                      1.16.0.2               0  conda-forge
+pandoc                      1.17.0.1               0  conda-forge
+pandoc                      1.17.0.2               0  conda-forge
+pandoc                        1.17.1               0  conda-forge
+pandoc                        1.17.2               0  conda-forge
+pandoc                          1.18               0  conda-forge
+pandoc                          1.19               0  conda-forge
+pandoc                        1.19.1               0  conda-forge
+pandoc                        1.19.2               0  conda-forge
+pandoc                      1.19.2.1      ha5e8f32_1  pkgs/main
+pandoc                       2.0.0.1               0  conda-forge
+pandoc                       2.0.0.1               1  conda-forge
+pandoc                         2.0.3               0  conda-forge
+pandoc                         2.0.4               0  conda-forge
+pandoc                         2.0.5               0  conda-forge
+pandoc                           2.1               0  conda-forge
+pandoc                         2.1.1               0  conda-forge
+pandoc                         2.1.2               0  conda-forge
+pandoc                         2.1.3               0  conda-forge
+pandoc                           2.2      hde52d81_0  conda-forge
+pandoc                         2.2.1      h1a437c5_0  pkgs/main
+pandoc                         2.2.1      hde52d81_0  conda-forge
+pandoc                         2.2.2      hde52d81_0  conda-forge
+pandoc                         2.2.2      hde52d81_1  conda-forge
+pandoc                       2.2.3.2               0  pkgs/main
+pandoc                           2.3               0  conda-forge
+pandoc                         2.3.1               0  conda-forge
+pandoc                           2.4               0  conda-forge
+pandoc                           2.5               0  conda-forge
+pandoc                           2.5               1  conda-forge
+pandoc                           2.6               0  conda-forge
+pandoc                           2.6               1  conda-forge
+pandoc                         2.7.1               0  conda-forge
+pandoc                         2.7.2               0  conda-forge
+pandoc                         2.7.3               0  conda-forge
+pandoc                           2.8               0  conda-forge
+pandoc                       2.8.0.1               0  conda-forge
+pandoc                         2.8.1               0  conda-forge
+pandoc                           2.9               0  conda-forge
+pandoc                         2.9.1               0  conda-forge
+pandoc                       2.9.1.1               0  conda-forge
+pandoc                         2.9.2               0  conda-forge
+pandoc                       2.9.2.1               0  conda-forge
+pandoc                       2.9.2.1               0  pkgs/main
+pandoc                          2.10               0  conda-forge
+pandoc                          2.10               0  pkgs/main
+pandoc                          2.10      h1de35cc_0  conda-forge
+pandoc                        2.10.1               0  pkgs/main
+pandoc                        2.10.1      haf1e3a3_0  conda-forge
+</pre></div></div>
+</div>
+<p>To install, <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>, just type <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">pandoc</span></code> and it will install the latest version of it.</p>
+<p>In order to convert this Markdown text file into a PDF file, I gave as an example the following commands you need to type in your terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## For Mac</span>
 pandoc assignment_01.md <span class="se">\</span>
         -V geometry:margin<span class="o">=</span>1in <span class="se">\</span>
@@ -187,67 +435,52 @@ pandoc assignment_01.md <span class="se">\</span>
         -o assignment_01.pdf
 </pre></div>
 </div>
-<p>You might find this way of typing commands in your terminal a bit
-confusing. But don’t be afraid! All of the parameters broken into
-several lines can be written in a single line. But it will usually look
-very long and it may be a bit harder to fit it all in your terminal
-window. Therefore, I type “\” (backslash) to tell the shell (your Unix
-environment) that the command is not over yet and continues in the next
-line. The backslash is a special character in the Unix environment and
-is the mirror of “/” (Slash). Programmers use it as an “escape”
-character to specify something. In this example, it allows you to escape
-the end of line and continues the next line.</p>
-<p>If you type “\n”, this means you are specifying a line break. For
-example, this command: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">-e</span> <span class="pre">&quot;My\nName&quot;</span></code> in your terminal, it will
-result in this:</p>
+<p>You might find this way of typing commands in your terminal a bit confusing. But don’t be afraid! All of the parameters broken into several lines can be written in a single line. But it will usually look very long and it may be a bit harder to fit it all in your terminal window. Therefore, I type “\” (backslash) to tell the shell (your Unix environment) that the command is not over yet and continues in the next line. The backslash is a special character in the Unix environment and is the mirror
+of “/” (Slash). Programmers use it as an “escape” character to specify something. In this example, it allows you to escape the end of line and continues the next line.</p>
+<p>If you type “\n”, this means you are specifying a line break. For example, this command: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">-e</span> <span class="pre">&quot;My\nName&quot;</span></code> in your terminal, it will result in this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>My
 Name
 </pre></div>
 </div>
-<p>If you type “\t” in the <code class="docutils literal notranslate"><span class="pre">awk</span></code> command, it means you are referring to
-a “tab” character (the character you see above the “cap lock” on your
-keyboard.</p>
-<p>Coming back to the <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> command examples, I specified font
-variables such as <code class="docutils literal notranslate"><span class="pre">--variable</span> <span class="pre">sansfont=&quot;Arial&quot;</span></code> to indicate that
-pandoc uses this specific font for Sans Serif font in the document
-generated. This is somewhat confusing to many and it may not work,
-depending on whether or not these fonts are installed on your computer.
-You can omit the lines indicating these fonts and <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> will
-automatically use whatever fonts that are installed on your system.</p>
-<p>However, one thing you might notice here is that this parameter
-<code class="docutils literal notranslate"><span class="pre">--pdf-engine=xelatex</span></code> may not work on your computer depending on
-whether <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> is installed on your computer or not. If it is not
-installed, you will need to install the required packages through
-<code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
+<p>If you type “\t” in the <code class="docutils literal notranslate"><span class="pre">awk</span></code> command, it means you are referring to a “tab” character (the character you see above the “cap lock” on your keyboard.</p>
+<p>Coming back to the <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> command examples, I specified font variables such as <code class="docutils literal notranslate"><span class="pre">--variable</span> <span class="pre">sansfont=&quot;Arial&quot;</span></code> to indicate that pandoc uses this specific font for Sans Serif font in the document generated. This is somewhat confusing to many and it may not work, depending on whether or not these fonts are installed on your computer. You can omit the lines indicating these fonts and <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> will automatically use whatever fonts that are installed on your system.</p>
+<p>However, one thing you might notice here is that this parameter <code class="docutils literal notranslate"><span class="pre">--pdf-engine=xelatex</span></code> may not work on your computer depending on whether <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> is installed on your computer or not. If it is not installed, you will need to install the required packages through <code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-bash notranslate"><div class="highlight"><pre><span></span>%%bash
 conda search texlive-core
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Loading</span> <span class="n">channels</span><span class="p">:</span> <span class="o">...</span><span class="n">working</span><span class="o">...</span> <span class="n">done</span>
-<span class="c1"># Name                       Version           Build  Channel</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20160520</span>    <span class="n">pl5</span><span class="mf">.20.3.1_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>               <span class="mi">20160523</span><span class="n">b</span>    <span class="n">pl5</span><span class="mf">.20.3.1_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>               <span class="mi">20160523</span><span class="n">b</span>    <span class="n">pl5</span><span class="mf">.20.3.1_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>               <span class="mi">20160523</span><span class="n">b</span>      <span class="n">pl5</span><span class="mf">.20.3_3</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20170520</span>    <span class="n">pl5</span><span class="mf">.22.2.1_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20170520</span>    <span class="n">pl5</span><span class="mf">.22.2.1_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20170520</span>    <span class="n">pl5</span><span class="mf">.22.2.1_2</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20170520</span> <span class="n">pl526h2f74ec9_2</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20170520</span> <span class="n">pl526h47ed19a_1</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20170520</span> <span class="n">pl526ha3510ec_1</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20170520</span> <span class="n">pl526hc2f8f47_1</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20180414</span>      <span class="n">ha09c46f_0</span>  <span class="n">pkgs</span><span class="o">/</span><span class="n">main</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20180414</span> <span class="n">pl526h0778769_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20180414</span> <span class="n">pl526h6632d02_1</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20180414</span> <span class="n">pl526hd51217d_2</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20180414</span> <span class="n">pl526hd51217d_3</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">texlive</span><span class="o">-</span><span class="n">core</span>                <span class="mi">20180414</span> <span class="n">pl526hfbb4d6c_0</span>  <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-</pre></div>
 </div>
-<p>This package should be present on both Ubuntu and Mac <code class="docutils literal notranslate"><span class="pre">conda</span></code>
-environments. Go ahead and install it by typing
-<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">texlive-core</span></code>. And try typing the pandoc commands
-again. Try this first:</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Loading channels: ...working... done
+# Name                       Version           Build  Channel
+texlive-core                20160520    pl5.20.3.1_1  conda-forge
+texlive-core               20160523b    pl5.20.3.1_0  conda-forge
+texlive-core               20160523b    pl5.20.3.1_1  conda-forge
+texlive-core               20160523b      pl5.20.3_3  conda-forge
+texlive-core                20170520    pl5.22.2.1_0  conda-forge
+texlive-core                20170520    pl5.22.2.1_1  conda-forge
+texlive-core                20170520    pl5.22.2.1_2  conda-forge
+texlive-core                20170520 pl526h2f74ec9_2  pkgs/main
+texlive-core                20170520 pl526h47ed19a_1  pkgs/main
+texlive-core                20170520 pl526ha3510ec_1  pkgs/main
+texlive-core                20170520 pl526hc2f8f47_1  pkgs/main
+texlive-core                20180414      ha09c46f_0  pkgs/main
+texlive-core                20180414 pl526h0778769_1  conda-forge
+texlive-core                20180414 pl526h6632d02_1  conda-forge
+texlive-core                20180414 pl526hd51217d_2  conda-forge
+texlive-core                20180414 pl526hd51217d_3  conda-forge
+texlive-core                20180414 pl526hfbb4d6c_0  conda-forge
+</pre></div></div>
+</div>
+<p>This package should be present on both Ubuntu and Mac <code class="docutils literal notranslate"><span class="pre">conda</span></code> environments. Go ahead and install it by typing <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">texlive-core</span></code>. And try typing the pandoc commands again. Try this first:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pandoc assignment_01.md <span class="se">\</span>
         -V geometry:margin<span class="o">=</span>1in <span class="se">\</span>
         -V fontsize:11pt <span class="se">\</span>
@@ -255,8 +488,7 @@ again. Try this first:</p>
         -o assignment_01.pdf
 </pre></div>
 </div>
-<p>If this fails to produce a PDF file or you get error messages, try
-typing this:</p>
+<p>If this fails to produce a PDF file or you get error messages, try typing this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pandoc assignment_01.md <span class="se">\</span>
         -V geometry:margin<span class="o">=</span>1in <span class="se">\</span>
         -V fontsize:11pt <span class="se">\</span>
@@ -264,31 +496,21 @@ typing this:</p>
         -o assignment_01.pdf
 </pre></div>
 </div>
-<p>Hopefully, you will get a PDF file after this command. Now, I will show
-you another example to generate a Word document using <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>. Type</p>
+<p>Hopefully, you will get a PDF file after this command. Now, I will show you another example to generate a Word document using <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>. Type</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pandoc assignment_01.md <span class="se">\</span>
         -V geometry:margin<span class="o">=</span>1in <span class="se">\</span>
         -V fontsize:11pt <span class="se">\</span>
         -o assignment_01.docx
 </pre></div>
 </div>
-<p>Now, you have converted your assignment Markdown file into a Word
-document that can be opened with Microsoft Word. There are just two
-examples of what you can do with <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>. You can go here to see what
-else you can do with it.</p>
+<p>Now, you have converted your assignment Markdown file into a Word document that can be opened with Microsoft Word. There are just two examples of what you can do with <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>. You can go here to see what else you can do with it.</p>
 <p><a class="reference external" href="https://pandoc.org/">https://pandoc.org/</a></p>
-<p>The possibilities are enormous. You can even convert your Jupyter
-notebook into other formats.</p>
+<p>The possibilities are enormous. You can even convert your Jupyter notebook into other formats.</p>
 </div>
-<div class="section" id="alternative-ways-to-convert-markdown-files-to-pdf">
-<h1>Alternative ways to convert Markdown files to PDF<a class="headerlink" href="#alternative-ways-to-convert-markdown-files-to-pdf" title="Permalink to this headline">¶</a></h1>
-<p>If you ran into problem installing <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> and related tools that
-gives you problem with <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>, you can still use a different tool to
-generate a PDF file. See here:
-<a class="reference external" href="https://superuser.com/questions/689056/how-can-i-convert-github-flavored-markdown-to-a-pdf">https://superuser.com/questions/689056/how-can-i-convert-github-flavored-markdown-to-a-pdf</a></p>
-<p>Basically, you install a tool known as <code class="docutils literal notranslate"><span class="pre">grip</span></code>, which will render your
-Markdown file on your Web browser, then you print and save it as a PDF
-file (Chrome works best for this). To install <code class="docutils literal notranslate"><span class="pre">grip</span></code>, you type:</p>
+<div class="section" id="Alternative-ways-to-convert-Markdown-files-to-PDF">
+<h1>Alternative ways to convert Markdown files to PDF<a class="headerlink" href="#Alternative-ways-to-convert-Markdown-files-to-PDF" title="Permalink to this headline">¶</a></h1>
+<p>If you ran into problem installing <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> and related tools that gives you problem with <code class="docutils literal notranslate"><span class="pre">pandoc</span></code>, you can still use a different tool to generate a PDF file. See here: <a class="reference external" href="https://superuser.com/questions/689056/how-can-i-convert-github-flavored-markdown-to-a-pdf">https://superuser.com/questions/689056/how-can-i-convert-github-flavored-markdown-to-a-pdf</a></p>
+<p>Basically, you install a tool known as <code class="docutils literal notranslate"><span class="pre">grip</span></code>, which will render your Markdown file on your Web browser, then you print and save it as a PDF file (Chrome works best for this). To install <code class="docutils literal notranslate"><span class="pre">grip</span></code>, you type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install grip
 </pre></div>
 </div>
@@ -296,13 +518,8 @@ file (Chrome works best for this). To install <code class="docutils literal notr
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grip assignment_01.md
 </pre></div>
 </div>
-<p>This will print a URL on your terminal. In my case, it’s
-<a class="reference external" href="http://localhost:6419/">http://localhost:6419/</a></p>
-<p>Copy and paste this address to your Chrome browser and you will see the
-rendering. Next, print it (save it as a PDF) and you get a PDF file. I
-will accept it as an alternative way to generate a PDF file for your
-assignments. To stop the <code class="docutils literal notranslate"><span class="pre">grip</span></code> tool, type Control (CTRL key) + C
-together.</p>
+<p>This will print a URL on your terminal. In my case, it’s <a class="reference external" href="http://localhost:6419/">http://localhost:6419/</a></p>
+<p>Copy and paste this address to your Chrome browser and you will see the rendering. Next, print it (save it as a PDF) and you get a PDF file. I will accept it as an alternative way to generate a PDF file for your assignments. To stop the <code class="docutils literal notranslate"><span class="pre">grip</span></code> tool, type Control (CTRL key) + C together.</p>
 </div>
 
 
@@ -312,13 +529,13 @@ together.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-        <p class="logo"><a href="index.html" title="index">
-          <img class="logo" src="_static/gm_pan.png" alt="Logo"/>
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/gm_pan.png" alt="Logo"/>
         </a></p><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="index.html">Page contents</a></h3>
+    <h3><a href="../index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">A brief introduction to <code class="docutils literal notranslate"><span class="pre">pandoc</span></code></a></li>
-<li><a class="reference internal" href="#alternative-ways-to-convert-markdown-files-to-pdf">Alternative ways to convert Markdown files to PDF</a></li>
+<li><a class="reference internal" href="#Alternative-ways-to-convert-Markdown-files-to-PDF">Alternative ways to convert Markdown files to PDF</a></li>
 </ul>
 
   </div>
@@ -335,14 +552,14 @@ together.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/pandoc.rst.txt"
+      <li><a href="../_sources/ipynbs/pandoc.ipynb.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
+    <form class="search" action="../search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
@@ -376,7 +593,7 @@ together.</p>
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
+          <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
           <a href="markdown.html" title="Brief introduction to Markdown"
@@ -384,7 +601,7 @@ together.</p>
         <li class="right" >
           <a href="Week2.html" title="Week 2"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
+    <li><a href="../index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">A brief introduction to <code class="docutils literal notranslate"><span class="pre">pandoc</span></code></a></li> 
       </ul>
