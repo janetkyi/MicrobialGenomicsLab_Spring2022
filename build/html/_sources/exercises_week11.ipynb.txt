@@ -851,7 +851,28 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 194,
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'1.21.4'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "np.__version__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -861,7 +882,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 195,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [
     {
@@ -896,8 +917,8 @@
        "  <tbody>\n",
        "    <tr>\n",
        "      <th>0</th>\n",
-       "      <td>'Bacillus oceani' Liu et al. 2013</td>\n",
-       "      <td>DSM 26213,DSM:26213,KCTC 33077,KCTC:33077,SCSI...</td>\n",
+       "      <td>'Burkholderia humi' Srinivasan et al. 2013</td>\n",
+       "      <td>JCM 18069,KEMC 7302-068,Rs7</td>\n",
        "      <td>yes</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
@@ -905,8 +926,8 @@
        "    </tr>\n",
        "    <tr>\n",
        "      <th>1</th>\n",
-       "      <td>'Burkholderia humi' Srinivasan et al. 2013</td>\n",
-       "      <td>JCM 18069,JCM:18069,KEMC 7302-068,KEMC:7302-06...</td>\n",
+       "      <td>'Lysobacter humi' Akter et al. 2016</td>\n",
+       "      <td>CCTCC AB 2015292,KACC 18284,THG-PC4,culture-co...</td>\n",
        "      <td>yes</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
@@ -914,8 +935,8 @@
        "    </tr>\n",
        "    <tr>\n",
        "      <th>2</th>\n",
-       "      <td>'Deinococcus soli' Zhang et al. 2011</td>\n",
-       "      <td>CCTCC AB 208223,CCTCC:AB 208223,KCTC 13419,KCT...</td>\n",
+       "      <td>'Massilia aquatica' Lu et al. 2020</td>\n",
+       "      <td>FT127W,GDMCC 1.1690,KACC 21482</td>\n",
        "      <td>yes</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
@@ -923,8 +944,8 @@
        "    </tr>\n",
        "    <tr>\n",
        "      <th>3</th>\n",
-       "      <td>'Lysobacter humi' Akter et al. 2016</td>\n",
-       "      <td>CCTCC AB 2015292,CCTCC:AB 2015292,KACC 18284,K...</td>\n",
+       "      <td>'Megasphaera vaginalis' Bordigoni et al. 2020</td>\n",
+       "      <td>CSUR P4857,Marseille-P4857</td>\n",
        "      <td>yes</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
@@ -932,9 +953,9 @@
        "    </tr>\n",
        "    <tr>\n",
        "      <th>4</th>\n",
-       "      <td>'Massilia aquatica' Holochova¦ü et al. 2020</td>\n",
-       "      <td>BCCM/LMG:31211,CCM 8693,CCM:8693,LMG 31211,LMG...</td>\n",
-       "      <td>no</td>\n",
+       "      <td>'Micromonospora endophytica' Thanaboripat et a...</td>\n",
+       "      <td>BCC 67267,BCC&amp;lt;THA&amp;gt; 67267,DCWR9-8-2,NBRC ...</td>\n",
+       "      <td>yes</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
        "      <td>0</td>\n",
@@ -944,26 +965,26 @@
        "</div>"
       ],
       "text/plain": [
-       "                              #scientific name  \\\n",
-       "0            'Bacillus oceani' Liu et al. 2013   \n",
-       "1   'Burkholderia humi' Srinivasan et al. 2013   \n",
-       "2         'Deinococcus soli' Zhang et al. 2011   \n",
-       "3          'Lysobacter humi' Akter et al. 2016   \n",
-       "4  'Massilia aquatica' Holochova¦ü et al. 2020   \n",
+       "                                    #scientific name  \\\n",
+       "0         'Burkholderia humi' Srinivasan et al. 2013   \n",
+       "1                'Lysobacter humi' Akter et al. 2016   \n",
+       "2                 'Massilia aquatica' Lu et al. 2020   \n",
+       "3      'Megasphaera vaginalis' Bordigoni et al. 2020   \n",
+       "4  'Micromonospora endophytica' Thanaboripat et a...   \n",
        "\n",
        "              type materials and coidentical strains  \\\n",
-       "0  DSM 26213,DSM:26213,KCTC 33077,KCTC:33077,SCSI...   \n",
-       "1  JCM 18069,JCM:18069,KEMC 7302-068,KEMC:7302-06...   \n",
-       "2  CCTCC AB 208223,CCTCC:AB 208223,KCTC 13419,KCT...   \n",
-       "3  CCTCC AB 2015292,CCTCC:AB 2015292,KACC 18284,K...   \n",
-       "4  BCCM/LMG:31211,CCM 8693,CCM:8693,LMG 31211,LMG...   \n",
+       "0                        JCM 18069,KEMC 7302-068,Rs7   \n",
+       "1  CCTCC AB 2015292,KACC 18284,THG-PC4,culture-co...   \n",
+       "2                     FT127W,GDMCC 1.1690,KACC 21482   \n",
+       "3                         CSUR P4857,Marseille-P4857   \n",
+       "4  BCC 67267,BCC&lt;THA&gt; 67267,DCWR9-8-2,NBRC ...   \n",
        "\n",
        "  has sequences from type material?  number of assemblies per taxon  \\\n",
        "0                               yes                               0   \n",
        "1                               yes                               0   \n",
        "2                               yes                               0   \n",
        "3                               yes                               0   \n",
-       "4                                no                               0   \n",
+       "4                               yes                               0   \n",
        "\n",
        "   number of assemblies from type materials per taxon  \\\n",
        "0                                                  0    \n",
@@ -980,13 +1001,115 @@
        "4                                                  0     "
       ]
      },
-     "execution_count": 195,
+     "execution_count": 3,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>#scientific name</th>\n",
+       "      <th>type materials and coidentical strains</th>\n",
+       "      <th>has sequences from type material?</th>\n",
+       "      <th>number of assemblies per taxon</th>\n",
+       "      <th>number of assemblies from type materials per taxon</th>\n",
+       "      <th>number of assemblies from type materials per species</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>8195</th>\n",
+       "      <td>Gloeobacter kilaueensis</td>\n",
+       "      <td>ATCC BAA-2537,BCCM ULC0316,CCAP 1431/1,JS1,cul...</td>\n",
+       "      <td>yes</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8196</th>\n",
+       "      <td>Gloeobacter morelensis</td>\n",
+       "      <td>MG652769</td>\n",
+       "      <td>yes</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8197</th>\n",
+       "      <td>Gloeobacter violaceus</td>\n",
+       "      <td>PCC 7421</td>\n",
+       "      <td>yes</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "             #scientific name  \\\n",
+       "8195  Gloeobacter kilaueensis   \n",
+       "8196   Gloeobacter morelensis   \n",
+       "8197    Gloeobacter violaceus   \n",
+       "\n",
+       "                 type materials and coidentical strains  \\\n",
+       "8195  ATCC BAA-2537,BCCM ULC0316,CCAP 1431/1,JS1,cul...   \n",
+       "8196                                           MG652769   \n",
+       "8197                                           PCC 7421   \n",
+       "\n",
+       "     has sequences from type material?  number of assemblies per taxon  \\\n",
+       "8195                               yes                               1   \n",
+       "8196                               yes                               1   \n",
+       "8197                               yes                               1   \n",
+       "\n",
+       "      number of assemblies from type materials per taxon  \\\n",
+       "8195                                                  1    \n",
+       "8196                                                  1    \n",
+       "8197                                                  1    \n",
+       "\n",
+       "      number of assemblies from type materials per species  \n",
+       "8195                                                  1     \n",
+       "8196                                                  1     \n",
+       "8197                                                  1     "
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df[df['#scientific name'].str.contains('Gloeobacter')]"
    ]
   },
   {
@@ -1870,6 +1993,26 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'0.24.2'"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pd.__version__"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -2554,37 +2697,10 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 2,
+   "cell_type": "markdown",
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "\n",
-       "        <iframe\n",
-       "            width=\"800\"\n",
-       "            height=\"800\"\n",
-       "            src=\"plasmid_circular.pdf\"\n",
-       "            frameborder=\"0\"\n",
-       "            allowfullscreen\n",
-       "            \n",
-       "        ></iframe>\n",
-       "        "
-      ],
-      "text/plain": [
-       "<IPython.lib.display.IFrame at 0x10b4e1e80>"
-      ]
-     },
-     "execution_count": 2,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
    "source": [
-    "from IPython.display import IFrame\n",
-    "\n",
-    "IFrame(\"plasmid_circular.pdf\", width=800, height=800)"
+    "![Circular Plasmid](plasmid_circular.png)"
    ]
   },
   {
