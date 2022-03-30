@@ -57,7 +57,7 @@ html_theme = 'greencloud'
 
 ## set pygments styles
 #pygments_style = 'arduino'
-pygments_style = 'tango'
+#pygments_style = 'tango'
 #pygments_style = 'trac'
 #pygments_style = 'friendly'
 #pygments_style = 'autumn'
