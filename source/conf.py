@@ -57,14 +57,14 @@ html_theme = 'greencloud'
 
 ## set pygments styles
 #pygments_style = 'arduino'
-pygments_style = 'tango'
+#pygments_style = 'tango'
 #pygments_style = 'trac'
 #pygments_style = 'friendly'
 #pygments_style = 'autumn'
 #pygments_style = 'solarized-light'
 #pygments_style = 'xcode'
 #pygments_style = 'paraiso-light'
-#pygments_style = 'lovelace'
+pygments_style = 'lovelace'
 #pygments_style = 'stata'
 #pygments_style = 'vs'
 
