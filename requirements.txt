@@ -1,2 +1,4 @@
 cloud_sptheme
 nbsphinx
+ipython
+ipykernel

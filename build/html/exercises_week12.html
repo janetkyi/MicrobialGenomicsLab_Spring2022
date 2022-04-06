@@ -37,7 +37,8 @@
     
 
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Week 12" href="Week12.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -48,6 +49,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Week12.html" title="Week 12"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Visualization of microbial genomes</a></li> 
@@ -353,11 +357,16 @@ div.admonition.inline-title p.admonition-title {
 <p>This figure was created using the tool known as <strong>EasyFig</strong>. The paper describing this tool was published here: <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/21278367/">https://pubmed.ncbi.nlm.nih.gov/21278367/</a></p>
 <p>You can download this tool here: <a class="reference external" href="https://sourceforge.net/projects/easyfig/">https://sourceforge.net/projects/easyfig/</a></p>
 <p>You can also use other tools such as <a class="reference external" href="http://genoplotr.r-forge.r-project.org/">genoPlotR</a>, which you have used a few weeks ago. <code class="docutils literal notranslate"><span class="pre">genoPlotR</span></code> provides many additional useful features such as being able to display phylogenetic trees to go along with figures of gene clusters or genomic regions. However, it is not an easy tool to learn to use and may require several hours of learning to use its R functions and commands.</p>
+<p>Another tool that just came out in recent years to compare and visualize syntenic gene clusters is known as <strong>Clinker</strong>.</p>
+<p><a class="reference external" href="https://github.com/gamcil/clinker">https://github.com/gamcil/clinker</a></p>
+<p>This tool is written in a completely different programming language: Javascript. It can draw similar figures to <strong>genoPlotR</strong> as you can see here:</p>
+<img alt="_images/clinker.png" src="_images/clinker.png" />
+<p>Again, be mindful that this tool is designed to display only a short segment of the genomes of two or more very similar organisms. You should not try to align whole genomes and visualize them as it may not work with this tool.</p>
 </div>
 <div class="section" id="Phylogenetic-trees-visualization">
 <h1>Phylogenetic trees visualization<a class="headerlink" href="#Phylogenetic-trees-visualization" title="Permalink to this headline">¶</a></h1>
 <p>How about display phylogenetic trees and associated information? You have already learned to use <strong>FigTree</strong>, a graphical tool to display phylogenetic trees and to save output PDF or image files from its display. Although this tool is quite useful, sometimes, you may have hundreds or thousands of taxa that may not display well on FigTree. In those cases, you will sometimes require to use more specialized tree-viewing tool or software.</p>
-<p>Take for example, look at this tree below from a paper <a class="reference external" href="https://mbio.asm.org/content/11/1/e02975-19.long">I published early this year</a>.</p>
+<p>Take for example, look at this tree below from a paper <a class="reference external" href="https://mbio.asm.org/content/11/1/e02975-19.long">I published in 2020</a>.</p>
 <img alt="mBio figure" src="_images/mbio_figure.jpg" />
 <p>These trees contain thousands of taxa and will not display well on FigTree. For trees like these, you may want to use a tool known as <strong>iTOL</strong>. See here (<a class="reference external" href="https://itol.embl.de/">https://itol.embl.de/</a>) to visit this web-based tool. This tool can display thousands of tree branches as shown and it provides many useful features such as heatmaps, charts, or graphs to go along with the phylogenetic tree. It will also allow you to export the high-quality vector drawing of these tree figures into formats such as SVG, PDF, or
 EPS, so that you can use other tools like Adobe Illustrator or Inkscape to touch up and improve the figures for publication.</p>
@@ -416,15 +425,18 @@ available in both Python and R languages.</p>
 <p>As you can see, in just a few simple code, you can display tree structures very easily and without having to mess around with things manually. Tools like ETE Toolkit are very useful if you have thousands of individual trees to display and it would not be feasible to use a graphical tool like FigTree to draw each of the tree figure.</p>
 <p>Besides ETE Toolkit, there is another Python-based tool known as <strong>Dendropy</strong> (See here: <a class="reference external" href="https://dendropy.org/">https://dendropy.org/</a>). Dendropy is more of a utility tool for phylogenetic tree analyses rather than for displaying publication-quality tree figures.</p>
 <p>In R, there are several tools that allow you to do similar kinds of analyses but also display beautiful tree figures. One of the most well-known R packages is known as <strong>Ape</strong>, which stands for “Analysis of Phylogenetics and Evolution”. You can find it <a class="reference external" href="http://ape-package.ird.fr/">here</a> and <a class="reference external" href="https://cran.r-project.org/web/packages/ape/index.html">here</a>.</p>
-<p>Books have been written about this tool and you can see one of the books here: <a class="reference external" href="http://ape-package.ird.fr/APER.html">http://ape-package.ird.fr/APER.html</a></p>
-<p>Another, more recent, R package is known as <strong>ggtree</strong>. See here: <a class="reference external" href="https://guangchuangyu.github.io/software/ggtree/">https://guangchuangyu.github.io/software/ggtree/</a></p>
+<p>Books have been written about this tool and you can see one of the books here:</p>
+<p><a class="reference external" href="http://ape-package.ird.fr/APER.html">http://ape-package.ird.fr/APER.html</a></p>
+<p>Another, more recent, R package is known as <strong>ggtree</strong>. See here:</p>
+<p><a class="reference external" href="https://guangchuangyu.github.io/software/ggtree/">https://guangchuangyu.github.io/software/ggtree/</a></p>
 <p>The paper describing ggtree can be found <a class="reference external" href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12628">here</a>. It is similar to ETE Toolkit in terms of the functionality and features it provides, though it is mostly a visualization tool. You can even use it together with other tools such as <code class="docutils literal notranslate"><span class="pre">phyloseq</span></code> you used a few weeks ago to display trees and associated features such as abundances of certain taxa.</p>
-<p>For more detailed examples and use cases, see this website: <a class="reference external" href="https://guangchuangyu.github.io/ggtree-book/chapter-ggtree.html">https://guangchuangyu.github.io/ggtree-book/chapter-ggtree.html</a></p>
+<p>For more detailed examples and use cases, see this website:</p>
+<p><a class="reference external" href="https://guangchuangyu.github.io/ggtree-book/chapter-ggtree.html">https://guangchuangyu.github.io/ggtree-book/chapter-ggtree.html</a></p>
 </div>
 <div class="section" id="Final-comments">
 <h1>Final comments<a class="headerlink" href="#Final-comments" title="Permalink to this headline">¶</a></h1>
-<p>Again, to reiterate my points made earlier, these are just a few examples of some visualization tools and techniques available and they are by no means comprehensive. Bioinformatic tools are being developed and published every day and some of the tools mentioned here today may become obsolete in a few months. This is the nature of how quickly the field is moving forward. So I would highly encourage you to explore tools and try to use them yourself and I hope that at least some of the tools you
-have learned to use in this course will become useful for your own research in the near future.</p>
+<p>Again, to reiterate my points made earlier, these are just a few examples of some visualization tools and techniques available and they are by no means comprehensive. Bioinformatic tools are being developed and published every day and some of the tools mentioned here today may become obsolete in a few months. This is the nature of how quickly this field is moving forward. So I would highly encourage you to explore new tools and try to use them yourself and I hope that at least some of the tools
+you have learned to use in this course will become useful for your own research in the near future.</p>
 </div>
 
 
@@ -445,6 +457,11 @@ have learned to use in this course will become useful for your own research in t
 <li><a class="reference internal" href="#Final-comments">Final comments</a></li>
 </ul>
 
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="Week12.html"
+                          title="Previous page">&larr; Week 12</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -492,6 +509,9 @@ have learned to use in this course will become useful for your own research in t
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="Week12.html" title="Week 12"
+             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Microbial Genomics Lab Spring 2022  documentation</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">Visualization of microbial genomes</a></li> 

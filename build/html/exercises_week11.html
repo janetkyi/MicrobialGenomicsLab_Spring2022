@@ -882,8 +882,26 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
 <p>in this example, you are importing a “tab-delimited” (as indicated by the <code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) table into a dataframe named <code class="docutils literal notranslate"><span class="pre">df</span></code>. But before you can use Pandas and its features, you first need to import the library into your Python environment by typing <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>. This means you are importing the whole Pandas library and providing it a shortcut named <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Let’s try and use Pandas here today. Download this file into a directory (maybe in a subfolder in your <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder):
 <a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/prokaryote_type_strain_report.txt">https://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/prokaryote_type_strain_report.txt</a></p>
 <p>This file contains “type” strains of bacteria and archaea. Now, we will use Pandas to see what you can do with the table.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;1.21.4&#39;
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[194]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -892,7 +910,7 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[195]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -900,7 +918,7 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[195]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -933,8 +951,8 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
   <tbody>
     <tr>
       <th>0</th>
-      <td>'Bacillus oceani' Liu et al. 2013</td>
-      <td>DSM 26213,DSM:26213,KCTC 33077,KCTC:33077,SCSI...</td>
+      <td>'Burkholderia humi' Srinivasan et al. 2013</td>
+      <td>JCM 18069,KEMC 7302-068,Rs7</td>
       <td>yes</td>
       <td>0</td>
       <td>0</td>
@@ -942,8 +960,8 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
     </tr>
     <tr>
       <th>1</th>
-      <td>'Burkholderia humi' Srinivasan et al. 2013</td>
-      <td>JCM 18069,JCM:18069,KEMC 7302-068,KEMC:7302-06...</td>
+      <td>'Lysobacter humi' Akter et al. 2016</td>
+      <td>CCTCC AB 2015292,KACC 18284,THG-PC4,culture-co...</td>
       <td>yes</td>
       <td>0</td>
       <td>0</td>
@@ -951,8 +969,8 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
     </tr>
     <tr>
       <th>2</th>
-      <td>'Deinococcus soli' Zhang et al. 2011</td>
-      <td>CCTCC AB 208223,CCTCC:AB 208223,KCTC 13419,KCT...</td>
+      <td>'Massilia aquatica' Lu et al. 2020</td>
+      <td>FT127W,GDMCC 1.1690,KACC 21482</td>
       <td>yes</td>
       <td>0</td>
       <td>0</td>
@@ -960,8 +978,8 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
     </tr>
     <tr>
       <th>3</th>
-      <td>'Lysobacter humi' Akter et al. 2016</td>
-      <td>CCTCC AB 2015292,CCTCC:AB 2015292,KACC 18284,K...</td>
+      <td>'Megasphaera vaginalis' Bordigoni et al. 2020</td>
+      <td>CSUR P4857,Marseille-P4857</td>
       <td>yes</td>
       <td>0</td>
       <td>0</td>
@@ -969,12 +987,83 @@ dict_values([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
     </tr>
     <tr>
       <th>4</th>
-      <td>'Massilia aquatica' Holochova¦ü et al. 2020</td>
-      <td>BCCM/LMG:31211,CCM 8693,CCM:8693,LMG 31211,LMG...</td>
-      <td>no</td>
+      <td>'Micromonospora endophytica' Thanaboripat et a...</td>
+      <td>BCC 67267,BCC&amp;lt;THA&amp;gt; 67267,DCWR9-8-2,NBRC ...</td>
+      <td>yes</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;#scientific name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Gloeobacter&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#scientific name</th>
+      <th>type materials and coidentical strains</th>
+      <th>has sequences from type material?</th>
+      <th>number of assemblies per taxon</th>
+      <th>number of assemblies from type materials per taxon</th>
+      <th>number of assemblies from type materials per species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8195</th>
+      <td>Gloeobacter kilaueensis</td>
+      <td>ATCC BAA-2537,BCCM ULC0316,CCAP 1431/1,JS1,cul...</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8196</th>
+      <td>Gloeobacter morelensis</td>
+      <td>MG652769</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8197</th>
+      <td>Gloeobacter violaceus</td>
+      <td>PCC 7421</td>
+      <td>yes</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1553,10 +1642,27 @@ Index([&#39;#scientific name&#39;, &#39;type materials and coidentical strains&#
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/exercises_week11_86_1.png" src="_images/exercises_week11_86_1.png" />
+<img alt="_images/exercises_week11_88_1.png" src="_images/exercises_week11_88_1.png" />
 </div>
 </div>
 <p>These are just a few examples on how to use a boxplot. See here for more examples: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.boxplot.html</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.24.2&#39;
+</pre></div></div>
+</div>
 </div>
 <div class="section" id="Matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#Matplotlib" title="Permalink to this headline">¶</a></h2>
@@ -1591,7 +1697,7 @@ Index([&#39;#scientific name&#39;, &#39;type materials and coidentical strains&#
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/exercises_week11_90_1.png" src="_images/exercises_week11_90_1.png" />
+<img alt="_images/exercises_week11_93_1.png" src="_images/exercises_week11_93_1.png" />
 </div>
 </div>
 <p>In this example, I have created a scatter plot with 3 variables: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>. <code class="docutils literal notranslate"><span class="pre">x</span></code> contains coordinates of the x-axis, <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates of the y-axis, and <code class="docutils literal notranslate"><span class="pre">z</span></code> the sizes of the scatter dots. If you don’t specify the <code class="docutils literal notranslate"><span class="pre">s</span></code> in the scatter function it will produce dots with the same size. To learn more about this scatter function, you can type like this:</p>
@@ -1756,7 +1862,7 @@ scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/exercises_week11_96_0.png" src="_images/exercises_week11_96_0.png" />
+<img alt="_images/exercises_week11_99_0.png" src="_images/exercises_week11_99_0.png" />
 </div>
 </div>
 <p>Here, if you look at the code snippet, I am importing both <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to use features provided by these two packages. First, I used Pandas’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> function to put the list into a dataframe. For this to work, I had to put the list into a dictionary first (see the curly brackets). Then I use Seaborn’s <code class="docutils literal notranslate"><span class="pre">relplot</span></code> function to create a scatter plot. I provided a custom color code “#5710a3”, which is a hexadecimal code for colors. See here for other options:
@@ -2125,30 +2231,7 @@ Z_L7100 [91114:91975](+)
 </div>
 </div>
 <p>These produced the PDF files in the same folder as your Jupyter lab instance. Here’s an example of what it looks like:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
-
-<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;plasmid_circular.pdf&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<iframe
-    width="800"
-    height="800"
-    src="plasmid_circular.pdf"
-    frameborder="0"
-    allowfullscreen
-
-></iframe></div>
-</div>
+<img alt="Circular Plasmid" src="_images/plasmid_circular.png" />
 <p>Again, I am only showing you very briefly what Biopython is capable of doing. Try yourself some examples shown in the tutorials to see what else you can do with it.</p>
 </div>
 <div class="section" id="Exercise-1---Write-a-simple-Python-script">
