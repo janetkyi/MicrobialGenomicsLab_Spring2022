@@ -34,6 +34,8 @@ Welcome to Microbial Genomics Lab Spring 2022
    exercises_week10
    Week11
    exercises_week11
+   Week12
+   exercises_week12
 
 .. Indices and tables
 .. ==================
