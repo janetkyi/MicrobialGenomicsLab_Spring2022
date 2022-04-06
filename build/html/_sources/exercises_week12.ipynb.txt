@@ -59,7 +59,7 @@
     "\n",
     "You can download this tool here: https://sourceforge.net/projects/easyfig/\n",
     "\n",
-    "You can also use other tools such as [**genoPlotR**](http://genoplotr.r-forge.r-project.org/), which you have used a few weeks ago. `genoPlotR` provides many additional useful features such as being able to display phylogenetic trees to go along with figures of gene clusters or genomic regions. However, it is not an easy tool to learn to use and may require several hours of learning to use its R functions and commands.\n",
+    "You can also use other tools such as [genoPlotR](http://genoplotr.r-forge.r-project.org/), which you have used a few weeks ago. `genoPlotR` provides many additional useful features such as being able to display phylogenetic trees to go along with figures of gene clusters or genomic regions. However, it is not an easy tool to learn to use and may require several hours of learning to use its R functions and commands.\n",
     "\n",
     "Another tool that just came out in recent years to compare and visualize syntenic gene clusters is known as **Clinker**. \n",
     "\n",
@@ -85,7 +85,7 @@
    "source": [
     "How about display phylogenetic trees and associated information? You have already learned to use **FigTree**, a graphical tool to display phylogenetic trees and to save output PDF or image files from its display. Although this tool is quite useful, sometimes, you may have hundreds or thousands of taxa that may not display well on FigTree. In those cases, you will sometimes require to use more specialized tree-viewing tool or software. \n",
     "\n",
-    "Take for example, look at this tree below from a paper [I published early this year](https://mbio.asm.org/content/11/1/e02975-19.long).\n",
+    "Take for example, look at this tree below from a paper [I published in 2020](https://mbio.asm.org/content/11/1/e02975-19.long).\n",
     "\n",
     "![mBio figure](mbio_figure.jpg)"
    ]
